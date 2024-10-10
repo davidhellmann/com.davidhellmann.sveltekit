@@ -1,0 +1,4 @@
+fragment matrix_contentBuilder on contentBuilder_MatrixField {
+    ...blockType_blockText
+    ...blockType_blockCode
+}

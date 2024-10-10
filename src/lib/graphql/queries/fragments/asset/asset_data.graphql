@@ -1,0 +1,10 @@
+fragment asset_data on AssetInterface {
+    id
+    url
+    width
+    height
+    title
+    alt
+    filename
+    focalPoint
+}

@@ -1,0 +1,5 @@
+fragment asset_transforms on AssetInterface {
+    base64BlurHash: url @assetToBlurHash
+    srcsetLegacy: url @imagerSrcset (handle: "auto")
+    srcset: url @imagerSrcset (handle: "autoAvif")
+}

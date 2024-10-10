@@ -1,0 +1,9 @@
+fragment blockType_blockCode on blockCode_Entry {
+    ...entryType_data
+    codeSnippet {
+        language
+        value
+    }
+    codeSnippetName
+    collapsed
+}

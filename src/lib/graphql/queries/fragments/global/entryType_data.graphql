@@ -1,0 +1,4 @@
+fragment entryType_data on EntryInterface {
+    __typename
+    typeHandle
+}
