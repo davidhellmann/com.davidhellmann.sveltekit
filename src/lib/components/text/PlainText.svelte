@@ -1,13 +1,22 @@
 <script lang="ts">
-  import { tv } from "tailwind-variants";
+  import { tv, type VariantProps } from "tailwind-variants";
 
   const tvPlainText = tv({
     base: "",
   });
 
-  export let compName: string = "PlainText";
-  export let className: string;
-  export let text: string;
+  type PlainTextProps = {
+    compName?: string;
+    className?: string;
+    text: string;
+  } & VariantProps<typeof tvPlainText>;
+
+  const {
+    compName = "PlainText",
+    className,
+    text
+  }: PlainTextProps = $props();
+
 </script>
 
 {#if text}

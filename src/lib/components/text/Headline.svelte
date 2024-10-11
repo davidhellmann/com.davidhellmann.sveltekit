@@ -2,10 +2,10 @@
   import { tv, type VariantProps } from "tailwind-variants";
 
   const tvHeadline = tv({
-    base: "",
+    base: "font-serif text-balance",
     variants: {
       preset: {
-        h1: "text-4xl font-extrabold",
+        h1: "text-7xl font-extrabold",
         h2: "text-3xl font-extrabold",
         h3: "text-2xl font-extrabold",
         h4: "text-xl font-extrabold",
@@ -31,17 +31,29 @@
         extrabold: "font-extrabold",
       },
     },
+    defaultVariants: {
+      preset: "h2",
+    },
   });
 
   type HeadlineTags = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
-  export let compName = "Headline";
-  export let tag: HeadlineTags = "h2";
-  export let text: string;
-  export let preset: VariantProps<typeof tvHeadline>["preset"] = "h2";
-  export let size: VariantProps<typeof tvHeadline>["size"];
-  export let weight: VariantProps<typeof tvHeadline>["weight"];
-  export let className = "";
+  type HeadlineProps = {
+      compName?: string;
+      tag?: HeadlineTags;
+      text: string;
+      className?: string;
+  } & VariantProps<typeof tvHeadline>;
+
+  const {
+    compName = "Headline",
+    tag = "h2",
+    text,
+    preset,
+    size,
+    weight,
+    className
+  }: HeadlineProps = $props();
 </script>
 
 {#if text}

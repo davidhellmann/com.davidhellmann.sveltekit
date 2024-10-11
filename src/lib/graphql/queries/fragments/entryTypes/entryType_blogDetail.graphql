@@ -1,14 +1,21 @@
 fragment entryType_blogDetail on entryBlogDetail_Entry {
-    ...entryType_data
-    description
-    customTitle
-    image {
-        ...asset_data
-        ...asset_transforms
-        ...asset_customFields
-    }
+  ...entryType_data
+  description
+  customTitle
+  image {
+    ...asset_data
+    ...asset_transforms
+    ...asset_customFields
+  }
+  contentBuilder {
+    ...matrix_contentBuilder
+  }
 
-    contentBuilder {
-        ...matrix_contentBuilder
-    }
+  category {
+    ...entry_data
+  }
+
+  topics {
+    ...entry_data
+  }
 }

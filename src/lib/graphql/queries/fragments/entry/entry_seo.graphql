@@ -3,8 +3,7 @@ fragment entry_seo on EntryInterface {
         metaTagContainer
         metaLinkContainer
         metaTitleContainer
-        metaScriptContainer
         metaJsonLdContainer
-        metaSiteVarsContainer
     }
 }
+

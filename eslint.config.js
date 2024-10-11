@@ -30,7 +30,7 @@ export default tseslint.config(
     }
   },
   {
-    ignores: ["build/", ".svelte-kit/", "dist/", "src/lib/graphql/"]
+    ignores: ["build/", ".svelte-kit/", "dist/", "src/lib/graphql/", "src/lib/styles/tailwind/"]
   },
   {
     rules: {
