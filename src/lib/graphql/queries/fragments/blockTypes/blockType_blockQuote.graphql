@@ -1,0 +1,8 @@
+fragment blockType_blockQuote on blockQuote_Entry {
+  ...entryType_data
+  quote
+  source
+  hyperLink {
+    ...hyper_data
+  }
+}

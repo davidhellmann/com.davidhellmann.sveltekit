@@ -1,0 +1,10 @@
+fragment blockType_blockImage on blockImage_Entry {
+  ...entryType_data
+  image {
+    ...asset_data
+    ...asset_transforms
+    ...asset_customFields
+  }
+  imageRatio
+  showCaption
+}

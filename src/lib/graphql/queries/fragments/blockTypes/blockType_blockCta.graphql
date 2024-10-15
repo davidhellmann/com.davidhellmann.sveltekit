@@ -1,0 +1,7 @@
+fragment blockType_blockCta on blockCta_Entry {
+  ...entryType_data
+  description
+  hyperLinks {
+    ...hyper_data
+  }
+}

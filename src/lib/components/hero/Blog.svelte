@@ -1,12 +1,11 @@
 <script lang="ts">
   import { tv, type VariantProps } from "tailwind-variants";
   import Headline from "$components/text/Headline.svelte";
-  import Pill from "$components/text/Pill.svelte";
 
   const tvHeroBlog = tv({
     slots: {
-      slotWrapper: "meshGradient fluid-grid content-end min-h-[50vh]",
-      slotContent: "span-content text-white pb-36 pt-48  stack-12",
+      slotWrapper: "fluid-grid content-end min-h-[50vh]",
+      slotContent: "span-content pb-36 pt-48 stack-12",
       slotHeadline: "",
     },
   });
@@ -15,7 +14,7 @@
     compName?: string;
     className?: string;
     headline: string;
-    category?: {
+    backButton?: {
       title?: string;
       url?: string;
     };
@@ -25,11 +24,10 @@
     compName = "HeroBlog",
     className,
     headline,
-    category
+    backButton
   }: HeroBlogProps = $props();
 
   const {slotWrapper, slotContent, slotHeadline} = tvHeroBlog();
-  console.log(category);
 </script>
 
 {#if headline}
@@ -39,8 +37,9 @@
     class={slotWrapper({ className })}
   >
     <div class={slotContent()}>
-      {#if category?.title}
-        <Pill text={category?.title} url={category?.url} />
+      <a href="/blog">←</a>
+      {#if backButton?.title}
+        <a href={backButton?.url}>{backButton?.title}</a>
       {/if}
       <Headline text={headline} tag="h1" preset="h1" className={slotHeadline()}/>
     </div>

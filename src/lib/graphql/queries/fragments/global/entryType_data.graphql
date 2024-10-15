@@ -1,4 +1,15 @@
 fragment entryType_data on EntryInterface {
-    __typename
-    typeHandle
+  __typename
+  id
+  uid
+  title
+  slug
+  uri
+  url
+  canonicalId
+  language
+  sectionHandle
+  typeHandle
+  siteHandle
+  siteId
 }

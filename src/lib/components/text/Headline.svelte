@@ -2,7 +2,7 @@
   import { tv, type VariantProps } from "tailwind-variants";
 
   const tvHeadline = tv({
-    base: "font-serif text-balance",
+    base: "font-serif text-balance text-neutral-500",
     variants: {
       preset: {
         h1: "text-7xl font-extrabold",
@@ -43,7 +43,7 @@
       tag?: HeadlineTags;
       text: string;
       className?: string;
-  } & VariantProps<typeof tvHeadline>;
+  } & HTMLHeadingElement & VariantProps<typeof tvHeadline>;
 
   const {
     compName = "Headline",

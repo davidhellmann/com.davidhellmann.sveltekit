@@ -52,6 +52,7 @@ export default {
         behind: "-1"
       },
       gridTemplateColumns: {
+        "blog-detail": "1fr 400px",
         cards: "repeat(auto-fit, minmax(min(300px, 100%), 1fr))",
         "cards-small": "repeat(auto-fit, minmax(min(150px, 100%), 1fr))",
         "cards-large": "repeat(auto-fit, minmax(min(450px, 100%), 1fr))"
@@ -63,7 +64,19 @@ export default {
   },
   plugins: [
     containerQueries,
-    fluidType,
+    fluidType({
+      settings: {
+        fontSizeMin: 1.125, // 1.125rem === 18px
+        fontSizeMax: 1.25, // 1.25rem === 20px
+        ratioMin: 1.125, // Multiplicator Min
+        ratioMax: 1.2, // Multiplicator Max
+        screenMin: 20, // 20rem === 320px
+        screenMax: 96, // 96rem === 1536px
+        unit: "rem", // default is rem but it's also possible to use 'px'
+        prefix: "", // set a prefix to use it alongside the default font sizes
+        extendValues: true // When you set extendValues to true it will extend the default values. Set it to false to overwrite the values.
+      }
+    }),
     plugin(function ({ addComponents, addUtilities, matchUtilities, addBase, theme }) {
       addBase({
         ":root": {
@@ -74,15 +87,15 @@ export default {
           minHeight: "0vw"
         },
         body: {
-          color: theme("colors.neutral.980"),
+          color: theme("colors.neutral.700"),
           backgroundColor: theme("colors.white"),
-          fontSize: theme("fontSize.base"),
-          lineHeight: theme("lineHeight.normal"),
+          fontSize: theme("fontSizeFluid.base"),
+          lineHeight: theme("lineHeight.loose"),
           //--------------------------------------------------------------------------
           // Set sans, serif or mono stack with optional custom font as default.
           //--------------------------------------------------------------------------
-          // fontFamily: theme('fontFamily.mono'),
-          fontFamily: theme("fontFamily.sans")
+          fontFamily: theme("fontFamily.mono")
+          // fontFamily: theme("fontFamily.sans")
           // fontFamily: theme('fontFamily.serif'),
         }
       }),
@@ -108,6 +121,18 @@ export default {
             columnGap: "var(--col-gap)",
             gridTemplateColumns:
               "[full-start] var(--side-width) [popout-start] var(--popout) [content-start col-1] var(--col-width) [col-2] var(--col-width) [col-3] var(--col-width) [col-4] var(--col-width) [col-5] var(--col-width) [col-6] var(--col-width) [col-7] var(--col-width) [col-8] var(--col-width) [col-9] var(--col-width) [col-10] var(--col-width) [col-11] var(--col-width) [col-12] var(--col-width) [content-end] var(--popout) [popout-end] var(--side-width) [full-end]"
+          },
+          ".meshGradient2": {
+            backgroundColor: "#99ecff",
+            backgroundSize: "cover",
+            backgroundAttachment: "fixed",
+            backgroundImage: `radial-gradient(at 23% 35%, hsla(297,91%,65%,1) 0px, transparent 50%),
+            radial-gradient(at 72% 99%, hsla(71,68%,77%,1) 0px, transparent 50%),
+            radial-gradient(at 70% 10%, hsla(290,83%,65%,1) 0px, transparent 50%),
+            radial-gradient(at 62% 48%, hsla(73,81%,63%,1) 0px, transparent 50%),
+            radial-gradient(at 63% 36%, hsla(254,89%,64%,1) 0px, transparent 50%),
+            radial-gradient(at 28% 43%, hsla(10,89%,79%,1) 0px, transparent 50%),
+            radial-gradient(at 19% 57%, hsla(35,96%,65%,1) 0px, transparent 50%);`
           },
           ".meshGradient": {
             backgroundColor: "hsla(340,65%,14%,1)",
