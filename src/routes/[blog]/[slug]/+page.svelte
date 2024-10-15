@@ -7,7 +7,11 @@
   import LayoutBlogDetail from "./_layoutBlogDetail.svelte";
   import ContentBuilder from "$components/builder/ContentBuilder.svelte";
 
-  export let data: PageData;
+  interface Props {
+    data: PageData;
+  }
+
+  let { data }: Props = $props();
   const entry = getFirstEntry(data.entries);
 </script>
 

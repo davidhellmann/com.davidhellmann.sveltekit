@@ -3,7 +3,11 @@
   import davidhellmann from "$images/davidhellmann.jpg";
   import RichText from "$lib/components/text/RichText.svelte";
 
-  export let data: PageData;
+  interface Props {
+    data: PageData;
+  }
+
+  let { data }: Props = $props();
   const entries = data.entries;
   const cc = {
     grid: "w-full max-w-7xl grid grid-cols-1 gap-4 lg:grid-cols-6 lg:grid-rows-2 mx-auto my-72",

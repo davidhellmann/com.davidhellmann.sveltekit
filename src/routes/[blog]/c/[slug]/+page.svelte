@@ -4,7 +4,11 @@
   import Seo from "$components/head/Seo.svelte";
   import Headline from "$components/text/Headline.svelte";
 
-  export let data: PageData;
+  interface Props {
+    data: PageData;
+  }
+
+  let { data }: Props = $props();
   const entry = getFirstEntry(data.entries);
   const blogEntries = data?.blogEntries;
 </script>
