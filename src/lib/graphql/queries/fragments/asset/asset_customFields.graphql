@@ -1,10 +1,10 @@
 fragment asset_customFields on AssetInterface {
-    ... on images_Asset {
-        customTitle
-        caption
-        source
-        hyperLink {
-            ...hyper_data
-        }
+  ... on images_Asset {
+    customTitle
+    caption
+    source
+    hyperLink {
+      ...hyper_data
     }
+  }
 }

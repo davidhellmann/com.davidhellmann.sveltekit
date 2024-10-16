@@ -26,7 +26,6 @@
 {#if shikiCode}
   <div
     data-comp={compName}
-    data-testid={compName}
     class={tvCode({ className })}
   >
     {#if shikiCode}{@html shikiCode}{/if}

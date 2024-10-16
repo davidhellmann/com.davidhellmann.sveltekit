@@ -22,7 +22,6 @@
 {#if html}
   <div
     data-comp={compName}
-    data-testid={compName}
     class={tvRichText({ className })}
   >
     {@html html}

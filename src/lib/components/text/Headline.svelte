@@ -60,7 +60,6 @@
   <svelte:element
     this={tag}
     data-comp={compName}
-    data-testid={compName}
     class={tvHeadline({ preset, size, weight, className })}
   >
     {text}

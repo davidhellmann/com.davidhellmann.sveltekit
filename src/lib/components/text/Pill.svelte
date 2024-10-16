@@ -47,7 +47,6 @@
     this={url ? "a" : "span"}
     href={url ? url : undefined}
     data-comp={compName}
-    data-testid={compName}
     class={tvPill({ color, size, textTransform, className })}
   >
     {text}

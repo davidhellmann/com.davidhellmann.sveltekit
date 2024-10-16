@@ -1,23 +1,22 @@
 <script lang="ts">
-  import type {Asset_DataFragment, Asset_TransformsFragment, Asset_CustomFieldsFragment} from "$lib/graphql/graphql";
+  import Image from "$components/image/Image.svelte";
+  import type { Asset, ImageRatio } from "$lib/types/components";
 
   type BlockImage = {
-    image: Asset_DataFragment & Asset_TransformsFragment & Asset_CustomFieldsFragment;
-    imageRatio?: string;
-    showCaption?: boolean;
+    compName?: string;
+    image: Asset;
+    imageRatio?: ImageRatio;
   }
 
   const {
+    compName = "BlockImage",
     image,
     imageRatio,
-    showCaption,
   }: BlockImage = $props();
 </script>
 
 {#if image}
-  <div class="span-content">
-    {image}
-    {#if imageRatio}{imageRatio}{/if}
-    {#if showCaption}{showCaption}{/if}
+  <div class="span-content" data-comp={compName}>
+    <Image image={image} ratio={imageRatio} />
   </div>
 {/if}

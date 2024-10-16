@@ -33,7 +33,6 @@
 {#if headline}
   <header
     data-comp={compName}
-    data-testid={compName}
     class={slotWrapper({ className })}
   >
     <div class={slotContent()}>

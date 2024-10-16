@@ -22,7 +22,6 @@
 {#if text}
   <p
     data-comp={compName}
-    data-testid={compName}
     class={tvPlainText({ className })}
   >
     {#each text.split("\n") as line}

@@ -1,11 +1,15 @@
 <script lang="ts">
   import {parseSEO, type ISEO, type IParseSEO} from "$lib/utils/parseSEO";
 
-  export let seo: IParseSEO;
+  interface Props {
+    seo: IParseSEO;
+  }
+
+  let { seo }: Props = $props();
   const seomatic: ISEO = parseSEO(seo);
 </script>
 
-{#snippet jsonLD(json: {})}
+{#snippet jsonLD(json: Record<string, any>)}
   <script type="application/ld+json">
     {JSON.stringify(json)}
   </script>

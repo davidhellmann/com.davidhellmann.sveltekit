@@ -7,17 +7,19 @@
   import type {Matrix_ContentBuilderFragment, EntryType_DataFragment} from "$lib/graphql/graphql";
 
   type BlockTypes = {
+      compName?: string;
     blockTypes: Array<Matrix_ContentBuilderFragment & EntryType_DataFragment>;
     className?: string;
   };
 
   const {
+    compName = "BlockTypes",
     blockTypes,
     className
   }: BlockTypes = $props();
 </script>
 
-<div class={`fluid-grid ${className}`}>
+<div class={`fluid-grid ${className}`} data-comp={compName}>
   {#if blockTypes}
     {#each blockTypes as blockType (blockType)}
       {#if blockType.__typename === "blockText_Entry" && blockType?.richText}
