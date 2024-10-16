@@ -1,3 +1,0 @@
-<component name="DependencyValidationManager">
-  <scope name="SvelteKit" pattern="file[com.davidhellmann.sveltekit]:src//*||file[com.davidhellmann.sveltekit]:static//*||file:svelte.config.js||file:tailwind.config.mjs||file:tsconfig.json||file:vite.config.ts||file:sly.json" />
-</component>
