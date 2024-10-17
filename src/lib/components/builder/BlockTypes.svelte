@@ -3,6 +3,7 @@
   import Code from "$components/builder/_blocks/Code.svelte";
   import Quote from "$components/builder/_blocks/Quote.svelte";
   import Image from "$components/builder/_blocks/Image.svelte";
+  import Images from "$components/builder/_blocks/Images.svelte";
   import Cta from "$components/builder/_blocks/Cta.svelte";
   import type {Matrix_ContentBuilderFragment, EntryType_DataFragment} from "$lib/graphql/graphql";
 
@@ -39,6 +40,14 @@
           image={blockType.image[0]}
           imageRatio={blockType.imageRatio}
           showCaption={blockType.showCaption}
+        />
+
+      {:else if blockType.__typename === "blockImages_Entry" && blockType?.images}
+        <Images
+          images={blockType.images}
+          imageRatio={blockType.imageRatio}
+          showCaption={blockType.showCaption}
+          imagesViewMode={blockType.imagesViewMode}
         />
 
       {:else if blockType.__typename === "blockCta_Entry" && blockType?.hyperLinks}

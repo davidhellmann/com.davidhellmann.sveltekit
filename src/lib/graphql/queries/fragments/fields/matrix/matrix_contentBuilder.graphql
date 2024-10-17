@@ -2,6 +2,7 @@ fragment matrix_contentBuilder on contentBuilder_MatrixField {
   ...blockType_blockText
   ...blockType_blockCode
   ...blockType_blockImage
+  ...blockType_blockImages
   ...blockType_blockCta
   ...blockType_blockQuote
 }

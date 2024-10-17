@@ -1,9 +1,12 @@
 <script lang="ts">
   import {tv, type VariantProps} from "tailwind-variants";
-  import type {ObjectFit, Asset} from "$lib/types/components";
+  import type { Asset_CustomFieldsFragment, Asset_DataFragment, Asset_TransformsFragment } from "$graphql/graphql";
+
+  type ObjectFit = "cover" | "contain" | "fill" | "none" | "scale-down";
+  type Asset = Asset_DataFragment & Asset_TransformsFragment & Asset_CustomFieldsFragment;
 
   const tvImage = tv({
-    base: "bg-primary-200",
+    base: "bg-primary-200 w-full",
     variants: {
       ratio: {
         "aspect-auto": "aspect-auto",
@@ -34,14 +37,13 @@
     decorative?: boolean;
   } & VariantProps<typeof tvImage>;
 
-
   let {
     compName = "Image",
     className,
     image = undefined,
     lazy = true,
     objectFit = "cover",
-    ratio = "landscape",
+    ratio = "aspect-landscape",
     alt = "",
     focalPoint = undefined,
     src = undefined,

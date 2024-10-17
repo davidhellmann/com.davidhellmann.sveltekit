@@ -1,17 +1,19 @@
 <script lang="ts">
   import Image from "$components/image/Image.svelte";
-  import type { Asset, ImageRatio } from "$lib/types/components";
+  import type { ComponentProps } from "svelte";
 
   type BlockImage = {
     compName?: string;
-    image: Asset;
-    imageRatio?: ImageRatio;
+    image: ComponentProps<typeof Image>["image"];
+    imageRatio?: ComponentProps<typeof Image>["ratio"];
+    showCaption?: boolean;
   }
 
   const {
     compName = "BlockImage",
     image,
     imageRatio,
+    showCaption,
   }: BlockImage = $props();
 </script>
 

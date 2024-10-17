@@ -43,7 +43,7 @@
       tag?: HeadlineTags;
       text: string;
       className?: string;
-  } & HTMLHeadingElement & VariantProps<typeof tvHeadline>;
+  } & VariantProps<typeof tvHeadline>;
 
   const {
     compName = "Headline",
