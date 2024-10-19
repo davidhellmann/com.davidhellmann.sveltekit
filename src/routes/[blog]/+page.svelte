@@ -41,18 +41,6 @@
         <li>
           <a href={entry.url}>
             <h2>{entry.title}</h2>
-            <h2>{entry.title}</h2>
-            <h2>{entry.title}</h2>
-            <h2>{entry.title}</h2>
-            <h2>{entry.title}</h2>
-            <h2>{entry.title}</h2>
-            <h2>{entry.title}</h2>
-            <h2>{entry.title}</h2>
-            <h2>{entry.title}</h2>
-            <h2>{entry.title}</h2>
-            <h2>{entry.title}</h2>
-            <h2>{entry.title}</h2>
-            <h2>{entry.title}</h2>
             {#if entry.description}
               {entry.description}
             {/if}
