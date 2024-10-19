@@ -3,6 +3,7 @@
   // import davidhellmann from "$images/davidhellmann-dark2.jpg";
   // import RichText from "$lib/components/text/RichText.svelte";
   import Pagination from "$lib/components/navigation/Pagination.svelte";
+  import MediaWrapper from "$lib/components/wrapper/MediaWrapper.svelte";
 
   interface Props {
     data: PageData;
@@ -30,12 +31,27 @@
 <!--  <img alt="David Hellmann" class="fixed inset-0 w-screen h-screen object-cover object-top" src={davidhellmann} />-->
 <!--{/if}-->
 
+<MediaWrapper className={"sticky top-0 p-4 w-auto"}>
+  <Pagination totalItems={entryCount} limit={limit} currentPage={page} />
+</MediaWrapper>
 <ul class={cc.list}>
   {#if entries}
     {#each entries as entry (entry.id)}
       {#if entry?.__typename === "entryBlogDetail_Entry"}
         <li>
           <a href={entry.url}>
+            <h2>{entry.title}</h2>
+            <h2>{entry.title}</h2>
+            <h2>{entry.title}</h2>
+            <h2>{entry.title}</h2>
+            <h2>{entry.title}</h2>
+            <h2>{entry.title}</h2>
+            <h2>{entry.title}</h2>
+            <h2>{entry.title}</h2>
+            <h2>{entry.title}</h2>
+            <h2>{entry.title}</h2>
+            <h2>{entry.title}</h2>
+            <h2>{entry.title}</h2>
             <h2>{entry.title}</h2>
             {#if entry.description}
               {entry.description}
@@ -46,4 +62,3 @@
     {/each}
   {/if}
 </ul>
-<Pagination totalItems={entryCount} limit={limit} currentPage={page} />

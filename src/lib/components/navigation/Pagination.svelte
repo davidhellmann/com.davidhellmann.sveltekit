@@ -5,12 +5,28 @@
 
   const tvPagination = tv({
     slots: {
-      slotNav: "flex justify-center mt-24 text-xs",
+      slotNav: "flex justify-center  text-xs",
       slotList: "flex bg-neutral-100 rounded-md overflow-clip shadow-sm shadow-neutral-400",
       slotListItem: "[&:not(:last-child)]:border-r-2 [&:not(:last-child)]:border-e-neutral-200",
       slotLink: "flex px-4 pt-3 pb-2 border-b-4 border-transparent items-center hover:bg-neutral-50 transition",
       slotSpacer: "flex px-4 pt-3 pb-2 border-b-4 border-transparent text-neutral-400",
-      slotCurrent: "flex px-4 pt-3 pb-2 border-b-4 border-accent-pink-500"
+      slotCurrent: "flex px-4 pt-3 pb-2 border-b-4 border-accent-pink-500",
+    },
+    variants: {
+      position: {
+        top: {
+          slotNav: "mb-24",
+        },
+        bottom: {
+          slotNav: "mt-24",
+        },
+        sticky: {
+          slotNav: "",
+        }
+      }
+    },
+    defaultVariants: {
+      position: "sticky"
     }
   });
 

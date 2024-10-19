@@ -17,6 +17,6 @@ export const load: PageServerLoad = async ({ url }) => {
     entries: entries,
     entryCount: entryCount,
     limit: limit,
-    page: page,
+    page: page
   };
 };

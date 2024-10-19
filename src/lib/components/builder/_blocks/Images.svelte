@@ -34,18 +34,15 @@
 </script>
 
 {#if images}
-  {#snippet imagesSnippet()}
-    {#each images as image (image)}
-      {#snippet img()}
-        <Image image={image} ratio={imageRatio} />
-      {/snippet}
-      <Figure children={img} />
-    {/each}
-  {/snippet}
-
   <div data-comp={compName} class="span-popout @container">
     {#if imagesViewMode && imagesViewMode.startsWith("grid-cols-")}
-      <Grid columns={getColumns()} children={imagesSnippet} />
+      <Grid columns={getColumns()} >
+        {#each images as image (image)}
+          <Figure>
+            <Image image={image} ratio={imageRatio} />
+          </Figure>
+        {/each}
+      </Grid>
     {/if}
   </div>
 {/if}
