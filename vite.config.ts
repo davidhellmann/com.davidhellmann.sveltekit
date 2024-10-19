@@ -2,7 +2,7 @@ import { sveltekit } from "@sveltejs/kit/vite";
 import { defineConfig } from "vitest/config";
 import ViteSvgSpriteWrapper from "vite-svg-sprite-wrapper";
 
-const IconSpritss = ["remixicon"];
+const IconSpritss = ["heroicons"];
 
 export default defineConfig({
   plugins: [

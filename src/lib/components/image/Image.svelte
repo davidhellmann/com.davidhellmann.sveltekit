@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {tv, type VariantProps} from "tailwind-variants";
+  import { tv, type VariantProps } from "tailwind-variants";
   import type { Asset_CustomFieldsFragment, Asset_DataFragment, Asset_TransformsFragment } from "$graphql/graphql";
 
   type ObjectFit = "cover" | "contain" | "fill" | "none" | "scale-down";
@@ -12,12 +12,12 @@
         "aspect-auto": "aspect-auto",
         "aspect-landscape": "aspect-landscape",
         "aspect-portrait": "aspect-portrait",
-        "aspect-square": "aspect-square",
-      },
+        "aspect-square": "aspect-square"
+      }
     },
     defaultVariants: {
-      ratio: "aspect-landscape",
-    },
+      ratio: "aspect-landscape"
+    }
   });
 
   type ImageProps = {
@@ -35,7 +35,7 @@
     height?: number;
     noscript?: boolean;
     decorative?: boolean;
-  } & VariantProps<typeof tvImage>;
+  } & VariantProps<typeof tvImage> & (VariantProps<typeof tvImage>["ratio"] | (string & {}));
 
   let {
     compName = "Image",
@@ -45,20 +45,20 @@
     objectFit = "cover",
     ratio = "aspect-landscape",
     alt = "",
-    focalPoint = undefined,
-    src = undefined,
-    srcset = undefined,
-    blurhash = undefined,
-    width = undefined,
-    height = undefined,
+    focalPoint,
+    src,
+    srcset,
+    blurhash,
+    width,
+    height,
     noscript = true,
-    decorative = false,
+    decorative = false
   }: ImageProps = $props();
 
   // Set Focal Point
   const focalPointCoordinates = {
     x: image?.focalPoint?.[0] || focalPoint?.[0] || 0.5,
-    y: image?.focalPoint?.[1] || focalPoint?.[1] || 0.5,
+    y: image?.focalPoint?.[1] || focalPoint?.[1] || 0.5
   };
 
   // Set Role presentation for decorative images
@@ -75,13 +75,13 @@
   const attr = {
     width,
     height,
-    style: `object-fit: ${objectFit}; object-position: ${focalPointCoordinates.x * 100}% ${focalPointCoordinates.y * 100}%;`,
+    style: `object-fit: ${objectFit}; object-position: ${focalPointCoordinates.x * 100}% ${focalPointCoordinates.y * 100}%;`
   };
 </script>
 
 {#snippet noScriptTag()}
   <noscript>
-    <img src={src} alt={alt}/>
+    <img src={src} alt={alt} />
   </noscript>
 {/snippet}
 

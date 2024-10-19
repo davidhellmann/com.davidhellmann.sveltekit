@@ -1,39 +1,46 @@
 query GetEntries(
-    $site: [String] = ["davidhellmann_en"]
-    $section: [String]! = ["blog"],
-    $type: [String],
-    $uri: [String],
-    $slug: [String],
-    $id: [QueryArgument]
-    $limit: Int = null,
-    $unique: Boolean = false,
-    $orderBy: String = "postDate DESC",
+  $site: [String] = ["davidhellmann_en"]
+  $section: [String]! = ["blog"],
+  $type: [String],
+  $uri: [String],
+  $slug: [String],
+  $id: [QueryArgument]
+  $limit: Int = null,
+  $offset: Int = 0,
+  $unique: Boolean = false,
+  $orderBy: String = "postDate DESC",
+
+  # Relations
+  $relatedToEntries: [EntryRelationCriteriaInput],
+
+  #Conditions
+  $includeSeo: Boolean = true
+  $includeEntryTypes: Boolean = true
+) {
+  entries(
+    site: $site,
+    section: $section,
+    type: $type,
+    uri: $uri,
+    id: $id,
+    slug: $slug
+    limit: $limit,
+    offset: $offset,
+    unique: $unique,
+    orderBy: $orderBy
 
     # Relations
-    $relatedToEntries: [EntryRelationCriteriaInput],
+    relatedToEntries: $relatedToEntries
+  ) {
+    ...entry_data
+    ...entry_seo @include(if: $includeSeo)
 
-    #Conditions
-    $includeSeo: Boolean = true
-    $includeEntryTypes: Boolean = true
-) {
-    entries(
-        site: $site,
-        section: $section,
-        type: $type,
-        uri: $uri,
-        id: $id,
-        slug: $slug
-        limit: $limit,
-        unique: $unique,
-        orderBy: $orderBy
-
-        # Relations
-        relatedToEntries: $relatedToEntries
-    ) {
-        ...entry_data
-        ...entry_seo @include(if: $includeSeo)
-
-        # Entry Types
-        ...entryType_blogDetail @include(if: $includeEntryTypes)
-    }
+    # Entry Types
+    ...entryType_blogDetail @include(if: $includeEntryTypes)
+  }
+  entryCount(
+    site: $site,
+    section: $section,
+    type: $type
+  )
 }

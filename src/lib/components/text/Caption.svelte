@@ -35,8 +35,7 @@
     tag?: CaptionTags,
     source?: string | undefined;
     sourceUrl?: string | undefined;
-  } & HTMLAttributes<HTMLElement> &
-    VariantProps<typeof tvCaption>;
+  } & VariantProps<typeof tvCaption>;
 
   const {
     compName = "Caption",

@@ -6,12 +6,6 @@
       "directory": "./static/icons/heroicons",
       "postinstall": [],
       "transformers": []
-    },
-    {
-      "name": "remixicon",
-      "directory": "./static/icons/remixicon",
-      "postinstall": [],
-      "transformers": []
     }
   ]
 }

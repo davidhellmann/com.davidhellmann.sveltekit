@@ -5,20 +5,20 @@
   type BlockImage = {
     compName?: string;
     image: ComponentProps<typeof Image>["image"];
-    imageRatio?: ComponentProps<typeof Image>["ratio"];
+    ratio?: ComponentProps<typeof Image>["ratio"];
     showCaption?: boolean;
   }
 
   const {
     compName = "BlockImage",
     image,
-    imageRatio,
+    ratio,
     showCaption,
   }: BlockImage = $props();
 </script>
 
 {#if image}
   <div class="span-content" data-comp={compName}>
-    <Image image={image} ratio={imageRatio} />
+    <Image image={image} ratio={ratio} />
   </div>
 {/if}

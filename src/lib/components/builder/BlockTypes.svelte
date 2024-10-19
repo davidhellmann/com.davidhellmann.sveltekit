@@ -5,10 +5,10 @@
   import Image from "$components/builder/_blocks/Image.svelte";
   import Images from "$components/builder/_blocks/Images.svelte";
   import Cta from "$components/builder/_blocks/Cta.svelte";
-  import type {Matrix_ContentBuilderFragment, EntryType_DataFragment} from "$lib/graphql/graphql";
+  import type { Matrix_ContentBuilderFragment, EntryType_DataFragment } from "$lib/graphql/graphql";
 
   type BlockTypes = {
-      compName?: string;
+    compName?: string;
     blockTypes: Array<Matrix_ContentBuilderFragment & EntryType_DataFragment>;
     className?: string;
   };
@@ -24,10 +24,10 @@
   {#if blockTypes}
     {#each blockTypes as blockType (blockType)}
       {#if blockType.__typename === "blockText_Entry" && blockType?.richText}
-        <RichText html={blockType.richText}/>
+        <RichText html={blockType.richText} />
 
       {:else if blockType.__typename === "blockCode_Entry" && blockType?.codeSnippet?.value && blockType?.codeSnippet?.language}
-        <Code code={blockType.codeSnippet.value} language={blockType.codeSnippet.language}/>
+        <Code code={blockType.codeSnippet.value} language={blockType.codeSnippet.language} />
 
       {:else if blockType.__typename === "blockQuote_Entry" && blockType?.quote}
         <Quote quote={blockType.quote}
@@ -38,14 +38,14 @@
       {:else if blockType.__typename === "blockImage_Entry" && blockType?.image[0]}
         <Image
           image={blockType.image[0]}
-          imageRatio={blockType.imageRatio}
+          ratio={blockType.imageRatio}
           showCaption={blockType.showCaption}
         />
 
       {:else if blockType.__typename === "blockImages_Entry" && blockType?.images}
         <Images
           images={blockType.images}
-          imageRatio={blockType.imageRatio}
+          ratio={blockType.imageRatio}
           showCaption={blockType.showCaption}
           imagesViewMode={blockType.imagesViewMode}
         />
