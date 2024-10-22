@@ -1,4 +1,3 @@
-// Languages (based on craft settings for code field)
 import { createHighlighterCoreSync } from "shiki/core";
 import { createJavaScriptRegexEngine } from "shiki/engine/javascript";
 import js from "shiki/langs/javascript.mjs";
@@ -35,7 +34,7 @@ const languages: Languages = {
   yaml: yaml
 };
 
-export const getShikiCode = (code: string, language: string) => {
+export const getShikiCode = (code: string, language: string): string | undefined => {
   const shiki = createHighlighterCoreSync({
     themes: [theme],
     langs: [languages[language] ?? js],

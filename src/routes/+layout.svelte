@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import "@fontsource-variable/bitter";
+  import "@fontsource-variable/jetbrains-mono";
   import "$styles/webfonts.css";
   import "$styles/app.css";
   import type { Snippet } from "svelte";

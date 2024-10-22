@@ -1,6 +1,5 @@
 <script lang="ts">
   import type { PageData } from "./$types";
-  import davidhellmann from "$images/davidhellmann.jpg";
   import RichText from "$lib/components/text/RichText.svelte";
 
   interface Props {
@@ -33,10 +32,6 @@
     ][index] || cc.card1;
   };
 </script>
-
-{#if davidhellmann}
-  <img alt="David Hellmann" class="fixed inset-0 w-screen h-screen object-cover object-top" src={davidhellmann} />
-{/if}
 
 <div class={cc.grid}>
   {#if entries}

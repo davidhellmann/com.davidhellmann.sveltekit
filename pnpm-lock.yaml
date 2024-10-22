@@ -26,6 +26,12 @@ importers:
       '@tailwindcss/container-queries':
         specifier: ^0.1.1
         version: 0.1.1(tailwindcss@3.4.13)
+      bigger-picture:
+        specifier: ^1.1.17
+        version: 1.1.17
+      embla-carousel-svelte:
+        specifier: ^8.3.0
+        version: 8.3.0(svelte@5.0.0-next.264)
       graphql-request:
         specifier: ^6.1.0
         version: 6.1.0(graphql@16.9.0)
@@ -63,6 +69,9 @@ importers:
       '@sveltejs/adapter-auto':
         specifier: ^3.2.5
         version: 3.2.5(@sveltejs/kit@2.7.0(@sveltejs/vite-plugin-svelte@4.0.0-next.8(svelte@5.0.0-next.264)(vite@5.4.9(@types/node@22.7.5)))(svelte@5.0.0-next.264)(vite@5.4.9(@types/node@22.7.5)))
+      '@sveltejs/adapter-static':
+        specifier: ^3.0.5
+        version: 3.0.5(@sveltejs/kit@2.7.0(@sveltejs/vite-plugin-svelte@4.0.0-next.8(svelte@5.0.0-next.264)(vite@5.4.9(@types/node@22.7.5)))(svelte@5.0.0-next.264)(vite@5.4.9(@types/node@22.7.5)))
       '@sveltejs/kit':
         specifier: ^2.7.0
         version: 2.7.0(@sveltejs/vite-plugin-svelte@4.0.0-next.8(svelte@5.0.0-next.264)(vite@5.4.9(@types/node@22.7.5)))(svelte@5.0.0-next.264)(vite@5.4.9(@types/node@22.7.5))
@@ -1329,6 +1338,11 @@ packages:
     peerDependencies:
       '@sveltejs/kit': ^2.0.0
 
+  '@sveltejs/adapter-static@3.0.5':
+    resolution: {integrity: sha512-kFJR7RxeB6FBvrKZWAEzIALatgy11ISaaZbcPup8JdWUdrmmfUHHTJ738YHJTEfnCiiXi6aX8Q6ePY7tnSMD6Q==}
+    peerDependencies:
+      '@sveltejs/kit': ^2.0.0
+
   '@sveltejs/kit@2.7.0':
     resolution: {integrity: sha512-4XyY1SCB/Eyz8E9G7SEBKViysYwVtDftuA7kyQ5bmuFNPWC1KZC4988rMvaJxhH2BbCTsbLPjNOZwiEGXt8/2g==}
     engines: {node: '>=18.13'}
@@ -1617,6 +1631,9 @@ packages:
 
   base64-js@1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
+
+  bigger-picture@1.1.17:
+    resolution: {integrity: sha512-7jCBq2azW0aLdW8ife2YdWCVFZt8wUXFRFs0mfSQkJQjSYSIzButr49CyTUyxp5ZwhAfgZK4ntIf+GzjRhpDaQ==}
 
   binary-extensions@2.3.0:
     resolution: {integrity: sha512-Ceh+7ox5qe7LJuLHoY0feh3pHuUDHAcRUeyL2VYghZwfpkNIy/+8Ocg0a3UuSoYzavmylwuLWQOf3hl0jjMMIw==}
@@ -2007,6 +2024,19 @@ packages:
 
   electron-to-chromium@1.5.35:
     resolution: {integrity: sha512-hOSRInrIDm0Brzp4IHW2F/VM+638qOL2CzE0DgpnGzKW27C95IqqeqgKz/hxHGnvPxvQGpHUGD5qRVC9EZY2+A==}
+
+  embla-carousel-reactive-utils@8.3.0:
+    resolution: {integrity: sha512-EYdhhJ302SC4Lmkx8GRsp0sjUhEN4WyFXPOk0kGu9OXZSRMmcBlRgTvHcq8eKJE1bXWBsOi1T83B+BSSVZSmwQ==}
+    peerDependencies:
+      embla-carousel: 8.3.0
+
+  embla-carousel-svelte@8.3.0:
+    resolution: {integrity: sha512-FW5fYpY8V2/2zkqaDv3v+Hw+c1tD0B00oK3YfZhnDggTwjt/rvv45muv2tbKrLkpLrW0+4s8UNAWscKiXJRETg==}
+    peerDependencies:
+      svelte: ^3.49.0 || ^4.0.0 || ^5.0.0
+
+  embla-carousel@8.3.0:
+    resolution: {integrity: sha512-Ve8dhI4w28qBqR8J+aMtv7rLK89r1ZA5HocwFz6uMB/i5EiC7bGI7y+AM80yAVUJw3qqaZYK7clmZMUR8kM3UA==}
 
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -5089,6 +5119,10 @@ snapshots:
       '@sveltejs/kit': 2.7.0(@sveltejs/vite-plugin-svelte@4.0.0-next.8(svelte@5.0.0-next.264)(vite@5.4.9(@types/node@22.7.5)))(svelte@5.0.0-next.264)(vite@5.4.9(@types/node@22.7.5))
       import-meta-resolve: 4.1.0
 
+  '@sveltejs/adapter-static@3.0.5(@sveltejs/kit@2.7.0(@sveltejs/vite-plugin-svelte@4.0.0-next.8(svelte@5.0.0-next.264)(vite@5.4.9(@types/node@22.7.5)))(svelte@5.0.0-next.264)(vite@5.4.9(@types/node@22.7.5)))':
+    dependencies:
+      '@sveltejs/kit': 2.7.0(@sveltejs/vite-plugin-svelte@4.0.0-next.8(svelte@5.0.0-next.264)(vite@5.4.9(@types/node@22.7.5)))(svelte@5.0.0-next.264)(vite@5.4.9(@types/node@22.7.5))
+
   '@sveltejs/kit@2.7.0(@sveltejs/vite-plugin-svelte@4.0.0-next.8(svelte@5.0.0-next.264)(vite@5.4.9(@types/node@22.7.5)))(svelte@5.0.0-next.264)(vite@5.4.9(@types/node@22.7.5))':
     dependencies:
       '@sveltejs/vite-plugin-svelte': 4.0.0-next.8(svelte@5.0.0-next.264)(vite@5.4.9(@types/node@22.7.5))
@@ -5432,6 +5466,8 @@ snapshots:
   balanced-match@1.0.2: {}
 
   base64-js@1.5.1: {}
+
+  bigger-picture@1.1.17: {}
 
   binary-extensions@2.3.0: {}
 
@@ -5854,6 +5890,18 @@ snapshots:
   eastasianwidth@0.2.0: {}
 
   electron-to-chromium@1.5.35: {}
+
+  embla-carousel-reactive-utils@8.3.0(embla-carousel@8.3.0):
+    dependencies:
+      embla-carousel: 8.3.0
+
+  embla-carousel-svelte@8.3.0(svelte@5.0.0-next.264):
+    dependencies:
+      embla-carousel: 8.3.0
+      embla-carousel-reactive-utils: 8.3.0(embla-carousel@8.3.0)
+      svelte: 5.0.0-next.264
+
+  embla-carousel@8.3.0: {}
 
   emoji-regex@8.0.0: {}
 

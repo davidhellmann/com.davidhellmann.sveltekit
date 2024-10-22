@@ -9,12 +9,6 @@
   const seomatic: ISEO = parseSEO(seo);
 </script>
 
-{#snippet jsonLD(json: Record<string, any>)}
-  <script type="application/ld+json">
-    {JSON.stringify(json)}
-  </script>
-{/snippet}
-
 <svelte:head>
   {#if seomatic}
     <title>{seomatic.seoTitle}</title>
@@ -33,7 +27,7 @@
 
     {#if seomatic?.jsonLd}
       {#each seomatic.jsonLd as item (item)}
-        {@render jsonLD(item)}
+        {@html `<script type="application/ld+json">${JSON.stringify(item)}</script>`}
       {/each}
     {/if}
   {/if}

@@ -1,6 +1,6 @@
 <script lang="ts">
   import { tv, type VariantProps } from "tailwind-variants";
-  import { getShikiCode } from "$lib/utils/getShikiCode";
+  import { useShiki } from "$lib/actions/action.shiki";
 
   const tvCode = tv({
     base: "",
@@ -17,19 +17,17 @@
     compName = "Code",
     className,
     code,
-    language
+    language = "js",
   }: CodeProps = $props();
 
-  const shikiCode = getShikiCode(code, language);
 </script>
 
-{#if shikiCode}
+{#if code && language}
   <div
     data-comp={compName}
     class={tvCode({ className })}
-  >
-    {#if shikiCode}{@html shikiCode}{/if}
-  </div>
+    use:useShiki={{ code, language }}
+  ></div>
 {/if}
 
 <style lang="postcss">

@@ -1,0 +1,17 @@
+query GetPrerenderData(
+  $site: [String] = ["davidhellmann_en"]
+  $section: [String]! = ["blog"],
+  $type: [String],
+  $limit: Int = -1,
+  $offset: Int = 0,
+) {
+  entries(
+    site: $site,
+    section: $section,
+    type: $type,
+    limit: $limit,
+    offset: $offset,
+  ) {
+    ...entry_data
+  }
+}

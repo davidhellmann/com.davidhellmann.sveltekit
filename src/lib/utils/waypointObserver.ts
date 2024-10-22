@@ -1,39 +1,22 @@
-interface Settings {
+type Settings = {
   delay: number;
   staggeringDelay: number;
   includeHolder: boolean;
   endless: boolean;
-}
+};
 
 type WaypointObserver = {
   name: string;
-  selectors?: {
-    [key: string]: string;
-  };
-  observerConfig: {
-    threshold: Array<number>;
-    rootMargin: string;
-  };
-
-  settings: {
-    delay: number;
-    staggeringDelay: number;
-    includeHolder: boolean;
-    endless: boolean;
-  };
+  selectors?: { [key: string]: string };
+  observerConfig: { threshold: number[]; rootMargin: string };
+  settings: Settings;
 
   startObserving(el: NodeListOf<HTMLElement>): void;
-
   setSettings(el: Element): void;
-
-  findWaypointTargets(el: Element): Array<HTMLElement>;
-
-  getWaypointTargets(el: Element): Array<HTMLElement>;
-
-  handleAnimateAttributes(el: Array<HTMLElement>, settings: Settings): void;
-
+  findWaypointTargets(el: Element): HTMLElement[];
+  getWaypointTargets(el: Element): HTMLElement[];
+  handleAnimateAttributes(el: HTMLElement[], settings: Settings): void;
   watchDomChanges(): void;
-
   init(el: HTMLElement | NodeListOf<HTMLElement>): void;
 };
 
@@ -71,32 +54,17 @@ const waypointObserver: WaypointObserver = {
         const targets = this.getWaypointTargets(entry.target);
 
         if (entry.isIntersecting) {
-          // Unobserve Element if endless setting false
-          if (!this.settings.endless) {
-            observer.unobserve(entry.target);
-          }
-
-          // Add in-view class for element
+          if (!this.settings.endless) observer.unobserve(entry.target);
           entry.target.setAttribute("data-waypoint-in-viewport", "true");
-
-          // Animate Targets
-          if (!targets) return;
-          this.handleAnimateAttributes(targets, this.settings);
+          if (targets) this.handleAnimateAttributes(targets, this.settings);
         } else {
-          // Add in-view class for element
           entry.target.removeAttribute("data-waypoint-in-viewport");
-          targets?.forEach((target) => {
-            if (target.hasAttribute("data-waypoint-animated")) {
-              target.removeAttribute("data-waypoint-animated");
-            }
-          });
+          targets?.forEach((target) => target.removeAttribute("data-waypoint-animated"));
         }
       });
     }, this.observerConfig);
 
-    waypoints.forEach((waypoint) => {
-      observer.observe(waypoint);
-    });
+    waypoints.forEach((waypoint) => observer.observe(waypoint));
   },
 
   setSettings(waypoint) {
@@ -109,73 +77,44 @@ const waypointObserver: WaypointObserver = {
     );
 
     this.settings.endless = waypoint.getAttribute("data-waypoint-endless") === "true";
-
     this.settings.includeHolder = waypoint.getAttribute("data-waypoint-include-holder") === "true";
   },
 
-  findWaypointTargets(holder: HTMLElement): Array<HTMLElement> {
+  findWaypointTargets(holder) {
     if (!this.selectors) return [];
     const allTargets = holder.querySelectorAll<HTMLElement>(this.selectors.waypointTarget);
-
-    return Array.from(allTargets).filter((target) => {
-      return target.closest("[data-waypoint]") === holder;
-    }) as Array<HTMLElement>;
+    return Array.from(allTargets).filter((target) => target.closest("[data-waypoint]") === holder);
   },
 
   getWaypointTargets(holder: HTMLElement): Array<HTMLElement> {
     if (!this.selectors) return [];
     let targets = [...this.findWaypointTargets(holder)];
     const holderIsTarget = holder.hasAttribute("data-waypoint-target");
-    if (holderIsTarget && !this.settings.includeHolder) {
-      // Animate the waypoint itself if there is a waypoint-target attribute
-      targets = [holder];
-    }
-
-    if (holderIsTarget && this.settings.includeHolder) {
-      // Animate also the holder element with the waypoint-targets
-      targets = [holder, ...targets];
-    }
-
+    if (holderIsTarget) targets = this.settings.includeHolder ? [holder, ...targets] : [holder];
     return targets;
   },
 
-  handleAnimateAttributes(targets: Array<HTMLElement>, settings: Settings): void {
+  handleAnimateAttributes(targets, settings) {
     targets.forEach((target, index) => {
-      let delay = settings.delay + settings.staggeringDelay * index;
-
-      if (settings.staggeringDelay === 0) {
-        delay = settings.delay;
-      }
-
-      if (!target.hasAttribute("data-waypoint-animated")) {
-        animateElement(target, delay);
-      }
+      const delay = settings.staggeringDelay ? settings.delay + settings.staggeringDelay * index : settings.delay;
+      if (!target.hasAttribute("data-waypoint-animated")) animateElement(target, delay);
     });
   },
 
   watchDomChanges() {
-    const targetNode = document.body;
-    const config = {
-      childList: true,
-      attributes: true,
-      subtree: true
-    };
-
-    const callback = (mutationList: MutationRecord[]) => {
-      for (const mutation of mutationList) {
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
         if (mutation.type === "childList") {
           const waypointEls = document.querySelectorAll("[data-waypoint]");
           this.startObserving(waypointEls as NodeListOf<HTMLElement>);
         }
-      }
-    };
-
-    const observer = new MutationObserver(callback);
-    observer.observe(targetNode, config);
+      });
+    });
+    observer.observe(document.body, { childList: true, attributes: true, subtree: true });
   },
 
-  init(waypointEls: NodeListOf<HTMLElement>) {
-    this.startObserving(waypointEls);
+  init(waypointEls) {
+    this.startObserving(waypointEls as NodeListOf<HTMLElement>);
     this.watchDomChanges();
   }
 };
