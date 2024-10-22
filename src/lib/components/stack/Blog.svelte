@@ -79,6 +79,7 @@
         currentPage={page}
         yPosition="top"
         simple={true}
+        uri="/blog"
         className="-mt-32"
       />
     {/if}
@@ -103,7 +104,8 @@
     </ul>
 
     {#if showPagination && totalItems && totalPages && page}
-      <Pagination totalItems={totalItems} totalPages={totalPages} currentPage={page} />
+      <Pagination totalItems={totalItems} totalPages={totalPages} currentPage={page}
+                  uri="/blog" />
     {/if}
   </div>
 {/if}

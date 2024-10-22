@@ -51,6 +51,7 @@
     iconPrev?: HeroiconsIcons;
     iconNext?: HeroiconsIcons;
     simple?: boolean;
+    uri: string;
   } & VariantProps<typeof tvPagination>;
 
   const {
@@ -62,6 +63,7 @@
     iconPrev = "arrow-left-outline",
     iconNext = "arrow-right-outline",
     simple = false,
+    uri,
     yPosition,
     xPosition
   }: PaginationProps = $props();
@@ -86,7 +88,7 @@
   <ul class={slotList()}>
     {#if currentPage > 1}
       <li class={slotListItem()}>
-        <a class={slotLink()} href="?p={currentPage - 1}">
+        <a class={slotLink()} href="{uri}/{currentPage - 1}">
           <IconSprite icon={iconPrev} />
         </a>
       </li>
@@ -96,13 +98,13 @@
       {#if totalPages <= 6}
         {#each { length: totalPages } as _, index (index)}
           <li class={slotListItem()}>
-            <a class={slotLink()} href="?p={index + 1}">{index + 1}</a>
+            <a class={slotLink()} href="{uri}/{index + 1}">{index + 1}</a>
           </li>
         {/each}
       {:else}
         {#if range[0] !== 1}
           <li class={slotListItem()}>
-            <a class={slotLink()} href="?p=1">1</a>
+            <a class={slotLink()} href="{uri}">1</a>
           </li>
           {#if range[0] > 2}
             <li class={slotListItem()}>
@@ -116,7 +118,7 @@
             {#if i === currentPage}
               <span class={slotCurrent()}>{i}</span>
             {:else}
-              <a class={slotLink()} href="?p={i}">{i}</a>
+              <a class={slotLink()} href="{uri}/{i}">{i}</a>
             {/if}
           </li>
         {/each}
@@ -126,7 +128,7 @@
             <span class={slotSpacer()}>…</span>
           </li>
           <li class={slotListItem()}>
-            <a class={slotLink()} href="?p={totalPages}">{totalPages}</a>
+            <a class={slotLink()} href="{uri}/{totalPages}">{totalPages}</a>
           </li>
         {/if}
       {/if}
@@ -134,7 +136,7 @@
 
     {#if currentPage < totalPages}
       <li class={slotListItem()}>
-        <a class={slotLink()} href="?p={currentPage + 1}">
+        <a class={slotLink()} href="{uri}/{currentPage + 1}">
           <IconSprite icon={iconNext} />
         </a>
       </li>

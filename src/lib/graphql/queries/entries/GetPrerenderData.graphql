@@ -14,4 +14,9 @@ query GetPrerenderData(
   ) {
     ...entry_data
   }
+  entryCount(
+    site: $site,
+    section: $section,
+    type: $type
+  )
 }

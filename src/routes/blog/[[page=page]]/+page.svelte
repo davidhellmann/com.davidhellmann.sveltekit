@@ -3,6 +3,7 @@
   import StackBlock from "$lib/components/stack/Blog.svelte";
   import Headline from "$lib/components/text/Headline.svelte";
   import RichText from "$lib/components/text/RichText.svelte";
+  import { replaceState } from "$app/navigation";
 
   interface Props {
     data: PageData;
@@ -18,6 +19,10 @@
   $effect(() => {
     entries = data.entries;
     page = data.page;
+
+    if (page === 1) {
+      replaceState("/blog", {});
+    }
   });
 
   const cc = {
