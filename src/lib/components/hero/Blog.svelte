@@ -4,9 +4,9 @@
 
   const tvHeroBlog = tv({
     slots: {
-      slotWrapper: "fluid-grid content-end min-h-[50vh]",
-      slotContent: "span-content pb-36 pt-48 stack-12",
-      slotHeadline: "",
+      slotWrapper: "",
+      slotContent: "",
+      slotHeadline: "max-w-[20ch]",
     },
   });
 

@@ -1,0 +1,5 @@
+fragment entry_next on EntryInterface{
+  next(section: $section, orderBy: "postDate desc") {
+    ...entry_data
+  }
+}

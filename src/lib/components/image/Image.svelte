@@ -99,6 +99,7 @@
     sizes={!lazy ? "auto" : undefined}
     data-sizes={lazy ? "auto" : undefined}
     role={role}
+    data-lazy={lazy ? true : undefined}
   />
 {/snippet}
 

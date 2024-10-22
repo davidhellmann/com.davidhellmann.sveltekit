@@ -15,7 +15,7 @@
 </script>
 
 {#if code}
-  <div class="col-start-[popout] col-end-[full]" data-comp={compName}>
+  <div class="span-popout" data-comp={compName}>
     <Code code={code} language={language}/>
   </div>
 {/if}

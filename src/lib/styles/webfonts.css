@@ -1,0 +1,16 @@
+@font-face {
+  font-family: 'GT Walsheim';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 900;
+  src: url($lib/fonts/GT-Walsheim-Pro-Ultra-Bold.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'GT Walsheim';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url($lib/fonts/GT-Walsheim-Pro-Bold.woff2) format('woff2');
+}
+

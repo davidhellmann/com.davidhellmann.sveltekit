@@ -2,10 +2,10 @@
   import { tv, type VariantProps } from "tailwind-variants";
 
   const tvHeadline = tv({
-    base: "font-serif text-balance text-neutral-500",
+    base: "text-balance",
     variants: {
       preset: {
-        h1: "text-7xl font-extrabold",
+        h1: "text-4xl font-extrabold",
         h2: "text-3xl font-extrabold",
         h3: "text-2xl font-extrabold",
         h4: "text-xl font-extrabold",
@@ -13,6 +13,13 @@
         h6: "text-base font-extrabold",
       },
       size: {
+        "11xl": "text-11xl",
+        "10xl": "text-10xl",
+        "9xl": "text-9xl",
+        "8xl": "text-8xl",
+        "7xl": "text-7xl",
+        "6xl": "text-6xl",
+        "5xl": "text-5xl",
         "4xl": "text-4xl",
         "3xl": "text-3xl",
         "2xl": "text-2xl",
@@ -30,9 +37,15 @@
         semibold: "font-semibold",
         extrabold: "font-extrabold",
       },
+      family: {
+        sans: "font-sans",
+        serif: "font-serif",
+        mono: "font-mono",
+      },
     },
     defaultVariants: {
       preset: "h2",
+      family: "serif"
     },
   });
 
@@ -52,7 +65,9 @@
     preset,
     size,
     weight,
-    className
+    family,
+    className,
+    ...rest
   }: HeadlineProps = $props();
 </script>
 
@@ -60,7 +75,8 @@
   <svelte:element
     this={tag}
     data-comp={compName}
-    class={tvHeadline({ preset, size, weight, className })}
+    class={tvHeadline({ preset, size, weight, family, className })}
+    {...rest}
   >
     {text}
   </svelte:element>

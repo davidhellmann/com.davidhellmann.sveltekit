@@ -1,0 +1,10 @@
+fragment author_data on EntryInterface {
+  authors {
+    id
+    fullName
+    photo {
+      ...asset_data
+      ...asset_transforms
+    }
+  }
+}

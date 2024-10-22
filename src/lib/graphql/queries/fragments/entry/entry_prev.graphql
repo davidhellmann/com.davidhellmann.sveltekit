@@ -1,0 +1,5 @@
+fragment entry_prev on EntryInterface{
+  prev(section: $section, orderBy: "postDate desc") {
+    ...entry_data
+  }
+}

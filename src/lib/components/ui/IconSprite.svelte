@@ -22,14 +22,6 @@
     }
   });
 
-  /*
-  *
-  *  --size: 1.65cap;
-    flex: 0 0 var(--size);
-    width: var(--size);
-    height: var(--size);
-  * */
-
   type IconSpriteProps = {
     compName?: string;
     className?: string;
@@ -50,7 +42,6 @@
   <svg
     data-icon-name={iconName}
     data-comp={compName}
-    data-testid={compName}
     class={tvIconSprite({ size, className })}
     aria-hidden="true"
   >

@@ -20,7 +20,7 @@
   }: BlockTypes = $props();
 </script>
 
-<div class={`fluid-grid ${className}`} data-comp={compName}>
+<div class={`fluid-grid stack-12 ${className}`} data-comp={compName}>
   {#if blockTypes}
     {#each blockTypes as blockType (blockType)}
       {#if blockType.__typename === "blockText_Entry" && blockType?.richText}

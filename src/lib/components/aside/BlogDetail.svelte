@@ -29,7 +29,6 @@
 {#if category}
   <div
     data-comp={compName}
-    data-testid={compName}
     class={slotWrapper({ className })}
   >
     {#if category?.title}

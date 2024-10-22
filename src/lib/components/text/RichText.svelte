@@ -15,6 +15,7 @@
     compName = "RichText",
     className,
     html,
+    ...rest
   }: RichTextProps = $props();
 
 </script>
@@ -23,6 +24,7 @@
   <div
     data-comp={compName}
     class={tvRichText({ className })}
+    {...rest}
   >
     {@html html}
   </div>

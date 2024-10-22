@@ -1,10 +1,11 @@
 <script lang="ts">
   import BlockTypes from "$components/builder/BlockTypes.svelte";
+
   type ContentBuilder = {
-      blockTypes: {
-          __typename: string;
-          [key: string]: unknown
-      }[];
+    blockTypes: {
+      __typename: string;
+      [key: string]: unknown
+    }[];
   };
 
   const {
@@ -13,5 +14,7 @@
 </script>
 
 {#if blockTypes}
-  <BlockTypes {blockTypes} className="stack-12"/>
+  <div class="span-full">
+    <BlockTypes blockTypes={blockTypes} />
+  </div>
 {/if}

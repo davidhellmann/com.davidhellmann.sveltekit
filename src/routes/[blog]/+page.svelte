@@ -1,9 +1,8 @@
 <script lang="ts">
   import type { PageData } from "./$types";
-  // import davidhellmann from "$images/davidhellmann-dark2.jpg";
-  // import RichText from "$lib/components/text/RichText.svelte";
-  import Pagination from "$lib/components/navigation/Pagination.svelte";
-  import MediaWrapper from "$lib/components/wrapper/MediaWrapper.svelte";
+  import StackBlock from "$lib/components/stack/Blog.svelte";
+  import Headline from "$lib/components/text/Headline.svelte";
+  import RichText from "$lib/components/text/RichText.svelte";
 
   interface Props {
     data: PageData;
@@ -11,42 +10,66 @@
 
   let { data }: Props = $props();
   const entryCount = data.entryCount ?? 1;
+  const totalPages = data.totalPages ?? 1;
   let entries = $state(data.entries);
-  let limit = $state(10);
   let page = $state(1);
 
 
   $effect(() => {
     entries = data.entries;
-    limit = data.limit;
     page = data.page;
   });
 
   const cc = {
-    list: "bg-red-200 text-2xl",
+    heading: "span-content text-olkch-pink is-zoomInDown",
+    text: "col-start-[col-3] col-end-[col-10] text-2xl is-zoomInDown",
+    list: "span-popout z-10 @container",
+    underline: "underline decoration-wavy decoration-4 decoration-accent-purple-400"
   };
+
+  const content = {
+    heading: "WRITING ABOUT …",
+    about:  `<p>…things I’m interested in—<br><strong class="${cc.underline}">stories</strong> from my <strong class="${cc.underline}">life</strong>, <strong class="${cc.underline}">adventures</strong> with my <strong class="${cc.underline}">bikes</strong>, <strong class="${cc.underline}">gadgets</strong>, and so on.</p>`
+  };
+
+  // split string and map each letter into a div
+  const splitText = (str: string) => str.split("").map((letter) => `
+    <div class="is-zoomInDown" data-waypoint-target="">
+      ${letter === " " ? "&nbsp;" : letter}
+    </div>
+  `).join("");
 </script>
 
-<!--{#if davidhellmann}-->
-<!--  <img alt="David Hellmann" class="fixed inset-0 w-screen h-screen object-cover object-top" src={davidhellmann} />-->
-<!--{/if}-->
 
-<MediaWrapper className={"sticky top-0 p-4 w-auto"}>
-  <Pagination totalItems={entryCount} limit={limit} currentPage={page} />
-</MediaWrapper>
-<ul class={cc.list}>
-  {#if entries}
-    {#each entries as entry (entry.id)}
-      {#if entry?.__typename === "entryBlogDetail_Entry"}
-        <li>
-          <a href={entry.url}>
-            <h2>{entry.title}</h2>
-            {#if entry.description}
-              {entry.description}
-            {/if}
-          </a>
-        </li>
-      {/if}
-    {/each}
-  {/if}
-</ul>
+{#if page === 1}
+  <Headline
+    className={cc.heading}
+    text={content.heading}
+    size="7xl"
+    family="sans"
+    weight="extrabold"
+    data-waypoint
+    data-waypoint-target
+  />
+  <RichText
+    className={cc.text}
+    html={content.about}
+    data-waypoint
+    data-waypoint-target
+    data-waypoint-delay="200"
+  />
+{:else}
+  <div class="span-content text-olkch-pink flex font-sans text-7xl font-extrabold" data-waypoint>
+    {@html splitText(`Page ${page.toString()}`)}
+  </div>
+{/if}
+
+<StackBlock
+  entries={entries}
+  showPagination={true}
+  totalItems={entryCount}
+  totalPages={totalPages}
+  page={page}
+  className={cc.list}
+/>
+

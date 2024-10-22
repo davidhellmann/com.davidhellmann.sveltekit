@@ -1,0 +1,6 @@
+fragment entry_dates on EntryInterface {
+  postDate: postDate @formatDateTime(format: "short")
+  expireDate: expiryDate @formatDateTime(format: "short")
+  postUpdateDate: dateUpdated @formatDateTime(format: "short")
+  timezone: postDate @formatDateTime(format: "T")
+}

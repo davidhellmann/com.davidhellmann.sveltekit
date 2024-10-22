@@ -32,7 +32,6 @@
 {#if children}
   <div
     data-comp={compName}
-    data-testid={compName}
     class={tvMediaWrapper({ preset, className })}
   >
     {@render children()}

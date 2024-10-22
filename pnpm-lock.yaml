@@ -78,6 +78,9 @@ importers:
       concurrently:
         specifier: ^9.0.1
         version: 9.0.1
+      dayjs:
+        specifier: ^1.11.13
+        version: 1.11.13
       eslint:
         specifier: ^9.12.0
         version: 9.12.0(jiti@2.3.3)
@@ -108,6 +111,9 @@ importers:
       svelte-check:
         specifier: ^4.0.5
         version: 4.0.5(picomatch@4.0.2)(svelte@5.0.0-next.264)(typescript@5.6.3)
+      svelte-time:
+        specifier: ^0.9.0
+        version: 0.9.0
       tailwindcss:
         specifier: ^3.4.13
         version: 3.4.13
@@ -1896,6 +1902,9 @@ packages:
   dataloader@2.2.2:
     resolution: {integrity: sha512-8YnDaaf7N3k/q5HnTJVuzSyLETjoZjVmHc4AeKAzOvKHEFQKcn64OKBfzHYtE9zGjctNM7V9I0MfnUVLpi7M5g==}
 
+  dayjs@1.11.13:
+    resolution: {integrity: sha512-oaMBel6gjolK862uaPQOVTA7q3TZhuSvuMQAAglQDOWYO9A91IrAOUJEyKVlqJlHE0vq5p5UXxzdPfMH/x6xNg==}
+
   debounce@1.2.1:
     resolution: {integrity: sha512-XRRe6Glud4rd/ZGQfiV1ruXSfbvfJedlV9Y6zOlP+2K04vBYiJEte6stfFkCP03aMnY5tsipamumUjL14fofug==}
 
@@ -3335,6 +3344,9 @@ packages:
     peerDependenciesMeta:
       svelte:
         optional: true
+
+  svelte-time@0.9.0:
+    resolution: {integrity: sha512-XLEflTNZCjJM2ltCJL0NTpN9J2KBZXxupfl9S2sRFx+utSuQXbs3YIM14DIuENsjG1Qn5NtzRb0gviIB7lCMxQ==}
 
   svelte@5.0.0-next.264:
     resolution: {integrity: sha512-vmlzMGxYTdIPhVl1vQhbcqHmSztG/sXzi+TooHiv57FgAVSBc/66cpvqtT5Wfxg9gQOEKOXl9tUV9OzBrBBwiw==}
@@ -5754,6 +5766,8 @@ snapshots:
 
   dataloader@2.2.2: {}
 
+  dayjs@1.11.13: {}
+
   debounce@1.2.1: {}
 
   debug@4.3.7:
@@ -7213,6 +7227,10 @@ snapshots:
       postcss-scss: 4.0.9(postcss@8.4.47)
     optionalDependencies:
       svelte: 5.0.0-next.264
+
+  svelte-time@0.9.0:
+    dependencies:
+      dayjs: 1.11.13
 
   svelte@5.0.0-next.264:
     dependencies:

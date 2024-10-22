@@ -12,6 +12,32 @@ export default defineConfig({
         icons: `static/icons/${icon}/*.svg`,
         outputDir: `static/icons/sprites/${icon}/`,
         generateType: true,
+        sprite: {
+          shape: {
+            transform: [
+              {
+                svgo: {
+                  plugins: [
+                    { name: "preset-default" },
+                    {
+                      name: "removeAttrs",
+                      params: {
+                        attrs: ["*:(data-*|style|class):*"]
+                      }
+                    },
+                    {
+                      name: "convertColors",
+                      params: {
+                        currentColor: true
+                      }
+                    },
+                    "removeXMLNS"
+                  ]
+                }
+              }
+            ]
+          }
+        },
         typeName: `${icon.charAt(0).toUpperCase()}${icon.slice(1)}Icons`,
         typeFileName: `${icon}-icons`,
         typeOutputDir: "./src/lib/types/"
