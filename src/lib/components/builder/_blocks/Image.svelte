@@ -6,6 +6,7 @@
     compName?: string;
     image: ComponentProps<typeof Image>["image"];
     ratio?: ComponentProps<typeof Image>["ratio"];
+    width?: string
     showCaption?: boolean;
   }
 
@@ -13,12 +14,19 @@
     compName = "BlockImage",
     image,
     ratio,
+    width,
     showCaption,
   }: BlockImage = $props();
+
+  const containerWidht = {
+    "full": "span-full",
+    "wide": "col-start-[popout] col-end-[popout]",
+    "content": "col-start-[col-1] col-end-[col-9]",
+  }[width ?? "full"];
 </script>
 
 {#if image}
-  <div class="span-content" data-comp={compName}>
+  <div class={containerWidht} data-comp={compName}>
     <Image image={image} ratio={ratio} />
   </div>
 {/if}

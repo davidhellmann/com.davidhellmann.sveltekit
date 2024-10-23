@@ -1,7 +1,7 @@
 <script lang="ts">
   import { tv, type VariantProps } from "tailwind-variants";
   import Time from "svelte-time";
-  import IconSprite from "$lib/components/ui/IconSprite.svelte";
+  import IconSprite from "$components/ui/IconSprite.svelte";
 
   const tvCategory = tv({
     base: "flex items-center gap-2 font-mono text-sm",

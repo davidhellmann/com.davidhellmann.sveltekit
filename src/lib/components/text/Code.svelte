@@ -1,9 +1,13 @@
 <script lang="ts">
   import { tv, type VariantProps } from "tailwind-variants";
   import { useShiki } from "$lib/actions/action.shiki";
+  import Figure from "$components/wrapper/Figure.svelte";
 
   const tvCode = tv({
-    base: "",
+    slots: {
+      slotWrapper: "mt-10",
+      slotCode: "flex items-center gap-3 inline-flex label text-xs text-neutral-200 px-4 !-mb-fluid -mt-10 py-2 ml-fluid rounded-t-xl self-start after:size-2 after:bg-accent-purple-400 after:rounded-full",
+    },
   });
 
   type CodeProps = {
@@ -11,6 +15,8 @@
     className?: string;
     code: string;
     language: string;
+    name?: string;
+    html?: string;
   } & VariantProps<typeof tvCode>;
 
   const {
@@ -18,22 +24,38 @@
     className,
     code,
     language = "js",
+    name,
+    html,
   }: CodeProps = $props();
+
+  const { slotWrapper, slotCode } = tvCode({ className });
 
 </script>
 
 {#if code && language}
   <div
     data-comp={compName}
-    class={tvCode({ className })}
-    use:useShiki={{ code, language }}
-  ></div>
+    class={slotWrapper({ className })}
+
+  >
+    <Figure {html}>
+      {#if name}
+        <span class={slotCode()}>{name}</span>
+      {/if}
+      <div use:useShiki={{ code, language }}></div>
+    </Figure>
+  </div>
 {/if}
 
 <style lang="postcss">
+  [data-comp="Code"] .label {
+    background-color: #262335;
+  }
+
   [data-comp="Code"] :global(pre) {
-    padding: 0 2rem;
+    padding: 0;
     overflow-x: scroll;
+    border-radius: 0.875rem;
   }
 
   [data-comp="Code"] :global(code) {

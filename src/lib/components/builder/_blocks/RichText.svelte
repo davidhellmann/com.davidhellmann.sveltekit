@@ -1,5 +1,5 @@
 <script lang="ts">
-  import RichText from "$lib/components/text/RichText.svelte";
+  import RichText from "$components/text/RichText.svelte";
 
   type BlockRichText = {
       compName?: string;

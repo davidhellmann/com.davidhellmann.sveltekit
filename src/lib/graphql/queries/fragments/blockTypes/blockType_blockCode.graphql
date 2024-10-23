@@ -5,5 +5,6 @@ fragment blockType_blockCode on blockCode_Entry {
         value
     }
     codeSnippetName
+    codeSnippetDescription
     collapsed
 }

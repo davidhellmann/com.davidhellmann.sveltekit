@@ -11,7 +11,7 @@ export default {
     green: "oklch(85% 0.357 146.65)",
     orange: "oklch(65.15% 0.296 25.94)",
     pink: "oklch(65.15% 0.293 17.47)",
-    yello: "oklch(96.03% 0.243 110.65)"
+    yellow: "oklch(96.03% 0.243 110.65)"
   },
   "accent-pink": {
     500: "#FF00D9"

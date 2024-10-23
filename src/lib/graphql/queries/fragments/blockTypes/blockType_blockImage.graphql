@@ -7,4 +7,5 @@ fragment blockType_blockImage on blockImage_Entry {
   }
   imageRatio
   showCaption
+  imageWidth
 }

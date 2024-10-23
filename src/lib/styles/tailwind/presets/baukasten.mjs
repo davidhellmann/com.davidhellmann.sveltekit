@@ -45,7 +45,7 @@ export default {
       spacing: {
         // Used for the mobile navigation toggle.
         safe: "calc(env(safe-area-inset-bottom, 0rem) + 2rem)",
-        "fluid-grid-gap": "var(--col-gap)"
+        fluid: "var(--col-gap)"
       },
       zIndex: {
         // Z-index stuff behind it's parent.
@@ -77,21 +77,21 @@ export default {
         extendValues: true // When you set extendValues to true it will extend the default values. Set it to false to overwrite the values.
       },
       values: {
-        xs: [-2, 1.6],
-        sm: [-1, 1.6],
-        base: [0, 1.6],
-        lg: [1, 1.6],
-        xl: [2, 1.2],
-        "2xl": [3, 1.2],
-        "3xl": [4, 1.2],
-        "4xl": [5, 1.1],
-        "5xl": [6, 1.1],
-        "6xl": [7, 1.1],
-        "7xl": [8, 0.8],
-        "8xl": [9, 0.8],
-        "9xl": [10, 0.8],
-        "10xl": [10, 0.7],
-        "11xl": [11, 0.7]
+        xs: [-2, 1.625],
+        sm: [-1, 1.625],
+        base: [0, 1.625],
+        lg: [1, 1.625],
+        xl: [2, 1.25],
+        "2xl": [3, 1.25],
+        "3xl": [4, 1.25],
+        "4xl": [5, 1],
+        "5xl": [6, 1],
+        "6xl": [7, 1],
+        "7xl": [8, 0.9],
+        "8xl": [9, 0.9],
+        "9xl": [10, 0.9],
+        "10xl": [10, 0.8],
+        "11xl": [11, 0.8]
       }
     }),
     plugin(function ({ addComponents, addUtilities, matchUtilities, addBase, theme }) {
@@ -104,10 +104,10 @@ export default {
           minHeight: "0vw"
         },
         body: {
-          color: theme("colors.neutral.500"),
+          color: theme("colors.neutral.600"),
           backgroundColor: theme("colors.white"),
           fontSize: theme("fontSizeFluid.base"),
-          lineHeight: theme("lineHeight.loose"),
+          lineHeight: theme("lineHeight.relaxed"),
           //--------------------------------------------------------------------------
           // Set sans, serif or mono stack with optional custom font as default.
           //--------------------------------------------------------------------------

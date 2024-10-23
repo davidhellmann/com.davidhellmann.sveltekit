@@ -1,25 +1,29 @@
 <script lang="ts">
   import { tv, type VariantProps } from "tailwind-variants";
   import Caption from "$components/text/Caption.svelte";
+  import RichText from "$components/text/RichText.svelte";
   import type{  Snippet } from "svelte";
 
   const tvFigure = tv({
     slots: {
-      figure: "flex flex-col gap-2",
-      figcaption: "",
+      slotFigure: "flex flex-col gap-fluid",
+      slotFigcaption: "",
+      slotRichText: "text-sm",
     },
     variants: {
       variant: {
         default: {
-          figure: ""
+          slotFigure: ""
         },
         boxed: {
-          figure: "bg-neutral-200 px-4 pt-4 pb-3 rounded-md"
+          slotFigure: "bg-neutral-300/60 rounded-3xl",
+          slotFigcaption: "pb-fluid px-fluid",
+          slotRichText: "pb-fluid px-fluid",
         }
       }
     },
     defaultVariants: {
-      variant: "default"
+      variant: "boxed"
     }
   });
 
@@ -30,6 +34,7 @@
     text?: string;
     source?: string;
     sourceUrl?: string;
+    html?: string;
     children?: Snippet;
   } & VariantProps<typeof tvFigure>;
 
@@ -40,16 +45,17 @@
     text,
     source,
     sourceUrl,
+    html,
     children,
     variant
   }: FigureProps = $props();
 
-  const { figure, figcaption } = tvFigure({ variant, className });
+  const { slotFigure, slotFigcaption, slotRichText } = tvFigure({ variant, className });
 </script>
 
 <figure
   data-comp={compName}
-  class={figure({ variant, className })}
+  class={slotFigure({ variant, className })}
 >
   {@render children?.()}
   {#if text}
@@ -58,7 +64,9 @@
       headline={headline}
       source={source}
       sourceUrl={sourceUrl}
-      className={figcaption()}
+      className={slotFigcaption()}
     />
+  {:else if html}
+    <RichText html={html} className={slotRichText()} />
   {/if}
 </figure>

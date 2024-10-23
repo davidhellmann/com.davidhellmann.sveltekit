@@ -1,8 +1,9 @@
 <script lang="ts">
   import type { Hyper_DataFragment } from "$lib/graphql/graphql";
+  import Quote from "$components/text/Quote.svelte";
 
   type BlockQuote = {
-      compName?: string;
+    compName?: string;
     quote: string;
     source?: string;
     link?: Hyper_DataFragment | undefined;
@@ -18,8 +19,6 @@
 
 {#if quote}
   <div class="span-content" data-comp={compName}>
-    {quote}
-    {#if source}{source}{/if}
-    {#if link}{link}{/if}
+    <Quote {quote} {source} {link} />
   </div>
 {/if}

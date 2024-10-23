@@ -3,7 +3,7 @@
 
   const baseClasses = {
     size: "fixed h-screen w-full max-w-[2000px]  pointer-events-none",
-    position: "left-1/2 top-0 -translate-x-1/2 z-[9999] px-fluid-grid-gap",
+    position: "left-1/2 top-0 -translate-x-1/2 z-[9999] px-fluid",
   };
 
 
@@ -33,7 +33,7 @@
   }: GridLinesProps = $props();
 
   const border = "border-x border-dashed border-neutral-400";
-  const positon = "absolute inset-y-0 inset-x-fluid-grid-gap";
+  const positon = "absolute inset-y-0 inset-x-fluid";
 </script>
 
 <div data-comp={compName} class={tvGridLines({ context, className })}>

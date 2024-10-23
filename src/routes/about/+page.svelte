@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { PageData } from "./$types";
-  import RichText from "$lib/components/text/RichText.svelte";
+  import RichText from "$components/text/RichText.svelte";
 
   interface Props {
     data: PageData;

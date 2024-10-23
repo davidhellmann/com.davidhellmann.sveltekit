@@ -1,6 +1,5 @@
 <script lang="ts">
   import { tv, type VariantProps } from "tailwind-variants";
-  import type { HTMLAttributes } from "svelte/elements";
   import Headline from "$components/text/Headline.svelte";
   import PlainText from "$components/text/PlainText.svelte";
   // import Link from "$components/text/Link.svelte";

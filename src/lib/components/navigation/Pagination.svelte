@@ -1,6 +1,6 @@
 <script lang="ts">
   import { tv, type VariantProps } from "tailwind-variants";
-  import IconSprite from "$lib/components/ui/IconSprite.svelte";
+  import IconSprite from "$components/ui/IconSprite.svelte";
   import type { HeroiconsIcons } from "$lib/types/heroicons-icons";
 
   const tvPagination = tv({

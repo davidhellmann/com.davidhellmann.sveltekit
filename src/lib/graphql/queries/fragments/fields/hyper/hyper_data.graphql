@@ -1,19 +1,39 @@
 fragment hyper_data on HyperLinkInterface {
-    ariaLabel
-    classes
-    isElement
-    isEmpty
-    link
-    linkText
-    linkUrl
-    linkValue
-    newWindow
-    target
-    text
-    title
-    type
-    url
-    urlPrefix
-    urlSuffix
-    linkUri
+  __typename
+  ariaLabel
+  classes
+  isElement
+  isEmpty
+  link
+  linkText
+  linkUrl
+  linkValue
+  newWindow
+  target
+  text
+  title
+  type
+  url
+  urlPrefix
+  urlSuffix
+  linkUri
+  ... on hyperLink_Asset_LinkType {
+    linkStyle
+  }
+  ... on hyperLink_Email_LinkType {
+    linkStyle
+  }
+  ... on hyperLink_Entry_LinkType {
+    linkStyle
+  }
+  ... on hyperLink_Phone_LinkType {
+    linkStyle
+  }
+  ... on hyperLink_Site_LinkType {
+    linkStyle
+  }
+  ... on hyperLink_Url_LinkType {
+    linkStyle
+  }
+
 }

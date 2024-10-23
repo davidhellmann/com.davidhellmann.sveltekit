@@ -27,7 +27,12 @@
         <RichText html={blockType.richText} />
 
       {:else if blockType.__typename === "blockCode_Entry" && blockType?.codeSnippet?.value && blockType?.codeSnippet?.language}
-        <Code code={blockType.codeSnippet.value} language={blockType.codeSnippet.language} />
+        <Code
+          code={blockType.codeSnippet.value}
+          language={blockType.codeSnippet.language}
+          name={blockType.codeSnippetName}
+          html={blockType.codeSnippetDescription}
+        />
 
       {:else if blockType.__typename === "blockQuote_Entry" && blockType?.quote}
         <Quote quote={blockType.quote}
@@ -39,6 +44,7 @@
         <Image
           image={blockType.image[0]}
           ratio={blockType.imageRatio}
+          width={blockType.imageWidth}
           showCaption={blockType.showCaption}
         />
 

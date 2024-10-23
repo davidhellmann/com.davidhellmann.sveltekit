@@ -1,11 +1,11 @@
 <script lang="ts">
   import { tv, type VariantProps } from "tailwind-variants";
   import Headline from "$components/text/Headline.svelte";
+  import RichText from "$components/text/RichText.svelte";
 
   const tvHeroBlog = tv({
     slots: {
-      slotWrapper: "",
-      slotContent: "",
+      slotWrapper: "stack-4",
       slotHeadline: "max-w-[20ch]",
     },
   });
@@ -27,7 +27,7 @@
     backButton
   }: HeroBlogProps = $props();
 
-  const {slotWrapper, slotContent, slotHeadline} = tvHeroBlog();
+  const {slotWrapper, slotHeadline} = tvHeroBlog();
 </script>
 
 {#if headline}
@@ -35,12 +35,10 @@
     data-comp={compName}
     class={slotWrapper({ className })}
   >
-    <div class={slotContent()}>
       <a href="/blog">←</a>
       {#if backButton?.title}
         <a href={backButton?.url}>{backButton?.title}</a>
       {/if}
       <Headline text={headline} tag="h1" preset="h1" className={slotHeadline()}/>
-    </div>
   </header>
 {/if}

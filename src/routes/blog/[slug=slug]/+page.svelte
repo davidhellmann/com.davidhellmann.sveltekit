@@ -22,7 +22,7 @@
   {#if entry?.title && entry?.category}
     <HeroBlog
       className="span-content"
-      headline={entry.title}
+      headline={entry?.customTitle ?? entry.title}
       backButton={{
         title: "Blog overview",
         url: "/blog"

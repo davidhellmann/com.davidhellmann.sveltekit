@@ -1,8 +1,8 @@
 <script lang="ts">
   import type { PageData } from "./$types";
-  import StackBlock from "$lib/components/stack/Blog.svelte";
-  import Headline from "$lib/components/text/Headline.svelte";
-  import RichText from "$lib/components/text/RichText.svelte";
+  import StackBlock from "$components/stack/Blog.svelte";
+  import Headline from "$components/text/Headline.svelte";
+  import RichText from "$components/text/RichText.svelte";
   import { replaceState } from "$app/navigation";
 
   interface Props {

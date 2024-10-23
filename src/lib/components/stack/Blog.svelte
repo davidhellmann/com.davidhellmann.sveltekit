@@ -13,7 +13,7 @@
   const tvStackBlog = tv({
     slots: {
       slotWrapper: "",
-      slotList: "grid grid-cols-1 @3xl:grid-cols-2 @6xl:grid-cols-3 gap-fluid-grid-gap"
+      slotList: "grid grid-cols-1 @3xl:grid-cols-2 @6xl:grid-cols-3 gap-fluid"
     }
   });
 

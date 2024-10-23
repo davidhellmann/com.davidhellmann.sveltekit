@@ -2,7 +2,7 @@
   import { tv, type VariantProps } from "tailwind-variants";
 
   const tvHeadline = tv({
-    base: "text-balance",
+    base: "text-balance text-neutral-500",
     variants: {
       preset: {
         h1: "text-4xl font-extrabold",
