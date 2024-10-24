@@ -7,7 +7,7 @@
   type BlockImage = {
     compName?: string;
     images: ComponentProps<typeof Image>["image"][];
-    imageRatio?: ComponentProps<typeof Image>["ratio"];
+    ratio?: ComponentProps<typeof Image>["ratio"];
     showCaption?: boolean;
     imagesViewMode?: string;
   }
@@ -15,7 +15,7 @@
   const {
     compName = "BlockImages",
     images,
-    imageRatio,
+    ratio,
     imagesViewMode
   }: BlockImage = $props();
 
@@ -38,8 +38,9 @@
     {#if imagesViewMode && imagesViewMode.startsWith("grid-cols-")}
       <Grid columns={getColumns()} >
         {#each images as image (image)}
+
           <Figure>
-            <Image image={image} ratio={imageRatio} />
+            <Image image={image} ratio={ratio} />
           </Figure>
         {/each}
       </Grid>

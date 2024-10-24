@@ -20,7 +20,7 @@
 
   const containerWidht = {
     "full": "span-full",
-    "wide": "col-start-[popout] col-end-[popout]",
+    "wide": "col-start-[col-1] col-end-[content-end]",
     "content": "col-start-[col-1] col-end-[col-9]",
   }[width ?? "full"];
 </script>

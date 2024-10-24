@@ -13,7 +13,7 @@
 </script>
 
 {#if html}
-  <div class="span-content" data-comp={compName}>
+  <div class="span-xl" data-comp={compName}>
     <RichText html={html} className="max-w-prose"/>
   </div>
 {/if}

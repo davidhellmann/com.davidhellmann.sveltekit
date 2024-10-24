@@ -19,7 +19,7 @@
 </script>
 
 {#if code}
-  <div class="span-popout" data-comp={compName}>
+  <div class="span-content" data-comp={compName}>
     <Code {code} {language} {name} {html} />
   </div>
 {/if}
