@@ -72,9 +72,9 @@
       <Time timestamp={postDate} />
     </div>
     <Headline
-      preset={theme !== "default" ? "h1" : "h4"}
+      preset={theme !== "default" ? "h1" : "h5"}
       text={headline}
-      className="max-w-[22ch] break-all"
+      className="max-w-[22ch]"
     />
     {#if description}
       <PlainText text={description} className={"line-clamp-3"} />
