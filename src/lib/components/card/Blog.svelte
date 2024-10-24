@@ -74,7 +74,7 @@
     <Headline
       preset={theme !== "default" ? "h1" : "h4"}
       text={headline}
-      className="max-w-[22ch]"
+      className="max-w-[22ch] break-all"
     />
     {#if description}
       <PlainText text={description} className={"line-clamp-3"} />

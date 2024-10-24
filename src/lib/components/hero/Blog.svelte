@@ -39,6 +39,6 @@
       {#if backButton?.title}
         <a href={backButton?.url}>{backButton?.title}</a>
       {/if}
-      <Headline text={headline} tag="h1" preset="h1" className={slotHeadline()}/>
+      <Headline text={headline} tag="h1" size="5xl" className={slotHeadline()}/>
   </header>
 {/if}

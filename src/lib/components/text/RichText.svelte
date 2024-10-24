@@ -34,7 +34,6 @@
   :global([data-comp="RichText"] :is(h2, h3, h4, h5, h6)) {
     font-weight: theme("fontWeight.extrabold");
     line-height: theme("lineHeight.tight");
-    color: theme("colors.neutral.500");
     padding-top: 2cap;
   }
 
