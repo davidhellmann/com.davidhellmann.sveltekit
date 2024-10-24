@@ -3,7 +3,7 @@
     Entry_DataFragment,
     Entry_DatesFragment,
     Entry_SeoFragment,
-    EntryType_BlogDetailFragment,
+    EntryType_BlogDetailFragment
   } from "$graphql/graphql";
   import { tv, type VariantProps } from "tailwind-variants";
   import Pagination from "$components/navigation/Pagination.svelte";
@@ -104,8 +104,12 @@
     </ul>
 
     {#if showPagination && totalItems && totalPages && page}
-      <Pagination totalItems={totalItems} totalPages={totalPages} currentPage={page}
-                  uri="/blog" />
+      <Pagination
+        totalItems={totalItems}
+        totalPages={totalPages}
+        currentPage={page}
+        uri="/blog"
+      />
     {/if}
   </div>
 {/if}

@@ -8,7 +8,7 @@
   let { children }: Props = $props();
 </script>
 
-<main class="fluid-grid max-w-[2000px] mx-auto relative z-10 stack-24 pt-40 lg:pt-80">
+<main class="fluid-grid max-w-[min(calc(100%-4vw),2000px)] mx-auto relative z-10 stack-24 pt-40 lg:pt-80">
   {@render children?.()}
 </main>
 
@@ -28,7 +28,7 @@
     height: 100dvh;
     z-index: -1;
     width: 100%;
-    max-width: 2000px;
+    max-width: min(calc(100% - 4vw), 2000px);
     left: 50%;
     transform: translateX(-50%);
   }

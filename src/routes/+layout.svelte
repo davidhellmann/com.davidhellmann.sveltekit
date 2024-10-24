@@ -47,7 +47,7 @@
     link: "inline-flex py-2.5 px-2.5",
     glass: "isolote backdrop-blur bg-accent-purple-500/50 ring-1 ring-white/50",
 
-    footer: "fluid-grid w-full max-w-[2000px] left-1/2 -translate-x-1/2 mt-40 z-20 relative bg-neutral-100/50  border-t border-neutral-300"
+    footer: "fluid-grid w-full max-w-[min(calc(100%-4vw),2000px)] left-1/2 -translate-x-1/2 mt-40 z-20 relative bg-neutral-100/50  border-t border-neutral-300"
   };
 </script>
 
