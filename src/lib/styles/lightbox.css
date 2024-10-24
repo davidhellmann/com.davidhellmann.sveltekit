@@ -1,0 +1,50 @@
+.lg-next,
+.lg-prev {
+  background-color: theme("colors.white");
+  color: theme("colors.neutral.500");
+}
+
+.lg-next:focus-visible:not(.disabled),
+.lg-prev:focus-visible:not(.disabled),
+.lg-next:hover:not(.disabled),
+.lg-prev:hover:not(.disabled) {
+  color: theme("colors.olkch.orange");
+}
+
+.lg-toolbar .lg-icon {
+  color: theme("colors.neutral.500");
+}
+
+.lg-toolbar .lg-icon:hover {
+  color: theme("colors.olkch.orange");
+}
+
+.lg-sub-html {
+  line-height: theme("lineHeight.tight");
+  color: theme("colors.neutral.500");
+  font-size: theme("fontSizeFluid.xs");
+
+  background-color: rgb(255 255 255 / 90%);
+}
+
+.lg-error-msg {
+  color: theme("colors.neutral.500");
+}
+
+.lg-counter {
+  color: theme("colors.neutral.500");
+}
+
+.lg-backdrop {
+  background-color: rgb(255 255 255 / 98%);
+}
+
+/* Thumb */
+.lg-outer .lg-thumb-outer {
+  background-color: theme("colors.white");
+}
+
+.lg-outer .lg-thumb-item.active,
+.lg-outer .lg-thumb-item:hover {
+  border: 2px solid theme("colors.olkch.orange");
+}

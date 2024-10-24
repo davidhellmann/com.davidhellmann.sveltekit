@@ -1,11 +1,10 @@
 <script lang="ts">
   import { tv, type VariantProps } from "tailwind-variants";
   import Headline from "$components/text/Headline.svelte";
-  import RichText from "$components/text/RichText.svelte";
 
   const tvHeroBlog = tv({
     slots: {
-      slotWrapper: "stack-4",
+      slotWrapper: "stack-4 span-xl",
       slotHeadline: "max-w-[20ch]",
     },
   });

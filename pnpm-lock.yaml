@@ -26,9 +26,6 @@ importers:
       '@tailwindcss/container-queries':
         specifier: ^0.1.1
         version: 0.1.1(tailwindcss@3.4.14)
-      bigger-picture:
-        specifier: ^1.1.17
-        version: 1.1.17
       embla-carousel-svelte:
         specifier: ^8.3.0
         version: 8.3.0(svelte@5.0.0-next.264)
@@ -38,6 +35,9 @@ importers:
       graphql-tag:
         specifier: ^2.12.6
         version: 2.12.6(graphql@16.9.0)
+      lightgallery:
+        specifier: ^2.7.2
+        version: 2.7.2
       lodash-es:
         specifier: ^4.17.21
         version: 4.17.21
@@ -1637,9 +1637,6 @@ packages:
   base64-js@1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
 
-  bigger-picture@1.1.17:
-    resolution: {integrity: sha512-7jCBq2azW0aLdW8ife2YdWCVFZt8wUXFRFs0mfSQkJQjSYSIzButr49CyTUyxp5ZwhAfgZK4ntIf+GzjRhpDaQ==}
-
   binary-extensions@2.3.0:
     resolution: {integrity: sha512-Ceh+7ox5qe7LJuLHoY0feh3pHuUDHAcRUeyL2VYghZwfpkNIy/+8Ocg0a3UuSoYzavmylwuLWQOf3hl0jjMMIw==}
     engines: {node: '>=8'}
@@ -2604,6 +2601,10 @@ packages:
   levn@0.4.1:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
     engines: {node: '>= 0.8.0'}
+
+  lightgallery@2.7.2:
+    resolution: {integrity: sha512-Ewdcg9UPDqV0HGZeD7wNE4uYejwH2u0fMo5VAr6GHzlPYlhItJvjhLTR0cL0V1HjhMsH39PAom9iv69ewitLWw==}
+    engines: {node: '>=6.0.0'}
 
   lilconfig@2.1.0:
     resolution: {integrity: sha512-utWOt/GHzuUxnLKxB6dk81RoOeoNeHgbrXiuGk4yyF5qlRz+iIVWu56E2fqGHFrXz0QNUhLB/8nKqvRH66JKGQ==}
@@ -5481,8 +5482,6 @@ snapshots:
 
   base64-js@1.5.1: {}
 
-  bigger-picture@1.1.17: {}
-
   binary-extensions@2.3.0: {}
 
   bl@4.1.0:
@@ -6541,6 +6540,8 @@ snapshots:
     dependencies:
       prelude-ls: 1.2.1
       type-check: 0.4.0
+
+  lightgallery@2.7.2: {}
 
   lilconfig@2.1.0: {}
 

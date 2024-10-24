@@ -1,7 +1,7 @@
 <script lang="ts">
   import Image from "$components/image/Image.svelte";
   import Grid from "$components/layout/Grid.svelte";
-  import Figure from "$components/wrapper/Figure.svelte";
+  import Lightbox from "$components/wrapper/Lightbox.svelte";
   import type { ComponentProps } from "svelte";
 
   type BlockImage = {
@@ -36,14 +36,13 @@
 {#if images}
   <div data-comp={compName} class="span-popout @container">
     {#if imagesViewMode && imagesViewMode.startsWith("grid-cols-")}
-      <Grid columns={getColumns()} >
+      <Grid columns={getColumns()}>
         {#each images as image (image)}
-
-          <Figure>
-            <Image image={image} ratio={ratio} />
-          </Figure>
+          <Image image={image} ratio={ratio} />
         {/each}
       </Grid>
+    {:else if imagesViewMode === "gallery"}
+      <Lightbox images={images} ratio={ratio} />
     {/if}
   </div>
 {/if}

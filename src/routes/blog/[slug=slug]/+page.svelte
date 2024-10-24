@@ -21,7 +21,6 @@
 {#if entry && entry?.__typename === "entryBlogDetail_Entry"}
   {#if entry?.title && entry?.category}
     <HeroBlog
-      className="span-content"
       headline={entry?.customTitle ?? entry.title}
       backButton={{
         title: "Blog overview",
