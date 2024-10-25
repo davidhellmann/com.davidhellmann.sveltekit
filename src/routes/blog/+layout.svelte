@@ -1,5 +1,5 @@
 <script lang="ts">
-
+  import { useWaypoint } from "$lib/actions/action.waypoint";
 
   interface Props {
     children?: import("svelte").Snippet;
@@ -8,7 +8,7 @@
   let { children }: Props = $props();
 </script>
 
-<main class="fluid-grid max-w-[min(calc(100%-4vw),2000px)] mx-auto relative z-10 stack-24 pt-40 lg:pt-80">
+<main class="fluid-grid max-w-[min(calc(100%-4vw),2000px)] mx-auto relative z-10 stack-24 pt-40 lg:pt-80" use:useWaypoint data-waypoint>
   {@render children?.()}
 </main>
 

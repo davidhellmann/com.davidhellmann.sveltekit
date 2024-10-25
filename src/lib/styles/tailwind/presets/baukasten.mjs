@@ -108,6 +108,7 @@ export default {
           backgroundColor: theme("colors.white"),
           fontSize: theme("fontSizeFluid.base"),
           lineHeight: theme("lineHeight.relaxed"),
+          scrollbarGutter: "stable",
           //--------------------------------------------------------------------------
           // Set sans, serif or mono stack with optional custom font as default.
           //--------------------------------------------------------------------------

@@ -1,7 +1,10 @@
 .lg-next,
 .lg-prev {
-  background-color: theme("colors.white");
-  color: theme("colors.neutral.500");
+  color: theme("colors.white");
+  background-color: theme("colors.accent-purple.500/0.5");
+  box-shadow: theme("boxShadow.md");
+  border-radius: theme("borderRadius.lg");
+  @apply  backdrop-blur ring-1 ring-white/5;
 }
 
 .lg-next:focus-visible:not(.disabled),
@@ -11,8 +14,20 @@
   color: theme("colors.olkch.orange");
 }
 
+.lg-toolbar {
+  @apply right-5 top-5 left-auto w-auto px-2;
+  background-color: theme("colors.accent-purple.500/0.5");
+  box-shadow: theme("boxShadow.md");
+  border-radius: theme("borderRadius.lg");
+  @apply  backdrop-blur ring-1 ring-white/5;
+}
+
 .lg-toolbar .lg-icon {
   color: theme("colors.neutral.500");
+}
+
+.lg-toolbar .lg-icon {
+  color: theme("colors.white");
 }
 
 .lg-toolbar .lg-icon:hover {
@@ -24,7 +39,7 @@
   color: theme("colors.neutral.500");
   font-size: theme("fontSizeFluid.xs");
 
-  background-color: rgb(255 255 255 / 90%);
+  background-color: transparent;
 }
 
 .lg-error-msg {
@@ -36,12 +51,16 @@
 }
 
 .lg-backdrop {
-  background-color: rgb(255 255 255 / 98%);
+  isolation: isolate;
+  background-color: theme("colors.white/0.8");
+  box-shadow: theme("boxShadow.md");
+  border-radius: theme("borderRadius.2xl");
+  @apply  backdrop-blur ring-1 ring-black/5 inset-2;
 }
 
 /* Thumb */
 .lg-outer .lg-thumb-outer {
-  background-color: theme("colors.white");
+  background-color: theme("colors.transparent");
 }
 
 .lg-outer .lg-thumb-item.active,

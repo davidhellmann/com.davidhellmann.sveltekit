@@ -20,18 +20,27 @@ export const useLightbox = (
     plugins: [lgThumbnail, lgZoom],
     download: false,
     thumbnail: true,
+    counter: false,
     dynamic: true,
     dynamicEl: items
   });
 
-  node.addEventListener("click", (e) => {
+  node.addEventListener("lgBeforeOpen", () => {
+    document.getElementsByTagName("html")[0].classList.add("no-scroll");
+  });
+  node.addEventListener("lgBeforeClose", () => {
+    document.getElementsByTagName("html")[0].classList.remove("no-scroll");
+  });
+
+  node.addEventListener("click", () => {
     dynamicGallery.openGallery(0);
   });
 
   return {
     destroy() {
-      // Remove event listener when the element is destroyed
       node.removeEventListener("click", dynamicGallery.destroy);
+      node.removeEventListener("lgBeforeOpen", () => {});
+      node.removeEventListener("lgBeforeClose", () => {});
     }
   };
 };

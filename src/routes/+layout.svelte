@@ -9,7 +9,8 @@
   import { lazyLoad } from "unlazy";
   import { dayjs } from "svelte-time";
   import "dayjs/locale/de";
-  import waypointObserver from "$utils/waypointObserver";
+  import { waypointObserver } from "$utils/waypoints";
+  // import { useWaypoint } from "$lib/actions/action.waypoint";
 
   dayjs.locale("de");
 
@@ -24,7 +25,7 @@
   const loadWayoints = () => {
     const waypointEls = document.querySelectorAll<HTMLElement>("[data-waypoint]");
     if (waypointEls.length > 0) {
-      waypointObserver.init(waypointEls);
+      waypointObserver([...waypointEls]);
     }
   };
 
@@ -42,7 +43,7 @@
     header: "fixed inset-x-0 z-20 fluid-grid top-20 font-sans",
     nav: "span-content relative flex justify-center items-center",
     logo: "absolute left-0 top-0 bottom-0 rounded-full transition shadow",
-    logoLink: "flex justify-center items-center h-full aspect-square text-accent-purple-100",
+    logoLink: "is-zoomInDown flex justify-center items-center h-full aspect-square text-accent-purple-100",
     list: "flex gap-4 rounded-full text-accent-purple-100 px-8 transition duration-200 shadow ",
     link: "inline-flex py-2.5 px-2.5",
     glass: "isolote backdrop-blur bg-accent-purple-500/50 ring-1 ring-white/50",
@@ -54,23 +55,23 @@
 <svelte:window bind:scrollY={scrollY} />
 
 <header class={cc.header}>
-  <nav class={`${cc.nav}`}>
+  <nav class={`${cc.nav}`} data-waypoint>
     <h1 class={`${cc.logo} ${cc.glass} ${scrollY > 100 ? "-translate-y-12 scale-90" : ""}`}>
-      <a class={cc.logoLink} href="/">DH</a>
+      <a data-waypoint-target class={cc.logoLink} href="/">DH</a>
     </h1>
     <ul class={`${cc.list} ${cc.glass} ${scrollY > 100 ? "-translate-y-12 scale-90" : ""}`}>
-      <li><a class={cc.link} href="/work">work.</a></li>
-      <li><a class={cc.link} href="/blog">blog.</a></li>
-      <li><a class={cc.link} href="/photos">photos.</a></li>
-      <li><a class={cc.link} href="/about">about.</a></li>
+      <li data-waypoint-target class="is-zoomInDown"><a class={cc.link} href="/work">work.</a></li>
+      <li data-waypoint-target class="is-zoomInDown"><a class={cc.link} href="/blog">blog.</a></li>
+      <li data-waypoint-target class="is-zoomInDown"><a class={cc.link} href="/photos">photos.</a></li>
+      <li data-waypoint-target class="is-zoomInDown"><a class={cc.link} href="/about">about.</a></li>
     </ul>
   </nav>
 </header>
 
 {@render children?.()}
 
-<footer class={cc.footer}>
-  <div class="span-content py-12">
+<footer class={cc.footer} data-waypoint>
+  <div class="span-content py-12 is-zoomInUp" data-waypoint-target>
     Footer WIP
   </div>
 </footer>

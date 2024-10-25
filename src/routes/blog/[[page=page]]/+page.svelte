@@ -39,7 +39,7 @@
 
   // split string and map each letter into a div
   const splitText = (str: string) => str.split("").map((letter) => `
-    <div class="is-zoomInDown" data-waypoint-target="">
+    <div class="is-zoomInDown" data-waypoint-target>
       ${letter === " " ? "&nbsp;" : letter}
     </div>
   `).join("");
