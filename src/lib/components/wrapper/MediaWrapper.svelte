@@ -3,11 +3,13 @@
   import type { Snippet } from "svelte";
 
   const tvMediaWrapper = tv({
-    base: "overflow-clip",
+    base: "",
     variants: {
       preset: {
         unset: "",
-        "glass-white": "isolate bg-white/50 backdrop-blur shadow-md ring-1 ring-black/5",
+        "glass-white": `
+          isolate relative z-10 bg-white/50 backdrop-blur shadow-md ring-1 ring-black/5 rounded-3xl
+        `,
       },
     },
     defaultVariants: {

@@ -71,7 +71,7 @@
 {@render children?.()}
 
 <footer class={cc.footer} data-waypoint>
-  <div class="span-content py-12 is-zoomInUp" data-waypoint-target>
+  <div class="span-content py-16 is-zoomInUp" data-waypoint-target>
     Footer WIP
   </div>
 </footer>

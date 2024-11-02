@@ -39,7 +39,7 @@
        use:useLightbox={{ items: items}}>
     <Grid columns={"image-gallery"} gap={0}>
       {#each images.slice(0, 3) as image (image?.id)}
-        <Image image={image} ratio={ratio} noscript={false} />
+        <Image image={image} ratio={"aspect-landscape"} noscript={false} />
       {/each}
       <span class={slotButton({})}>Open Gallery ({images.length})</span>
     </Grid>

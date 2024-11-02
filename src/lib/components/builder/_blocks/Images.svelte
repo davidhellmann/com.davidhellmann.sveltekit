@@ -2,6 +2,7 @@
   import Image from "$components/image/Image.svelte";
   import Grid from "$components/layout/Grid.svelte";
   import Lightbox from "$components/wrapper/Lightbox.svelte";
+  import ImageGridCalculated from "$components/wrapper/ImageGridCalculated.svelte";
   import type { ComponentProps } from "svelte";
 
   type BlockImage = {
@@ -43,6 +44,8 @@
       </Grid>
     {:else if imagesViewMode === "gallery"}
       <Lightbox images={images} ratio={ratio} />
+    {:else if imagesViewMode === "grid-calculated"}
+      <ImageGridCalculated images={images} />
     {/if}
   </div>
 {/if}

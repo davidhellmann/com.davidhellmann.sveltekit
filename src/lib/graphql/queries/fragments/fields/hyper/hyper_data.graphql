@@ -17,23 +17,22 @@ fragment hyper_data on HyperLinkInterface {
   urlPrefix
   urlSuffix
   linkUri
-  ... on hyperLink_Asset_LinkType {
+  ... on hyperLinks_Asset_LinkType {
     linkStyle
   }
-  ... on hyperLink_Email_LinkType {
+  ... on hyperLinks_Email_LinkType {
     linkStyle
   }
-  ... on hyperLink_Entry_LinkType {
+  ... on hyperLinks_Entry_LinkType {
     linkStyle
   }
-  ... on hyperLink_Phone_LinkType {
+  ... on hyperLinks_Phone_LinkType {
     linkStyle
   }
-  ... on hyperLink_Site_LinkType {
+  ... on hyperLinks_Site_LinkType {
     linkStyle
   }
-  ... on hyperLink_Url_LinkType {
+  ... on hyperLinks_Url_LinkType {
     linkStyle
   }
-
 }

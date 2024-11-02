@@ -58,7 +58,7 @@
 
       {:else if blockType.__typename === "blockCta_Entry" && blockType?.hyperLinks}
         <Cta
-          title={blockType.title}
+          headline={blockType.headline}
           description={blockType.description}
           links={blockType.hyperLinks}
         />
