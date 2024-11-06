@@ -4,11 +4,14 @@
   import Headline from "$components/text/Headline.svelte";
   import RichText from "$components/text/RichText.svelte";
   import Link from "$components/text/Link.svelte";
+  import IconSprite from "$components/ui/IconSprite.svelte";
+  import type { HeroiconsIcons } from "$lib/types/heroicons-icons";
 
   type BlockCta = {
     compName?: string;
     headline?: string;
     description?: string;
+    icon?: HeroiconsIcons;
     links: Hyper_DataFragment[];
   }
 
@@ -16,6 +19,7 @@
     compName = "BlockCta",
     headline,
     description,
+    icon = "face-smile-outline",
     links
   }: BlockCta = $props();
 </script>
@@ -32,9 +36,12 @@
       <!--TODO: Create Link Group Component (Or Grid) -->
       <div class="flex flex-row gap-4 stack-space-8">
         {#each links as link (link)}
-          <Link text={link.text} variant={link.linkStyle} href={link.url} />
+          {#if link.url}
+            <Link text={link.text} variant={link.linkStyle} href={link.url} />
+          {/if}
         {/each}
       </div>
     {/if}
+    <IconSprite size={96} className="absolute right-10 top-10 no-space-y opacity-40" icon={icon} />
   </CtaWrapper>
 {/if}

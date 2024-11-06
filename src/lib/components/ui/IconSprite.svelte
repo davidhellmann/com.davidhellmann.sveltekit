@@ -14,6 +14,8 @@
         32: "size-8",
         48: "size-12",
         64: "size-16",
+        96: "size-24",
+        128: "size-32",
         relative: "[--size:1.65cap] [width:var(--size)] [height:var(--size)] [flex-basis:var(--size)]",
       }
     },

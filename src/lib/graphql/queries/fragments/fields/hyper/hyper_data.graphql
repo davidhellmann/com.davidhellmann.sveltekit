@@ -35,4 +35,22 @@ fragment hyper_data on HyperLinkInterface {
   ... on hyperLinks_Url_LinkType {
     linkStyle
   }
+  ... on hyperLink_Asset_LinkType {
+    linkStyle
+  }
+  ... on hyperLink_Email_LinkType {
+    linkStyle
+  }
+  ... on hyperLink_Entry_LinkType {
+    linkStyle
+  }
+  ... on hyperLink_Phone_LinkType {
+    linkStyle
+  }
+  ... on hyperLink_Site_LinkType {
+    linkStyle
+  }
+  ... on hyperLink_Url_LinkType {
+    linkStyle
+  }
 }

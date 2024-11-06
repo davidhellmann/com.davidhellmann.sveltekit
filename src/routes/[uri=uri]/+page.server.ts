@@ -12,14 +12,14 @@ import { getGqlData } from "$graphql/graphql-client";
 
 export const entries: EntryGenerator = async () => {
   const { entries } = (await getGqlData<GetPrerenderDataQueryVariables>(GetPrerenderDataDocument, {
-    section: ["blog"],
+    section: ["pages"],
     limit: 999
   })) as GetPrerenderDataQuery;
 
   return entries?.map((entry) => {
     if (entry) {
       return {
-        slug: entry.slug
+        uri: entry.uri
       };
     }
   }) as RouteParams[];
@@ -27,11 +27,12 @@ export const entries: EntryGenerator = async () => {
 
 export const load: PageServerLoad = async ({ params }) => {
   const { entries } = (await getGqlData<GetEntriesQueryVariables>(GetEntriesDocument, {
-    section: ["blog"],
-    slug: params?.slug,
-    limit: 1,
-    includePrevNext: true
+    section: ["pages"],
+    uri: params?.uri,
+    limit: 1
   })) as GetEntriesQuery;
+
+  console.log(entries);
 
   return {
     entries: entries

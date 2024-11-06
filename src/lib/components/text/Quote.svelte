@@ -12,7 +12,7 @@
         after:absolute after:left-0 after:top-24 after:w-56 after:h-full after:bg-neutral-300 after:-translate-x-1/3 after:z-behind
       `,
       slotSource: "text-lg text-olkch-green relative z-10",
-      slotSourceLink: "",
+      slotSourceLink: "text-lg",
     }
   });
 

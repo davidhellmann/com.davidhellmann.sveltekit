@@ -15,6 +15,7 @@ query GetEntries(
 
   #Conditions
   $includeSeo: Boolean = true
+  $includePrevNext: Boolean = false
   $includeEntryTypes: Boolean = true
 ) {
   entries(
@@ -35,13 +36,14 @@ query GetEntries(
     ...entry_data
     ...entry_dates
     ...entry_seo @include(if: $includeSeo)
-    ...entry_prev
-    ...entry_next
+    ...entry_prev @include(if: $includePrevNext)
+    ...entry_next @include(if: $includePrevNext)
 
     ...author_data
 
     # Entry Types
     ...entryType_blogDetail @include(if: $includeEntryTypes)
+    ...entryType_about @include(if: $includeEntryTypes)
   }
   entryCount(
     site: $site,

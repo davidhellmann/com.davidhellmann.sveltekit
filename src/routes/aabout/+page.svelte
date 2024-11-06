@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { PageData } from "./$types";
   import RichText from "$components/text/RichText.svelte";
+  import Headline from "$components/text/Headline.svelte";
 
   interface Props {
     data: PageData;
@@ -35,6 +36,7 @@
 
 <div class={cc.grid}>
   {#if entries}
+    <Headline text={entries[0].title} />
     {#each entries as entry, index}
       {#if entry?.__typename === "entryBlogDetail_Entry"}
         <a href={entry?.url} class={`${index < 2 ? cc.card2Cols : cc.card3Cols}`}>
