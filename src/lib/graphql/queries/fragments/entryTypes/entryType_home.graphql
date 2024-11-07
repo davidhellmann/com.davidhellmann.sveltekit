@@ -1,4 +1,4 @@
-fragment entryType_about on entryAbout_Entry {
+fragment entryType_home on entryHome_Entry {
   ...entryType_data
   description
   customTitle
@@ -11,13 +11,5 @@ fragment entryType_about on entryAbout_Entry {
     ...asset_data
     ...asset_transforms
     ...asset_customFields
-  }
-  aboutMeRichText
-  awardsRichText
-  awards {
-    ...matrix_awards
-  }
-  curriculumVitae {
-    ...matrix_curriculumVitae
   }
 }

@@ -1,0 +1,16 @@
+fragment blockType_blockAwardsRow on blockAwardsRow_Entry {
+  ...entryType_data
+  company {
+    ...entryType_company
+  }
+  image {
+    ...asset_data
+    ...asset_transforms
+    ...asset_customFields
+  }
+  award
+  date @formatDateTime(format: "short")
+  hyperLink {
+    ...hyper_data
+  }
+}

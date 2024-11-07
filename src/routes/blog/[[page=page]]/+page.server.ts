@@ -45,6 +45,10 @@ export const load: PageServerLoad = async ({ params }) => {
     redirect(307, `/blog/${totalPages}`);
   }
 
+  console.log(`start: blog/[${page}]`);
+  console.log(entries, entryCount, totalPages, page);
+  console.log(`end: blog/[${page}]`);
+
   return {
     entries: entries as (Entry_DataFragment & Entry_SeoFragment & EntryType_BlogDetailFragment)[],
     entryCount: entryCount,

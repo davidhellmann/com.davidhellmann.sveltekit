@@ -1,0 +1,3 @@
+fragment matrix_curriculumVitae on curriculumVitae_MatrixField {
+  ...blockType_blockCurriculumVitaeRow
+}

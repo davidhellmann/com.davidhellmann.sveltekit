@@ -44,6 +44,7 @@ query GetEntries(
     # Entry Types
     ...entryType_blogDetail @include(if: $includeEntryTypes)
     ...entryType_about @include(if: $includeEntryTypes)
+    ...entryType_work @include(if: $includeEntryTypes)
   }
   entryCount(
     site: $site,

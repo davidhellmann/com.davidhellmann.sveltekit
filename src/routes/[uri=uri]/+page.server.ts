@@ -28,11 +28,12 @@ export const entries: EntryGenerator = async () => {
 export const load: PageServerLoad = async ({ params }) => {
   const { entries } = (await getGqlData<GetEntriesQueryVariables>(GetEntriesDocument, {
     section: ["pages"],
-    uri: params?.uri,
-    limit: 1
+    uri: params?.uri
   })) as GetEntriesQuery;
 
+  console.log(`start: [${params?.uri}]`);
   console.log(entries);
+  console.log(`end: [${params?.uri}]`);
 
   return {
     entries: entries

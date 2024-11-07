@@ -3,6 +3,7 @@
   import StackBlock from "$components/stack/Blog.svelte";
   import Headline from "$components/text/Headline.svelte";
   import RichText from "$components/text/RichText.svelte";
+  import { afterNavigate } from "$app/navigation";
   import { replaceState } from "$app/navigation";
 
   interface Props {
@@ -12,14 +13,10 @@
   let { data }: Props = $props();
   const entryCount = data.entryCount ?? 1;
   const totalPages = data.totalPages ?? 1;
-  let entries = $state(data.entries);
-  let page = $state(1);
+  let entries = $derived(data.entries);
+  let page = $derived(data.page);
 
-
-  $effect(() => {
-    entries = data.entries;
-    page = data.page;
-
+  afterNavigate(() => {
     if (page === 1) {
       replaceState("/blog", {});
     }

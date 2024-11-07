@@ -9,8 +9,7 @@
   }
 
   let { data }: Props = $props();
-
-  const entry = getFirstEntry(data.entries);
+  let entry = $derived(getFirstEntry(data.entries));
 </script>
 
 {#if entry?.seomatic}
@@ -19,6 +18,14 @@
 
 {#if entry && entry?.__typename === "entryAbout_Entry"}
     {#if entry.title}
+      About
+      <Headline text={entry.title} />
+    {/if}
+{/if}
+
+{#if entry && entry?.__typename === "entryWork_Entry"}
+    {#if entry.title}
+      Work
       <Headline text={entry.title} />
     {/if}
 {/if}

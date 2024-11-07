@@ -33,6 +33,10 @@ export const load: PageServerLoad = async ({ params }) => {
     includePrevNext: true
   })) as GetEntriesQuery;
 
+  console.log(`start: blog/[${params?.slug}]`);
+  console.log(entries);
+  console.log(`end: blog/[${params?.slug}]`);
+
   return {
     entries: entries
   };

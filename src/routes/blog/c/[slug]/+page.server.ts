@@ -19,6 +19,10 @@ export const load: PageServerLoad = async ({ params }) => {
     ]
   })) as GetEntriesQuery;
 
+  console.log(`start: blog/c/[${params.slug}]`);
+  console.log(entries, blogEntries);
+  console.log(`end: blog/c/[${params.slug}]`);
+
   return {
     entries,
     blogEntries

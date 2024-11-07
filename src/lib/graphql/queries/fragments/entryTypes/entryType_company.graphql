@@ -1,0 +1,11 @@
+fragment entryType_company on entryCompany_Entry {
+  ...entryType_data
+  image {
+    ...asset_data
+    ...asset_transforms
+    ...asset_customFields
+  }
+  hyperLink {
+    ...hyper_data
+  }
+}

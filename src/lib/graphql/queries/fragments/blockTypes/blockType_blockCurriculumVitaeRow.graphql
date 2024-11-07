@@ -1,0 +1,10 @@
+fragment blockType_blockCurriculumVitaeRow on blockCurriculumVitaeRow_Entry {
+  ...entryType_data
+  company {
+    ...entryType_company
+  }
+  position
+  currentPosition
+  dateStart @formatDateTime(format: "short")
+  dateEnd @formatDateTime(format: "short")
+}
