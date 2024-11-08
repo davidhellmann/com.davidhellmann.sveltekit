@@ -1,4 +1,4 @@
-fragment blockType_blockCurriculumVitaeRow on blockCurriculumVitaeRow_Entry {
+fragment blockType_blockCurriculumVitae on blockCurriculumVitae_Entry {
   ...entryType_data
   company {
     ...entryType_company

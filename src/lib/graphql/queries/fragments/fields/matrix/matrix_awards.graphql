@@ -1,3 +1,3 @@
 fragment matrix_awards on awards_MatrixField {
-  ...blockType_blockAwardsRow
+  ...blockType_blockAward
 }

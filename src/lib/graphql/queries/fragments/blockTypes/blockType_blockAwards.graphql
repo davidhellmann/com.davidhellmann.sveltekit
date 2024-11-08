@@ -1,4 +1,4 @@
-fragment blockType_blockAwardsRow on blockAwardsRow_Entry {
+fragment blockType_blockAward on blockAward_Entry {
   ...entryType_data
   company {
     ...entryType_company
