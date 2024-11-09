@@ -10,7 +10,7 @@ import {
   type GetPrerenderDataQuery,
   type Entry_DataFragment,
   type Entry_SeoFragment,
-  type EntryType_BlogSingleFragment
+  type EntryType_PhotosSingleFragment
 } from "$graphql/graphql";
 import { getGqlData } from "$graphql/graphql-client";
 
@@ -21,7 +21,7 @@ const getTotalPages = (entryCount: number, limit: number): number => {
 
 export const entries: EntryGenerator = async () => {
   const { entryCount } = (await getGqlData<GetPrerenderDataQueryVariables>(GetPrerenderDataDocument, {
-    section: ["blog"]
+    section: ["photos"]
   })) as GetPrerenderDataQuery;
 
   return Array.from({ length: getTotalPages(entryCount, limit) }, (_, i) => ({
@@ -34,7 +34,7 @@ export const load: PageServerLoad = async ({ params }) => {
   const offset = (page - 1) * limit || 0;
 
   const { entries, entryCount } = (await getGqlData<GetEntriesQueryVariables>(GetEntriesDocument, {
-    section: ["blog"],
+    section: ["photos"],
     limit: limit,
     offset: offset
   })) as GetEntriesQuery;
@@ -42,21 +42,21 @@ export const load: PageServerLoad = async ({ params }) => {
   const totalPages = getTotalPages(entryCount, limit);
 
   if (entries?.length === 0) {
-    redirect(307, `/blog/${totalPages}`);
+    redirect(307, `/photos/${totalPages}`);
   }
 
-  const { entries: blogEntry } = (await getGqlData<GetEntriesQueryVariables>(GetEntriesDocument, {
+  const { entries: photosEntry } = (await getGqlData<GetEntriesQueryVariables>(GetEntriesDocument, {
     section: ["pages"],
-    type: "entryBlogList"
+    type: "entryListPhotos"
   })) as GetEntriesQuery;
 
-  console.log(`start: blog/[${page}]`);
+  console.log(`start: photos/[${page}]`);
   console.log(entries, entryCount, totalPages, page);
-  console.log(`end: blog/[${page}]`);
+  console.log(`end: photos/[${page}]`);
 
   return {
-    blogEntry: blogEntry,
-    entries: entries as (Entry_DataFragment & Entry_SeoFragment & EntryType_BlogSingleFragment)[],
+    photosEntry: photosEntry,
+    entries: entries as (Entry_DataFragment & Entry_SeoFragment & EntryType_PhotosSingleFragment)[],
     entryCount: entryCount,
     totalPages: totalPages,
     page: page

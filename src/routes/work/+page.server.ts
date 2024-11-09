@@ -13,7 +13,7 @@ import { getGqlData } from "$graphql/graphql-client";
 export const load: PageServerLoad = async () => {
   const { entries } = (await getGqlData<GetEntriesQueryVariables>(GetEntriesDocument, {
     section: ["pages"],
-    type: "entryListWork"
+    type: "entryWorkList"
   })) as GetEntriesQuery;
 
   console.log("start: work");

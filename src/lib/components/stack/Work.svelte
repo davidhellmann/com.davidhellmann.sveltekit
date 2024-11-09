@@ -10,7 +10,7 @@
   import CardBlog from "$components/card/Blog.svelte";
   import { type ComponentProps } from "svelte";
 
-  const tvStackBlog = tv({
+  const tvStackWork = tv({
     slots: {
       slotWrapper: "",
       slotList: "grid grid-cols-1 @3xl:grid-cols-2 @6xl:grid-cols-3 gap-fluid"
@@ -22,7 +22,7 @@
     & Entry_SeoFragment
     & Entry_DatesFragment;
 
-  type StackBlogProps = {
+  type StackWorkProps = {
     compName?: string;
     className?: string;
     entries: Entry[];
@@ -30,19 +30,19 @@
     totalItems?: number;
     totalPages?: number;
     page?: number;
-  } & VariantProps<typeof tvStackBlog>;
+  } & VariantProps<typeof tvStackWork>;
 
   let {
-    compName = "StackBlog",
+    compName = "StackWork",
     className,
     entries,
     showPagination = true,
     totalItems,
     totalPages,
     page
-  }: StackBlogProps = $props();
+  }: StackWorkProps = $props();
 
-  const { slotWrapper, slotList } = tvStackBlog({ className });
+  const { slotWrapper, slotList } = tvStackWork({ className });
 
   const getColWidth = (index: number, page: number = 1): {
     colSpan: string,

@@ -33,21 +33,25 @@ query GetEntries(
     # Relations
     relatedToEntries: $relatedToEntries
   ) {
+    # Entry Data
     ...entry_data
     ...entry_dates
     ...entry_seo @include(if: $includeSeo)
     ...entry_prev @include(if: $includePrevNext)
     ...entry_next @include(if: $includePrevNext)
 
+    # Author Data
     ...author_data
 
     # Entry Types
-    ...entryType_blogSingle @include(if: $includeEntryTypes)
-    ...entryType_workSingle @include(if: $includeEntryTypes)
     ...entryType_about @include(if: $includeEntryTypes)
-    ...entryType_listWork @include(if: $includeEntryTypes)
-    ...entryType_listBlog @include(if: $includeEntryTypes)
+    ...entryType_blogList @include(if: $includeEntryTypes)
+    ...entryType_blogSingle @include(if: $includeEntryTypes)
     ...entryType_home @include(if: $includeEntryTypes)
+    ...entryType_photosList @include(if: $includeEntryTypes)
+    ...entryType_photosSingle @include(if: $includeEntryTypes)
+    ...entryType_workSingle @include(if: $includeEntryTypes)
+    ...entryType_workList @include(if: $includeEntryTypes)
   }
   entryCount(
     site: $site,

@@ -1,4 +1,4 @@
-fragment entryType_listBlog on entryListBlog_Entry {
+fragment entryType_photosSingle on entryPhotosSingle_Entry {
   ...entryType_data
   description
   customTitle

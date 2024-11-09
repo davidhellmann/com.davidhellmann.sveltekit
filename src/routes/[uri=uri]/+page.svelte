@@ -23,7 +23,7 @@
     {/if}
 {/if}
 
-{#if entry && entry?.__typename === "entryListWork_Entry"}
+{#if entry && entry?.__typename === "entryWorkList_Entry"}
     {#if entry.title}
       Work
       <Headline text={entry.title} />

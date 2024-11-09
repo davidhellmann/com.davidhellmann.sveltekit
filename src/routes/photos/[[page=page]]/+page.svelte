@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { PageData } from "./$types";
-  import StackBlog from "$components/stack/Blog.svelte";
+  import StackPhotos from "$components/stack/Photos.svelte";
   import Headline from "$components/text/Headline.svelte";
   import RichText from "$components/text/RichText.svelte";
   import Seo from "$components/head/Seo.svelte";
@@ -15,13 +15,13 @@
   let { data }: Props = $props();
   const entryCount = data.entryCount ?? 1;
   const totalPages = data.totalPages ?? 1;
-  let blogEntry = getFirstEntry(data.blogEntry);
+  let photosEntry = getFirstEntry(data.photosEntry);
   let entries = $derived(data.entries);
   let page = $derived(data.page);
 
   afterNavigate(() => {
     if (page === 1) {
-      replaceState("/blog", {});
+      replaceState("/photos", {});
     }
   });
 
@@ -45,15 +45,15 @@
   `).join("");
 </script>
 
-{#if blogEntry?.seomatic}
-  <Seo seo={blogEntry.seomatic} />
+{#if photosEntry?.seomatic}
+  <Seo seo={photosEntry.seomatic} />
 {/if}
 
-{#if blogEntry && blogEntry?.__typename === "entryBlogList_Entry"}
+{#if photosEntry && photosEntry?.__typename === "entryListPhotos_Entry"}
   {#if page === 1}
     <Headline
       className={cc.heading}
-      text={blogEntry?.customTitle}
+      text={photosEntry?.customTitle}
       size="7xl"
       family="sans"
       weight="extrabold"
@@ -72,7 +72,7 @@
       {@html splitText(`Page ${page.toString()}`)}
     </div>
   {/if}
-  <StackBlog
+  <StackPhotos
     entries={entries}
     showPagination={true}
     totalItems={entryCount}
