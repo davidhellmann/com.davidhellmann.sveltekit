@@ -38,7 +38,7 @@
   {#if entries}
     <Headline text={entries[0].title} />
     {#each entries as entry, index}
-      {#if entry?.__typename === "entryBlogDetail_Entry"}
+      {#if entry?.__typename === "entryBlogSingle_Entry"}
         <a href={entry?.url} class={`${index < 2 ? cc.card2Cols : cc.card3Cols}`}>
           <div class={`${getCardClass(index)} ${cc.glassEffect}`}></div>
           <div class={cc.cardContent}>

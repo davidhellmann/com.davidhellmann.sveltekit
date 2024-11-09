@@ -1,0 +1,10 @@
+fragment entryType_listBlog on entryListBlog_Entry {
+  ...entryType_data
+  description
+  customTitle
+  image {
+    ...asset_data
+    ...asset_transforms
+    ...asset_customFields
+  }
+}

@@ -18,7 +18,7 @@
   <Seo seo={entry.seomatic} />
 {/if}
 
-{#if entry && entry?.__typename === "entryBlogDetail_Entry"}
+{#if entry && entry?.__typename === "entryBlogSingle_Entry"}
   {#if entry?.title && entry?.category}
     <HeroBlog
       headline={entry?.customTitle ?? entry.title}

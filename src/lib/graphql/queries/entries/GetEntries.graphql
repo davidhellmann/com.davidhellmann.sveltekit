@@ -42,9 +42,12 @@ query GetEntries(
     ...author_data
 
     # Entry Types
-    ...entryType_blogDetail @include(if: $includeEntryTypes)
+    ...entryType_blogSingle @include(if: $includeEntryTypes)
+    ...entryType_workSingle @include(if: $includeEntryTypes)
     ...entryType_about @include(if: $includeEntryTypes)
-    ...entryType_work @include(if: $includeEntryTypes)
+    ...entryType_listWork @include(if: $includeEntryTypes)
+    ...entryType_listBlog @include(if: $includeEntryTypes)
+    ...entryType_home @include(if: $includeEntryTypes)
   }
   entryCount(
     site: $site,

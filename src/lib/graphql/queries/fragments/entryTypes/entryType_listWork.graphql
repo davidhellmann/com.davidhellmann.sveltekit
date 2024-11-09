@@ -1,4 +1,4 @@
-fragment entryType_work on entryWork_Entry {
+fragment entryType_listWork on entryListWork_Entry {
   ...entryType_data
   description
   customTitle

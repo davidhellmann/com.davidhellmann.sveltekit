@@ -10,7 +10,7 @@ import {
   type GetPrerenderDataQuery,
   type Entry_DataFragment,
   type Entry_SeoFragment,
-  type EntryType_BlogDetailFragment
+  type EntryType_BlogSingleFragment
 } from "$graphql/graphql";
 import { getGqlData } from "$graphql/graphql-client";
 
@@ -45,12 +45,18 @@ export const load: PageServerLoad = async ({ params }) => {
     redirect(307, `/blog/${totalPages}`);
   }
 
+  const { entries: blogEntry } = (await getGqlData<GetEntriesQueryVariables>(GetEntriesDocument, {
+    section: ["pages"],
+    type: "entryListBlog"
+  })) as GetEntriesQuery;
+
   console.log(`start: blog/[${page}]`);
   console.log(entries, entryCount, totalPages, page);
   console.log(`end: blog/[${page}]`);
 
   return {
-    entries: entries as (Entry_DataFragment & Entry_SeoFragment & EntryType_BlogDetailFragment)[],
+    blogEntry: blogEntry,
+    entries: entries as (Entry_DataFragment & Entry_SeoFragment & EntryType_BlogSingleFragment)[],
     entryCount: entryCount,
     totalPages: totalPages,
     page: page

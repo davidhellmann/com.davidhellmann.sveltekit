@@ -25,7 +25,7 @@
 
     {#if blogEntries}
       {#each blogEntries as blogEntry (blogEntry)}
-        {#if blogEntry?.__typename === "entryBlogDetail_Entry"}
+        {#if blogEntry?.__typename === "entryBlogSingle_Entry"}
           {#if blogEntry?.title}
             <a href={blogEntry?.url}>
               <Headline text={blogEntry.title}/>

@@ -2,13 +2,16 @@
   import { tv, type VariantProps } from "tailwind-variants";
   import type { Snippet } from "svelte";
 
-  const tvMediaWrapper = tv({
+  const tvDecorativeWrapper = tv({
     base: "",
     variants: {
       preset: {
         unset: "",
         "glass-white": `
           isolate relative z-10 bg-white/50 backdrop-blur shadow-md ring-1 ring-black/5 rounded-3xl
+        `,
+        "glass-home": `
+          isolate relative z-10 lin bg-gradient-to-b from-transparent to-neutral-900/10 backdrop-blur-lg ring-1 ring-black/5 rounded-3xl
         `,
       },
     },
@@ -17,24 +20,24 @@
     }
   });
 
-  type MediaWrapperProps = {
+  type DecorativeWrapperProps = {
     compName?: string;
     className?: string | undefined;
     children: Snippet;
-  } & VariantProps<typeof tvMediaWrapper>;
+  } & VariantProps<typeof tvDecorativeWrapper>;
 
   const {
-    compName = "MediaWrapper",
+    compName = "DecorativeWrapper",
     className,
     preset,
     children,
-  }: MediaWrapperProps = $props();
+  }: DecorativeWrapperProps = $props();
 </script>
 
 {#if children}
   <div
     data-comp={compName}
-    class={tvMediaWrapper({ preset, className })}
+    class={tvDecorativeWrapper({ preset, className })}
   >
     {@render children()}
   </div>

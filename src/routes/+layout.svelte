@@ -40,7 +40,7 @@
   });
 
   const cc = {
-    header: "fixed inset-x-0 z-20 fluid-grid top-20 font-sans",
+    header: "fixed inset-x-0 z-20 fluid-grid max-w-[min(calc(100%-4vw),2000px)] mx-auto top-16 font-sans",
     nav: "span-content relative flex justify-center items-center",
     logo: "absolute left-0 top-0 bottom-0 rounded-full transition shadow",
     logoLink: "is-zoomInDown flex justify-center items-center h-full aspect-square text-accent-purple-100",
@@ -48,7 +48,7 @@
     link: "inline-flex py-2.5 px-2.5",
     glass: "isolote backdrop-blur bg-accent-purple-500/50 ring-1 ring-white/50",
 
-    footer: "fluid-grid w-full max-w-[min(calc(100%-4vw),2000px)] left-1/2 -translate-x-1/2 mt-40 z-20 relative bg-neutral-100/50  border-t border-neutral-300"
+    footer: "fluid-grid w-full max-w-[min(calc(100%-4vw),2000px)] left-1/2 -translate-x-1/2 mt-40 z-20 relative bg-[rgba(255,255,255,0.025)]  border-t border-neutral-500/20"
   };
 </script>
 
@@ -56,10 +56,10 @@
 
 <header class={cc.header}>
   <nav class={`${cc.nav}`} data-waypoint>
-    <h1 class={`${cc.logo} ${cc.glass} ${scrollY > 100 ? "-translate-y-12 scale-90" : ""}`}>
+    <h1 class={`${cc.logo} ${cc.glass} ${scrollY > 100 ? "-translate-y-10 scale-90" : ""}`}>
       <a data-waypoint-target class={cc.logoLink} href="/">DH</a>
     </h1>
-    <ul class={`${cc.list} ${cc.glass} ${scrollY > 100 ? "-translate-y-12 scale-90" : ""}`}>
+    <ul class={`${cc.list} ${cc.glass} ${scrollY > 100 ? "-translate-y-10 scale-90" : ""}`}>
       <li data-waypoint-target class="is-zoomInDown"><a class={cc.link} href="/work">work.</a></li>
       <li data-waypoint-target class="is-zoomInDown"><a class={cc.link} href="/blog">blog.</a></li>
       <li data-waypoint-target class="is-zoomInDown"><a class={cc.link} href="/photos">photos.</a></li>

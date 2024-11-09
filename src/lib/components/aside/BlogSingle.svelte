@@ -2,28 +2,28 @@
   import { tv, type VariantProps } from "tailwind-variants";
   import Pill from "$components/text/Pill.svelte";
 
-  const tvAsideBlogDetail = tv({
+  const tvAsideBlogSingle = tv({
     slots: {
       slotWrapper: "sticky top-12",
     },
   });
 
-  type AsideBlogDetailProps = {
+  type AsideBlogSingleProps = {
     compName?: string;
     className?: string;
     category?: {
       title?: string;
       url?: string;
     };
-  } & VariantProps<typeof tvAsideBlogDetail>;
+  } & VariantProps<typeof tvAsideBlogSingle>;
 
   const {
-    compName = "AsideBlogDetail",
+    compName = "AsideBlogSingle",
     className,
     category
-  }: AsideBlogDetailProps = $props();
+  }: AsideBlogSingleProps = $props();
 
-  const {slotWrapper} = tvAsideBlogDetail();
+  const {slotWrapper} = tvAsideBlogSingle();
 </script>
 
 {#if category}

@@ -3,7 +3,7 @@
     Entry_DataFragment,
     Entry_DatesFragment,
     Entry_SeoFragment,
-    EntryType_BlogDetailFragment
+    EntryType_BlogSingleFragment
   } from "$graphql/graphql";
   import { tv, type VariantProps } from "tailwind-variants";
   import Pagination from "$components/navigation/Pagination.svelte";
@@ -18,7 +18,7 @@
   });
 
   type Entry = Entry_DataFragment
-    & EntryType_BlogDetailFragment
+    & EntryType_BlogSingleFragment
     & Entry_SeoFragment
     & Entry_DatesFragment;
 
@@ -86,7 +86,7 @@
 
     <ul class={slotList({ className })} data-waypoint>
       {#each entries as entry, i (entry.id)}
-        {#if entry?.__typename === "entryBlogDetail_Entry"}
+        {#if entry?.__typename === "entryBlogSingle_Entry"}
           {#if entry?.title && entry?.url && entry?.postDate && entry.category[0]?.title}
             <li class={`${getColWidth(i, page).colSpan} is-zoomInUp`} data-waypoint-target>
               <CardBlog

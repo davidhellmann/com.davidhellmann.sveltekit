@@ -3,6 +3,8 @@
   import StackBlock from "$components/stack/Blog.svelte";
   import Headline from "$components/text/Headline.svelte";
   import RichText from "$components/text/RichText.svelte";
+  import Seo from "$components/head/Seo.svelte";
+  import { getFirstEntry } from "$utils/getFirstEntry";
   import { afterNavigate } from "$app/navigation";
   import { replaceState } from "$app/navigation";
 
@@ -13,6 +15,7 @@
   let { data }: Props = $props();
   const entryCount = data.entryCount ?? 1;
   const totalPages = data.totalPages ?? 1;
+  let blogEntry = getFirstEntry(data.blogEntry);
   let entries = $derived(data.entries);
   let page = $derived(data.page);
 
@@ -31,7 +34,7 @@
 
   const content = {
     heading: "WRITING ABOUT …",
-    about:  `<p>…things I’m interested in—<br><strong class="${cc.underline}">stories</strong> from my <strong class="${cc.underline}">life</strong>, <strong class="${cc.underline}">adventures</strong> with my <strong class="${cc.underline}">bikes</strong>, <strong class="${cc.underline}">gadgets</strong>, and so on.</p>`
+    about: `<p>…things I’m interested in—<br><strong class="${cc.underline}">stories</strong> from my <strong class="${cc.underline}">life</strong>, <strong class="${cc.underline}">adventures</strong> with my <strong class="${cc.underline}">bikes</strong>, <strong class="${cc.underline}">gadgets</strong>, and so on.</p>`
   };
 
   // split string and map each letter into a div
@@ -42,36 +45,41 @@
   `).join("");
 </script>
 
-
-{#if page === 1}
-  <Headline
-    className={cc.heading}
-    text={content.heading}
-    size="7xl"
-    family="sans"
-    weight="extrabold"
-    data-waypoint
-    data-waypoint-target
-  />
-  <RichText
-    className={cc.text}
-    html={content.about}
-    data-waypoint
-    data-waypoint-target
-    data-waypoint-delay="200"
-  />
-{:else}
-  <div class="span-content text-olkch-pink flex font-sans text-7xl font-extrabold" data-waypoint>
-    {@html splitText(`Page ${page.toString()}`)}
-  </div>
+{#if blogEntry?.seomatic}
+  <Seo seo={blogEntry.seomatic} />
 {/if}
 
-<StackBlock
-  entries={entries}
-  showPagination={true}
-  totalItems={entryCount}
-  totalPages={totalPages}
-  page={page}
-  className={cc.list}
-/>
+{#if blogEntry && blogEntry?.__typename === "entryListBlog_Entry"}
+  {#if page === 1}
+    <Headline
+      className={cc.heading}
+      text={blogEntry?.customTitle}
+      size="7xl"
+      family="sans"
+      weight="extrabold"
+      data-waypoint
+      data-waypoint-target
+    />
+    <RichText
+      className={cc.text}
+      html={content.about}
+      data-waypoint
+      data-waypoint-target
+      data-waypoint-delay="200"
+    />
+  {:else}
+    <div class="span-content text-olkch-pink flex font-sans text-7xl font-extrabold" data-waypoint>
+      {@html splitText(`Page ${page.toString()}`)}
+    </div>
+  {/if}
+  <StackBlock
+    entries={entries}
+    showPagination={true}
+    totalItems={entryCount}
+    totalPages={totalPages}
+    page={page}
+    className={cc.list}
+  />
+{/if}
+
 
