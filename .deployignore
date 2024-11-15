@@ -1,6 +1,7 @@
 node_modules
-/.svelte-kit
-/.storybook
+.svelte-kit
+.storybook
+.pnpm-store
 src
 static
 .deployignore
