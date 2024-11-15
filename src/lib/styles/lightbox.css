@@ -54,8 +54,7 @@
   isolation: isolate;
   background-color: theme("colors.white/0.8");
   box-shadow: theme("boxShadow.md");
-  border-radius: theme("borderRadius.2xl");
-  @apply  backdrop-blur ring-1 ring-black/5 inset-2;
+  @apply  backdrop-blur ring-1 ring-black/5;
 }
 
 /* Thumb */

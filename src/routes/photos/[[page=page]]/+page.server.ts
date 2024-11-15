@@ -50,9 +50,7 @@ export const load: PageServerLoad = async ({ params }) => {
     type: "entryListPhotos"
   })) as GetEntriesQuery;
 
-  console.log(`start: photos/[${page}]`);
-  console.log(entries, entryCount, totalPages, page);
-  console.log(`end: photos/[${page}]`);
+  console.log("Render:", photosEntry?.[0]?.title);
 
   return {
     photosEntry: photosEntry,

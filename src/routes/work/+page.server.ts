@@ -16,9 +16,7 @@ export const load: PageServerLoad = async () => {
     type: "entryWorkList"
   })) as GetEntriesQuery;
 
-  console.log("start: work");
-  console.log(entries);
-  console.log("end: work");
+  console.log("Render:", entries?.[0]?.title);
 
   return {
     entries: entries as (Entry_DataFragment & Entry_SeoFragment & EntryType_BlogSingleFragment)[]

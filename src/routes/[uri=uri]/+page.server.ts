@@ -31,9 +31,7 @@ export const load: PageServerLoad = async ({ params }) => {
     uri: params?.uri
   })) as GetEntriesQuery;
 
-  console.log(`start: [${params?.uri}]`);
-  console.log(entries);
-  console.log(`end: [${params?.uri}]`);
+  console.log("Render:", entries?.[0]?.title);
 
   return {
     entries: entries

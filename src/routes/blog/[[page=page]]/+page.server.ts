@@ -50,9 +50,7 @@ export const load: PageServerLoad = async ({ params }) => {
     type: "entryBlogList"
   })) as GetEntriesQuery;
 
-  console.log(`start: blog/[${page}]`);
-  console.log(entries, entryCount, totalPages, page);
-  console.log(`end: blog/[${page}]`);
+  console.log("Render:", blogEntry?.[0]?.title);
 
   return {
     blogEntry: blogEntry,

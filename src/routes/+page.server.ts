@@ -22,9 +22,7 @@ export const load: PageServerLoad = async () => {
     limit: 3
   })) as GetEntriesQuery;
 
-  console.log("start: home");
-  console.log(entries);
-  console.log("end: home");
+  console.log("Render:", entries?.[0]?.title);
 
   return {
     entries: entries,
