@@ -12,7 +12,7 @@ import { getGqlData } from "$graphql/graphql-client";
 
 export const entries: EntryGenerator = async () => {
   const { entries } = (await getGqlData<GetPrerenderDataQueryVariables>(GetPrerenderDataDocument, {
-    section: ["blog"],
+    section: ["photos"],
     limit: 999
   })) as GetPrerenderDataQuery;
 
@@ -27,7 +27,7 @@ export const entries: EntryGenerator = async () => {
 
 export const load: PageServerLoad = async ({ params }) => {
   const { entries } = (await getGqlData<GetEntriesQueryVariables>(GetEntriesDocument, {
-    section: ["blog"],
+    section: ["photos"],
     slug: params?.slug,
     limit: 1,
     includePrevNext: true
