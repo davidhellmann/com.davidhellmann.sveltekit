@@ -21,7 +21,7 @@ const config = {
     prerender: {
       handleMissingId: "warn",
       crawl: false,
-      concurrency: 2
+      concurrency: 10
     },
     alias: {
       $components: "src/lib/components",
