@@ -1,3 +1,4 @@
+export const prerender = true;
 import type { PageServerLoad } from "./$types";
 import { GetEntriesDocument, type GetEntriesQuery, type GetEntriesQueryVariables } from "$graphql/graphql";
 import { getGqlData } from "$graphql/graphql-client";
