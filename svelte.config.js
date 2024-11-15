@@ -14,15 +14,14 @@ const config = {
     adapter: adapter({
       pages: "build",
       assets: "build",
-      fallback: "index.html",
-      trailingSlash: "never",
+      fallback: undefined,
       precompress: false,
       strict: true
     }),
     prerender: {
       handleMissingId: "warn",
       crawl: false,
-      concurrency: 2
+      concurrency: 10
     },
     alias: {
       $components: "src/lib/components",
