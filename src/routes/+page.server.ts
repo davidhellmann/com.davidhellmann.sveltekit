@@ -7,11 +7,29 @@ export const load: PageServerLoad = async () => {
     section: ["home"]
   })) as GetEntriesQuery;
 
+  const { entries: blogEntries } = (await getGqlData<GetEntriesQueryVariables>(GetEntriesDocument, {
+    section: ["blog"],
+    limit: 3
+  })) as GetEntriesQuery;
+
+  const { entries: workEntries } = (await getGqlData<GetEntriesQueryVariables>(GetEntriesDocument, {
+    section: ["work"],
+    limit: 3
+  })) as GetEntriesQuery;
+
+  const { entries: photoEntries } = (await getGqlData<GetEntriesQueryVariables>(GetEntriesDocument, {
+    section: ["photos"],
+    limit: 3
+  })) as GetEntriesQuery;
+
   console.log("start: home");
   console.log(entries);
   console.log("end: home");
 
   return {
-    entries: entries
+    entries: entries,
+    blogEntries: blogEntries,
+    workEntries: workEntries,
+    photoEntries: photoEntries
   };
 };

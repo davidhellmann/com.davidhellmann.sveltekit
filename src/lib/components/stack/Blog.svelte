@@ -9,6 +9,7 @@
   import Pagination from "$components/navigation/Pagination.svelte";
   import CardBlog from "$components/card/Blog.svelte";
   import { type ComponentProps } from "svelte";
+  import { useWaypoint } from "$lib/actions/action.waypoint";
 
   const tvStackBlog = tv({
     slots: {
@@ -17,10 +18,7 @@
     }
   });
 
-  type Entry = Entry_DataFragment
-    & EntryType_BlogSingleFragment
-    & Entry_SeoFragment
-    & Entry_DatesFragment;
+  type Entry = Entry_DataFragment & EntryType_BlogSingleFragment & Entry_SeoFragment & Entry_DatesFragment;
 
   type StackBlogProps = {
     compName?: string;
@@ -44,20 +42,27 @@
 
   const { slotWrapper, slotList } = tvStackBlog({ className });
 
-  const getColWidth = (index: number, page: number = 1): {
-    colSpan: string,
-    theme: ComponentProps<typeof CardBlog>["theme"]
+  const getColWidth = (
+    index: number,
+    page: number = 1
+  ): {
+    colSpan: string;
+    theme: ComponentProps<typeof CardBlog>["theme"];
   } => {
     let colSpan;
     let theme: ComponentProps<typeof CardBlog>["theme"] = "default";
+    let size: ComponentProps<typeof CardBlog>["size"] = "default";
     if (page === 1) {
       colSpan = index <= 2 ? "col-span-1 @3xl:col-span-2 @6xl:col-span-3" : "col-span-1";
       if (index === 0) {
         theme = "high";
+        size = "large";
       } else if (index === 1) {
         theme = "middle";
+        size = "large";
       } else if (index === 2) {
         theme = "low";
+        size = "large";
       }
     } else {
       colSpan = "col-span-1";
@@ -65,7 +70,8 @@
 
     return {
       colSpan,
-      theme
+      theme,
+      size
     };
   };
 </script>
@@ -74,8 +80,8 @@
   <div class={slotWrapper({ className })} data-comp={compName}>
     {#if showPagination && totalItems && totalPages && page && page > 1}
       <Pagination
-        totalItems={totalItems}
-        totalPages={totalPages}
+        {totalItems}
+        {totalPages}
         currentPage={page}
         yPosition="top"
         simple={true}
@@ -84,7 +90,7 @@
       />
     {/if}
 
-    <ul class={slotList({ className })} data-waypoint>
+    <ul class={slotList({ className })} use:useWaypoint data-waypoint>
       {#each entries as entry, i (entry.id)}
         {#if entry?.__typename === "entryBlogSingle_Entry"}
           {#if entry?.title && entry?.url && entry?.postDate && entry.category[0]?.title}
@@ -96,6 +102,7 @@
                 categoryTitle={entry.category[0].title}
                 className="h-full"
                 theme={getColWidth(i, page).theme}
+                size={getColWidth(i, page).size}
               />
             </li>
           {/if}
@@ -104,12 +111,7 @@
     </ul>
 
     {#if showPagination && totalItems && totalPages && totalPages > 1 && page}
-      <Pagination
-        totalItems={totalItems}
-        totalPages={totalPages}
-        currentPage={page}
-        uri="/blog"
-      />
+      <Pagination {totalItems} {totalPages} currentPage={page} uri="/blog" />
     {/if}
   </div>
 {/if}

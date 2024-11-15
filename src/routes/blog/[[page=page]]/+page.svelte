@@ -7,6 +7,7 @@
   import { getFirstEntry } from "$utils/getFirstEntry";
   import { afterNavigate } from "$app/navigation";
   import { replaceState } from "$app/navigation";
+  import { useWaypoint } from "$lib/actions/action.waypoint";
 
   interface Props {
     data: PageData;
@@ -38,11 +39,17 @@
   };
 
   // split string and map each letter into a div
-  const splitText = (str: string) => str.split("").map((letter) => `
+  const splitText = (str: string) =>
+    str
+      .split("")
+      .map(
+        (letter) => `
     <div class="is-zoomInDown" data-waypoint-target>
       ${letter === " " ? "&nbsp;" : letter}
     </div>
-  `).join("");
+  `
+      )
+      .join("");
 </script>
 
 {#if blogEntry?.seomatic}
@@ -57,29 +64,13 @@
       size="7xl"
       family="sans"
       weight="extrabold"
-      data-waypoint
       data-waypoint-target
     />
-    <RichText
-      className={cc.text}
-      html={content.about}
-      data-waypoint
-      data-waypoint-target
-      data-waypoint-delay="200"
-    />
+    <RichText className={cc.text} html={content.about} data-waypoint-target />
   {:else}
-    <div class="span-content text-olkch-pink flex font-sans text-7xl font-extrabold" data-waypoint>
+    <div class="span-content text-olkch-pink flex font-sans text-7xl font-extrabold" use:useWaypoint data-waypoint>
       {@html splitText(`Page ${page.toString()}`)}
     </div>
   {/if}
-  <StackBlog
-    entries={entries}
-    showPagination={true}
-    totalItems={entryCount}
-    totalPages={totalPages}
-    page={page}
-    className={cc.list}
-  />
+  <StackBlog {entries} showPagination={true} totalItems={entryCount} {totalPages} {page} className={cc.list} />
 {/if}
-
-

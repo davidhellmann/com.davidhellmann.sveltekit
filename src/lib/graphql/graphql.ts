@@ -307,6 +307,7 @@ export type EntryRelationCriteriaInput = {
   level?: InputMaybe<Scalars['Int']['input']>;
   /** Sets the limit for paginated results. */
   limit?: InputMaybe<Scalars['Int']['input']>;
+  linkField?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   loop?: InputMaybe<Scalars['Boolean']['input']>;
   /** Narrows the query results to only the entry that comes immediately after another element in its structure, provided by its ID. */
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;

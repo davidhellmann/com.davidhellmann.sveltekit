@@ -1,69 +1,59 @@
 <script lang="ts">
   import { tv, type VariantProps } from "tailwind-variants";
   import Headline from "$components/text/Headline.svelte";
-  import Category from "$components/text/Category.svelte";
   import Time from "$components/text/Time.svelte";
   import PlainText from "$components/text/PlainText.svelte";
   import { stripTags } from "$utils/stripTags";
   import { onMount } from "svelte";
 
-  const tvCardBlog = tv({
+
+  const tvCardWork = tv({
     slots: {
-      slotBase:
-        "@container text-neutral-50 px-8 md:px-16 py-12 md:py-20 rounded-3xl flex flex-col items-start stack-4 transition-all ",
+      slotBase: "@container text-neutral-50 px-8 md:px-16 py-12 md:py-20 rounded-3xl flex flex-col items-start stack-4 transition-all ",
       slotMeta: "flex flex-col @sm:flex-row @sm:items-center flex-wrap gap-x-6",
-      slotCategory: ""
     },
     variants: {
       theme: {
         high: {
-          slotBase: "bg-accent-purple-600"
+          slotBase: "bg-accent-purple-600",
         },
         middle: {
-          slotBase: "bg-accent-purple-500"
+          slotBase: "bg-accent-purple-500",
         },
         low: {
-          slotBase: "bg-accent-purple-400"
+          slotBase: "bg-accent-purple-400",
         },
         default: {
-          slotBase: "bg-neutral-300/50 text-neutral-500"
+          slotBase: "bg-neutral-300/50 text-neutral-500",
         },
         dark: {
-          slotBase: "bg-neutral-950/60 border-2 border-neutral-800/50 shadow-lg text-neutral-100"
+          slotBase: "bg-neutral-950/60 border-2 border-neutral-800/50 shadow-lg text-neutral-100",
         }
-      },
-      size: {
-        large: "",
-        default: ""
       }
     },
     defaultVariants: {
-      theme: "default",
-      size: "default"
+      theme: "default"
     }
   });
 
-  type CardBlogProps = {
+  type CardWorkProps = {
     compName?: string;
     className?: string;
     headline: string;
     url: string;
-    categoryTitle: string;
     postDate: string;
     description?: string;
-  } & VariantProps<typeof tvCardBlog>;
+  } & VariantProps<typeof tvCardWork>;
 
   let {
-    compName = "CardBlog",
+    compName = "CardWork",
     className,
     headline,
     url,
-    categoryTitle,
     postDate,
     description,
-    theme,
-    size
-  }: CardBlogProps = $props();
+    theme
+  }: CardWorkProps = $props();
 
   onMount(() => {
     if (description && document) {
@@ -71,20 +61,25 @@
     }
   });
 
-  const { slotBase, slotMeta, slotCategory } = tvCardBlog({ theme, className });
+  const { slotBase, slotMeta } = tvCardWork({ theme, className });
 </script>
 
 {#if headline && url}
   <a href={url} class={slotBase({ theme, className })} data-comp={compName}>
     <div class={slotMeta()}>
-      <Category className={slotCategory({})} title={categoryTitle} />
       <Time timestamp={postDate} />
     </div>
     {#if theme}
-      <Headline preset={size === "large" ? "h1" : "h5"} text={headline} className="max-w-[22ch]" />
+      <Headline
+        preset={["high", "middle", "low"].includes(theme) ? "h1" : "h5"}
+        text={headline}
+        className="max-w-[22ch]"
+      />
     {/if}
     {#if description}
       <PlainText text={description} className={"line-clamp-3"} />
     {/if}
   </a>
 {/if}
+
+
