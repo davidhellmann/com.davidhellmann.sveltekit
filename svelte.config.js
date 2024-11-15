@@ -15,7 +15,6 @@ const config = {
       pages: "build",
       assets: "build",
       fallback: "index.html",
-      trailingSlash: "never",
       precompress: false,
       strict: true
     }),
