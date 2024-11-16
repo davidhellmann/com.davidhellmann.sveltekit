@@ -54,8 +54,9 @@ export default {
       gridTemplateColumns: {
         "blog-detail": "1fr 400px",
         cards: "repeat(auto-fit, minmax(min(300px, 100%), 1fr))",
-        "cards-small": "repeat(auto-fit, minmax(min(150px, 100%), 1fr))",
-        "cards-large": "repeat(auto-fit, minmax(min(450px, 100%), 1fr))"
+        "cards-small": "repeat(auto-fit, minmax(min(130px, 100%), 1fr))",
+        "cards-medium": "repeat(auto-fit, minmax(min(260px, 100%), 1fr))",
+        "cards-large": "repeat(auto-fit, minmax(min(390px, 100%), 1fr))"
       },
       scale: {
         1025: "1.025"

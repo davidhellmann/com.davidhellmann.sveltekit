@@ -14,6 +14,7 @@
         6: "grid-cols-2 @lg:grid-cols-4 @3xl:grid-cols-6",
         cards: "grid-cols-cards",
         "cards-small": "grid-cols-cards-small",
+        "cards-medium": "grid-cols-cards-medium",
         "cards-large": "grid-cols-cards-large",
         "image-gallery": `
           grid-cols-2 md:grid-cols-3 grid-rows-3 md:grid-rows-2

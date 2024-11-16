@@ -30,7 +30,9 @@
     bigTextWrapper: "span-full px-4 -mt-40",
     bigText: "uppercase font-sans text-neutral-800/30 text-center translate-y-full",
     bigTextOverlay: "span-lg z-10 text-white mt-12 -translate-y-full",
-    cardGrid: "span-content grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-fluid -mt-6 mb-24 z-10"
+    cardGrid: "span-content grid gap-8 lg:gap-fluid -mt-6 mb-24 z-10",
+    cardGridWork: "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3",
+    cardGridPhotos: "grid-cols-cards-medium"
   };
 </script>
 
@@ -90,7 +92,7 @@
           <div class={cc.bigText} use:useFullWidthText><span>working</span></div>
         </div>
         <Headline className={cc.bigTextOverlay} size="4xl" text="work." />
-        <div class={cc.cardGrid}>
+        <div class={`${cc.cardGrid} ${cc.cardGridWork}`}>
           {#each workEntries as entry (entry.id)}
             {#if entry?.title && entry?.url && entry?.postDate}
               <CardWork headline={entry.title} url={entry?.url} postDate={entry?.postDate} theme="dark" />
@@ -106,7 +108,7 @@
           <div class={cc.bigText} use:useFullWidthText><span>shooting</span></div>
         </div>
         <Headline className={cc.bigTextOverlay} size="4xl" text="photos." />
-        <div class={cc.cardGrid}>
+        <div class={`${cc.cardGrid} ${cc.cardGridPhotos}`}>
           {#each photoEntries as entry (entry.id)}
             {#if entry && entry?.__typename === "entryPhotosSingle_Entry"}
               {#if entry?.title && entry?.url && entry?.image}

@@ -34,7 +34,6 @@
             relative
             z-20
             [&:nth-child(-n+2)]:z-30
-            [&:nth-child(-n+2)]:rotate-1
             bg-neutral-100
             px-3
             pt-4
@@ -45,28 +44,6 @@
             rounded
             border-b-[1px]
             border-neutral-400
-            after:border-b-[1px]
-            after:border-neutral-400
-            after:absolute
-            after:bg-neutral-100
-            after:shadow-md
-            after:ring-1
-            after:rounded
-            after:ring-black/5
-            after:inset-0
-            after:-rotate-2
-            after:z-[-2]
-            before:border-b-[1px]
-            before:border-neutral-400
-            before:absolute
-            before:bg-neutral-100
-            before:shadow-md
-            before:ring-1
-            before:rounded
-            before:ring-black/5
-            before:inset-0
-            before:rotate-1
-            before:z-[-1]
           `
         },
         "glass-home": {
@@ -114,8 +91,8 @@
     {@render children()}
 
     {#if preset === "polaroid"}
-      <Tape className="-left-5 top-8 z-50" />
-      <Tape className="-right-5 bottom-8 z-50" />
+      <Tape className="left-1/2 -translate-x-1/2 top-0 z-50" />
+<!--      <Tape className="-right-5 bottom-8 z-50" />-->
     {/if}
   </div>
 {/if}

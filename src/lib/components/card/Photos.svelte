@@ -33,7 +33,7 @@
 </script>
 
 {#if headline && url}
-  <a href={url} class={slotBase({ className })} style={`transform: rotate(${getRandomNumberFromRange(-3, 3)}deg)`} data-comp={compName}>
+  <a href={url} class={slotBase({ className })} style={`transform: rotate(${getRandomNumberFromRange(-2, 2)}deg)`} data-comp={compName}>
     {#if image}
       <DecorativeWrapper preset="polaroid">
         <Image image={image} noscript={false} className=" rounded-sm border-2 border-neutral-900/20" ratio="aspect-square" />

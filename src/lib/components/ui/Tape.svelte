@@ -4,6 +4,7 @@
 
   const tvTape = tv({
     base: `
+    overflow-hidden
       absolute
       bg-gradient-to-br from-neutral-500/10 via-neutral-100/10 to-neutral-400/20
       isolate
@@ -41,15 +42,17 @@
     `,
     variants: {
       size: {
-        1: "w-16 h-8",
-        2: "w-20 h-8",
-        3: "w-24 h-8",
+        1: "w-20 h-10",
+        2: "w-24 h-12",
+        3: "w-28 h-16",
         4: "w-20 h-10",
         5: "w-24 h-10",
         6: "w-28 h-10",
         7: "w-24 h-12",
         8: "w-28 h-12",
         9: "w-32 h-12",
+        10: "w-12 h-12 rounded-full [clip-path:()]",
+        11: "w-16 h-16 rounded-full [clip-path:()]",
       },
       rotate: {
         1: "rotate-1",
@@ -62,24 +65,17 @@
         8: "-rotate-6",
       },
       translateY: {
-        1: "translate-y-1/2",
-        2: "translate-y-1/3",
-        3: "translate-y-2/3",
-        4: "translate-y-1/4",
-        5: "translate-y-2/4",
-        6: "translate-y-3/4",
-        7: "-translate-y-1/2",
-        8: "-translate-y-1/3",
-        9: "-translate-y-2/3",
-        10: "-translate-y-1/4",
-        11: "-translate-y-2/4",
-        12: "-translate-y-3/4",
+        1: "-translate-y-1/2",
+        2: "-translate-y-1/3",
+        3: "-translate-y-2",
+        4: "-translate-y-4",
+        5: "-translate-y-6",
       }
     },
     defaultVariants: {
-      size: getRandomNumberFromRange(1, 9) as 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
+      size: getRandomNumberFromRange(1, 11) as 1 | 2| 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11,
       rotate: getRandomNumberFromRange(1, 8) as 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8,
-      translateY: getRandomNumberFromRange(1, 12) as 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12,
+      translateY: getRandomNumberFromRange(1, 5) as 1 | 2 | 3 | 4 | 5,
     }
   });
 
@@ -91,8 +87,8 @@
   const {
     compName = "Tape",
     className,
-    size = getRandomNumberFromRange(1, 9) as 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
-    rotate = getRandomNumberFromRange(1, 8) as 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8,
+    size,
+    rotate,
     translateY
   }: TapeProps = $props();
 
