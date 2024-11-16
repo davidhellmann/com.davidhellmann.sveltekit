@@ -13,9 +13,11 @@
         5: "grid-cols-2 @lg:grid-cols-3 @3xl:grid-cols-4 @5xl:grid-cols-5",
         6: "grid-cols-2 @lg:grid-cols-4 @3xl:grid-cols-6",
         cards: "grid-cols-cards",
-        "cards-small": "grid-cols-cards-small",
-        "cards-medium": "grid-cols-cards-medium",
-        "cards-large": "grid-cols-cards-large",
+        "cards-xs": "grid-cols-cards-xs",
+        "cards-sm": "grid-cols-cards-sm",
+        "cards-md": "grid-cols-cards-md",
+        "cards-lg": "grid-cols-cards-lg",
+        "cards-xl": "grid-cols-cards-xl",
         "image-gallery": `
           grid-cols-2 md:grid-cols-3 grid-rows-3 md:grid-rows-2
           [&>img]:h-full

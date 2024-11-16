@@ -10,7 +10,7 @@
 <main
   use:useWaypoint={{ staggeringDelay: 100 }}
   data-waypoint
-  class="fluid-grid max-w-[min(calc(100%-4vw),2000px)] mx-auto relative z-10 stack-24 pt-40 lg:pt-80"
+  class="fluid-grid lg:max-w-[min(calc(100%-4vw),2000px)] mx-auto relative z-10 stack-24 pt-40 lg:pt-80"
 >
   {@render children?.()}
 </main>
@@ -35,8 +35,11 @@
     height: 100dvh;
     z-index: -1;
     width: 100%;
-    max-width: min(calc(100% - 4vw), 2000px);
     left: 50%;
     transform: translateX(-50%);
+
+    @screen lg {
+      max-width: min(calc(100% - 4vw), 2000px);
+    }
   }
 </style>

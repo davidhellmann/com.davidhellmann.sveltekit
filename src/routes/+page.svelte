@@ -22,7 +22,7 @@
   let photoEntries = data?.photoEntries;
 
   const cc = {
-    main: "w-full max-w-[min(calc(100%-4vw),2000px)] mx-auto relative z-10 stack-24 pt-40 lg:pt-80 overflow-clip",
+    main: "w-full lg:max-w-[min(calc(100%-4vw),2000px)] mx-auto relative z-10 stack-24 pt-40 lg:pt-80 overflow-clip",
     heroImage: "absolute inset-x-0 top-0 z-10",
     heroHeadline: "!leading-[0.85] [font-size:min(12vw,13.5rem)] text-olkch-green -translate-y-[1.75cap] -mb-[1.25cap]",
     heroRichText: "col-start-2 col-end-10 text-white text-3xl max-w-prose",
@@ -32,7 +32,7 @@
     bigTextOverlay: "span-lg z-10 text-white mt-12 -translate-y-full",
     cardGrid: "span-content grid gap-8 lg:gap-fluid -mt-6 mb-24 z-10",
     cardGridWork: "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3",
-    cardGridPhotos: "grid-cols-cards-medium"
+    cardGridPhotos: "grid-cols-cards-sm"
   };
 </script>
 
@@ -143,8 +143,11 @@
     height: 100dvh;
     z-index: -1;
     width: 100%;
-    max-width: min(calc(100% - 4vw), 2000px);
     left: 50%;
     transform: translateX(-50%);
+
+    @screen lg {
+      max-width: min(calc(100% - 4vw), 2000px);
+    }
   }
 </style>

@@ -10,6 +10,8 @@
   const tvCardPhotos = tv({
     slots: {
       slotBase: "",
+      slotImage: "border-2 border-neutral-900/20 border-t-neutral-900/50 border-l-neutral-900/50",
+      slotHeadline: "pt-2 px-2 text-neutral-800/50 line-clamp-1"
     },
   });
 
@@ -29,15 +31,15 @@
     image
   }: CardPhotosProps = $props();
 
-  const { slotBase } = tvCardPhotos({ className });
+  const { slotBase, slotImage, slotHeadline } = tvCardPhotos({ className });
 </script>
 
 {#if headline && url}
   <a href={url} class={slotBase({ className })} style={`transform: rotate(${getRandomNumberFromRange(-2, 2)}deg)`} data-comp={compName}>
     {#if image}
       <DecorativeWrapper preset="polaroid">
-        <Image image={image} noscript={false} className=" rounded-sm border-2 border-neutral-900/20" ratio="aspect-square" />
-        <Headline text={headline} size="xs" family="mono" weight="normal" className="pt-2 px-2 text-neutral-800/50" />
+        <Image image={image} noscript={false} className={slotImage({})} ratio="aspect-square" />
+        <Headline text={headline} size="xs" family="mono" weight="normal" className={slotHeadline({})} />
       </DecorativeWrapper>
     {/if}
   </a>

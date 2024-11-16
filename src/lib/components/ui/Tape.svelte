@@ -67,8 +67,8 @@
       translateY: {
         1: "-translate-y-1/2",
         2: "-translate-y-1/3",
-        3: "-translate-y-2",
-        4: "-translate-y-4",
+        3: "-translate-y-4",
+        4: "-translate-y-5",
         5: "-translate-y-6",
       }
     },

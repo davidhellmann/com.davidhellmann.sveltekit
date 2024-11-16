@@ -41,7 +41,7 @@
             shadow-md
             ring-1
             ring-black/5
-            rounded
+            rounded-sm
             border-b-[1px]
             border-neutral-400
           `
