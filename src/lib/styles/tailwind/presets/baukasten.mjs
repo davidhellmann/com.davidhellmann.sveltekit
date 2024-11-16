@@ -80,8 +80,8 @@ export default {
         extendValues: true // When you set extendValues to true it will extend the default values. Set it to false to overwrite the values.
       },
       values: {
-        xs: [-2, 1.625],
-        sm: [-1, 1.625],
+        xs: ["11px", 1.625],
+        sm: ["13px", 1.625],
         base: [0, 1.625],
         lg: [1, 1.5],
         xl: [2, 1.25],

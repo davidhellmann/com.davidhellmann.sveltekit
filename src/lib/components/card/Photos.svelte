@@ -11,7 +11,7 @@
     slots: {
       slotBase: "",
       slotImage: "border-2 border-neutral-900/20 border-t-neutral-900/50 border-l-neutral-900/50",
-      slotHeadline: "pt-2 px-2 text-neutral-800/50 line-clamp-1"
+      slotHeadline: "pt-3 pb-2 px-1 text-neutral-800/50 line-clamp-1"
     },
   });
 
@@ -39,7 +39,7 @@
     {#if image}
       <DecorativeWrapper preset="polaroid">
         <Image image={image} noscript={false} className={slotImage({})} ratio="aspect-square" />
-        <Headline text={headline} size="xs" family="mono" weight="normal" className={slotHeadline({})} />
+        <Headline text={headline} size="sm" family="mono" weight="normal" className={slotHeadline({})} />
       </DecorativeWrapper>
     {/if}
   </a>
