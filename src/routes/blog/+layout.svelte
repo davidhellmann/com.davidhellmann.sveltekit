@@ -31,6 +31,7 @@
       rgba(255, 255, 255, 0.8) 0 0 0 1px,
       rgba(0, 0, 0, 0) 0 0 0 0;
     position: fixed;
+    top: 0;
     height: 100dvh;
     z-index: -1;
     width: 100%;

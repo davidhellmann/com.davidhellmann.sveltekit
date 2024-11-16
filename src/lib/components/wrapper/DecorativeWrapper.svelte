@@ -33,8 +33,8 @@
             h-full
             relative
             z-20
-            *:z-30
-            *:rotate-1
+            [&:nth-child(-n+2)]:z-30
+            [&:nth-child(-n+2)]:rotate-1
             bg-neutral-100
             px-3
             pt-4

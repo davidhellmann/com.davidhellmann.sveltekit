@@ -28,15 +28,10 @@
 
   const cc = {
     heading: "span-content text-olkch-pink is-zoomInDown",
-    text: "col-start-[col-3] col-end-[col-10] text-2xl is-zoomInDown",
+    text: "span-content xl:col-start-[col-3] xl:col-end-[col-10] text-2xl is-zoomInDown [&_*_strong]:decoration-wavy [&_*_strong]:underline [&_*_strong]:decoration-4 [&_*_strong]:decoration-accent-purple-400",
     list: "span-popout z-10 @container",
-    underline: "underline decoration-wavy decoration-4 decoration-accent-purple-400"
   };
 
-  const content = {
-    heading: "WRITING ABOUT …",
-    about: `<p>…things I’m interested in—<br><strong class="${cc.underline}">stories</strong> from my <strong class="${cc.underline}">life</strong>, <strong class="${cc.underline}">adventures</strong> with my <strong class="${cc.underline}">bikes</strong>, <strong class="${cc.underline}">gadgets</strong>, and so on.</p>`
-  };
 
   // split string and map each letter into a div
   const splitText = (str: string) =>
@@ -66,7 +61,9 @@
       weight="extrabold"
       data-waypoint-target
     />
-    <RichText className={cc.text} html={content.about} data-waypoint-target />
+    {#if blogEntry.description}
+      <RichText className={cc.text} html={blogEntry.description} data-waypoint-target />
+    {/if}
   {:else}
     <div class="span-content text-olkch-pink flex font-sans text-7xl font-extrabold" use:useWaypoint data-waypoint>
       {@html splitText(`Page ${page.toString()}`)}

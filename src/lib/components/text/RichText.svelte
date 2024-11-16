@@ -2,7 +2,7 @@
   import { tv, type VariantProps } from "tailwind-variants";
 
   const tvRichText = tv({
-    base: "stack-4",
+    base: "stack-4"
   });
 
   type RichTextProps = {
@@ -11,21 +11,11 @@
     html: string;
   } & VariantProps<typeof tvRichText>;
 
-  const {
-    compName = "RichText",
-    className,
-    html,
-    ...rest
-  }: RichTextProps = $props();
-
+  const { compName = "RichText", className, html, ...rest }: RichTextProps = $props();
 </script>
 
 {#if html}
-  <div
-    data-comp={compName}
-    class={tvRichText({ className })}
-    {...rest}
-  >
+  <div data-comp={compName} class={tvRichText({ className })} {...rest}>
     {@html html}
   </div>
 {/if}
@@ -115,14 +105,18 @@
       background-color: theme("colors.neutral.200");
       color: theme("colors.neutral.500");
       border: theme("borderWidth.DEFAULT") solid theme("colors.neutral.400");
-      box-shadow: 0 1px 0 theme("colors.neutral.300"), inset 0 1px 0 theme("colors.neutral.50");
+      box-shadow:
+        0 1px 0 theme("colors.neutral.300"),
+        inset 0 1px 0 theme("colors.neutral.50");
     }
 
     &.dark {
       background-color: theme("colors.neutral.800");
       color: theme("colors.neutral.400");
       border: theme("borderWidth.DEFAULT") solid theme("colors.neutral.900");
-      box-shadow: 0 1px 0 theme("colors.neutral.300"), inset 0 1px 0 theme("colors.neutral.500");
+      box-shadow:
+        0 1px 0 theme("colors.neutral.300"),
+        inset 0 1px 0 theme("colors.neutral.500");
     }
   }
 
@@ -131,6 +125,7 @@
     display: inline-block;
     text-decoration: underline;
     text-decoration-style: wavy;
+    word-break: break-all;
     text-underline-offset: theme("textUnderlineOffset.4");
     color: theme("colors.accent-purple.700");
     text-decoration-color: theme("colors.olkch.orange");

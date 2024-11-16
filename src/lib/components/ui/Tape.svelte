@@ -91,11 +91,10 @@
   const {
     compName = "Tape",
     className,
-    size,
-    rotate,
+    size = getRandomNumberFromRange(1, 9) as 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
+    rotate = getRandomNumberFromRange(1, 8) as 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8,
     translateY
   }: TapeProps = $props();
 
-  console.log(size, translateY, rotate, getRandomNumberFromRange(1, 8));
 </script>
 <div data-comp={compName} class={tvTape({ size, rotate, translateY, className })} aria-hidden="true"></div>
