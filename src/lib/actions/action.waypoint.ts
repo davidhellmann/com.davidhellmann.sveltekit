@@ -18,24 +18,23 @@ const defaultOptions = {
 
 export function useWaypoint(node: HTMLElement, options: WaypointOptions = {}) {
   const settings = { ...defaultOptions, ...options };
-  let observer: IntersectionObserver;
 
-  function getWaypointTargets(holder: HTMLElement): Array<HTMLElement> {
+  const getWaypointTargets = (holder: HTMLElement): Array<HTMLElement> => {
     const selector = "[data-waypoint-target]:not([data-waypoint])";
     const allTargets = holder.querySelectorAll<HTMLElement>(selector);
     const targets = Array.from(allTargets).filter((target) => target.closest("[data-waypoint]") === holder);
 
     const holderIsTarget = holder.hasAttribute("data-waypoint-target");
     return holderIsTarget ? (settings.includeHolder ? [holder, ...targets] : [holder]) : targets;
-  }
+  };
 
-  function animateElement(element: HTMLElement, delay: number): void {
+  const animateElement = (element: HTMLElement, delay: number): void => {
     setTimeout(() => {
       element.setAttribute("data-waypoint-animated", "true");
     }, delay);
-  }
+  };
 
-  function handleAnimateAttributes(targets: HTMLElement[]) {
+  const handleAnimateAttributes = (targets: HTMLElement[]) => {
     targets.forEach((target, index) => {
       const delay =
         settings.staggeringDelay && settings.delay ? settings.delay + settings.staggeringDelay * index : settings.delay;
@@ -44,10 +43,10 @@ export function useWaypoint(node: HTMLElement, options: WaypointOptions = {}) {
         animateElement(target, delay);
       }
     });
-  }
+  };
 
   // Create and start the observer
-  observer = new IntersectionObserver(
+  const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         const targets = getWaypointTargets(entry.target as HTMLElement);
@@ -72,11 +71,16 @@ export function useWaypoint(node: HTMLElement, options: WaypointOptions = {}) {
   observer.observe(node);
 
   // Optional: Setup mutation observer for dynamic content
-  const mutationObserver = new MutationObserver(() => {
-    const targets = getWaypointTargets(node);
-    if (targets.length) {
-      observer.observe(node);
-    }
+  const mutationObserver = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.type === "childList") {
+        mutation.addedNodes.forEach((node) => {
+          if (node instanceof HTMLElement && !node.hasAttribute("data-waypoint")) {
+            observer.observe(node);
+          }
+        });
+      }
+    });
   });
 
   mutationObserver.observe(node, {
