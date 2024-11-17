@@ -35,7 +35,7 @@
 </script>
 
 {#if images}
-  <div data-comp={compName} class="span-popout @container">
+  <div data-comp={compName} class="span-content lg:span-popout @container">
     {#if imagesViewMode && imagesViewMode.startsWith("grid-cols-")}
       <Grid columns={getColumns()}>
         {#each images as image (image)}

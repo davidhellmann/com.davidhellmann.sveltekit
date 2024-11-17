@@ -20,13 +20,14 @@
 
   const containerWidht = {
     "full": "span-full",
-    "wide": "col-start-[col-1] col-end-[content-end]",
-    "content": "col-start-[col-1] col-end-[col-9]",
+    "wide": "span-content",
+    "content": "span-xl",
   }[width ?? "full"];
 </script>
 
 {#if image}
   <div class={containerWidht} data-comp={compName}>
     <Image image={image} ratio={ratio} />
+    {#if showCaption}{/if}
   </div>
 {/if}

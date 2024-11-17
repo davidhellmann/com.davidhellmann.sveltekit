@@ -25,7 +25,7 @@
 </script>
 
 {#if links}
-  <CtaWrapper className="span-content stack-space-24" data-comp={compName}>
+  <CtaWrapper className="span-popout stack-space-24" compName={compName}>
     {#if headline}
       <Headline text={headline} />
     {/if}
@@ -34,7 +34,7 @@
     {/if}
     {#if links}
       <!--TODO: Create Link Group Component (Or Grid) -->
-      <div class="flex flex-row gap-4 stack-space-8">
+      <div class="flex flex-col xs:flex-row flex-wrap gap-4 stack-space-8 @container">
         {#each links as link (link)}
           {#if link.url}
             <Link text={link.text} variant={link.linkStyle} href={link.url} />

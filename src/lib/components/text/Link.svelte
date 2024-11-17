@@ -47,7 +47,6 @@
     },
     defaultVariants: {
       variant: "primary",
-      iconPosition: "left",
       gapSize: 4,
     },
   });
