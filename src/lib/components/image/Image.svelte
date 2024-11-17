@@ -1,4 +1,6 @@
 <script lang="ts">
+
+  import { useUnlazy } from "$lib/actions/action.unlazy";
   import { tv, type VariantProps } from "tailwind-variants";
   import type { Asset_CustomFieldsFragment, Asset_DataFragment, Asset_TransformsFragment } from "$graphql/graphql";
 
@@ -100,6 +102,7 @@
     data-sizes={lazy ? "auto" : undefined}
     role={role}
     data-lazy={lazy ? true : undefined}
+    use:useUnlazy={lazy}
   />
 {/snippet}
 
