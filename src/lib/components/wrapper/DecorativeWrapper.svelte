@@ -34,7 +34,7 @@
             relative
             z-20
             [&:nth-child(-n+2)]:z-30
-            bg-neutral-100
+            bg-neutral-200
             px-3
             pt-4
             pb-4
@@ -42,8 +42,8 @@
             ring-1
             ring-black/5
             rounded-sm
-            border-b-[1px]
-            border-neutral-400
+            border-b-[3px]
+            border-accent-purple-500
           `
         },
         "glass-home": {

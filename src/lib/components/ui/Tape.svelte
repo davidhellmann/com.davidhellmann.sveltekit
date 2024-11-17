@@ -6,7 +6,7 @@
     base: `
     overflow-hidden
       absolute
-      bg-gradient-to-br from-neutral-500/10 via-neutral-100/10 to-neutral-400/20
+      bg-gradient-to-br from-neutral-500/10 via-neutral-100/10 to-neutral-600/20
       isolate
       backdrop-blur-[2px]
       ring-2

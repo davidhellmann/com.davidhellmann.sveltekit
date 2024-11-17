@@ -9,7 +9,7 @@
 
   const tvCardPhotos = tv({
     slots: {
-      slotBase: "",
+      slotBase: "block transition-all hover:scale-[1.025]",
       slotImage: "border-2 border-neutral-900/20 border-t-neutral-900/50 border-l-neutral-900/50",
       slotHeadline: "pt-3 pb-2 px-1 text-neutral-800/50 line-clamp-1"
     },
@@ -35,7 +35,7 @@
 </script>
 
 {#if headline && url}
-  <a href={url} class={slotBase({ className })} style={`transform: rotate(${getRandomNumberFromRange(-2, 2)}deg)`} data-comp={compName}>
+  <a href={url} class={slotBase({ className })} style={`rotate: ${getRandomNumberFromRange(-2, 2)}deg`} data-comp={compName}>
     {#if image}
       <DecorativeWrapper preset="polaroid">
         <Image image={image} noscript={false} className={slotImage({})} ratio="aspect-square" />

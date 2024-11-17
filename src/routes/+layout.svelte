@@ -25,7 +25,6 @@
     list: "flex gap-4 rounded-full text-accent-purple-100 px-8 transition duration-200 shadow ",
     link: "inline-flex py-2.5 px-2.5",
     glass: "isolote backdrop-blur bg-accent-purple-500/50 ring-1 ring-white/50",
-
     footer:
       "fluid-grid w-full lg:max-w-[min(calc(100%-4vw),2000px)] left-1/2 -translate-x-1/2 mt-40 z-20 relative bg-[rgba(255,255,255,0.025)]  border-t border-neutral-500/20"
   };
