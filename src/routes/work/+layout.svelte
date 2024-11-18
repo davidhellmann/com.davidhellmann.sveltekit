@@ -38,9 +38,6 @@
     width: 100%;
     left: 50%;
     transform: translateX(-50%);
-
-    @screen lg {
-      max-width: min(calc(100% - 4vw), 2000px);
-    }
+    @apply lg:max-w-[min(calc(100%-4vw),2000px)];
   }
 </style>

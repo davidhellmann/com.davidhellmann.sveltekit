@@ -124,7 +124,7 @@
 
 <style lang="postcss">
   :global(body) {
-    background-color: #d5d3d1;
+    background-color: theme("colors.neutral.300");
     background-image: url($lib/images/bg-triangle-gray.png);
     background-attachment: fixed;
   }
@@ -145,9 +145,6 @@
     width: 100%;
     left: 50%;
     transform: translateX(-50%);
-
-    @screen lg {
-      max-width: min(calc(100% - 4vw), 2000px);
-    }
+    @apply lg:max-w-[min(calc(100%-4vw),2000px)];
   }
 </style>
