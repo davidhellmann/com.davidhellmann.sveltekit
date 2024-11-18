@@ -95,7 +95,7 @@
         <div class={`${cc.cardGrid} ${cc.cardGridWork}`}>
           {#each workEntries as entry (entry.id)}
             {#if entry?.title && entry?.url && entry?.postDate}
-              <CardWork headline={entry.title} url={entry?.url} postDate={entry?.postDate} theme="dark" />
+              <CardWork headline={entry.title} url={entry?.url} postDate={entry?.postDate}  />
             {/if}
           {/each}
         </div>

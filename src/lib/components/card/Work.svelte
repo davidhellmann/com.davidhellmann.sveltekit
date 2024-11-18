@@ -9,30 +9,18 @@
 
   const tvCardWork = tv({
     slots: {
-      slotBase: "@container text-neutral-50 px-8 md:px-16 py-12 md:py-20 rounded-3xl flex flex-col items-start stack-4 transition-all ",
+      slotBase: "@container text-neutral-50 px-8 md:px-10 py-12 md:py-12 rounded-3xl flex flex-col items-start stack-4 transition-all ",
       slotMeta: "flex flex-col @sm:flex-row @sm:items-center flex-wrap gap-x-6",
     },
     variants: {
       theme: {
-        high: {
-          slotBase: "bg-accent-purple-600",
-        },
-        middle: {
-          slotBase: "bg-accent-purple-500",
-        },
-        low: {
-          slotBase: "bg-accent-purple-400",
-        },
-        default: {
-          slotBase: "bg-neutral-300/50 text-neutral-500",
-        },
         dark: {
           slotBase: "bg-neutral-950/60 border-2 border-neutral-800/50 shadow-lg text-neutral-100",
         }
       }
     },
     defaultVariants: {
-      theme: "default"
+      theme: "dark"
     }
   });
 
@@ -69,13 +57,11 @@
     <div class={slotMeta()}>
       <Time timestamp={postDate} />
     </div>
-    {#if theme}
-      <Headline
-        preset={["high", "middle", "low"].includes(theme) ? "h1" : "h5"}
-        text={headline}
-        className="max-w-[22ch]"
-      />
-    {/if}
+    <Headline
+      preset={"h5"}
+      text={headline}
+      className="max-w-[22ch]"
+    />
     {#if description}
       <PlainText text={description} className={"line-clamp-3"} />
     {/if}

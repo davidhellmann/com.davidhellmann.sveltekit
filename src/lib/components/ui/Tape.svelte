@@ -51,8 +51,8 @@
         7: "w-24 h-12",
         8: "w-28 h-12",
         9: "w-32 h-12",
-        10: "w-12 h-12 rounded-full [clip-path:()]",
-        11: "w-16 h-16 rounded-full [clip-path:()]",
+        10: "w-16 h-12",
+        11: "w-20 h-16",
       },
       rotate: {
         1: "rotate-1",

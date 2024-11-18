@@ -10,23 +10,23 @@
   const tvCardBlog = tv({
     slots: {
       slotBase:
-        "@container text-neutral-50 px-8 md:px-16 py-12 md:py-20 rounded-3xl flex flex-col items-start stack-4 transition-all ",
+        "@container text-neutral-50 px-8 md:px-10 py-12 md:py-12 rounded-3xl flex flex-col items-start stack-4 transition-all shadow-md hover:shadow-xl hover:-translate-y-0.5",
       slotMeta: "flex flex-col @sm:flex-row @sm:items-center flex-wrap gap-x-6",
       slotCategory: ""
     },
     variants: {
       theme: {
         high: {
-          slotBase: "bg-accent-purple-600"
+          slotBase: "bg-accent-purple-600 md:px-16 md:py-20 border-4 border-accent-purple-50/20"
         },
         middle: {
-          slotBase: "bg-accent-purple-500"
+          slotBase: "bg-accent-purple-500 md:px-16 md:py-20 border-4 border-accent-purple-50/20"
         },
         low: {
-          slotBase: "bg-accent-purple-400"
+          slotBase: "bg-accent-purple-400 md:px-16 md:py-20 border-4 border-accent-purple-50/20"
         },
         default: {
-          slotBase: "bg-neutral-300/50 text-neutral-500"
+          slotBase: "bg-neutral-300/50 text-neutral-500 border-4 border-neutral-200"
         },
         dark: {
           slotBase: "bg-neutral-950/60 border-2 border-neutral-800/50 shadow-lg text-neutral-100"
