@@ -92,6 +92,7 @@
           <div class={cc.bigText} use:useFullWidthText><span>working</span></div>
         </div>
         <Headline className={cc.bigTextOverlay} size="4xl" text="work." />
+        {workEntries[0].title}
         <GridBentoWork className={"span-content -mt-6 mb-24 z-10"} entries={workEntries} />
       </div>
     {/if}
