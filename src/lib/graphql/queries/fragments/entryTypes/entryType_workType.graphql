@@ -1,0 +1,3 @@
+fragment entryType_workType on entryWorkType_Entry {
+  ...entryType_data
+}

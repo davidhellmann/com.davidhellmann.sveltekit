@@ -1,0 +1,3 @@
+fragment entryType_workArea on entryWorkArea_Entry {
+  ...entryType_data
+}

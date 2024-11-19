@@ -11,4 +11,20 @@ fragment entryType_workSingle on entryWorkSingle_Entry {
   colorPickerRepeater {
     color
   }
+  clientWords
+  projectLink {
+    ...hyper_data
+  }
+  workAreas {
+    ...entryType_workArea
+  }
+  workType {
+    ...entryType_workType
+  }
+  agency {
+    ...entryType_company
+  }
+  client {
+    ...entryType_company
+  }
 }
