@@ -1,10 +1,14 @@
 fragment entryType_workSingle on entryWorkSingle_Entry {
   ...entryType_data
   description
+  descriptionPlain: description @stripTags
   customTitle
   image {
     ...asset_data
     ...asset_transforms
     ...asset_customFields
+  }
+  colorPickerRepeater {
+    color
   }
 }

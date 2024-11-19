@@ -4,8 +4,6 @@
   import Category from "$components/text/Category.svelte";
   import Time from "$components/text/Time.svelte";
   import PlainText from "$components/text/PlainText.svelte";
-  import { stripTags } from "$utils/stripTags";
-  import { onMount } from "svelte";
 
   const tvCardBlog = tv({
     slots: {
@@ -50,7 +48,7 @@
     url: string;
     categoryTitle: string;
     postDate: string;
-    description?: string;
+    descriptionPlain?: string;
   } & VariantProps<typeof tvCardBlog>;
 
   let {
@@ -60,16 +58,10 @@
     url,
     categoryTitle,
     postDate,
-    description,
+    descriptionPlain,
     theme,
     size
   }: CardBlogProps = $props();
-
-  onMount(() => {
-    if (description && document) {
-      description = stripTags(description);
-    }
-  });
 
   const { slotBase, slotMeta, slotCategory } = tvCardBlog({ theme, className });
 </script>
@@ -83,8 +75,8 @@
     {#if theme}
       <Headline preset={size === "large" ? "h1" : "h5"} text={headline} className="max-w-[22ch]" />
     {/if}
-    {#if description}
-      <PlainText text={description} className={"line-clamp-3"} />
+    {#if descriptionPlain}
+      <PlainText text={descriptionPlain} className={"line-clamp-3"} />
     {/if}
   </a>
 {/if}

@@ -15,7 +15,7 @@ export const load: PageServerLoad = async () => {
 
   const { entries: workEntries } = (await getGqlData<GetEntriesQueryVariables>(GetEntriesDocument, {
     section: ["work"],
-    limit: 3
+    limit: 4
   })) as GetEntriesQuery;
 
   const { entries: photoEntries } = (await getGqlData<GetEntriesQueryVariables>(GetEntriesDocument, {

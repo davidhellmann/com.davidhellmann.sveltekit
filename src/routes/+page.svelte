@@ -6,9 +6,10 @@
   import RichText from "$components/text/RichText.svelte";
   import Image from "$components/image/Image.svelte";
   import DecorativeWrapper from "$components/wrapper/DecorativeWrapper.svelte";
+  import GridBentoWork from "$components/layout/GridBentoWork.svelte";
   import { useFullWidthText } from "$lib/actions/action.fullWidthText";
+  import type { ComponentProps } from "svelte";
   import CardBlog from "$components/card/Blog.svelte";
-  import CardWork from "$components/card/Work.svelte";
   import CardPhotos from "$components/card/Photos.svelte";
 
   interface Props {
@@ -18,7 +19,7 @@
   let { data }: Props = $props();
   let entry = $derived(getFirstEntry(data.entries));
   let blogEntries = data?.blogEntries;
-  let workEntries = data?.workEntries;
+  let workEntries = data?.workEntries as ComponentProps<typeof GridBentoWork>["entries"];
   let photoEntries = data?.photoEntries;
 
   const cc = {
@@ -31,7 +32,6 @@
     bigText: "uppercase font-sans text-neutral-700/10 opacity-70 text-center translate-y-full",
     bigTextOverlay: "span-lg z-30 text-neutral-700 -mt-16 pt-4 sm:pt-0 sm:-mt-6 lg:mt-8 -translate-y-full",
     cardGrid: "span-content grid gap-8 lg:gap-fluid -mt-6 mb-24 z-10",
-    cardGridWork: "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3",
     cardGridPhotos: "grid-cols-cards-sm"
   };
 </script>
@@ -92,13 +92,7 @@
           <div class={cc.bigText} use:useFullWidthText><span>working</span></div>
         </div>
         <Headline className={cc.bigTextOverlay} size="4xl" text="work." />
-        <div class={`${cc.cardGrid} ${cc.cardGridWork}`}>
-          {#each workEntries as entry (entry.id)}
-            {#if entry?.title && entry?.url && entry?.postDate}
-              <CardWork headline={entry.title} url={entry?.url} postDate={entry?.postDate}  />
-            {/if}
-          {/each}
-        </div>
+        <GridBentoWork className={"span-content -mt-6 mb-24 z-10"} entries={workEntries} />
       </div>
     {/if}
 
@@ -134,10 +128,9 @@
     isolation: isolate;
     background-color: theme("colors.neutral.900");
     backdrop-filter: blur(8px);
-    box-shadow:
-      rgba(255, 255, 255, 1) 0 0 0 0,
-      rgba(255, 255, 255, 1) 0 0 0 1px,
-      rgba(0, 0, 0, 0) 0 0 0 0;
+    box-shadow: rgba(255, 255, 255, 1) 0 0 0 0,
+    rgba(255, 255, 255, 1) 0 0 0 1px,
+    rgba(0, 0, 0, 0) 0 0 0 0;
     position: fixed;
     top: 0;
     height: 100dvh;

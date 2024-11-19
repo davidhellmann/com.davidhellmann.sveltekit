@@ -1,6 +1,7 @@
 fragment entryType_photosSingle on entryPhotosSingle_Entry {
   ...entryType_data
   description
+  descriptionPlain: description @stripTags
   customTitle
   image {
     ...asset_data

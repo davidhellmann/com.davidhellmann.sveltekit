@@ -1,5 +1,4 @@
 <script lang="ts">
-
   import { useUnlazy } from "$lib/actions/action.unlazy";
   import { tv, type VariantProps } from "tailwind-variants";
   import type { Asset_CustomFieldsFragment, Asset_DataFragment, Asset_TransformsFragment } from "$graphql/graphql";
@@ -59,8 +58,8 @@
 
   // Set Focal Point
   const focalPointCoordinates = {
-    x: image?.focalPoint?.[0] || focalPoint?.[0] || 0.5,
-    y: image?.focalPoint?.[1] || focalPoint?.[1] || 0.5
+    x: focalPoint?.[0] ?? image?.focalPoint?.[0] ?? 0.5,
+    y: focalPoint?.[1] ?? image?.focalPoint?.[1] ?? 0.5
   };
 
   // Set Role presentation for decorative images
