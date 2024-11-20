@@ -18,7 +18,7 @@
     slots: {
       slotBase: "grid grid-cols-3 grid-rows-4 gap-fluid",
       slotCard:
-        "overflow-clip rounded-xl flex flex-col items-start stack-10 bg-neutral-950/60 ring-1 ring-black/30 shadow-xl shadow-neutral-700/20 text-neutral-100 p-3",
+        "overflow-clip rounded-xl flex flex-col items-start stack-10 bg-neutral-950/60 ring-1 ring-black/30 shadow-xl shadow-neutral-700/20 text-neutral-100 p-3 transition-all hover:shadow-2xl hover:shadow-neutral-700/50 hover:-translate-y-0.5",
       slotCard1: "col-span-1 row-span-2",
       slotCard2: "col-span-2 row-span-2",
       slotCard3: "col-span-2 row-span-2",
