@@ -5,13 +5,18 @@
   import Headline from "$components/text/Headline.svelte";
   import DecorativeWrapper from "$components/wrapper/DecorativeWrapper.svelte";
   import { getRandomNumberFromRange } from "$lib/utils/getRandomNumberFromRange";
+  import { getRandomString } from "$lib/utils/getRandomString";
+  import { getRandomItemFromArray } from "$lib/utils/getRandomItemFromArray";
+
+  const cameras = ["Fuji X100VI", "Fuji X-Pro3", "Ricoh GRIIIx"];
 
 
   const tvCardPhotos = tv({
     slots: {
-      slotBase: "block transition-all hover:scale-[1.025]",
+      slotBase: "font-mono block transition-all hover:scale-[1.025] relative",
       slotImage: "border-2 border-neutral-300 border-t-neutral-400 border-l-neutral-400",
-      slotHeadline: "pt-3 pb-2 px-1 text-neutral-800/50 line-clamp-1"
+      slotHeadline: "mt-4 px-1 text-neutral-800/50 line-clamp-1",
+      slotNumber: "text-2xs uppercase tracking-widest absolute bottom-10 translate-y-0.5 inset-x-0 text-neutral-400/50 flex px-3 justify-between",
     },
   });
 
@@ -31,15 +36,19 @@
     image
   }: CardPhotosProps = $props();
 
-  const { slotBase, slotImage, slotHeadline } = tvCardPhotos({ className });
+  const { slotBase, slotImage, slotHeadline, slotNumber } = tvCardPhotos({ className });
 </script>
 
 {#if headline && url}
   <a href={url} class={slotBase({ className })} style={`rotate: ${getRandomNumberFromRange(-2, 2)}deg`} data-comp={compName}>
     {#if image}
       <DecorativeWrapper preset="polaroid">
-        <Image image={image} noscript={false} className={slotImage({})} ratio="aspect-square" />
-        <Headline text={headline} size="sm" family="mono" weight="normal" className={slotHeadline({})} />
+        <Image image={image} noscript={false} className={slotImage({})} ratio="aspect-instagram" />
+        <Headline text={headline} size="sm" family="mono" weight="semibold" className={slotHeadline({})} />
+        <div class={slotNumber()}>
+          <span>{getRandomItemFromArray(cameras)}</span>
+          <span>{getRandomString(10)}</span>
+        </div>
       </DecorativeWrapper>
     {/if}
   </a>

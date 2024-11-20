@@ -35,15 +35,20 @@
             z-20
             [&:nth-child(-n+2)]:z-30
             bg-neutral-200
-            px-3
-            pt-4
+            px-2
+            pt-3
             pb-4
-            shadow-md
+            shadow-xl
+            shadow-neutral-700/50
             ring-1
-            ring-black/5
-            rounded-sm
-            border-b-[3px]
-            border-accent-purple-500
+            ring-black/50
+            border-b-2
+            border-b-neutral-900
+            after:absolute
+            after:bottom-0
+            after:-inset-x-0
+            after:bg-white/30
+            after:h-2
           `
         },
         "glass-home": {

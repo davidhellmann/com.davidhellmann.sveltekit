@@ -40,7 +40,8 @@ export default {
     extend: {
       aspectRatio: {
         landscape: "3 / 2",
-        portrait: "2 / 3"
+        portrait: "2 / 3",
+        instagram: "4 / 5"
       },
       spacing: {
         // Used for the mobile navigation toggle.
@@ -80,6 +81,7 @@ export default {
         extendValues: true // When you set extendValues to true it will extend the default values. Set it to false to overwrite the values.
       },
       values: {
+        "2xs": ["8px", 1.625],
         xs: ["11px", 1.625],
         sm: ["13px", 1.625],
         base: [0, 1.625],

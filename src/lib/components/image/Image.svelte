@@ -13,7 +13,8 @@
         "aspect-auto": "aspect-auto",
         "aspect-landscape": "aspect-landscape",
         "aspect-portrait": "aspect-portrait",
-        "aspect-square": "aspect-square"
+        "aspect-square": "aspect-square",
+        "aspect-instagram": "aspect-instagram",
       }
     },
     defaultVariants: {
