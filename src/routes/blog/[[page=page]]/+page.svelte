@@ -57,7 +57,7 @@
       className={cc.heading}
       text={blogEntry?.customTitle}
       size="7xl"
-      family="sans"
+      family="walsheim"
       weight="extrabold"
       data-waypoint-target
     />
@@ -65,7 +65,7 @@
       <RichText className={cc.text} html={blogEntry.description} data-waypoint-target />
     {/if}
   {:else}
-    <div class="span-content text-olkch-pink flex font-sans text-7xl font-extrabold" use:useWaypoint data-waypoint>
+    <div class="span-content text-olkch-pink flex font-walsheim text-7xl font-extrabold" use:useWaypoint data-waypoint>
       {@html splitText(`Page ${page.toString()}`)}
     </div>
   {/if}

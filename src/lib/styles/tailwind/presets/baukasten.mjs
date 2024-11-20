@@ -33,6 +33,12 @@ export default {
       sans: [
         // Use a custom sans serif font for this site by changing 'Lato' to the
         // font name you want and uncommenting the following line.
+        "Poppins",
+        ...defaultTheme.fontFamily.sans
+      ],
+      walsheim: [
+        // Use a custom sans serif font for this site by changing 'Lato' to the
+        // font name you want and uncommenting the following line.
         "GT Walsheim",
         ...defaultTheme.fontFamily.sans
       ]
@@ -81,9 +87,9 @@ export default {
         extendValues: true // When you set extendValues to true it will extend the default values. Set it to false to overwrite the values.
       },
       values: {
-        "2xs": ["8px", 1.625],
-        xs: ["11px", 1.625],
-        sm: ["13px", 1.625],
+        "2xs": ["9px", 1.625],
+        xs: ["12px", 1.625],
+        sm: ["15px", 1.625],
         base: [0, 1.625],
         lg: [1, 1.5],
         xl: [2, 1.25],

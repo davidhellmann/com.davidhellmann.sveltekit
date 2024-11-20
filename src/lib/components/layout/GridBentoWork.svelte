@@ -10,19 +10,21 @@
   import Image from "$components/image/Image.svelte";
   import PlainText from "$components/text/PlainText.svelte";
   import Headline from "$components/text/Headline.svelte";
+  import Category from "$components/text/Category.svelte";
 
   type Entry = Entry_DataFragment & EntryType_WorkSingleFragment & Entry_SeoFragment & Entry_DatesFragment;
 
   const tvGridBentoWork = tv({
     slots: {
-      slotBase: "grid grid-cols-3 grid-rows-4 gap-4 lg:gap-8",
-      slotCard: "overflow-clip rounded flex flex-col items-start stack-6 bg-neutral-950/60 border-2 border-neutral-800/50 shadow-lg text-neutral-100 p-4",
-      slotCard1: "col-span-1 row-span-2 rounded-tl-3xl",
-      slotCard2: "col-span-2 row-span-2 rounded-tr-3xl pl-10 pl-20",
-      slotCard3: "col-span-2 row-span-2 rounded-bl-3xl pl-10 md:pl-20",
-      slotCard4: "col-span-1 row-span-2 rounded-br-3xl",
-      slotContent: "flex flex-col px-8 pt-6",
-      slotImage: "w-full h-full aspect-[5/3] rounded-xl overflow-hidden"
+      slotBase: "grid grid-cols-3 grid-rows-4 gap-fluid",
+      slotCard:
+        "overflow-clip rounded-xl flex flex-col items-start stack-10 bg-neutral-950/60 ring-1 ring-black/30 shadow-xl shadow-neutral-700/20 text-neutral-100 p-3",
+      slotCard1: "col-span-1 row-span-2",
+      slotCard2: "col-span-2 row-span-2",
+      slotCard3: "col-span-2 row-span-2",
+      slotCard4: "col-span-1 row-span-2",
+      slotContent: "flex flex-col px-4 pt-6 stack-3",
+      slotImage: "w-full h-full aspect-[5/2] ring-1 ring-neutral-600/20 rounded-lg shadow-xl overflow-hidden"
     }
   });
 
@@ -32,47 +34,39 @@
     entries: Entry[];
   } & VariantProps<typeof tvGridBentoWork>;
 
-  let {
-    compName = "GridBentoWork",
-    className,
-    entries
-  }: GridBentoWorkProps = $props();
+  let { compName = "GridBentoWork", className, entries }: GridBentoWorkProps = $props();
 
-  const {
-    slotBase,
-    slotCard,
-    slotCard1,
-    slotCard2,
-    slotCard3,
-    slotCard4,
-    slotContent,
-    slotImage
-  } = tvGridBentoWork({ className });
+  const { slotBase, slotCard, slotCard1, slotCard2, slotCard3, slotCard4, slotContent, slotImage } = tvGridBentoWork({
+    className
+  });
   const cardClasses = [slotCard1, slotCard2, slotCard3, slotCard4];
 </script>
 
 {#if entries}
-  <div
-    data-comp={compName}
-    class={slotBase({ className })}
-  >
+  <div data-comp={compName} class={slotBase({ className })}>
     {#each entries as entry, i (entry.id)}
       {#if entry && entry?.__typename === "entryWorkSingle_Entry"}
-        {#if entry?.title && entry?.url && entry?.descriptionPlain && entry?.image && entry?.colorPickerRepeater}
-          <div class={`${slotCard()} ${cardClasses[i]()}`} style={getColorPickerColors(entry?.colorPickerRepeater)}>
+        {#if entry?.title && entry?.url && entry?.colorPickerRepeater}
+          <a
+            href={entry?.url}
+            class={`${slotCard()} ${cardClasses[i]()}`}
+            style={getColorPickerColors(entry?.colorPickerRepeater)}
+          >
             <div class={slotContent()}>
-              <Headline
-                preset={"h5"}
-                text={entry?.title}
-                className="max-w-[22ch]"
-              />
-              <PlainText text={entry?.descriptionPlain} className={"line-clamp-3 text-sm"} />
+              {#if entry?.workType?.[0]}
+                <Category className={"mb-3"} variant="work" title={entry?.workType?.[0]?.title} />
+              {/if}
+              <Headline preset={"h6"} weight={"medium"} text={entry?.title} className="font-sans" />
+              {#if entry?.descriptionPlain}
+                <PlainText text={entry?.descriptionPlain} className={"line-clamp-2 text-sm font-sans max-w-prose"} />
+              {/if}
             </div>
-            <Image className={slotImage()} image={entry?.image[0]} focalPoint={[0, 0]} />
-          </div>
+            {#if entry?.image}
+              <Image className={slotImage()} image={entry?.image[0]} ratio="unset" focalPoint={[0, 0]} />
+            {/if}
+          </a>
         {/if}
       {/if}
     {/each}
   </div>
 {/if}
-

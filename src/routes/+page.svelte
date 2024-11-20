@@ -29,8 +29,9 @@
     heroRichText: "span-content lg:col-start-2 lg:col-end-10 text-white text-3xl max-w-prose",
     decorativeWrapper: "span-popout px-fluid relative z-20  mt-[16vw] pb-32",
     bigTextWrapper: "span-full px-4 -mt-40 z-20 pointer-events-none ",
-    bigText: "uppercase font-sans text-neutral-700/10 opacity-70 text-center translate-y-full",
-    bigTextOverlay: "span-lg z-30 text-neutral-700 -mt-16 pt-4 sm:pt-0 sm:-mt-6 lg:mt-8 -translate-y-full",
+    bigText:
+      "uppercase font-walsheim bg-gradient-to-b from-neutral-400/10 to-neutral-700/5 py-4 opacity-70 text-transparent bg-clip-text text-center translate-y-full",
+    bigTextOverlay: "span-lg z-30 text-neutral-700 -mt-16 pt-4 sm:pt-0 sm:-mt-6 lg:mt-12 -translate-y-full",
     cardGrid: "span-content grid gap-8 lg:gap-fluid -mt-6 mb-24 z-10",
     cardGridPhotos: "grid-cols-cards-sm"
   };
@@ -48,7 +49,7 @@
     <div class="fluid-grid">
       <DecorativeWrapper preset="glass-home" className={cc.decorativeWrapper}>
         {#if entry?.customTitle}
-          <Headline family="sans" size="6xl" className={cc.heroHeadline} text={entry?.customTitle} />
+          <Headline family="walsheim" size="6xl" className={cc.heroHeadline} text={entry?.customTitle} />
         {/if}
 
         {#if entry?.description}
@@ -128,9 +129,10 @@
     isolation: isolate;
     background-color: theme("colors.neutral.900");
     backdrop-filter: blur(8px);
-    box-shadow: rgba(255, 255, 255, 1) 0 0 0 0,
-    rgba(255, 255, 255, 1) 0 0 0 1px,
-    rgba(0, 0, 0, 0) 0 0 0 0;
+    box-shadow:
+      rgba(255, 255, 255, 1) 0 0 0 0,
+      rgba(255, 255, 255, 1) 0 0 0 1px,
+      rgba(0, 0, 0, 0) 0 0 0 0;
     position: fixed;
     top: 0;
     height: 100dvh;

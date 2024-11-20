@@ -15,12 +15,14 @@ export const load: PageServerLoad = async () => {
 
   const { entries: workEntries } = (await getGqlData<GetEntriesQueryVariables>(GetEntriesDocument, {
     section: ["work"],
-    limit: 4
+    limit: 4,
+    orderBy: "RAND()"
   })) as GetEntriesQuery;
 
   const { entries: photoEntries } = (await getGqlData<GetEntriesQueryVariables>(GetEntriesDocument, {
     section: ["photos"],
-    limit: 5
+    limit: 5,
+    orderBy: "RAND()"
   })) as GetEntriesQuery;
 
   console.log("Render:", entries?.[0]?.title);

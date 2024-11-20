@@ -10,6 +10,7 @@
     base: "bg-primary-200 w-full",
     variants: {
       ratio: {
+        "unset": "",
         "aspect-auto": "aspect-auto",
         "aspect-landscape": "aspect-landscape",
         "aspect-portrait": "aspect-portrait",

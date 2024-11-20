@@ -29,7 +29,7 @@
         className={cc.heading}
         text={entry?.title}
         size="7xl"
-        family="sans"
+        family="walsheim"
         weight="extrabold"
         data-waypoint
         data-waypoint-target
