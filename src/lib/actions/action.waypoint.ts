@@ -67,29 +67,19 @@ export function useWaypoint(node: HTMLElement, options: WaypointOptions = {}) {
     }
   );
 
-  // Start observing the node
   observer.observe(node);
 
   // Optional: Setup mutation observer for dynamic content
-  const mutationObserver = new MutationObserver(() => {
-    const targets = getWaypointTargets(node);
-    if (targets.length) {
-      observer.observe(node);
-    }
+  const mutationObserver = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.type === "childList") {
+        const targets = getWaypointTargets(node);
+        if (targets.length) {
+          observer.observe(node);
+        }
+      }
+    });
   });
-
-  // Optional: Setup mutation observer for dynamic content
-  // const mutationObserver = new MutationObserver((mutations) => {
-  //   mutations.forEach((mutation) => {
-  //     if (mutation.type === "childList") {
-  //       mutation.addedNodes.forEach((node) => {
-  //         if (node instanceof HTMLElement && !node.hasAttribute("data-waypoint")) {
-  //           observer.observe(node);
-  //         }
-  //       });
-  //     }
-  //   });
-  // });
 
   mutationObserver.observe(node, {
     childList: true,
@@ -97,9 +87,17 @@ export function useWaypoint(node: HTMLElement, options: WaypointOptions = {}) {
     subtree: true
   });
 
+  const resetWaypoints = () => {
+    const targets = getWaypointTargets(node);
+    targets.forEach((target) => {
+      target.removeAttribute("data-waypoint-animated");
+      target.removeAttribute("data-waypoint-in-viewport");
+    });
+  };
+
   return {
     update(newOptions: WaypointOptions) {
-      // Handle updates to options
+      resetWaypoints(); // Waypoints zurücksetzen
       Object.assign(settings, { ...defaultOptions, ...newOptions });
     },
     destroy() {
