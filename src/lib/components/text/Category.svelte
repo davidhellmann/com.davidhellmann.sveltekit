@@ -23,24 +23,7 @@
     icon?: HeroiconsIcons;
   } & VariantProps<typeof tvCategory>;
 
-  let { compName = "Category", className, title, variant, icon = "folder-open-outline" }: CategoryProps = $props();
-
-  switch (title) {
-  case "Client":
-    icon = "home-modern-outline";
-    break;
-  case "Agency":
-    icon = "building-office-outline";
-    break;
-  case "Side Project":
-    icon = "users-outline";
-    break;
-  default:
-    icon = "folder-open-outline";
-    break;
-  }
-
-  console.log(icon);
+  let { compName = "Category", className, title, variant, icon = "tag-outline" }: CategoryProps = $props();
 </script>
 
 {#if title}
