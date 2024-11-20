@@ -15,10 +15,15 @@
         "aspect-portrait": "aspect-portrait",
         "aspect-square": "aspect-square",
         "aspect-instagram": "aspect-instagram",
-      }
+      },
+      animate: {
+        "unset": "",
+        "fade": "[&[data-srcset]]:blur-xl [&[data-srcset]]:scale-105 transition-all ease-in-out  duration-1000",
+      },
     },
     defaultVariants: {
-      ratio: "aspect-landscape"
+      ratio: "aspect-landscape",
+      animate: "unset"
     }
   });
 
@@ -46,6 +51,7 @@
     lazy = true,
     objectFit = "cover",
     ratio = "aspect-landscape",
+    animate,
     alt = "",
     focalPoint,
     src,
@@ -90,7 +96,7 @@
 {#snippet imgTag()}
   <img
     data-comp={compName}
-    class={tvImage({ ratio, className })}
+    class={tvImage({ ratio, animate, className })}
     {...attr}
     alt={alt}
     src={lazy && blurhash ? blurhash : src}
