@@ -56,12 +56,12 @@
               {#if entry?.workType.length > 0}
                 <Category className={"mb-3"} variant="work" title={entry.workType[0].title} />
               {/if}
-              <Headline preset={"h6"} weight={"medium"} text={entry?.title} className="font-sans" />
+              <Headline preset={"h4"} weight={"medium"} text={entry?.title} className="font-sans" />
               {#if entry?.descriptionPlain}
-                <PlainText text={entry?.descriptionPlain} className={"line-clamp-2 text-sm font-sans max-w-prose"} />
+<!--                <PlainText text={entry?.descriptionPlain} className={"line-clamp-2 text-sm font-sans max-w-prose"} />-->
               {/if}
 
-              <div class="font-mono text-xs pt-4 flex flex-col">
+              <div class="font-mono text-xs flex flex-col">
                 {#if entry?.postDate}
                   <span>
                     <span class="text-neutral-400">Y.</span>
