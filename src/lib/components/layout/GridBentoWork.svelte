@@ -7,6 +7,7 @@
     EntryType_WorkSingleFragment
   } from "$graphql/graphql";
   import { getColorPickerColors } from "$utils/getColorPickerColors";
+  import { getRandomItemsFromArray } from "$utils/getRandomItemsFromArray";
   import Image from "$components/image/Image.svelte";
   import PlainText from "$components/text/PlainText.svelte";
   import Headline from "$components/text/Headline.svelte";
@@ -44,7 +45,7 @@
 
 {#if entries}
   <div data-comp={compName} class={slotBase({ className })}>
-    {#each entries as entry, i (entry.id)}
+    {#each getRandomItemsFromArray(entries, 4) as entry, i (entry.id)}
       {#if entry && entry?.__typename === "entryWorkSingle_Entry"}
         {#if entry?.title && entry?.url && entry?.colorPickerRepeater}
           <a
