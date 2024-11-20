@@ -18,7 +18,7 @@
       },
       animate: {
         "unset": "",
-        "fade": "[&[data-srcset]]:blur-xl [&[data-srcset]]:scale-105 transition-all ease-in-out  duration-1000",
+        "fade": "[&[data-srcset]]:blur-xl [&[data-srcset]]:scale-110 transition-all ease-in duration-500",
       },
     },
     defaultVariants: {
