@@ -71,17 +71,25 @@ export function useWaypoint(node: HTMLElement, options: WaypointOptions = {}) {
   observer.observe(node);
 
   // Optional: Setup mutation observer for dynamic content
-  const mutationObserver = new MutationObserver((mutations) => {
-    mutations.forEach((mutation) => {
-      if (mutation.type === "childList") {
-        mutation.addedNodes.forEach((node) => {
-          if (node instanceof HTMLElement && !node.hasAttribute("data-waypoint")) {
-            observer.observe(node);
-          }
-        });
-      }
-    });
+  const mutationObserver = new MutationObserver(() => {
+    const targets = getWaypointTargets(node);
+    if (targets.length) {
+      observer.observe(node);
+    }
   });
+
+  // Optional: Setup mutation observer for dynamic content
+  // const mutationObserver = new MutationObserver((mutations) => {
+  //   mutations.forEach((mutation) => {
+  //     if (mutation.type === "childList") {
+  //       mutation.addedNodes.forEach((node) => {
+  //         if (node instanceof HTMLElement && !node.hasAttribute("data-waypoint")) {
+  //           observer.observe(node);
+  //         }
+  //       });
+  //     }
+  //   });
+  // });
 
   mutationObserver.observe(node, {
     childList: true,
