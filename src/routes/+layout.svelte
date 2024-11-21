@@ -44,6 +44,7 @@
     <ul class={`${cc.list} ${cc.glass} ${scrollY > 100 ? "-translate-y-10 scale-90" : ""}`}>
       <li data-waypoint-target class="is-zoomInDown"><a class={cc.link} href="/work">work.</a></li>
       <li data-waypoint-target class="is-zoomInDown"><a class={cc.link} href="/blog">blog.</a></li>
+      <li data-waypoint-target class="is-zoomInDown"><a class={cc.link} href="/projects">projects.</a></li>
       <li data-waypoint-target class="is-zoomInDown"><a class={cc.link} href="/photos">photos.</a></li>
       <li data-waypoint-target class="is-zoomInDown"><a class={cc.link} href="/about">about.</a></li>
     </ul>
