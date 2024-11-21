@@ -15,8 +15,8 @@
     slots: {
       slotBase: "font-mono block group relative",
       slotImage: "border-2 border-neutral-300 border-t-neutral-400 border-l-neutral-400 overflow-hidden",
-      slotHeadline: "mt-4 px-1 text-neutral-800/50 line-clamp-1",
-      slotNumber: "text-2xs uppercase tracking-widest absolute bottom-10 translate-y-0.5 inset-x-0 text-neutral-400/50 flex px-3 justify-between",
+      slotHeadline: "mt-5 px-1 text-neutral-800/50 line-clamp-1",
+      slotNumber: "text-2xs uppercase tracking-widest absolute bottom-10 -translate-y-1 inset-x-0 text-neutral-400/50 flex px-3 justify-between",
     },
   });
 
