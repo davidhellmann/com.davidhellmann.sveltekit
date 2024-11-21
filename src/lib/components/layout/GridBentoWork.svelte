@@ -46,7 +46,7 @@
 </script>
 
 {#if entries}
-  <div data-comp={compName} class={slotBase({ className })} use:useWaypoint={{endless: true}} data-waypoint>
+  <div data-comp={compName} class={slotBase({ className })} use:useWaypoint data-waypoint>
     {#each getRandomItemsFromArray(entries, 4) as entry, i (entry.id)}
       {#if entry && entry?.__typename === "entryWorkSingle_Entry"}
         {#if entry?.title && entry?.url}
