@@ -1,16 +1,10 @@
-export const splitTextIntoDivs = (str: string, animateClass: string = "is-zoomInDown", spaceToBr: boolean = false) => {
+export const splitTextIntoDivs = (str: string, animateClass: string = "is-zoomInDown", brIdentifier: string = "") => {
   return str
     .split("")
-    .map((letter) =>
-      letter === " "
-        ? spaceToBr
-          ? "<span class='w-full'></span>"
-          : "&nbsp;"
-        : `
-    <div class="${animateClass}" data-waypoint-target>
-      ${letter}
-    </div>
-  `
-    )
+    .map((letter) => {
+      if (letter === " ") return "&nbsp;";
+      if (letter === brIdentifier) return "<span class='w-full'></span>";
+      return `<div class="${animateClass}" data-waypoint-target>${letter}</div>`;
+    })
     .join("");
 };

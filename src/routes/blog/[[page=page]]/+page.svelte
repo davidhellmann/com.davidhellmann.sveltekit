@@ -42,7 +42,7 @@
   {#if page === 1}
     {#if blogEntry?.customTitle}
       <div class={cc.heading} use:useWaypoint data-waypoint>
-        {@html splitTextIntoDivs(blogEntry?.customTitle, "is-blurInLeftDown", true)}
+        {@html splitTextIntoDivs(blogEntry?.customTitle, "is-blurInLeftDown", "$")}
       </div>
     {/if}
     {#if blogEntry.description}

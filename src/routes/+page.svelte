@@ -52,7 +52,7 @@
       <DecorativeWrapper preset="glass-home" className={cc.decorativeWrapper}>
         {#if entry?.customTitle}
           <div class={cc.heroHeadline} use:useWaypoint data-waypoint>
-            {@html splitTextIntoDivs(entry?.customTitle, "is-blurInLeftDown", true)}
+            {@html splitTextIntoDivs(entry?.customTitle, "is-blurInLeftDown", "$")}
           </div>
         {/if}
 
