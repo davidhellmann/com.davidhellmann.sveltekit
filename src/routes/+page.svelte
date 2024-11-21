@@ -28,7 +28,7 @@
     main: "w-full lg:max-w-[min(calc(100%-4vw),2000px)] mx-auto relative z-10 stack-24 pt-40 lg:pt-80 overflow-clip",
     heroImage: "absolute inset-x-0 top-0 z-10",
     heroHeadline: "font-walsheim text-7xl font-extrabold !leading-[0.85] [font-size:min(12vw,13.5rem)] text-olkch-green -translate-y-[1.75cap] -mb-[1.25cap] flex flex-wrap [br]:w-full",
-    heroRichText: "span-content lg:col-start-2 lg:col-end-10 text-white text-3xl max-w-prose",
+    heroRichText: "is-zoomInUp span-content lg:col-start-2 lg:col-end-10 text-white text-3xl max-w-prose",
     decorativeWrapper: "span-popout px-fluid relative z-20  mt-[16vw] pb-32",
     bigTextWrapper: "span-full px-4 -mt-40 z-20 pointer-events-none ",
     bigText:
@@ -57,8 +57,8 @@
         {/if}
 
         {#if entry?.description}
-          <div class="grid grid-cols-12">
-            <RichText className={cc.heroRichText} html={entry?.description} />
+          <div use:useWaypoint={{delay: 1000}} data-waypoint class="grid grid-cols-12">
+            <RichText data-waypoint-target className={cc.heroRichText} html={entry?.description} />
           </div>
         {/if}
       </DecorativeWrapper>
