@@ -5,6 +5,7 @@
   import RichText from "$components/text/RichText.svelte";
   import Seo from "$components/head/Seo.svelte";
   import { getFirstEntry } from "$utils/getFirstEntry";
+  import { splitTextIntoDivs } from "$utils/splitTextIntoDivs";
   import { afterNavigate } from "$app/navigation";
   import { replaceState } from "$app/navigation";
   import { useWaypoint } from "$lib/actions/action.waypoint";
@@ -27,24 +28,10 @@
   });
 
   const cc = {
-    heading: "span-content text-olkch-pink is-zoomInDown",
+    heading: "span-content text-olkch-pink is-zoomInDown text-7xl font-walsheim font-extrabold flex flex-wrap",
     text: "span-content xl:col-start-[col-3] xl:col-end-[col-10] text-2xl is-zoomInDown [&_*_strong]:decoration-wavy [&_*_strong]:underline [&_*_strong]:decoration-4 [&_*_strong]:decoration-accent-purple-400",
     list: "span-popout z-10 @container",
   };
-
-
-  // split string and map each letter into a div
-  const splitText = (str: string) =>
-    str
-      .split("")
-      .map(
-        (letter) => `
-    <div class="is-zoomInDown" data-waypoint-target>
-      ${letter === " " ? "&nbsp;" : letter}
-    </div>
-  `
-      )
-      .join("");
 </script>
 
 {#if blogEntry?.seomatic}
@@ -53,20 +40,17 @@
 
 {#if blogEntry && blogEntry?.__typename === "entryBlogList_Entry"}
   {#if page === 1}
-    <Headline
-      className={cc.heading}
-      text={blogEntry?.customTitle}
-      size="7xl"
-      family="walsheim"
-      weight="extrabold"
-      data-waypoint-target
-    />
+    {#if blogEntry?.customTitle}
+      <div class={cc.heading} use:useWaypoint data-waypoint>
+        {@html splitTextIntoDivs(blogEntry?.customTitle, "is-blurInLeftDown", true)}
+      </div>
+    {/if}
     {#if blogEntry.description}
       <RichText className={cc.text} html={blogEntry.description} data-waypoint-target />
     {/if}
   {:else}
     <div class="span-content text-olkch-pink flex font-walsheim text-7xl font-extrabold" use:useWaypoint data-waypoint>
-      {@html splitText(`Page ${page.toString()}`)}
+      {@html splitTextIntoDivs(`Page ${page.toString()}`, "is-blurInLeftDown")}
     </div>
   {/if}
   <StackBlog {entries} showPagination={true} totalItems={entryCount} {totalPages} {page} className={cc.list} />
