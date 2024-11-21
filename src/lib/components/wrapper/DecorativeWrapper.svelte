@@ -42,13 +42,8 @@
             shadow-neutral-700/50
             ring-1
             ring-black/50
-            border-b-2
+            border-b
             border-b-neutral-900
-            after:absolute
-            after:bottom-0
-            after:-inset-x-0
-            after:bg-white/30
-            after:h-2
           `
         },
         "glass-home": {

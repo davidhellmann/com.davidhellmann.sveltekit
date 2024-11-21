@@ -40,11 +40,11 @@
 </script>
 
 {#if headline && url}
-  <a href={url} class={slotBase({ className })} style={`rotate: ${getRandomNumberFromRange(-2, 2)}deg`} data-comp={compName} data-waypoint-target>
+  <a href={url} class={slotBase({ className })} style={`rotate: ${getRandomNumberFromRange(-4, 4)}deg;`} data-comp={compName} data-waypoint-target>
     {#if image}
       <DecorativeWrapper preset="polaroid">
         <div class={slotImage({})}>
-          <Image image={image} noscript={false} className="transition-all group-hover:scale-105" ratio="aspect-instagram" />
+          <Image image={image} noscript={false} className="transition-all group-hover:scale-105" ratio="aspect-auto" />
         </div>
         <Headline text={headline} size="sm" family="mono" weight="semibold" className={slotHeadline({})} />
         <div class={slotNumber()}>

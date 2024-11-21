@@ -35,7 +35,7 @@
       "uppercase font-walsheim bg-gradient-to-b from-neutral-400/10 to-neutral-700/5 py-4 opacity-70 text-transparent bg-clip-text text-center translate-y-full",
     bigTextOverlay: "span-lg z-30 text-neutral-700 -mt-16 pt-4 sm:pt-0 sm:-mt-6 lg:mt-12 -translate-y-full",
     cardGrid: "span-content grid gap-8 lg:gap-fluid -mt-6 mb-24 z-10",
-    cardGridPhotos: "grid-cols-cards-sm"
+    cardGridPhotos: "grid-cols-cards-sm lg:gap-8 items-center"
   };
 </script>
 
@@ -117,6 +117,12 @@
             {/if}
           {/each}
         </div>
+<!--        <div class="span-full px-8 -mt-24 -translate-y-2">-->
+<!--          <div-->
+<!--            class="w-full mx-auto h-4 bg-gradient-to-b from-neutral-800 to-neutral-800"-->
+<!--            style="clip-path: polygon(2% 0, 98% 0, 100% 100%, 0% 100%); translate: 0 -2spx;"></div>-->
+<!--          <div class="w-full mx-auto h-8 bg-neutral-700  shadow-2xl shadow-neutral-950"></div>-->
+<!--        </div>-->
       </div>
     {/if}
   </main>
