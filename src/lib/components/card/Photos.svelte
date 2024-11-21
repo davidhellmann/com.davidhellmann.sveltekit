@@ -40,7 +40,7 @@
 </script>
 
 {#if headline && url}
-  <a href={url} class={slotBase({ className })} style={`rotate: ${getRandomNumberFromRange(-2, 2)}deg`} data-comp={compName}>
+  <a href={url} class={slotBase({ className })} style={`rotate: ${getRandomNumberFromRange(-2, 2)}deg`} data-comp={compName} data-waypoint-target>
     {#if image}
       <DecorativeWrapper preset="polaroid">
         <div class={slotImage({})}>

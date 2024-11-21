@@ -8,6 +8,7 @@
   import DecorativeWrapper from "$components/wrapper/DecorativeWrapper.svelte";
   import GridBentoWork from "$components/layout/GridBentoWork.svelte";
   import { useFullWidthText } from "$lib/actions/action.fullWidthText";
+  import { useWaypoint } from "$lib/actions/action.waypoint";
   import type { ComponentProps } from "svelte";
   import CardBlog from "$components/card/Blog.svelte";
   import CardPhotos from "$components/card/Photos.svelte";
@@ -67,12 +68,13 @@
         </div>
         <Headline className={cc.bigTextOverlay} size="4xl" text="blog." />
 
-        <div class="span-content grid grid-cols-1 gap-fluid -mt-6 mb-24 z-10">
+        <div class="span-content grid grid-cols-1 gap-fluid -mt-6 mb-24 z-10" use:useWaypoint data-waypoint>
           {#each blogEntries as entry, i (entry.id)}
             {#if entry && entry?.__typename === "entryBlogSingle_Entry"}
               {#if entry?.title && entry?.url && entry?.postDate && entry.category[0]?.title}
                 <!--TODO: fix typing-->
                 <CardBlog
+                  className="is-zoomInUp"
                   headline={entry.title}
                   url={entry?.url}
                   postDate={entry?.postDate}
@@ -103,11 +105,11 @@
           <div class={cc.bigText} use:useFullWidthText><span>shooting</span></div>
         </div>
         <Headline className={cc.bigTextOverlay} size="4xl" text="photos." />
-        <div class={`${cc.cardGrid} ${cc.cardGridPhotos}`}>
+        <div class={`${cc.cardGrid} ${cc.cardGridPhotos}`} use:useWaypoint data-waypoint>
           {#each photoEntries as entry (entry.id)}
             {#if entry && entry?.__typename === "entryPhotosSingle_Entry"}
               {#if entry?.title && entry?.url && entry?.image}
-                <CardPhotos headline={entry.title} url={entry?.url} image={entry?.image[0]} />
+                <CardPhotos className="is-zoomInUp" headline={entry.title} url={entry?.url} image={entry?.image[0]} />
               {/if}
             {/if}
           {/each}

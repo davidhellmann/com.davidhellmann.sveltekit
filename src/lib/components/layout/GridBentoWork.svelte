@@ -8,10 +8,11 @@
   } from "$graphql/graphql";
   import { getRandomItemsFromArray } from "$utils/getRandomItemsFromArray";
   import Image from "$components/image/Image.svelte";
-  import PlainText from "$components/text/PlainText.svelte";
+  // import PlainText from "$components/text/PlainText.svelte";
   import Headline from "$components/text/Headline.svelte";
   import Category from "$components/text/Category.svelte";
   import Time from "svelte-time";
+  import { useWaypoint } from "$lib/actions/action.waypoint";
 
   type Entry = Entry_DataFragment & EntryType_WorkSingleFragment & Entry_SeoFragment & Entry_DatesFragment;
 
@@ -45,13 +46,14 @@
 </script>
 
 {#if entries}
-  <div data-comp={compName} class={slotBase({ className })}>
+  <div data-comp={compName} class={slotBase({ className })} use:useWaypoint={{endless: true}} data-waypoint>
     {#each getRandomItemsFromArray(entries, 4) as entry, i (entry.id)}
       {#if entry && entry?.__typename === "entryWorkSingle_Entry"}
         {#if entry?.title && entry?.url}
           <a
             href={entry?.url}
-            class={`${slotCard()} ${cardClasses[i]()}`}
+            class={`${slotCard()} ${cardClasses[i]()} is-zoomInUp`}
+            data-waypoint-target
           >
             <div class={slotContent()}>
               {#if entry?.workType.length > 0}

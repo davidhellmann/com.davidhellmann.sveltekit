@@ -67,7 +67,7 @@
 </script>
 
 {#if headline && url}
-  <a href={url} class={slotBase({ theme, className })} data-comp={compName}>
+  <a href={url} class={slotBase({ theme, className })} data-comp={compName} data-waypoint-target>
     <div class={slotMeta()}>
       <Category className={slotCategory({})} title={categoryTitle} />
       <Time timestamp={postDate} />

@@ -37,7 +37,7 @@
 <svelte:window bind:scrollY />
 
 <header class={cc.header}>
-  <nav class={`${cc.nav}`} use:useWaypoint={{ endless: true }} data-waypoint>
+  <nav class={`${cc.nav}`} use:useWaypoint data-waypoint>
     <h1 class={`${cc.logo} ${cc.glass} ${scrollY > 100 ? "-translate-y-10 scale-90" : ""}`}>
       <a data-waypoint-target class={cc.logoLink} href="/">DH</a>
     </h1>

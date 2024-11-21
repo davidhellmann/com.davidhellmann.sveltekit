@@ -16,7 +16,7 @@
   }
 
   [data-waypoint-target][data-waypoint-animated].is-zoomInUp {
-    @apply opacity-100 translate-y-0 scale-100;
+    @apply opacity-100 translate-y-0 scale-100 duration-500;
     transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
   }
 
