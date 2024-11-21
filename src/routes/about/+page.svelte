@@ -5,6 +5,7 @@
   import RichText from "$components/text/RichText.svelte";
   import Image from "$components/image/Image.svelte";
   import DecorativeWrapper from "$components/wrapper/DecorativeWrapper.svelte";
+  import CurriculumVitae from "$components/block/CurriculumVitae.svelte";
   import { useWaypoint } from "$lib/actions/action.waypoint";
   import { splitTextIntoDivs } from "$utils/splitTextIntoDivs";
 
@@ -47,6 +48,10 @@
           </div>
         {/if}
       </DecorativeWrapper>
+
+      {#if entry?.curriculumVitae}
+        <CurriculumVitae items={entry.curriculumVitae} className="span-content z-10" />
+      {/if}
     </div>
   </main>
 {/if}

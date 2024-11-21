@@ -1,4 +1,4 @@
-fragment entryType_about on entryAbout_Entry {
+  fragment entryType_about on entryAbout_Entry {
   ...entryType_data
   description
   descriptionPlain: description @stripTags
