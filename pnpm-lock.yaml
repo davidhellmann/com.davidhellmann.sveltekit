@@ -30,8 +30,8 @@ importers:
         specifier: ^0.1.1
         version: 0.1.1(tailwindcss@3.4.15)
       embla-carousel-svelte:
-        specifier: ^8.5.0
-        version: 8.5.0(svelte@5.2.0)
+        specifier: ^8.5.1
+        version: 8.5.1(svelte@5.2.0)
       graphql-request:
         specifier: ^6.1.0
         version: 6.1.0(graphql@16.9.0)
@@ -112,8 +112,8 @@ importers:
         specifier: ^3.3.3
         version: 3.3.3
       prettier-plugin-svelte:
-        specifier: ^3.2.8
-        version: 3.2.8(prettier@3.3.3)(svelte@5.2.0)
+        specifier: ^3.3.1
+        version: 3.3.1(prettier@3.3.3)(svelte@5.2.0)
       shiki:
         specifier: ^1.23.1
         version: 1.23.1
@@ -2045,18 +2045,18 @@ packages:
   electron-to-chromium@1.5.60:
     resolution: {integrity: sha512-HcraRUkTKJ+8yA3b10i9qvhUlPBRDlKjn1XGek1zDGVfAKcvi8TsUnImGqLiEm9j6ZulxXIWWIo9BmbkbCTGgA==}
 
-  embla-carousel-reactive-utils@8.5.0:
-    resolution: {integrity: sha512-K4mOsS0ZIEzD1u8vzmAGdeh9rirL9B31WJNd99XJ9aGtXC2oe7Jlb04Z7iFDG/HgjfYC9x9zk7lS6Dyo5NAHiw==}
+  embla-carousel-reactive-utils@8.5.1:
+    resolution: {integrity: sha512-n7VSoGIiiDIc4MfXF3ZRTO59KDp820QDuyBDGlt5/65+lumPHxX2JLz0EZ23hZ4eg4vZGUXwMkYv02fw2JVo/A==}
     peerDependencies:
-      embla-carousel: 8.5.0
+      embla-carousel: 8.5.1
 
-  embla-carousel-svelte@8.5.0:
-    resolution: {integrity: sha512-N8+tNrqpdEMmMpwFhF3AhzqWkr41H0+OVDhR8Af7lmm36vzYn/mxHtC8zMi2aNzyEfZ7GMb2HcB0sv09vKXHdQ==}
+  embla-carousel-svelte@8.5.1:
+    resolution: {integrity: sha512-sCQDCn+kyuLUysXFRCTboSTslI0LUV5OhVqBAXnSphJ/mYdlbYfMhk03MGck+Mogdgpf9zYrBocp2uF6qUBNAw==}
     peerDependencies:
       svelte: ^3.49.0 || ^4.0.0 || ^5.0.0
 
-  embla-carousel@8.5.0:
-    resolution: {integrity: sha512-4cZ+50mAfrQySxp1C/0GSRZYSIHB0Osr+1S0SugY6Io2rfSsZizhj+A/HdUUJ1ZQroMNFqRIKw8ZRIe+0MFlXg==}
+  embla-carousel@8.5.1:
+    resolution: {integrity: sha512-JUb5+FOHobSiWQ2EJNaueCNT/cQU9L6XWBbWmorWPQT9bkbk+fhsuLr8wWrzXKagO3oWszBO7MSx+GfaRk4E6A==}
 
   emoji-regex-xs@1.0.0:
     resolution: {integrity: sha512-LRlerrMYoIDrT6jgpeZ2YYl/L8EulRTt5hQcYjy5AInh7HWXKimpqx68aknBFpGL2+/IcogTcaydJEgaTmOpDg==}
@@ -3064,8 +3064,8 @@ packages:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
 
-  prettier-plugin-svelte@3.2.8:
-    resolution: {integrity: sha512-PAHmmU5cGZdnhW4mWhmvxuG2PVbbHIxUuPOdUKvfE+d4Qt2d29iU5VWrPdsaW5YqVEE0nqhlvN4eoKmVMpIF3Q==}
+  prettier-plugin-svelte@3.3.1:
+    resolution: {integrity: sha512-AIKwXYBGm+f0l0DUcQRWjeQj8xm1cVBIZGshvlfiCuesEfueF1TGqz88NP0cr95Ar7Xvt0Ef7h9LFzGdkHr+gA==}
     peerDependencies:
       prettier: ^3.0.0
       svelte: ^3.2.0 || ^4.0.0-next.0 || ^5.0.0-next.0
@@ -5905,17 +5905,17 @@ snapshots:
 
   electron-to-chromium@1.5.60: {}
 
-  embla-carousel-reactive-utils@8.5.0(embla-carousel@8.5.0):
+  embla-carousel-reactive-utils@8.5.1(embla-carousel@8.5.1):
     dependencies:
-      embla-carousel: 8.5.0
+      embla-carousel: 8.5.1
 
-  embla-carousel-svelte@8.5.0(svelte@5.2.0):
+  embla-carousel-svelte@8.5.1(svelte@5.2.0):
     dependencies:
-      embla-carousel: 8.5.0
-      embla-carousel-reactive-utils: 8.5.0(embla-carousel@8.5.0)
+      embla-carousel: 8.5.1
+      embla-carousel-reactive-utils: 8.5.1(embla-carousel@8.5.1)
       svelte: 5.2.0
 
-  embla-carousel@8.5.0: {}
+  embla-carousel@8.5.1: {}
 
   emoji-regex-xs@1.0.0: {}
 
@@ -6956,7 +6956,7 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
-  prettier-plugin-svelte@3.2.8(prettier@3.3.3)(svelte@5.2.0):
+  prettier-plugin-svelte@3.3.1(prettier@3.3.3)(svelte@5.2.0):
     dependencies:
       prettier: 3.3.3
       svelte: 5.2.0
