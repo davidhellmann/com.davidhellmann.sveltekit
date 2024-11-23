@@ -1,3 +1,4 @@
+export const prerender = true;
 import type { RequestHandler } from "./$types";
 import { GetSeomaticDocument, type GetSeomaticQuery, type GetSeomaticQueryVariables } from "$graphql/graphql";
 import { getGqlData } from "$graphql/graphql-client";
@@ -25,4 +26,18 @@ export const GET: RequestHandler = async ({ params }) => {
       "Content-Type": "text/plain"
     }
   });
+};
+
+export const entries = async () => {
+  const { seomatic } = (await getGqlData<GetSeomaticQueryVariables>(GetSeomaticDocument, {
+    site: "davidhellmann_com",
+    uri: "__home__"
+  })) as GetSeomaticQuery;
+
+  // Rückgabe als Array von Objekten, die dem RouteParams-Typ entsprechen
+  return (
+    seomatic?.frontendTemplates?.map((template) => ({
+      filename: template.filename
+    })) ?? []
+  );
 };

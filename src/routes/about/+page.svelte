@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { PageData } from "./$types";
   import { getFirstEntry } from "$utils/getFirstEntry";
-  // import Seo from "$components/head/Seo.svelte";
+  import Seo from "$components/head/Seo.svelte";
   import RichText from "$components/text/RichText.svelte";
   import Image from "$components/image/Image.svelte";
   import DecorativeWrapper from "$components/wrapper/DecorativeWrapper.svelte";
@@ -25,9 +25,9 @@
   };
 </script>
 
-<!--{#if entry?.seomatic}-->
-<!--  <Seo seo={entry.seomatic} />-->
-<!--{/if}-->
+{#if entry?.seomatic}
+  <Seo seo={entry.seomatic} />
+{/if}
 
 {#if entry && entry?.__typename === "entryAbout_Entry"}
   <main class={cc.main}>
