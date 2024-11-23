@@ -1,16 +1,17 @@
 export const prerender = true;
 import type { RequestHandler } from "./$types";
-import { GetEntriesDocument, type GetEntriesQuery, type GetEntriesQueryVariables } from "$graphql/graphql";
+import { GetSeomaticDocument, type GetSeomaticQuery, type GetSeomaticQueryVariables } from "$graphql/graphql";
 import { getGqlData } from "$graphql/graphql-client";
 
 export const GET: RequestHandler = async ({ params }) => {
   const { filename } = params;
-  const { entries } = (await getGqlData<GetEntriesQueryVariables>(GetEntriesDocument, {
-    section: ["home"]
-  })) as GetEntriesQuery;
+  const { seomatic } = (await getGqlData<GetSeomaticQueryVariables>(GetSeomaticDocument, {
+    site: "davidhellmann_com",
+    uri: "__home__"
+  })) as GetSeomaticQuery;
 
-  if (entries && entries[0] && filename) {
-    const template = entries[0]?.seomatic?.frontendTemplates?.find((item) => item.filename === filename);
+  if (seomatic && filename) {
+    const template = seomatic.frontendTemplates?.find((item) => item.filename === filename);
 
     return new Response(template?.contents, {
       headers: {

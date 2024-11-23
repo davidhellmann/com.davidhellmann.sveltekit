@@ -1,0 +1,16 @@
+query GetSeomatic(
+  $site: String = "davidhellmann_en"
+  $uri: String,
+  $asArray: Boolean = true
+) {
+  seomatic(
+    site: $site,
+    uri: $uri,
+    asArray: $asArray
+  ) {
+    frontendTemplates {
+      contents
+      filename
+    }
+  }
+}

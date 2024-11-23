@@ -1,3 +1,3 @@
 export const match = (param) => {
-  return isNaN(Number(param)) && !param.includes(".txt");
+  return isNaN(Number(param)) && !param.includes(".");
 };
