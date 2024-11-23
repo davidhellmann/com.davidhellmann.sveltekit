@@ -1,4 +1,3 @@
-export const prerender = true;
 import type { RequestHandler } from "./$types";
 import { GetSeomaticDocument, type GetSeomaticQuery, type GetSeomaticQueryVariables } from "$graphql/graphql";
 import { getGqlData } from "$graphql/graphql-client";
