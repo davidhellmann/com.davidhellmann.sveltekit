@@ -7,4 +7,17 @@ const preloadFonts: Handle = async ({ event, resolve }) => {
   });
 };
 
-export const handle = sequence(preloadFonts);
+const redirectSitemap: Handle = async ({ event, resolve }) => {
+  if (event.url.pathname === "/sitemap.xml") {
+    return new Response(null, {
+      status: 302,
+      headers: {
+        Location: "/sitemaps-1-sitemap.xml"
+      }
+    });
+  }
+
+  return resolve(event);
+};
+
+export const handle = sequence(preloadFonts, redirectSitemap);
