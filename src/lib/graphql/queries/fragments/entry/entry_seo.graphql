@@ -1,5 +1,9 @@
 fragment entry_seo on EntryInterface {
     seomatic (asArray: true) {
+        frontendTemplates {
+          contents
+          filename
+        }
         metaTagContainer
         metaLinkContainer
         metaTitleContainer
