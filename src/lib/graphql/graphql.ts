@@ -645,7 +645,7 @@ export type GetSeomaticQueryVariables = Exact<{
 }>;
 
 
-export type GetSeomaticQuery = { __typename?: 'Query', seomatic?: { __typename?: 'SeomaticType', frontendTemplates?: Array<{ __typename?: 'FileContents', contents?: string, filename: string }> } };
+export type GetSeomaticQuery = { __typename?: 'Query', seomatic?: { __typename?: 'SeomaticType', frontendTemplates?: Array<{ __typename?: 'FileContents', contents?: string, filename: string }>, sitemapIndexes?: Array<{ __typename?: 'FileContents', contents?: string, filename: string }>, sitemapStyles?: { __typename?: 'FileContents', contents?: string, filename: string }, sitemaps?: Array<{ __typename?: 'FileContents', contents?: string, filename: string }> } };
 
 type Asset_CustomFields_Files_Asset_Fragment = { __typename?: 'files_Asset' };
 
@@ -1761,6 +1761,18 @@ export const GetSeomaticDocument = gql`
     query GetSeomatic($site: String = "davidhellmann_en", $uri: String, $asArray: Boolean = true) {
   seomatic(site: $site, uri: $uri, asArray: $asArray) {
     frontendTemplates {
+      contents
+      filename
+    }
+    sitemapIndexes {
+      contents
+      filename
+    }
+    sitemapStyles {
+      contents
+      filename
+    }
+    sitemaps {
       contents
       filename
     }

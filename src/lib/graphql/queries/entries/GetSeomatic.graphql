@@ -12,5 +12,17 @@ query GetSeomatic(
       contents
       filename
     }
+    sitemapIndexes {
+      contents
+      filename
+    }
+    sitemapStyles {
+      contents
+      filename
+    }
+    sitemaps {
+      contents
+      filename
+    }
   }
 }
