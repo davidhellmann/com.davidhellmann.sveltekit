@@ -32,8 +32,8 @@
 
 <nav class={`${slotNav({ className })}`} data-comp={compName}>
   <ul class={`${slotList()}`}>
-    <li data-waypoint-target class="is-zoomInDown">
-      <a class={`${slotLink()} md:hidden`} href="/">
+    <li data-waypoint-target class="is-zoomInDown md:hidden">
+      <a class={`${slotLink()}`} href="/">
         <IconSprite className={slotIcon()} size={20} icon="home-modern-outline" />
         home.
       </a>
