@@ -5,7 +5,7 @@
   const tvNavigationMain = tv({
     slots: {
       slotNav: "",
-      slotList: "flex gap-2 lg:gap-4 rounded-full text-accent-purple-100 px-4 lg:px-8 shadow isolote backdrop-blur bg-accent-purple-500/50 ring-1 ring-white/50",
+      slotList: "flex sm:gap-2 lg:gap-4 rounded-full text-accent-purple-100 px-2 sm:px-4 lg:px-8 shadow isolote backdrop-blur bg-accent-purple-500/50 ring-1 ring-white/50",
       slotLink: "inline-flex py-2.5 px-2.5 flex-col lg:flex-row items-center text-2xs xs:text-xs sm:text-sm lg:text-base gap-x-2.5 gap-y-1 font-bold md:font-normal font-sans md:font-walsheim",
       slotIcon: "",
     }
@@ -32,6 +32,12 @@
 
 <nav class={`${slotNav({ className })}`} data-comp={compName}>
   <ul class={`${slotList()}`}>
+    <li data-waypoint-target class="is-zoomInDown">
+      <a class={`${slotLink()} md:hidden`} href="/">
+        <IconSprite className={slotIcon()} size={20} icon="home-modern-outline" />
+        home.
+      </a>
+    </li>
     <li data-waypoint-target class="is-zoomInDown">
       <a class={slotLink()} href="/work">
         <IconSprite className={slotIcon()} size={20} icon="rectangle-group-outline" />

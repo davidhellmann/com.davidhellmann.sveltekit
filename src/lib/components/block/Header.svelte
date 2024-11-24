@@ -8,7 +8,7 @@
     slots: {
       slotBase: "fixed inset-x-0 z-20 fluid-grid lg:max-w-[min(calc(100%-4vw),2000px)] mx-auto bottom-4 md:bottom-auto md:top-12 lg:top-16 font-walsheim",
       slotWrapper: "span-content relative flex justify-center items-center",
-      slotLogo: "transition duration-200 fixed md:absolute left-[calc(var(--col-gap)*2)] md:left-0 top-fluid md:top-0 md:bottom-0 rounded-full shadow isolote backdrop-blur bg-accent-purple-500/50 ring-1 ring-white/50 text-sm lg:text-base",
+      slotLogo: "transition duration-200 hidden md:block absolute left-0 top-0 bottom-0 rounded-full shadow isolote backdrop-blur bg-accent-purple-500/50 ring-1 ring-white/50 text-sm lg:text-base",
       slotLogoLink: "is-zoomInDown flex justify-center items-center w-14 h-14 md:w-auto md:h-full aspect-square text-accent-purple-100"
     }
   });
