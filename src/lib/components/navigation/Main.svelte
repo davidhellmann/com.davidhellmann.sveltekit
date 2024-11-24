@@ -35,37 +35,37 @@
     <li data-waypoint-target class="is-zoomInDown md:hidden">
       <a class={`${slotLink()}`} href="/">
         <IconSprite className={slotIcon()} size={20} icon="home-modern-outline" />
-        home.
+        <span class="hidden xs:inline-block">home.</span>
       </a>
     </li>
     <li data-waypoint-target class="is-zoomInDown">
       <a class={slotLink()} href="/work">
         <IconSprite className={slotIcon()} size={20} icon="rectangle-group-outline" />
-        work.
+        <span class="hidden xs:inline-block">work.</span>
       </a>
     </li>
     <li data-waypoint-target class="is-zoomInDown">
       <a class={slotLink()} href="/blog">
         <IconSprite className={slotIcon()} size={20} icon="document-text-outline" />
-        blog.
+        <span class="hidden xs:inline-block">blog.</span>
       </a>
     </li>
     <li data-waypoint-target class="is-zoomInDown">
       <a class={slotLink()} href="/projects">
         <IconSprite className={slotIcon()} size={20} icon="rectangle-stack-outline" />
-        projects.
+        <span class="hidden xs:inline-block">projects.</span>
       </a>
     </li>
     <li data-waypoint-target class="is-zoomInDown">
       <a class={slotLink()} href="/photos">
         <IconSprite className={slotIcon()} size={20} icon="photo-outline" />
-        photos.
+        <span class="hidden xs:inline-block">photos.</span>
       </a>
     </li>
     <li data-waypoint-target class="is-zoomInDown">
       <a class={slotLink()} href="/about">
         <IconSprite className={slotIcon()} size={20} icon="identification-outline" />
-        about.
+        <span class="hidden xs:inline-block">about.</span>
       </a>
     </li>
   </ul>
