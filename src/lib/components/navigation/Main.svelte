@@ -7,7 +7,7 @@
       slotNav: "",
       slotList: "flex sm:gap-2 lg:gap-4 rounded-full text-accent-purple-100 px-2 sm:px-4 lg:px-8 shadow isolote backdrop-blur bg-accent-purple-500/50 ring-1 ring-white/50",
       slotLink: "inline-flex py-2.5 px-2.5 flex-col lg:flex-row items-center text-2xs xs:text-xs sm:text-sm lg:text-base gap-x-2.5 gap-y-1 font-bold md:font-normal font-sans md:font-walsheim",
-      slotIcon: " ",
+      slotIcon: "size-6 xs:size-5",
     }
   });
 
