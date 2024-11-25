@@ -18,7 +18,7 @@
 
   const tvGridBentoWork = tv({
     slots: {
-      slotBase: "grid grid-cols-2 lg:grid-cols-3 lg:grid-rows-4 gap-fluid",
+      slotBase: "grid sm:grid-cols-2 lg:grid-cols-3 lg:grid-rows-4 gap-fluid",
       slotCard:
         "overflow-clip rounded-xl flex flex-col items-start relative stack-10 bg-neutral-100 ring-1 ring-black/30 shadow-xl shadow-neutral-700/20 transition-all hover:shadow-2xl hover:shadow-neutral-700/50 hover:-translate-y-0.5",
       slotCard1: "col-span-1 lg:row-span-2 [&_.imageWrapper]:pb-0 [&_.imageWrapper]:px-6 [&_img]:rounded-b-none lg:[&_.imageWrapper]:pb-0 lg:[&_.imageWrapper]:pl-6 lg:[&_.imageWrapper]:pr-0 lg:[&_img]:rounded-b-none lg:[&_img]:rounded-tr-none",

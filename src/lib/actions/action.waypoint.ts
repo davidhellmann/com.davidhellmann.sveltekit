@@ -7,7 +7,7 @@ type WaypointOptions = {
   rootMargin?: string;
 };
 
-const defaultOptions = {
+const defaultOptions: WaypointOptions = {
   delay: 50,
   staggeringDelay: 35,
   includeHolder: false,
@@ -17,7 +17,7 @@ const defaultOptions = {
 };
 
 export function useWaypoint(node: HTMLElement, options: WaypointOptions = {}) {
-  const settings = { ...defaultOptions, ...options };
+  const settings: WaypointOptions = { ...defaultOptions, ...options };
 
   const getWaypointTargets = (holder: HTMLElement): Array<HTMLElement> => {
     const selector = "[data-waypoint-target]:not([data-waypoint])";
@@ -39,7 +39,7 @@ export function useWaypoint(node: HTMLElement, options: WaypointOptions = {}) {
       const delay =
         settings.staggeringDelay && settings.delay ? settings.delay + settings.staggeringDelay * index : settings.delay;
 
-      if (!target.hasAttribute("data-waypoint-animated")) {
+      if (!target.hasAttribute("data-waypoint-animated") && delay) {
         animateElement(target, delay);
       }
     });
