@@ -3,7 +3,7 @@ type WaypointOptions = {
   staggeringDelay?: number;
   includeHolder?: boolean;
   endless?: boolean;
-  threshold?: number[];
+  threshold?: number[] | number;
   rootMargin?: string;
 };
 
@@ -12,8 +12,8 @@ const defaultOptions: WaypointOptions = {
   staggeringDelay: 35,
   includeHolder: false,
   endless: false,
-  threshold: [0],
-  rootMargin: "0px 0px -10% 0px"
+  threshold: 0,
+  rootMargin: "0px 0px -50px 0px"
 };
 
 export function useWaypoint(node: HTMLElement, options: WaypointOptions = {}) {

@@ -30,7 +30,7 @@
 </script>
 
 <header class={`${slotBase({ className })}`} data-comp={compName} >
-  <div class={slotWrapper()} use:useWaypoint={{ rootMargin: "0px 0px 0px 0px"}} data-waypoint>
+  <div class={slotWrapper()} use:useWaypoint data-waypoint>
     <h1 class={`${slotLogo()} ${scrollY > 100 ? "translate-y-2 md:-translate-y-10 scale-90" : ""}`}>
       <a data-waypoint-target class={slotLogoLink()} href="/">DH</a>
     </h1>
