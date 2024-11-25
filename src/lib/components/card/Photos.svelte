@@ -8,13 +8,12 @@
   import { getRandomString } from "$lib/utils/getRandomString";
   import { getRandomItemFromArray } from "$lib/utils/getRandomItemFromArray";
 
-  const cameras = ["Fuji X100VI", "Fuji X-Pro3", "Ricoh GRIIIx"];
-
+  const cameras = ["Fuji X100VI", "Fuji X-Pro3", "Ricoh GR IIIx"];
 
   const tvCardPhotos = tv({
     slots: {
       slotBase: "font-mono block group relative",
-      slotImage: "border-2 border-neutral-300 border-t-neutral-400 border-l-neutral-400 overflow-hidden",
+      slotImage: "border-2 w-full border-neutral-300 border-t-neutral-400 border-l-neutral-400 overflow-hidden",
       slotHeadline: "mt-5 px-1 text-neutral-800/50 line-clamp-1",
       slotNumber: "text-2xs uppercase tracking-widest absolute bottom-10 -translate-y-1 inset-x-0 text-neutral-400/50 flex px-3 justify-between",
     },

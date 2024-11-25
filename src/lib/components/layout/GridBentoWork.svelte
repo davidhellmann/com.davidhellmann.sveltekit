@@ -18,13 +18,13 @@
 
   const tvGridBentoWork = tv({
     slots: {
-      slotBase: "grid grid-cols-3 grid-rows-4 gap-fluid",
+      slotBase: "grid grid-cols-2 lg:grid-cols-3 lg:grid-rows-4 gap-fluid",
       slotCard:
         "overflow-clip rounded-xl flex flex-col items-start relative stack-10 bg-neutral-100 ring-1 ring-black/30 shadow-xl shadow-neutral-700/20 transition-all hover:shadow-2xl hover:shadow-neutral-700/50 hover:-translate-y-0.5",
-      slotCard1: "col-span-1 row-span-2 [&_.imageWrapper]:pb-0 [&_.imageWrapper]:pl-6 [&_.imageWrapper]:pr-0 [&_img]:rounded-b-none [&_img]:rounded-tr-none",
-      slotCard2: "col-span-2 row-span-2 [&_.imageWrapper]:pb-0 [&_.imageWrapper]:px-6 [&_img]:rounded-b-none",
-      slotCard3: "col-span-2 row-span-2 [&_.imageWrapper]:pb-0 [&_.imageWrapper]:px-6 [&_img]:rounded-b-none",
-      slotCard4: "col-span-1 row-span-2 [&_.imageWrapper]:pb-0 [&_.imageWrapper]:pr-6 [&_.imageWrapper]:pl-0 [&_img]:rounded-b-none [&_img]:rounded-tl-none",
+      slotCard1: "col-span-1 lg:row-span-2 [&_.imageWrapper]:pb-0 [&_.imageWrapper]:px-6 [&_img]:rounded-b-none lg:[&_.imageWrapper]:pb-0 lg:[&_.imageWrapper]:pl-6 lg:[&_.imageWrapper]:pr-0 lg:[&_img]:rounded-b-none lg:[&_img]:rounded-tr-none",
+      slotCard2: "lg:col-span-2 lg:row-span-2 [&_.imageWrapper]:pb-0 [&_.imageWrapper]:px-6 [&_img]:rounded-b-none",
+      slotCard3: "lg:col-span-2 lg:row-span-2 [&_.imageWrapper]:pb-0 [&_.imageWrapper]:px-6 [&_img]:rounded-b-none",
+      slotCard4: "col-span-1 lg:row-span-2 [&_.imageWrapper]:pb-0 [&_.imageWrapper]:px-6 [&_img]:rounded-b-none lg:[&_.imageWrapper]:pb-0 lg:[&_.imageWrapper]:pr-6 lg:[&_.imageWrapper]:pl-0 lg:[&_img]:rounded-b-none lg:[&_img]:rounded-tl-none",
       slotContent: "flex flex-col px-10 pt-10 stack-3",
       slotImageWrapper: "imageWrapper w-full h-full pb-3 px-3",
       slotImage: "w-full h-full aspect-[3/1.8] ring-1 ring-neutral-600/20 rounded-lg shadow-xl"
