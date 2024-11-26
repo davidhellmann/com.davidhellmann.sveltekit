@@ -94,6 +94,12 @@
       </li>
     {/if}
 
+    {#if simple}
+      <li class={`${slotListItem()}`}>
+        <span class={`${slotCurrent()} border-transparent`}>{currentPage} / {totalPages}</span>
+      </li>
+    {/if}
+
     {#if !simple}
       {#if totalPages <= 6}
         {#each { length: totalPages } as _, index (index)}
@@ -123,7 +129,7 @@
           </li>
         {/each}
 
-        <li class={`${slotListItem()}  sm:hidden`}>
+        <li class={`${slotListItem()} sm:hidden`}>
             <span class={`${slotCurrent()} border-transparent`}>{currentPage} / {totalPages}</span>
         </li>
 

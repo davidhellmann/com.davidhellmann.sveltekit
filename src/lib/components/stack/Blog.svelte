@@ -48,6 +48,7 @@
   ): {
     colSpan: string;
     theme: ComponentProps<typeof CardBlog>["theme"];
+    size: ComponentProps<typeof CardBlog>["size"];
   } => {
     let colSpan;
     let theme: ComponentProps<typeof CardBlog>["theme"] = "default";
@@ -86,7 +87,7 @@
         yPosition="top"
         simple={true}
         uri="/blog"
-        className="-mt-32"
+        className="-mt-28 pt-2 md:pt-0 md:-mt-32"
       />
     {/if}
 
