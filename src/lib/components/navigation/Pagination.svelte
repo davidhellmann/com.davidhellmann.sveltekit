@@ -103,18 +103,18 @@
         {/each}
       {:else}
         {#if range[0] !== 1}
-          <li class={slotListItem()}>
+          <li class={`${slotListItem()} hidden sm:block`}>
             <a class={slotLink()} href="{uri}">1</a>
           </li>
           {#if range[0] > 2}
-            <li class={slotListItem()}>
+            <li class={`${slotListItem()} hidden sm:block`}>
               <span class={slotSpacer()}>…</span>
             </li>
           {/if}
         {/if}
 
         {#each range as i}
-          <li class={slotListItem()}>
+          <li class={`${slotListItem()} hidden sm:block`}>
             {#if i === currentPage}
               <span class={slotCurrent()}>{i}</span>
             {:else}
@@ -123,11 +123,15 @@
           </li>
         {/each}
 
+        <li class={`${slotListItem()}  sm:hidden`}>
+            <span class={`${slotCurrent()} border-transparent`}>{currentPage} / {totalPages}</span>
+        </li>
+
         {#if range[range.length - 1] < totalPages - 2}
-          <li class={slotListItem()}>
+          <li class={`${slotListItem()} hidden sm:block`}>
             <span class={slotSpacer()}>…</span>
           </li>
-          <li class={slotListItem()}>
+          <li class={`${slotListItem()} hidden sm:block`}>
             <a class={slotLink()} href="{uri}/{totalPages}">{totalPages}</a>
           </li>
         {/if}
