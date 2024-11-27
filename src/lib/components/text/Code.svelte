@@ -71,13 +71,21 @@
   [data-comp="Code"] :global(code .line::before) {
     content: counter(step);
     counter-increment: step;
-    border-right: 1px solid rgba(255, 255, 255, .2);
-    width: 5rem;
+    width: 3rem;
     text-align: right;
-    margin-right: 1.5rem;
-    padding-right: 1rem;
+    margin-right: 0.5rem;
+    padding-right: 0.5rem;
     display: inline-block;
     color: rgba(255,255,255,.2)
+  }
+
+  @screen lg {
+    [data-comp="Code"] :global(code .line::before) {
+      border-right: 1px solid rgba(255, 255, 255, .2);
+      width: 5rem;
+      margin-right: 1.5rem;
+      padding-right: 1rem;
+    }
   }
 
   [data-comp="Code"] :global(code .line:first-of-type::before) {
