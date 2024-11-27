@@ -55,7 +55,7 @@
       className={cc.heading}
       text={photosEntry?.customTitle}
       size="7xl"
-      family="walsheim"
+      family="decorative"
       weight="extrabold"
       data-waypoint
       data-waypoint-target
@@ -68,7 +68,7 @@
       data-waypoint-delay="200"
     />
   {:else}
-    <div class="span-content text-olkch-pink flex font-walsheim text-7xl font-extrabold" data-waypoint>
+    <div class="span-content text-olkch-pink flex font-decorative text-7xl font-extrabold" data-waypoint>
       {@html splitText(`Page ${page.toString()}`)}
     </div>
   {/if}

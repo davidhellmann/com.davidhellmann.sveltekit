@@ -36,10 +36,10 @@ export default {
         "Poppins",
         ...defaultTheme.fontFamily.sans
       ],
-      walsheim: [
+      decorative: [
         // Use a custom sans serif font for this site by changing 'Lato' to the
         // font name you want and uncommenting the following line.
-        "GT Walsheim",
+        "Geomanist",
         ...defaultTheme.fontFamily.sans
       ]
     },

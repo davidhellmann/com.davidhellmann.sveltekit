@@ -43,7 +43,7 @@
         black: "font-black",
       },
       family: {
-        walsheim: "font-walsheim",
+        decorative: "font-decorative",
         sans: "font-sans",
         serif: "font-serif",
         mono: "font-mono",

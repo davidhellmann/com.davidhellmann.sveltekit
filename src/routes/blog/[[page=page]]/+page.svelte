@@ -28,7 +28,7 @@
   });
 
   const cc = {
-    heading: "span-content text-olkch-pink is-zoomInDown text-7xl font-walsheim font-extrabold flex flex-wrap",
+    heading: "span-content text-olkch-pink is-zoomInDown text-7xl font-decorative font-extrabold flex flex-wrap",
     text: "span-content xl:col-start-[col-3] xl:col-end-[col-10] text-2xl is-zoomInDown [&_*_strong]:decoration-wavy [&_*_strong]:underline [&_*_strong]:decoration-4 [&_*_strong]:decoration-accent-purple-400",
     list: "span-popout z-10 @container",
   };
@@ -49,7 +49,7 @@
       <RichText className={cc.text} html={blogEntry.description} data-waypoint-target />
     {/if}
   {:else}
-    <div class="span-content text-olkch-pink flex font-walsheim text-7xl font-extrabold" use:useWaypoint data-waypoint>
+    <div class="span-content text-olkch-pink flex font-decorative text-7xl font-extrabold" use:useWaypoint data-waypoint>
       {@html splitTextIntoDivs(`Page ${page.toString()}`, "is-blurInLeftDown")}
     </div>
   {/if}
