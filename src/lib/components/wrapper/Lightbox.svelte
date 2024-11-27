@@ -24,12 +24,15 @@
     compName = "Lightbox",
     className,
     images,
-    ratio
+    ratio = "aspect-landscape"
   }: LightboxProps = $props();
 
   const items = images.map((image) => ({
     src: image?.url,
     thumb: image?.url,
+    width: image?.width,
+    height: image?.height,
+    srcset: image?.srcset,
   }));
 
   const { slotWrapper, slotButton } = tvLightbox({ className });
@@ -39,7 +42,7 @@
        use:useLightbox={{ items: items}}>
     <Grid columns={"image-gallery"} gap={0}>
       {#each images.slice(0, 3) as image (image?.id)}
-        <Image image={image} ratio={"aspect-landscape"} noscript={false} />
+        <Image image={image} ratio={ratio} noscript={false} />
       {/each}
       <span class={slotButton({})}>Open Gallery ({images.length})</span>
     </Grid>

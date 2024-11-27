@@ -55,30 +55,3 @@
     </div>
   </main>
 {/if}
-
-<style lang="postcss">
-  :global(body) {
-    background-color: theme("colors.neutral.300");
-    background-image: url($lib/images/bg-triangle-gray.png);
-    background-attachment: fixed;
-  }
-
-  main::after {
-    content: "";
-    isolation: isolate;
-    background-color: theme("colors.neutral.900");
-    backdrop-filter: blur(8px);
-    box-shadow:
-      rgba(255, 255, 255, 1) 0 0 0 0,
-      rgba(255, 255, 255, 1) 0 0 0 1px,
-      rgba(0, 0, 0, 0) 0 0 0 0;
-    position: fixed;
-    top: 0;
-    height: 100dvh;
-    z-index: -1;
-    width: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    @apply lg:max-w-[min(calc(100%-4vw),2000px)];
-  }
-</style>

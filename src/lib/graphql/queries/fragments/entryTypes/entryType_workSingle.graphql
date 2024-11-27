@@ -8,10 +8,16 @@ fragment entryType_workSingle on entryWorkSingle_Entry {
     ...asset_transforms
     ...asset_customFields
   }
-  colorPickerRepeater {
+  images {
+    ...asset_data
+    ...asset_transforms
+    ...asset_customFields
+  }
+  colors {
     color
   }
   clientWords
+  projectDescription
   projectLink {
     ...hyper_data
   }

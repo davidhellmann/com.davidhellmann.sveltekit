@@ -18,18 +18,17 @@
 
 <style lang="postcss">
   :global(body) {
-    background-color: #d5d3d1;
-    background-image: url($lib/images/bg-triangle-beige.png);
+    @apply bg-neutral-800 !important;
     background-attachment: fixed;
   }
   main::after {
+    @apply bg-neutral-900 !important;
     content: "";
     isolation: isolate;
-    background-color: rgba(231, 229, 228, 0.9);
     backdrop-filter: blur(8px);
     box-shadow:
-      rgb(255, 255, 255) 0 0 0 0,
-      rgba(255, 255, 255, 0.8) 0 0 0 1px,
+      rgba(0, 0, 0, 1) 0 0 0 0,
+      rgba(0, 0, 0, 1) 0 0 0 1px,
       rgba(0, 0, 0, 0) 0 0 0 0;
     position: fixed;
     top: 0;
