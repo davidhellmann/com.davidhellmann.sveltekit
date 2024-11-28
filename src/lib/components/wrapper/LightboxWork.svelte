@@ -27,7 +27,7 @@
     compName = "LightboxWork",
     className,
     images,
-    ratio = "aspect-landscape"
+    ratio = "aspect-auto"
   }: LightboxWorkProps = $props();
 
   const items = images.map((image) => ({
