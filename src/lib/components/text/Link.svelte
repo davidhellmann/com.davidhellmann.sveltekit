@@ -10,7 +10,7 @@
     variants: {
       variant: {
         primary: `
-          bg-gradient-to-b from-neutral-800 to-neutral-700
+          bg-gradient-to-b from-neutral-800 to-neutral-700 text-neutral-200
           px-5 py-3 rounded-full border border-neutral-700 ring-2 ring-neutral-900 shadow-md shadow-neutral-900
           transition-all
           hover:border-neutral-600 hover:shadow-none
@@ -35,14 +35,14 @@
         `,
       },
       iconPosition: {
-        left: "[&_svg]:-ml-2 flex-row-reverse",
-        right: "[&_svg]:-mr-2 flex-row",
+        left: "[&_svg]:-mr-2 flex-row",
+        right: "[&_svg]:-ml-2 flex-row-reverse",
         only: "[&_svg]:-mx-2",
       },
       gapSize: {
-        2: "gap-2 hover:gap-4",
-        4: "gap-4 hover:gap-6",
-        8: "gap-8 hover:gap-10",
+        2: "gap-2",
+        4: "gap-4",
+        8: "gap-8",
       },
     },
     defaultVariants: {

@@ -4,13 +4,15 @@
   import Category from "$components/text/Category.svelte";
   import Time from "$components/text/Time.svelte";
   import PlainText from "$components/text/PlainText.svelte";
+  import Link from "$components/text/Link.svelte";
 
   const tvCardBlog = tv({
     slots: {
       slotBase:
-        "@container text-neutral-50 px-8 md:px-10 py-12 md:py-12 rounded-3xl flex flex-col items-start stack-4 transition-all shadow-md hover:shadow-xl hover:-translate-y-0.5",
+        "@container group text-neutral-50 px-8 md:px-10 pt-12 pb-20 rounded-3xl flex flex-col items-start stack-4 transition-all shadow-md hover:shadow-xl hover:-translate-y-0.5 transform-gpu",
       slotMeta: "flex flex-col @sm:flex-row @sm:items-center flex-wrap gap-x-6",
-      slotCategory: ""
+      slotCategory: "",
+      slotFakeLink: "transition absolute ease-out duration-300 right-6 -bottom-0 opacity-0 translate-y-1/2 group-hover:-translate-y-1/2 group-hover:opacity-100"
     },
     variants: {
       theme: {
@@ -63,7 +65,7 @@
     size
   }: CardBlogProps = $props();
 
-  const { slotBase, slotMeta, slotCategory } = tvCardBlog({ theme, className });
+  const { slotBase, slotMeta, slotCategory, slotFakeLink } = tvCardBlog({ theme, className });
 </script>
 
 {#if headline && url}
@@ -78,5 +80,14 @@
     {#if descriptionPlain}
       <PlainText text={descriptionPlain} className={"line-clamp-3"} />
     {/if}
+    <Link
+      className={slotFakeLink()}
+      href={url}
+      text="This way!"
+      fakeLink={true}
+      variant="secondary"
+      icon="arrow-right-outline"
+      iconPosition="right"
+    />
   </a>
 {/if}
