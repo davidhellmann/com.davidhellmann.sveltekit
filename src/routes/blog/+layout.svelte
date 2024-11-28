@@ -16,27 +16,19 @@
 </main>
 
 <style lang="postcss">
-  :global(body) {
-    background-color: #d5d3d1;
+  main::before {
+    content: "";
+    @apply bg-fixed bg-[#d5d3d1] inset-0 fixed z-behind;
     background-image: url($lib/images/bg-triangle-beige.png);
-    background-attachment: fixed;
   }
   main::after {
     content: "";
-    isolation: isolate;
+    @apply lg:max-w-[min(calc(100%-4vw),2000px)]
+    isolate backdrop-blur fixed top-0 h-[100dvh] z-behind w-full left-1/2 transform -translate-x-1/2;
     background-color: rgba(231, 229, 228, 0.9);
-    backdrop-filter: blur(8px);
     box-shadow:
       rgb(255, 255, 255) 0 0 0 0,
       rgba(255, 255, 255, 0.8) 0 0 0 1px,
       rgba(0, 0, 0, 0) 0 0 0 0;
-    position: fixed;
-    top: 0;
-    height: 100dvh;
-    z-index: -1;
-    width: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    @apply lg:max-w-[min(calc(100%-4vw),2000px)];
   }
 </style>

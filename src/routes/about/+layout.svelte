@@ -9,28 +9,18 @@
 </main>
 
 <style lang="postcss">
-  :global(body) {
-    @apply bg-neutral-300 !important;
-    background-image: url($lib/images/bg-triangle-gray.png);
-    background-attachment: fixed;
-  }
-
-  main::after {
-    @apply bg-neutral-900 !important;
+  main::before {
     content: "";
-    isolation: isolate;
-    backdrop-filter: blur(8px);
+    @apply bg-neutral-300 bg-fixed inset-0 fixed z-behind;
+    background-image: url($lib/images/bg-triangle-gray.png);
+  }
+  main::after {
+    content: "";
+    @apply bg-neutral-900 lg:max-w-[min(calc(100%-4vw),2000px)]
+    isolate backdrop-blur fixed top-0 h-[100dvh] z-behind w-full left-1/2 transform -translate-x-1/2;
     box-shadow:
       rgba(255, 255, 255, 1) 0 0 0 0,
       rgba(255, 255, 255, 1) 0 0 0 1px,
       rgba(0, 0, 0, 0) 0 0 0 0;
-    position: fixed;
-    top: 0;
-    height: 100dvh;
-    z-index: -1;
-    width: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    @apply lg:max-w-[min(calc(100%-4vw),2000px)];
   }
 </style>

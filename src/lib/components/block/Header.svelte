@@ -2,14 +2,15 @@
   import { tv, type VariantProps } from "tailwind-variants";
   import NavigationMain from "$components/navigation/Main.svelte";
   import { useWaypoint } from "$lib/actions/action.waypoint";
+  import meHi from "$lib/images/me-hi.png";
 
 
   const tvHeader = tv({
     slots: {
       slotBase: "fixed inset-x-0 z-20 fluid-grid lg:max-w-[min(calc(100%-4vw),2000px)] mx-auto bottom-4 md:bottom-auto md:top-12 lg:top-16 font-decorative h-12 xs:h-16",
       slotWrapper: "span-content relative flex justify-center items-center",
-      slotLogo: "transition duration-200 hidden md:block absolute left-0 top-0 bottom-0 rounded-full shadow isolote backdrop-blur bg-accent-purple-500/50 ring-1 ring-white/50 text-sm lg:text-base size-16",
-      slotLogoLink: "is-zoomInDown flex justify-center items-center size-16 text-accent-purple-100 pt-0.5"
+      slotLogo: "transition duration-200 hidden md:block absolute left-0 top-0 bottom-0 rounded-full shadow isolote backdrop-blur bg-white/10 size-16 hover:scale-125 hover:rotate-3",
+      slotLogoLink: "is-zoomInDown flex justify-center items-center size-16"
     }
   });
 
@@ -32,7 +33,9 @@
 <header class={`${slotBase({ className })}`} data-comp={compName} >
   <div class={slotWrapper()} use:useWaypoint data-waypoint>
     <h1 class={`${slotLogo()} ${scrollY > 100 ? "translate-y-2 md:-translate-y-10 scale-90" : ""}`}>
-      <a data-waypoint-target class={slotLogoLink()} href="/">DH</a>
+      <a data-waypoint-target class={slotLogoLink()} href="/">
+        <img src={meHi} alt="">
+      </a>
     </h1>
     <NavigationMain
       className={`${scrollY > 100 ?
