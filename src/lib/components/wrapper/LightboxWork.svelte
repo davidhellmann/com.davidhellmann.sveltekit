@@ -8,9 +8,9 @@
 
   const tvLightboxWork = tv({
     slots: {
-      slotWrapper: "relative cursor-pointer bg-neutral-950 rounded-t-3xl p-fluid",
+      slotWrapper: "relative cursor-pointer bg-neutral-950 rounded-t-3xl",
       slotCard:
-        "group overflow-clip rounded-xl flex flex-col bg-black ring-1 ring-neutral-800 shadow-xl shadow-black transition-all hover:shadow-2xl hover:shadow-black hover:-translate-y-0.5",
+        "[column-break-inside:avoid] group overflow-clip rounded-xl flex flex-col bg-black ring-1 ring-neutral-800 shadow-xl shadow-black transition-all hover:shadow-2xl hover:shadow-black hover:-translate-y-0.5",
       slotBrowser: "bg-neutral-900 rounded-t-lg h-8 flex flex-row items-center gap-1 pl-4",
       slotBrowserDot: "block rounded-full size-2 transition"
     },
@@ -37,6 +37,12 @@
   }));
 
   const { slotWrapper, slotCard, slotBrowser, slotBrowserDot} = tvLightboxWork({ className });
+
+  const getAspectRatio = (image: ComponentProps<typeof Image>["image"]) => {
+    const ratio = (image?.width ?? 1) / (image?.height ?? 1);
+    if (ratio >= 1) return "aspect-auto";
+    if (ratio < 1) return "aspect-square md:aspect-portrait";
+  };
 </script>
 {#if images}
   <div data-comp={compName} class={slotWrapper({className})}
@@ -49,7 +55,14 @@
             <span class={`${slotBrowserDot()} bg-neutral-700 group-hover:bg-[orange]`}></span>
             <span class={`${slotBrowserDot()} bg-neutral-700 group-hover:bg-[green]`}></span>
           </span>
-          <Image className="w-full h-full" index={i} image={image} ratio={ratio} focalPoint={[0,0]} noscript={false} />
+          <Image
+            className={`size-full ${getAspectRatio(image) ?? ratio}`}
+            index={i}
+            image={image}
+            ratio={"unset"}
+            focalPoint={[0.5,0]}
+            noscript={false}
+          />
         </div>
       {/each}
     </Grid>

@@ -22,7 +22,7 @@
 {#if entry && entry?.__typename === "entryWorkSingle_Entry"}
   <Headline className="span-content text-center" size="6xl" text={entry.customTitle ?? entry.title ?? ""} />
   {#if entry?.projectDescription}
-    <RichText className="span-xl md:columns-2" html={entry.projectDescription} />
+    <RichText className="span-xl md:columns-2 gap-fluid" html={entry.projectDescription} />
   {/if}
 
   <!--{#if entry?.contentBuilderWork}-->
@@ -33,7 +33,7 @@
 
   {#if entry?.images}
     <div class="span-content lg:span-popout @container">
-      <LightboxWork images={entry?.images} ratio={"aspect-landscape"} />
+      <LightboxWork images={entry?.images} ratio={"aspect-auto"} />
     </div>
   {/if}
 {/if}
@@ -43,5 +43,4 @@
   :global(.lg-container .lg-content) {
     top: 0 !important;
   }
-
 </style>
