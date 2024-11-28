@@ -54,7 +54,6 @@
     "@parcel/watcher": "^2.5.0",
     "@sly-cli/sly": "^1.14.0",
     "@tailwindcss/container-queries": "^0.1.1",
-    "bigger-picture": "^1.1.19",
     "embla-carousel-svelte": "^8.5.1",
     "graphql-request": "^7.1.2",
     "graphql-tag": "^2.12.6",

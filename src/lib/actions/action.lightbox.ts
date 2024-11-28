@@ -34,8 +34,10 @@ export const useLightbox = (
     document.getElementsByTagName("html")[0].classList.remove("no-scroll");
   });
 
-  node.addEventListener("click", () => {
-    dynamicGallery.openGallery(0);
+  node.addEventListener("click", (e) => {
+    const target = e.target as HTMLElement;
+    const index = target.tagName === "IMG" ? target.getAttribute("data-index") || "0" : "0";
+    dynamicGallery.openGallery(parseInt(index, 10));
   });
 
   return {

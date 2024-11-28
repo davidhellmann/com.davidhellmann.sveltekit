@@ -5,7 +5,7 @@ import presetBaukasten from "./src/lib/styles/tailwind/presets/baukasten.mjs";
 export default {
   presets: [presetDefault, presetBaukasten],
   content: ["./src/**/*.{html,js,svelte,ts }"],
-  darkMode: ["selector", "[data-mode='dark']"],
+  darkMode: ["selector", "[data-theme='dark']"],
   theme: {
     extend: {}
   },

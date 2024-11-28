@@ -126,6 +126,12 @@ export default {
           fontFamily: theme("fontFamily.serif")
           // fontFamily: theme("fontFamily.sans")
           // fontFamily: theme('fontFamily.serif'),
+        },
+        "[data-theme='dark']": {
+          color: theme("colors.neutral.300"),
+          ":is(h1, h2, h3, h4, h5, h6)": {
+            color: theme("colors.neutral.50")
+          }
         }
       }),
         addComponents({

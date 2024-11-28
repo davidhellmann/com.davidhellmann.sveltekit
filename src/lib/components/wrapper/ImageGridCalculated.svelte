@@ -26,9 +26,11 @@
 {#if images}
   <div data-comp={compName} class={slotWrapper({className})}>
     {#each images.slice(0, images.length) as image (image?.id)}
-      <div style={`--ratio: ${image.width} / ${image.height}; flex-basis: 0; aspect-ratio: var(--ratio); flex-grow: calc(var(--ratio));`}>
-        <Image image={image} ratio={"aspect-auto"} noscript={false} />
-      </div>
+      {#if image && image?.width && image?.height}
+        <div style={`--ratio: ${image?.width} / ${image?.height}; flex-basis: 0; aspect-ratio: var(--ratio); flex-grow: calc(var(--ratio) * 2);`}>
+          <Image image={image} ratio={"aspect-auto"} noscript={false} />
+        </div>
+      {/if}
     {/each}
   </div>
 {/if}

@@ -43,6 +43,7 @@
     height?: number;
     noscript?: boolean;
     decorative?: boolean;
+    index?: number | undefined;
   } & VariantProps<typeof tvImage> & (VariantProps<typeof tvImage>["ratio"] | (string & {}));
 
   let {
@@ -61,7 +62,8 @@
     width,
     height,
     noscript = true,
-    decorative = false
+    decorative = false,
+    index = undefined
   }: ImageProps = $props();
 
   // Set Focal Point
@@ -96,6 +98,7 @@
 
 {#snippet imgTag()}
   <img
+    data-index={index}
     data-comp={compName}
     class={tvImage({ ratio, animate, className })}
     {...attr}

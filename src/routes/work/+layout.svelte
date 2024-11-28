@@ -12,6 +12,7 @@
   class="fluid-grid lg:max-w-[min(calc(100%-4vw),2000px)] mx-auto relative z-10 stack-24 pt-40 lg:pt-80"
   use:useWaypoint
   data-waypoint
+  data-theme="dark"
 >
   {@render children?.()}
 </main>
@@ -19,10 +20,10 @@
 
 <style lang="postcss">
   :global(body) {
-    @apply bg-neutral-800 text-neutral-100 bg-fixed !important;
+    @apply bg-neutral-900 bg-fixed !important;
   }
   main::after {
-    @apply bg-neutral-900 !important;
+    @apply bg-neutral-950 !important;
     content: "";
     isolation: isolate;
     backdrop-filter: blur(8px);

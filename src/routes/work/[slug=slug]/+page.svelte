@@ -22,15 +22,14 @@
 {#if entry && entry?.__typename === "entryWorkSingle_Entry"}
   <Headline className="span-content text-center" size="6xl" text={entry.customTitle ?? entry.title ?? ""} />
   {#if entry?.projectDescription}
-    <RichText className="span-xl md:columns-2 gap-fluid" html={entry.projectDescription} />
+    <RichText className="span-xl md:columns-2" html={entry.projectDescription} />
   {/if}
 
-  {#if entry?.contentBuilderWork}
-    <ContentBuilder
-      context="work"
-      blockTypes={entry?.contentBuilderWork}
-    />
-  {/if}
+  <!--{#if entry?.contentBuilderWork}-->
+  <!--  <ContentBuilder-->
+  <!--    blockTypes={entry?.contentBuilderWork}-->
+  <!--  />-->
+  <!--{/if}-->
 
   {#if entry?.images}
     <div class="span-content lg:span-popout @container">

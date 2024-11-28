@@ -18,6 +18,11 @@
         "cards-md": "grid-cols-cards-md",
         "cards-lg": "grid-cols-cards-lg",
         "cards-xl": "grid-cols-cards-xl",
+        "work-gallery": `
+          grid-cols-2 md:grid-cols-4 grid-rows-3
+          [&>*:nth-child(1)]:col-span-1 md:[&>*:nth-child(1)]:col-span-4 [&>*:nth-child(1)]:row-span-1 md:[&>*:nth-child(1)]:row-span-3
+          [&>*:nth-child(6n+3)]:col-span-1 md:[&>*:nth-child(6n+3)]:col-span-2 [&>*:nth-child(6n+3)]:row-span-1 md:[&>*:nth-child(6n+3)]:row-span-2
+        `,
         "image-gallery": `
           grid-cols-2 md:grid-cols-3 grid-rows-3 md:grid-rows-2
           [&>img]:h-full

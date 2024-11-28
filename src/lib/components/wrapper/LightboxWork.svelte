@@ -8,8 +8,11 @@
 
   const tvLightboxWork = tv({
     slots: {
-      slotWrapper: "relative cursor-pointer bg-neutral-950 rounded-3xl p-fluid",
-      slotButton: "font-mono absolute bg-olkch-pink text-white px-4 py-2 text-xs bottom-6 lg:bottom-12 left-1/2 -translate-x-1/2 md:translate-x-0 md:left-6 lg:left-12 rounded-lg",
+      slotWrapper: "relative cursor-pointer bg-neutral-950 rounded-t-3xl p-fluid",
+      slotCard:
+        "group overflow-clip rounded-xl flex flex-col bg-black ring-1 ring-neutral-800 shadow-xl shadow-black transition-all hover:shadow-2xl hover:shadow-black hover:-translate-y-0.5",
+      slotBrowser: "bg-neutral-900 rounded-t-lg h-8 flex flex-row items-center gap-1 pl-4",
+      slotBrowserDot: "block rounded-full size-2 transition"
     },
   });
 
@@ -33,16 +36,22 @@
     width: image?.width?.toString(),
   }));
 
-  const { slotWrapper, slotButton } = tvLightboxWork({ className });
+  const { slotWrapper, slotCard, slotBrowser, slotBrowserDot} = tvLightboxWork({ className });
 </script>
 {#if images}
   <div data-comp={compName} class={slotWrapper({className})}
        use:useLightbox={{ items: items}}>
-    <Grid columns={"image-gallery"} gap={"fluid"}>
-      {#each images.slice(0, 3) as image (image?.id)}
-        <Image image={image} className="rounded-xl" ratio={ratio} noscript={false} />
+    <Grid columns={"work-gallery"} gap={"fluid"}>
+      {#each images as image, i (image?.id)}
+        <div class={slotCard()}>
+          <span class={slotBrowser()}>
+            <span class={`${slotBrowserDot()} bg-neutral-700 group-hover:bg-[red]`}></span>
+            <span class={`${slotBrowserDot()} bg-neutral-700 group-hover:bg-[orange]`}></span>
+            <span class={`${slotBrowserDot()} bg-neutral-700 group-hover:bg-[green]`}></span>
+          </span>
+          <Image className="h-full" index={i} image={image} ratio={ratio} focalPoint={[0,0]} noscript={false} />
+        </div>
       {/each}
-      <span class={slotButton({})}>Open Gallery ({images.length})</span>
     </Grid>
   </div>
 {/if}

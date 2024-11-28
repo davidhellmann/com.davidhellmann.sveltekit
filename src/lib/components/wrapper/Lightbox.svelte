@@ -30,7 +30,7 @@
   const items = images.map((image) => ({
     src: image?.url,
     thumb: image?.url,
-    width: image?.width,
+    width: image?.width?.toString(),
     srcset: image?.srcset,
   }));
 
@@ -40,8 +40,8 @@
   <div data-comp={compName} class={slotWrapper({className})}
        use:useLightbox={{ items: items}}>
     <Grid columns={"image-gallery"} gap={0}>
-      {#each images.slice(0, 3) as image (image?.id)}
-        <Image image={image} ratio={ratio} noscript={false} />
+      {#each images.slice(0, 3) as image, i (image?.id)}
+        <Image index={i} image={image} ratio={ratio} noscript={false} />
       {/each}
       <span class={slotButton({})}>Open Gallery ({images.length})</span>
     </Grid>

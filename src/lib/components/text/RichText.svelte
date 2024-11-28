@@ -119,6 +119,10 @@
     }
   }
 
+  :global([data-theme="dark"] [data-comp="RichText"] a) {
+    @apply text-neutral-50 decoration-accent-purple-400;
+  }
+
   :global([data-comp="RichText"] code) {
     @apply border border-neutral-300 bg-neutral-50 text-neutral-500 px-2 pt-1.5 pb-1 rounded-lg text-sm;
   }

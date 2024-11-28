@@ -11,14 +11,12 @@
     compName?: string;
     blockTypes: Array<Matrix_ContentBuilderFragment & EntryType_DataFragment>;
     className?: string;
-    context?: "default" | "work";
   };
 
   const {
     compName = "BlockTypes",
     blockTypes,
     className,
-    context = "default"
   }: BlockTypes = $props();
 </script>
 
@@ -52,7 +50,6 @@
 
       {:else if blockType.__typename === "blockImages_Entry" && blockType?.images}
         <Images
-          context={context}
           images={blockType.images}
           ratio={blockType.imageRatio}
           showCaption={blockType.showCaption}
