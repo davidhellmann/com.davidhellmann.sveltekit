@@ -1,37 +1,42 @@
 .lg-next,
 .lg-prev {
-  color: theme("colors.white");
-  background-color: theme("colors.accent-purple.500/0.5");
+  color: theme("colors.olkch.orange");
+  background-color: theme("colors.neutral.50");
   box-shadow: theme("boxShadow.md");
   border-radius: theme("borderRadius.lg");
-  @apply  backdrop-blur ring-1 ring-white/5;
+  @apply  backdrop-blur ring-1 ring-white/5 transition-all;
+}
+
+.lg-container.is-dark .lg-next,
+.lg-container.is-dark .lg-prev {
+  background-color: theme("colors.neutral.950");
 }
 
 .lg-next:focus-visible:not(.disabled),
 .lg-prev:focus-visible:not(.disabled),
 .lg-next:hover:not(.disabled),
 .lg-prev:hover:not(.disabled) {
-  color: theme("colors.olkch.orange");
+  color: theme("colors.olkch.green");
 }
 
 .lg-toolbar {
   @apply right-5 top-5 left-auto w-auto px-2;
-  background-color: theme("colors.accent-purple.500/0.5");
+  background-color: theme("colors.neutral.50");
   box-shadow: theme("boxShadow.md");
   border-radius: theme("borderRadius.lg");
-  @apply  backdrop-blur ring-1 ring-white/5;
+  @apply  backdrop-blur ring-1 ring-white/5  transition-all;
+}
+
+.lg-container.is-dark .lg-toolbar {
+  background-color: theme("colors.neutral.950");
 }
 
 .lg-toolbar .lg-icon {
-  color: theme("colors.neutral.500");
-}
-
-.lg-toolbar .lg-icon {
-  color: theme("colors.white");
+  color: theme("colors.olkch.orange");
 }
 
 .lg-toolbar .lg-icon:hover {
-  color: theme("colors.olkch.orange");
+  color: theme("colors.olkch.green");
 }
 
 .lg-sub-html {
@@ -53,6 +58,14 @@
 .lg-backdrop {
   isolation: isolate;
   background-color: theme("colors.white/0.8");
+  box-shadow: theme("boxShadow.md");
+  @apply  backdrop-blur ring-1 ring-black/5;
+}
+
+
+.lg-container.is-dark .lg-backdrop {
+  isolation: isolate;
+  background-color: theme("colors.neutral.950/0.8");
   box-shadow: theme("boxShadow.md");
   @apply  backdrop-blur ring-1 ring-black/5;
 }

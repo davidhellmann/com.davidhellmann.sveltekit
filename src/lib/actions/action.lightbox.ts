@@ -8,17 +8,20 @@ import "lightgallery/css/lg-thumbnail.css";
 export const useLightbox = (
   node: HTMLElement,
   {
-    items
+    items,
+    className = ""
   }: {
     items: {
       src: string | undefined;
       thumb: string | undefined;
       width: string | undefined;
     }[];
+    className?: string;
   }
 ) => {
   const dynamicGallery = lightGallery(node, {
     plugins: [lgThumbnail, lgZoom],
+    addClass: className,
     download: false,
     thumbnail: true,
     counter: false,
@@ -42,7 +45,8 @@ export const useLightbox = (
 
   return {
     destroy() {
-      node.removeEventListener("click", dynamicGallery.destroy);
+      dynamicGallery.destroy();
+      node.removeEventListener("click", () => {});
       node.removeEventListener("lgBeforeOpen", () => {});
       node.removeEventListener("lgBeforeClose", () => {});
     }

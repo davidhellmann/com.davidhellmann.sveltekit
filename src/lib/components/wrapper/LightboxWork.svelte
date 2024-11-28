@@ -46,7 +46,7 @@
 </script>
 {#if images}
   <div data-comp={compName} class={slotWrapper({className})}
-       use:useLightbox={{ items: items}}>
+       use:useLightbox={{ items: items, className: "is-dark"}}>
     <Grid columns={"work-gallery"} gap={"fluid"}>
       {#each images as image, i (image?.id)}
         <div class={slotCard()}>
