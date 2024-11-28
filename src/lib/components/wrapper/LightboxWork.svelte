@@ -49,7 +49,7 @@
             <span class={`${slotBrowserDot()} bg-neutral-700 group-hover:bg-[orange]`}></span>
             <span class={`${slotBrowserDot()} bg-neutral-700 group-hover:bg-[green]`}></span>
           </span>
-          <Image className="h-full" index={i} image={image} ratio={ratio} focalPoint={[0,0]} noscript={false} />
+          <Image className="w-full h-full" index={i} image={image} ratio={ratio} focalPoint={[0,0]} noscript={false} />
         </div>
       {/each}
     </Grid>
