@@ -1,9 +1,9 @@
 import lightGallery from "lightgallery";
-// import lgThumbnail from "lightgallery/plugins/thumbnail";
-// import lgZoom from "lightgallery/plugins/zoom";
+import lgThumbnail from "lightgallery/plugins/thumbnail/lg-thumbnail.min";
+import lgZoom from "lightgallery/plugins/zoom/lg-zoom.min";
 import "lightgallery/css/lightgallery.css";
-// import "lightgallery/css/lg-zoom.css";
-// import "lightgallery/css/lg-thumbnail.css";
+import "lightgallery/css/lg-zoom.css";
+import "lightgallery/css/lg-thumbnail.css";
 
 export const useLightbox = (
   node: HTMLElement,
@@ -13,15 +13,17 @@ export const useLightbox = (
     items: {
       src: string | undefined;
       thumb: string | undefined;
+      width: string | undefined;
     }[];
   }
 ) => {
   const dynamicGallery = lightGallery(node, {
-    // plugins: [lgThumbnail, lgZoom],
+    plugins: [lgThumbnail, lgZoom],
     download: false,
     thumbnail: true,
     counter: false,
     dynamic: true,
+    infiniteZoom: false,
     dynamicEl: items
   });
 

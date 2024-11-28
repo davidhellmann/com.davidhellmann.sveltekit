@@ -16,10 +16,10 @@
   {@render children?.()}
 </main>
 
+
 <style lang="postcss">
   :global(body) {
-    @apply bg-neutral-800 !important;
-    background-attachment: fixed;
+    @apply bg-neutral-800 text-neutral-100 bg-fixed !important;
   }
   main::after {
     @apply bg-neutral-900 !important;

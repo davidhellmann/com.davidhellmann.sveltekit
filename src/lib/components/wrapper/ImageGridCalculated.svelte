@@ -25,7 +25,7 @@
 </script>
 {#if images}
   <div data-comp={compName} class={slotWrapper({className})}>
-    {#each images.slice(0, 3) as image (image?.id)}
+    {#each images.slice(0, images.length) as image (image?.id)}
       <div style={`--ratio: ${image.width} / ${image.height}; flex-basis: 0; aspect-ratio: var(--ratio); flex-grow: calc(var(--ratio));`}>
         <Image image={image} ratio={"aspect-auto"} noscript={false} />
       </div>

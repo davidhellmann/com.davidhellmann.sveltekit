@@ -1,0 +1,4 @@
+fragment matrix_contentBuilderWork on contentBuilderWork_MatrixField {
+  ...blockType_blockImage
+  ...blockType_blockImages
+}

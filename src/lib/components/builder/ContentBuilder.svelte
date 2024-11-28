@@ -6,15 +6,17 @@
       __typename: string;
       [key: string]: unknown
     }[];
+    context?: "default" | "work";
   };
 
   const {
-    blockTypes
+    blockTypes,
+    context = "default"
   }: ContentBuilder = $props();
 </script>
 
 {#if blockTypes}
   <div class="span-full">
-    <BlockTypes blockTypes={blockTypes} />
+    <BlockTypes context={context} blockTypes={blockTypes} />
   </div>
 {/if}

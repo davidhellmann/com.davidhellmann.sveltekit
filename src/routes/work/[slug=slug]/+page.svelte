@@ -2,7 +2,10 @@
   import type { PageData } from "./$types";
   import { getFirstEntry } from "$utils/getFirstEntry";
   import Seo from "$components/head/Seo.svelte";
-  import Lightbox from "$components/wrapper/Lightbox.svelte";
+  import LightboxWork from "$components/wrapper/LightboxWork.svelte";
+  import Headline from "$components/text/Headline.svelte";
+  import RichText from "$components/text/RichText.svelte";
+  import ContentBuilder from "$components/builder/ContentBuilder.svelte";
 
   interface Props {
     data: PageData;
@@ -17,13 +20,21 @@
 {/if}
 
 {#if entry && entry?.__typename === "entryWorkSingle_Entry"}
-  {#if entry?.title}
-    {entry?.title}
+  <Headline className="span-content text-center" size="6xl" text={entry.customTitle ?? entry.title ?? ""} />
+  {#if entry?.projectDescription}
+    <RichText className="span-xl md:columns-2 gap-fluid" html={entry.projectDescription} />
+  {/if}
+
+  {#if entry?.contentBuilderWork}
+    <ContentBuilder
+      context="work"
+      blockTypes={entry?.contentBuilderWork}
+    />
   {/if}
 
   {#if entry?.images}
     <div class="span-content lg:span-popout @container">
-      <Lightbox images={entry?.images} ratio={"aspect-landscape"} />
+      <LightboxWork images={entry?.images} ratio={"aspect-landscape"} />
     </div>
   {/if}
 {/if}
@@ -34,16 +45,4 @@
     top: 0 !important;
   }
 
-  :global(.lg-container .lg-item) {
-    overflow-y: scroll;
-  }
-
-  :global(.lg-container .lg-item img) {
-    width: 100%;
-    height: auto;
-    border: 0.5rem solid transparent;
-    box-sizing: border-box;
-    max-width: 1600px !important;
-    max-height: none !important;
-  }
 </style>

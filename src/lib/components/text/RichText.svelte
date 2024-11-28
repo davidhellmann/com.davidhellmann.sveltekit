@@ -2,7 +2,7 @@
   import { tv, type VariantProps } from "tailwind-variants";
 
   const tvRichText = tv({
-    base: "stack-4"
+    base: "stack-4",
   });
 
   type RichTextProps = {
@@ -22,29 +22,27 @@
 
 <style lang="postcss">
   :global([data-comp="RichText"] :is(h2, h3, h4, h5, h6)) {
-    font-weight: theme("fontWeight.extrabold");
-    line-height: theme("lineHeight.tight");
-    padding-top: 2cap;
+    @apply font-extrabold leading-tight pt-[2cap];
   }
 
   :global([data-comp="RichText"] h2) {
-    font-size: theme("fontSizeFluid.3xl");
+    @apply text-3xl;
   }
 
   :global([data-comp="RichText"] h3) {
-    font-size: theme("fontSizeFluid.2xl");
+    @apply text-2xl;
   }
 
   :global([data-comp="RichText"] h4) {
-    font-size: theme("fontSizeFluid.xl");
+    @apply text-xl;
   }
 
   :global([data-comp="RichText"] h5) {
-    font-size: theme("fontSizeFluid.lg");
+    @apply text-lg;
   }
 
   :global([data-comp="RichText"] h6) {
-    font-size: theme("fontSizeFluid.base");
+    @apply text-base;
   }
 
   :global([data-comp="RichText"] :is(ul)) {
@@ -52,11 +50,11 @@
     list-style-position: inside;
 
     & li {
-      padding-left: theme("spacing.8");
+      @apply pl-8;
     }
 
     & li::marker {
-      color: theme("colors.olkch.orange");
+      @apply text-olkch-orange;
     }
   }
 
@@ -65,19 +63,18 @@
     list-style-position: inside;
 
     & li {
-      padding-left: theme("spacing.8");
+      @apply pl-8;
     }
 
     & li::before {
-      color: theme("colors.olkch.orange");
+      @apply text-olkch-orange pr-4;
       content: counters(item, ".") ".";
       counter-increment: item;
-      margin-right: theme("spacing.4");
     }
   }
 
   :global([data-comp="RichText"] mark) {
-    padding: theme("spacing[0.5]") theme("spacing[1.5]");
+    @apply py-0.5 px-1.5;
 
     &.green {
       background-color: #bdf8b5;
@@ -96,24 +93,17 @@
   }
 
   :global([data-comp="RichText"] kbd) {
-    padding: 0.25em 0.5em;
-    margin: 0 theme("spacing[0.5]");
-    font-size: 0.7em;
-    border-radius: theme("borderRadius.DEFAULT");
+    @apply py-[0.25em] px-[0.5em] my-0 mx-0.5 text-[0.7em] rounded;
 
     &.light {
-      background-color: theme("colors.neutral.200");
-      color: theme("colors.neutral.500");
-      border: theme("borderWidth.DEFAULT") solid theme("colors.neutral.400");
+      @apply bg-neutral-200 text-neutral-500 border-neutral-400 border;
       box-shadow:
         0 1px 0 theme("colors.neutral.300"),
         inset 0 1px 0 theme("colors.neutral.50");
     }
 
     &.dark {
-      background-color: theme("colors.neutral.800");
-      color: theme("colors.neutral.400");
-      border: theme("borderWidth.DEFAULT") solid theme("colors.neutral.900");
+      @apply bg-neutral-800 text-neutral-400 border-neutral-900 border;
       box-shadow:
         0 1px 0 theme("colors.neutral.300"),
         inset 0 1px 0 theme("colors.neutral.500");
@@ -121,27 +111,15 @@
   }
 
   :global([data-comp="RichText"] a) {
-    position: relative;
-    display: inline-block;
-    text-decoration: underline;
-    text-decoration-style: wavy;
-    word-break: break-all;
-    text-underline-offset: theme("textUnderlineOffset.4");
-    color: theme("colors.accent-purple.700");
-    text-decoration-color: theme("colors.olkch.orange");
-    transition: all theme("transitionDuration.DEFAULT") theme("transitionTimingFunction.in-out");
+    @apply underline decoration-wavy break-all inline-block relative
+    underline-offset-4 decoration-olkch-orange text-accent-purple-700 transition-all ease-in-out;
 
     &:hover {
-      text-underline-offset: theme("textUnderlineOffset.2");
+      @apply underline-offset-2;
     }
   }
 
   :global([data-comp="RichText"] code) {
-    border: theme("borderWidth.DEFAULT") solid theme("colors.neutral.300");
-    background-color: theme("colors.neutral.50");
-    color: theme("colors.neutral.500");
-    padding: theme("spacing[1.5]") theme("spacing.2") theme("spacing.1") theme("spacing.2");
-    border-radius: theme("borderRadius.lg");
-    font-size: theme("fontSizeFluid.sm");
+    @apply border border-neutral-300 bg-neutral-50 text-neutral-500 px-2 pt-1.5 pb-1 rounded-lg text-sm;
   }
 </style>

@@ -11,13 +11,15 @@
     ratio?: ComponentProps<typeof Image>["ratio"];
     showCaption?: boolean;
     imagesViewMode?: string;
+    context?: "default" | "work";
   }
 
   const {
     compName = "BlockImages",
     images,
     ratio,
-    imagesViewMode
+    imagesViewMode,
+    context = "default"
   }: BlockImage = $props();
 
   type Columns = 1 | 2 | 3 | 4 | 5 | 6;
@@ -32,12 +34,17 @@
 
     return 1;
   };
+
+  let containerClasses = "";
+  if (context === "work") {
+    containerClasses = "bg-neutral-950 p-16";
+  }
 </script>
 
 {#if images}
   <div data-comp={compName} class="span-content lg:span-popout @container">
     {#if imagesViewMode && imagesViewMode.startsWith("grid-cols-")}
-      <Grid columns={getColumns()}>
+      <Grid className={containerClasses} columns={getColumns()}>
         {#each images as image (image)}
           <Image image={image} ratio={ratio} />
         {/each}
@@ -45,7 +52,7 @@
     {:else if imagesViewMode === "gallery"}
       <Lightbox images={images} ratio={"aspect-landscape"} />
     {:else if imagesViewMode === "grid-calculated"}
-      <ImageGridCalculated images={images} />
+      <ImageGridCalculated className={containerClasses} images={images} />
     {/if}
   </div>
 {/if}

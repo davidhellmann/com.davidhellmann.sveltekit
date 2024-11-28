@@ -13,6 +13,9 @@ fragment entryType_workSingle on entryWorkSingle_Entry {
     ...asset_transforms
     ...asset_customFields
   }
+  contentBuilderWork {
+    ...matrix_contentBuilderWork
+  }
   colors {
     color
   }

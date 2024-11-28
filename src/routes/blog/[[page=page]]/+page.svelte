@@ -1,7 +1,6 @@
 <script lang="ts">
   import type { PageData } from "./$types";
   import StackBlog from "$components/stack/Blog.svelte";
-  import Headline from "$components/text/Headline.svelte";
   import RichText from "$components/text/RichText.svelte";
   import Seo from "$components/head/Seo.svelte";
   import { getFirstEntry } from "$utils/getFirstEntry";
