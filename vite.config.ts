@@ -46,5 +46,9 @@ export default defineConfig({
   ],
   test: {
     include: ["src/**/*.{test,spec}.{js,ts}"]
+  },
+  server: {
+    host: "davidhellmann.sveltekit.test",
+    port: 5173
   }
 });
