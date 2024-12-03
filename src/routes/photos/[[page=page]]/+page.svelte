@@ -38,11 +38,17 @@
   };
 
   // split string and map each letter into a div
-  const splitText = (str: string) => str.split("").map((letter) => `
+  const splitText = (str: string) =>
+    str
+      .split("")
+      .map(
+        (letter) => `
     <div class="is-zoomInDown" data-waypoint-target>
       ${letter === " " ? "&nbsp;" : letter}
     </div>
-  `).join("");
+  `
+      )
+      .join("");
 </script>
 
 {#if photosEntry?.seomatic}
@@ -60,26 +66,12 @@
       data-waypoint
       data-waypoint-target
     />
-    <RichText
-      className={cc.text}
-      html={content.about}
-      data-waypoint
-      data-waypoint-target
-      data-waypoint-delay="200"
-    />
+    <RichText className={cc.text} html={content.about} data-waypoint data-waypoint-target data-waypoint-delay="200" />
   {:else}
     <div class="span-content text-olkch-pink flex font-decorative text-7xl font-extrabold" data-waypoint>
+      <!-- eslint-disable-next-line -->
       {@html splitText(`Page ${page.toString()}`)}
     </div>
   {/if}
-  <StackPhotos
-    entries={entries}
-    showPagination={true}
-    totalItems={entryCount}
-    totalPages={totalPages}
-    page={page}
-    className={cc.list}
-  />
+  <StackPhotos {entries} showPagination={true} totalItems={entryCount} {totalPages} {page} className={cc.list} />
 {/if}
-
-

@@ -27,7 +27,8 @@
   const cc = {
     main: "w-full lg:max-w-[min(calc(100%-4vw),2000px)] mx-auto relative z-10 stack-24 pt-40 lg:pt-80 overflow-clip",
     heroImage: "absolute inset-x-0 top-0 z-10",
-    heroHeadline: "font-decorative text-7xl font-extrabold !leading-[0.85] [font-size:min(12vw,13.5rem)] text-olkch-green -translate-y-[1.75cap] -mb-[1.25cap] flex flex-wrap [br]:w-full",
+    heroHeadline:
+      "font-decorative text-7xl font-extrabold !leading-[0.85] [font-size:min(12vw,13.5rem)] text-olkch-green -translate-y-[1.75cap] -mb-[1.25cap] flex flex-wrap [br]:w-full",
     heroRichText: "is-fadeInUp span-content lg:col-start-2 lg:col-end-10 text-white text-3xl max-w-prose",
     decorativeWrapper: "span-popout px-fluid relative z-20  mt-[16vw] pb-32",
     bigTextWrapper: "span-full px-4 -mt-40 z-20 pointer-events-none ",
@@ -52,12 +53,13 @@
       <DecorativeWrapper preset="glass-home" className={cc.decorativeWrapper}>
         {#if entry?.customTitle}
           <div class={cc.heroHeadline} use:useWaypoint data-waypoint>
+            <!-- eslint-disable-next-line -->
             {@html splitTextIntoDivs(entry?.customTitle, "is-blurInLeftDown", "$")}
           </div>
         {/if}
 
         {#if entry?.description}
-          <div use:useWaypoint={{delay: 900}} data-waypoint class="grid grid-cols-12">
+          <div use:useWaypoint={{ delay: 900 }} data-waypoint class="grid grid-cols-12">
             <RichText data-waypoint-target className={cc.heroRichText} html={entry?.description} />
           </div>
         {/if}
@@ -117,12 +119,12 @@
             {/if}
           {/each}
         </div>
-<!--        <div class="span-full px-8 -mt-24 -translate-y-2">-->
-<!--          <div-->
-<!--            class="w-full mx-auto h-4 bg-gradient-to-b from-neutral-800 to-neutral-800"-->
-<!--            style="clip-path: polygon(2% 0, 98% 0, 100% 100%, 0% 100%); translate: 0 -2spx;"></div>-->
-<!--          <div class="w-full mx-auto h-8 bg-neutral-700  shadow-2xl shadow-neutral-950"></div>-->
-<!--        </div>-->
+        <!--        <div class="span-full px-8 -mt-24 -translate-y-2">-->
+        <!--          <div-->
+        <!--            class="w-full mx-auto h-4 bg-gradient-to-b from-neutral-800 to-neutral-800"-->
+        <!--            style="clip-path: polygon(2% 0, 98% 0, 100% 100%, 0% 100%); translate: 0 -2spx;"></div>-->
+        <!--          <div class="w-full mx-auto h-8 bg-neutral-700  shadow-2xl shadow-neutral-950"></div>-->
+        <!--        </div>-->
       </div>
     {/if}
   </main>

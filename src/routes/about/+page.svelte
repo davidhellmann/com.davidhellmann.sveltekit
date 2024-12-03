@@ -18,7 +18,8 @@
 
   const cc = {
     heroImage: "absolute inset-x-0 top-0 z-10",
-    heroHeadline: "font-decorative text-7xl font-extrabold uppercase !leading-[0.85] [font-size:min(12vw,13.5rem)] text-olkch-yellow -translate-y-[1.75cap] -mb-[1.25cap] flex flex-wrap [br]:w-full",
+    heroHeadline:
+      "font-decorative text-7xl font-extrabold uppercase !leading-[0.85] [font-size:min(12vw,13.5rem)] text-olkch-yellow -translate-y-[1.75cap] -mb-[1.25cap] flex flex-wrap [br]:w-full",
     heroRichText: "is-fadeInUp span-content lg:col-start-2 lg:col-end-10 text-white text-3xl max-w-prose",
     decorativeWrapper: "span-popout px-fluid relative z-20  mt-[16vw] pb-32"
   };
@@ -36,12 +37,13 @@
     <DecorativeWrapper preset="glass-home" className={cc.decorativeWrapper}>
       {#if entry?.customTitle}
         <div class={cc.heroHeadline} use:useWaypoint data-waypoint>
+          <!-- eslint-disable-next-line -->
           {@html splitTextIntoDivs(entry?.customTitle, "is-blurInLeftDown", "$")}
         </div>
       {/if}
 
       {#if entry?.description}
-        <div use:useWaypoint={{delay: 700}} data-waypoint class="grid grid-cols-12">
+        <div use:useWaypoint={{ delay: 700 }} data-waypoint class="grid grid-cols-12">
           <RichText data-waypoint-target className={cc.heroRichText} html={entry?.description} />
         </div>
       {/if}

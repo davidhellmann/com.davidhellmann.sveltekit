@@ -2,7 +2,7 @@
   import { tv, type VariantProps } from "tailwind-variants";
 
   const tvRichText = tv({
-    base: "stack-4",
+    base: "stack-4"
   });
 
   type RichTextProps = {
@@ -16,6 +16,7 @@
 
 {#if html}
   <div data-comp={compName} class={tvRichText({ className })} {...rest}>
+    <!-- eslint-disable-next-line -->
     {@html html}
   </div>
 {/if}
