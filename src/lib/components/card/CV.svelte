@@ -1,8 +1,8 @@
 <script lang="ts">
   import { tv, type VariantProps } from "tailwind-variants";
   import Headline from "$components/text/Headline.svelte";
-  import Image from "$components/image/Image.svelte";
   import Time from "$components/text/Time.svelte";
+  import InlineSvg from "$components/ui/InlineSvg.svelte";
 
   const tvCardCV = tv({
     slots: {
@@ -38,10 +38,7 @@
 
 {#if position && company && companyLogoMonochrome}
   <div class={slotBase({ className })} data-comp={compName} data-waypoint-target>
-    <div
-      style={`mask-image: url('${companyLogoMonochrome}'); mask-size: 100%;`}
-      class={"bg-white size-48 mask-size-contain mask-repeat-no-repeat"}
-    ></div>
+    <InlineSvg className={"tetxt-white"} url={companyLogoMonochrome} />
     <Time timestamp={dateStart} format="YYYY" icon={false} />
     {#if dateEnd}
       <Time timestamp={dateEnd} format="YYYY" icon={false} />
