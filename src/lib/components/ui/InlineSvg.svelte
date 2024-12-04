@@ -3,7 +3,7 @@
   import { onMount } from "svelte";
 
   const tvInlineSvg = tv({
-    base: ""
+    base: "[&>svg]:w-full [&>svg]:h-auto"
   });
 
   type InlineSvgProps = {

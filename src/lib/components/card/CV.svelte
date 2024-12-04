@@ -6,8 +6,14 @@
 
   const tvCardCV = tv({
     slots: {
-      slotBase:
-        "@container text-neutral-50 px-8 md:px-10 py-12 md:py-12 rounded-3xl flex flex-col items-start stack-4 transition-all "
+      slotBase: `
+        @container group hover:bg-olkch-orange rounded-2xl flex items-center py-6 px-8 gap-8
+        text-neutral-50 bg-neutral-950
+      `,
+      slotLogo: "size-48 aspect-square bg-neutral-50 text-neutral-950 p-4 rounded-full",
+      slotContent: "flex flex-col",
+      slotMeta: "flex items-center gap-2 text-olkch-green group-hover:text-neutral-50",
+      slotLink: "text-olkch-green group-hover:text-neutral-50 underline font-mono text-sm"
     }
   });
 
@@ -19,6 +25,7 @@
     dateEnd?: string;
     currentPosition: boolean;
     company: string;
+    companyUrl: string;
     companyLogoMonochrome: string;
   } & VariantProps<typeof tvCardCV>;
 
@@ -30,21 +37,32 @@
     dateEnd,
     currentPosition,
     company,
+    companyUrl,
     companyLogoMonochrome
   }: CardCVProps = $props();
 
-  const { slotBase } = tvCardCV({ className });
+  const { slotBase, slotLogo, slotContent, slotMeta, slotLink } = tvCardCV({ className });
 </script>
 
-{#if position && company && companyLogoMonochrome}
+{#if position && companyLogoMonochrome}
   <div class={slotBase({ className })} data-comp={compName} data-waypoint-target>
-    <InlineSvg className={"tetxt-white"} url={companyLogoMonochrome} />
-    <Time timestamp={dateStart} format="YYYY" icon={false} />
-    {#if dateEnd}
-      <Time timestamp={dateEnd} format="YYYY" icon={false} />
-    {/if}
-    {currentPosition}
-    <Headline preset={"h5"} text={position} className="max-w-[22ch]" />
-    <Headline preset={"h5"} text={company} className="max-w-[22ch]" />
+    <InlineSvg className={slotLogo()} url={companyLogoMonochrome} />
+    <div class={slotContent()}>
+      <Headline preset={"h2"} text={position} />
+      <div class={slotMeta()}>
+        <Time timestamp={dateStart} format="MM/YYYY" icon={false} />
+        {#if dateEnd && !currentPosition}
+          &mdash; <Time timestamp={dateEnd} format="MM/YYYY" icon={false} />
+        {/if}
+
+        {#if currentPosition}
+          &mdash; <Time text={"Present"} icon={false} />
+        {/if}
+      </div>
+
+      {#if company && companyUrl}
+        <a class={slotLink()} title={company} href={companyUrl}>{companyUrl}</a>
+      {/if}
+    </div>
   </div>
 {/if}

@@ -2,10 +2,9 @@
   import { tv, type VariantProps } from "tailwind-variants";
   import type { Matrix_CurriculumVitaeFragment } from "$graphql/graphql";
   import CardCV from "$components/card/CV.svelte";
-  import DecorativeWrapper from "$components/wrapper/DecorativeWrapper.svelte";
 
   const tvCurriculumVitae = tv({
-    base: ""
+    base: "flex flex-col gap-1"
   });
 
   type CurriculumVitaeProps = {
@@ -21,18 +20,17 @@
   <div class={tvCurriculumVitae({ className })} data-comp={compName} {...rest}>
     {#each items as item (item.id)}
       {#if item.__typename === "blockCurriculumVitae_Entry"}
-        <DecorativeWrapper preset="glass-white">
-          {#if item?.company?.[0].__typename === "entryCompany_Entry" && item.company?.[0]?.title}
-            <CardCV
-              position={item?.position ?? ""}
-              dateStart={item?.dateStart}
-              dateEnd={item?.dateEnd}
-              currentPosition={item?.currentPosition ?? false}
-              company={item.company[0].title}
-              companyLogoMonochrome={item.company[0].logoMonochrome[0]?.url ?? ""}
-            />
-          {/if}
-        </DecorativeWrapper>
+        {#if item?.company?.[0].__typename === "entryCompany_Entry" && item.company?.[0]?.title && item.company?.[0]?.hyperLink[0]?.url}
+          <CardCV
+            position={item?.position ?? ""}
+            dateStart={item?.dateStart}
+            dateEnd={item?.dateEnd}
+            currentPosition={item?.currentPosition ?? false}
+            company={item.company[0].title}
+            companyUrl={item.company[0].hyperLink[0]?.url}
+            companyLogoMonochrome={item.company[0].logoMonochrome[0]?.url ?? ""}
+          />
+        {/if}
       {/if}
     {/each}
   </div>

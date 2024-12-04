@@ -11,25 +11,30 @@
   type CategoryProps = {
     compName?: string;
     className?: string;
-    timestamp: string;
+    timestamp?: string;
+    text?: string;
     format?: string;
     icon?: HeroiconsIcons | false;
   } & VariantProps<typeof tvCategory>;
 
   const {
-    compName = "Category",
+    compName = "Time",
     className,
     timestamp,
+    text,
     format = "DD. MMM YYYY",
     icon = "calendar-outline"
   }: CategoryProps = $props();
 </script>
 
-{#if timestamp}
+{#if timestamp || text}
   <div data-comp={compName} class={tvCategory({ className })}>
     {#if icon}
       <IconSprite className="-translate-y-px" {icon} size={"relative"} />
     {/if}
-    <Time {format} {timestamp} />
+    {#if text && !timestamp}{text}{/if}
+    {#if timestamp && !text}
+      <Time {format} {timestamp} />
+    {/if}
   </div>
 {/if}
