@@ -26,7 +26,7 @@
     currentPosition: boolean;
     company: string;
     companyUrl: string;
-    companyLogoMonochrome: string;
+    logoSvgCode: string;
   } & VariantProps<typeof tvCardCV>;
 
   let {
@@ -38,15 +38,15 @@
     currentPosition,
     company,
     companyUrl,
-    companyLogoMonochrome
+    logoSvgCode
   }: CardCVProps = $props();
 
   const { slotBase, slotLogo, slotContent, slotMeta, slotLink } = tvCardCV({ className });
 </script>
 
-{#if position && companyLogoMonochrome}
+{#if position && logoSvgCode}
   <div class={slotBase({ className })} data-comp={compName} data-waypoint-target>
-    <InlineSvg className={slotLogo()} url={companyLogoMonochrome} />
+    <InlineSvg className={slotLogo()} svgCode={logoSvgCode} />
     <div class={slotContent()}>
       <Headline preset={"h2"} text={position} />
       <div class={slotMeta()}>

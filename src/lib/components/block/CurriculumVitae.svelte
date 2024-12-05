@@ -28,7 +28,7 @@
             currentPosition={item?.currentPosition ?? false}
             company={item.company[0].title}
             companyUrl={item.company[0].hyperLink[0]?.url}
-            companyLogoMonochrome={item.company[0].logoMonochrome[0]?.url ?? ""}
+            logoSvgCode={item.company[0].logoMonochrome[0]?.svgCode ?? null}
           />
         {/if}
       {/if}

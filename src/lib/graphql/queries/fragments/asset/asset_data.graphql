@@ -1,10 +1,11 @@
 fragment asset_data on AssetInterface {
-    id
-    url
-    width
-    height
-    title
-    alt
-    filename
-    focalPoint
+  id
+  url
+  width
+  height
+  title
+  alt
+  filename
+  focalPoint
+  svgCode: id @svgToHtml
 }
