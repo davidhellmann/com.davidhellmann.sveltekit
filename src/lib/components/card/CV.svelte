@@ -7,12 +7,12 @@
   const tvCardCV = tv({
     slots: {
       slotBase: `
-        @container group hover:bg-olkch-orange rounded-2xl flex items-center py-6 px-8 gap-8
+        group hover:bg-olkch-orange rounded-2xl flex flex-col md:flex-row items-center p-8 md:p-fluid gap-fluid
         text-neutral-50 bg-neutral-950
       `,
-      slotLogo: "size-48 aspect-square bg-neutral-50 text-neutral-950 p-4 rounded-full",
-      slotContent: "flex flex-col",
-      slotMeta: "flex items-center gap-2 text-olkch-green group-hover:text-neutral-50",
+      slotLogo: "size-32 lg:size-48 aspect-square bg-neutral-50 text-neutral-950 p-4 rounded-full",
+      slotContent: "flex flex-col text-center md:text-left",
+      slotMeta: "flex items-center justify-center md:justify-start gap-2 text-olkch-green group-hover:text-neutral-50",
       slotLink: "text-olkch-green group-hover:text-neutral-50 underline font-mono text-sm"
     }
   });
