@@ -10,17 +10,17 @@
     base: "bg-primary-200 w-full",
     variants: {
       ratio: {
-        "unset": "",
+        unset: "",
         "aspect-auto": "aspect-auto",
         "aspect-landscape": "aspect-landscape",
         "aspect-portrait": "aspect-portrait",
         "aspect-square": "aspect-square",
-        "aspect-instagram": "aspect-instagram",
+        "aspect-instagram": "aspect-instagram"
       },
       animate: {
-        "unset": "",
-        "fade": "[&[data-srcset]]:blur-xl [&[data-srcset]]:scale-110 transition-all ease-in duration-500",
-      },
+        unset: "",
+        fade: "[&[data-srcset]]:blur-xl [&[data-srcset]]:scale-110 transition-all ease-in duration-500"
+      }
     },
     defaultVariants: {
       ratio: "aspect-landscape",
@@ -44,7 +44,8 @@
     noscript?: boolean;
     decorative?: boolean;
     index?: number | undefined;
-  } & VariantProps<typeof tvImage> & (VariantProps<typeof tvImage>["ratio"] | (string & {}));
+  } & VariantProps<typeof tvImage> &
+    (VariantProps<typeof tvImage>["ratio"] | (string & {}));
 
   let {
     compName = "Image",
@@ -92,7 +93,7 @@
 
 {#snippet noScriptTag()}
   <noscript>
-    <img src={src} alt={alt} />
+    <img {src} {alt} />
   </noscript>
 {/snippet}
 
@@ -102,15 +103,14 @@
     data-comp={compName}
     class={tvImage({ ratio, animate, className })}
     {...attr}
-    alt={alt}
+    {alt}
     src={lazy && blurhash ? blurhash : src}
     srcSet={!lazy ? srcset : undefined}
     data-src={lazy && !srcset ? src : null}
     data-srcset={lazy && srcset ? srcset : null}
     loading={lazy ? "lazy" : "eager"}
-    sizes={!lazy ? "auto" : undefined}
-    data-sizes={lazy ? "auto" : undefined}
-    role={role}
+    data-sizes={lazy ? "auto" : "auto"}
+    {role}
     data-lazy={lazy ? true : undefined}
     use:useUnlazy={lazy}
   />

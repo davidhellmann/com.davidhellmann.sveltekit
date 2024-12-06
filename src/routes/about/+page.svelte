@@ -31,7 +31,7 @@
 
 {#if entry && entry?.__typename === "entryAbout_Entry"}
   {#if entry?.heroImage}
-    <Image className={cc.heroImage} animate="fade" ratio="aspect-auto" noscript={false} image={entry?.heroImage[0]} />
+    <Image className={cc.heroImage} lazy={false} ratio="aspect-auto" noscript={false} image={entry?.heroImage[0]} />
   {/if}
   <div class="fluid-grid">
     <DecorativeWrapper preset="glass-home" className={cc.decorativeWrapper}>

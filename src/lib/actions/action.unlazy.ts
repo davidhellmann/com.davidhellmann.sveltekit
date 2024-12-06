@@ -1,7 +1,11 @@
-import { lazyLoad } from "unlazy";
+import { lazyLoad, autoSizes } from "unlazy";
+
 export function useUnlazy(node: HTMLImageElement, lazy: boolean = true) {
-  if (!lazy) return;
-  lazyLoad(node);
+  if (lazy) {
+    lazyLoad(node);
+  } else {
+    autoSizes();
+  }
 
   return {
     destroy() {}
