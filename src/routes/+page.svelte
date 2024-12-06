@@ -31,9 +31,9 @@
       "font-decorative text-7xl font-extrabold !leading-[0.85] [font-size:min(12vw,13.5rem)] text-olkch-green -translate-y-[1.75cap] -mb-[1.25cap] flex flex-wrap [br]:w-full",
     heroRichText: "is-fadeInUp span-content lg:col-start-2 lg:col-end-10 text-white text-3xl max-w-prose",
     decorativeWrapper: "span-popout px-fluid relative z-20  mt-[16vw] pb-32",
-    bigTextWrapper: "span-full px-4 -mt-40 z-20 pointer-events-none ",
+    bigTextWrapper: "span-full px-4 -mt-48 z-20 pointer-events-none ",
     bigText:
-      "uppercase font-decorative bg-gradient-to-b from-neutral-400/10 to-neutral-700/5 py-4 opacity-70 text-transparent bg-clip-text text-center translate-y-full",
+      "uppercase font-decorative bg-gradient-to-b from-neutral-400/10 to-neutral-700/5 py-12 opacity-70 text-transparent bg-clip-text text-center translate-y-full",
     bigTextOverlay: "span-lg z-30 text-neutral-700 -mt-16 pt-4 sm:pt-0 sm:-mt-6 lg:mt-12 -translate-y-full",
     cardGrid: "span-content grid gap-8 lg:gap-fluid -mt-6 mb-24 z-10",
     cardGridPhotos: "grid-cols-cards-xs xs:grid-cols-cards-sm lg:gap-8 items-center"

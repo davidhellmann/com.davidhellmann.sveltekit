@@ -3,6 +3,7 @@
   import { getFirstEntry } from "$utils/getFirstEntry";
   import Seo from "$components/head/Seo.svelte";
   import RichText from "$components/text/RichText.svelte";
+  import Headline from "$components/text/Headline.svelte";
   import Image from "$components/image/Image.svelte";
   import DecorativeWrapper from "$components/wrapper/DecorativeWrapper.svelte";
   import CurriculumVitae from "$components/block/CurriculumVitae.svelte";
@@ -20,7 +21,9 @@
     heroImage: "absolute inset-x-0 top-0 z-10",
     heroHeadline:
       "font-decorative text-7xl font-extrabold uppercase !leading-[0.85] [font-size:min(12vw,13.5rem)] text-olkch-yellow -translate-y-[1.75cap] -mb-[1.25cap] flex flex-wrap [br]:w-full",
-    heroRichText: "is-fadeInUp span-content lg:col-start-2 lg:col-end-10 text-white text-3xl max-w-prose",
+    heroSubline: "is-fadeInUp span-content lg:col-start-2 lg:col-end-10 text-white text-3xl max-w-prose",
+    heroRichText:
+      "is-fadeInUp mt-12 span-content lg:col-start-2 md:columns-2 gap-fluid lg:col-end-10 text-white text max-w-prose",
     decorativeWrapper: "span-popout px-fluid relative z-20  mt-[16vw] pb-32"
   };
 </script>
@@ -43,13 +46,15 @@
       {/if}
 
       {#if entry?.description}
-        <div use:useWaypoint={{ delay: 700 }} data-waypoint class="grid grid-cols-12">
-          <RichText data-waypoint-target className={cc.heroRichText} html={entry?.description} />
+        <div use:useWaypoint={{ delay: 700, staggeringDelay: 100 }} data-waypoint class="grid grid-cols-12">
+          <RichText data-waypoint-target className={cc.heroSubline} html={entry?.description} />
+          <RichText data-waypoint-target className={cc.heroRichText} html={entry?.aboutMeRichText} />
         </div>
       {/if}
     </DecorativeWrapper>
 
     {#if entry?.curriculumVitae}
+      <Headline className={"span-xl z-10 pb-12"} text={"Working experience"} />
       <CurriculumVitae items={entry.curriculumVitae} className="span-content z-10" />
     {/if}
   </div>

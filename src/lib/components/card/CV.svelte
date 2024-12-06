@@ -55,7 +55,7 @@
     <InlineSvg className={slotLogo()} svgCode={logoSvgCode} />
 
     <div class={slotContent()}>
-      <Headline preset={"h2"} text={position} />
+      <Headline preset={"h2"} className={"group-hover:text-neutral-950"} text={position} />
       <div class={slotMeta()}>
         <div class={"flex gap-[1ch]"}>
           <Time timestamp={dateStart} format="MM/YYYY" icon={false} />

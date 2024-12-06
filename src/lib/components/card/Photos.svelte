@@ -13,10 +13,11 @@
   const tvCardPhotos = tv({
     slots: {
       slotBase: "font-mono block group relative",
-      slotImage: "border-2 w-full border-neutral-300 border-t-neutral-400 border-l-neutral-400 overflow-hidden",
-      slotHeadline: "mt-5 px-1 text-neutral-800/50 line-clamp-1",
-      slotNumber: "text-2xs uppercase tracking-widest absolute bottom-10 -translate-y-1 inset-x-0 text-neutral-400/50 flex px-3 justify-between",
-    },
+      slotImage: "w-full overflow-hidden",
+      slotContent: "px-3 pt-2 pb-4",
+      slotHeadline: "text-neutral-500 mt-1 line-clamp-1",
+      slotNumber: "text-2xs uppercase tracking-widest text-neutral-700 flex justify-between"
+    }
   });
 
   type CardPhotosProps = {
@@ -27,32 +28,32 @@
     image: ComponentProps<typeof Image>["image"];
   } & VariantProps<typeof tvCardPhotos>;
 
-  let {
-    compName = "CardPhotos",
-    className,
-    headline,
-    url,
-    image
-  }: CardPhotosProps = $props();
+  let { compName = "CardPhotos", className, headline, url, image }: CardPhotosProps = $props();
 
-  const { slotBase, slotImage, slotHeadline, slotNumber } = tvCardPhotos({ className });
+  const { slotBase, slotImage, slotContent, slotHeadline, slotNumber } = tvCardPhotos({ className });
 </script>
 
 {#if headline && url}
-  <a href={url} class={slotBase({ className })} style={`rotate: ${getRandomNumberFromRange(-4, 4)}deg;`} data-comp={compName} data-waypoint-target>
+  <a
+    href={url}
+    class={slotBase({ className })}
+    style={`rotate: ${getRandomNumberFromRange(-4, 4)}deg;`}
+    data-comp={compName}
+    data-waypoint-target
+  >
     {#if image}
       <DecorativeWrapper preset="polaroid">
         <div class={slotImage({})}>
-          <Image image={image} noscript={false} className="transition-all group-hover:scale-105" ratio="aspect-auto" />
+          <Image {image} noscript={false} className="transition-all group-hover:scale-105" ratio="aspect-auto" />
         </div>
-        <Headline text={headline} size="sm" family="mono" weight="semibold" className={slotHeadline({})} />
-        <div class={slotNumber()}>
-          <span>{getRandomItemFromArray(cameras)}</span>
-          <span>{getRandomString(10)}</span>
+        <div class={slotContent()}>
+          <div class={slotNumber()}>
+            <span>{getRandomItemFromArray(cameras)}</span>
+            <span>{getRandomString(10)}</span>
+          </div>
+          <Headline text={headline} size="sm" family="mono" weight="semibold" className={slotHeadline({})} />
         </div>
       </DecorativeWrapper>
     {/if}
   </a>
 {/if}
-
-
