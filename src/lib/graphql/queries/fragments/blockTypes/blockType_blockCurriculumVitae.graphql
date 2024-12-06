@@ -4,6 +4,7 @@ fragment blockType_blockCurriculumVitae on blockCurriculumVitae_Entry {
     ...entryType_company
   }
   position
+  location
   currentPosition
   dateStart @formatDateTime(format: "short")
   dateEnd @formatDateTime(format: "short")

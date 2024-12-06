@@ -20,7 +20,7 @@
   <div class={tvCurriculumVitae({ className })} data-comp={compName} {...rest}>
     {#each items as item (item.id)}
       {#if item.__typename === "blockCurriculumVitae_Entry"}
-        {#if item?.company?.[0].__typename === "entryCompany_Entry" && item.company?.[0]?.title && item.company?.[0]?.hyperLink[0]?.url}
+        {#if item?.company?.[0].__typename === "entryCompany_Entry" && item.company?.[0]}
           <CardCV
             position={item?.position ?? ""}
             dateStart={item?.dateStart}
@@ -28,7 +28,8 @@
             currentPosition={item?.currentPosition ?? false}
             company={item.company[0].title}
             companyUrl={item.company[0].hyperLink[0]?.url}
-            logoSvgCode={item.company[0].logoMonochrome[0]?.svgCode ?? null}
+            location={item?.location}
+            logoSvgCode={item.company[0].logoMonochrome[0]?.svgCode}
           />
         {/if}
       {/if}
