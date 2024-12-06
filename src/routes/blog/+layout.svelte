@@ -19,7 +19,7 @@
   main::before {
     content: "";
     @apply bg-fixed bg-[#d5d3d1] inset-0 fixed z-behind;
-    background-image: url($lib/images/bg-triangle-beige.png);
+    background-image: url($lib/images/bg-triangle-beige.avif);
   }
   main::after {
     content: "";

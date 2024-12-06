@@ -133,7 +133,7 @@
 <style lang="postcss">
   :global(body) {
     background-color: theme("colors.neutral.300");
-    background-image: url($lib/images/bg-triangle-gray.png);
+    background-image: url($lib/images/bg-triangle-gray.avif);
     background-attachment: fixed;
   }
 

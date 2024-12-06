@@ -20,7 +20,7 @@
 <style lang="postcss">
   :global(body) {
     background-color: #d5d3d1;
-    background-image: url($lib/images/bg-triangle-beige.png);
+    background-image: url($lib/images/bg-triangle-beige.avif);
     background-attachment: fixed;
   }
   main::after {
