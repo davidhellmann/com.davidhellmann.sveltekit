@@ -7,6 +7,7 @@
   import "@fontsource/poppins/700.css";
   import "$styles/webfonts.css";
   import "$styles/app.css";
+  import { onNavigate } from "$app/navigation";
   import type { Snippet } from "svelte";
   import { dayjs } from "svelte-time";
   import "dayjs/locale/de";
@@ -21,9 +22,58 @@
 
   let { children }: Props = $props();
   let scrollY = $state(0);
+
+  onNavigate((navigation) => {
+    if (!document.startViewTransition) return;
+
+    return new Promise((resolve) => {
+      document.startViewTransition(async () => {
+        resolve();
+        await navigation.complete;
+      });
+    });
+  });
 </script>
 
 <svelte:window bind:scrollY />
-<Header scrollY={scrollY} />
+<Header {scrollY} />
 {@render children?.()}
 <Footer />
+
+<style>
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+  }
+
+  @keyframes fade-out {
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes slide-from-top {
+    from {
+      transform: translateY(20px);
+    }
+  }
+
+  @keyframes slide-to-top {
+    to {
+      transform: translateY(-20px);
+    }
+  }
+
+  :root::view-transition-old(root) {
+    animation:
+      90ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
+      300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-top;
+  }
+
+  :root::view-transition-new(root) {
+    animation:
+      210ms cubic-bezier(0, 0, 0.2, 1) 90ms both fade-in,
+      300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-top;
+  }
+</style>

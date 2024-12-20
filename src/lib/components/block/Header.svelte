@@ -40,3 +40,9 @@
     />
   </div>
 </header>
+
+<style>
+  [data-comp="Header"] {
+    view-transition-name: header;
+  }
+</style>
