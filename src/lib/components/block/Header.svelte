@@ -41,8 +41,8 @@
   </div>
 </header>
 
-<style>
+<!-- <style>
   [data-comp="Header"] {
     view-transition-name: header;
   }
-</style>
+</style> -->

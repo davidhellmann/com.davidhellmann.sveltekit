@@ -23,51 +23,56 @@
 
   const { slotNav, slotList, slotLink, slotIcon } = tvNavigationMain({ className });
 
-  const isCurrentPage = (matcher: string[]) => {
-    const {
-      url: { pathname }
-    } = page;
-    console.log(pathname);
+  const isCurrentPage = (matcher: string | string[]) => {
+    const pathname = page.url.pathname;
+    // console.log(pathname, matcher);
 
-    if (matcher.includes(pathname)) return "page";
-    return undefined;
+    if (Array.isArray(matcher)) {
+      return matcher.some((prefix) => pathname.startsWith(prefix) && prefix.length > 1) ? "page" : undefined;
+    }
+
+    if (matcher === "/") {
+      return pathname === matcher ? "page" : undefined;
+    }
+
+    return pathname.startsWith(matcher) ? "page" : undefined;
   };
 </script>
 
 <nav class={`${slotNav({ className })}`} data-comp={compName}>
   <ul class={`${slotList()}`}>
     <li data-waypoint-target class="is-zoomInDown">
-      <a class={`${slotLink()}`} aria-current={isCurrentPage(["/"])} href="/">
+      <a class={`${slotLink()}`} aria-current={isCurrentPage("/")} href="/">
         <IconSprite className={slotIcon()} size={20} icon="home-modern-outline" />
         <span class="hidden xs:inline-block">home.</span>
       </a>
     </li>
     <li data-waypoint-target class="is-zoomInDown">
-      <a class={slotLink()} aria-current={isCurrentPage(["/work"])} href="/work">
+      <a class={slotLink()} aria-current={isCurrentPage("/work")} href="/work">
         <IconSprite className={slotIcon()} size={20} icon="rectangle-group-outline" />
         <span class="hidden xs:inline-block">work.</span>
       </a>
     </li>
     <li data-waypoint-target class="is-zoomInDown">
-      <a class={slotLink()} aria-current={isCurrentPage(["/blog"])} href="/blog">
+      <a class={slotLink()} aria-current={isCurrentPage("/blog")} href="/blog">
         <IconSprite className={slotIcon()} size={20} icon="document-text-outline" />
         <span class="hidden xs:inline-block">blog.</span>
       </a>
     </li>
     <li data-waypoint-target class="is-zoomInDown">
-      <a class={slotLink()} aria-current={isCurrentPage(["/projects"])} href="/projects">
+      <a class={slotLink()} aria-current={isCurrentPage("/projects")} href="/projects">
         <IconSprite className={slotIcon()} size={20} icon="rectangle-stack-outline" />
         <span class="hidden xs:inline-block">projects.</span>
       </a>
     </li>
     <li data-waypoint-target class="is-zoomInDown">
-      <a class={slotLink()} aria-current={isCurrentPage(["/photos"])} href="/photos">
+      <a class={slotLink()} aria-current={isCurrentPage("/photos")} href="/photos">
         <IconSprite className={slotIcon()} size={20} icon="photo-outline" />
         <span class="hidden xs:inline-block">photos.</span>
       </a>
     </li>
     <li data-waypoint-target class="is-zoomInDown">
-      <a class={slotLink()} aria-current={isCurrentPage(["/about"])} href="/about">
+      <a class={slotLink()} aria-current={isCurrentPage("/about")} href="/about">
         <IconSprite className={slotIcon()} size={20} icon="identification-outline" />
         <span class="hidden xs:inline-block">about.</span>
       </a>
