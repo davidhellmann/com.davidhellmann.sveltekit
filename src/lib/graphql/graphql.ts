@@ -524,6 +524,10 @@ export type TagRelationCriteriaInput = {
 };
 
 export type UserRelationCriteriaInput = {
+  /** Determines which site(s) the users should be affiliated with. */
+  affiliatedSite?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Determines which site(s) the users should be affiliated with. */
+  affiliatedSiteId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   /** Narrows the query results to only elements that have been archived. */
   archived?: InputMaybe<Scalars['Boolean']['input']>;
   /** Narrows the query results based on whether the users have uploaded any assets. */
