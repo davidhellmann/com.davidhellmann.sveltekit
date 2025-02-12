@@ -1,0 +1,5 @@
+@theme {
+  --aspect-portrait: 2 / 3;
+  --aspect-landscape: 3 / 2;
+  --aspect-instagram: 4 / 5;
+}

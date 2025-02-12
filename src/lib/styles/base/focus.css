@@ -1,0 +1,39 @@
+@layer base {
+ :root {
+    --focus-outline-width: 2px;
+    --focus-outline-offset: 3px;
+    --focus-outline-color: currentColor;
+    --focus-outline-style: dotted;
+    --focus-form-outline-width: 3px;
+    --focus-form-outline-offset: 0;
+    --focus-form-outline-color: --alpha(var(--color-primary-500) / 50%);
+    --focus-form-outline-style: solid;
+  }
+
+  :focus {
+    outline-width: var(--focus-outline-width, 2px);
+    outline-offset: var(--focus-outline-offset, 3px);
+    outline-color: var(--focus-outline-color, currentColor);
+    outline-style: var(--focus-outline-style, dotted);
+  }
+
+  *:focus:not(:focus-visible) {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+
+  input:not([type="button"]):focus,
+  textarea:focus,
+  select:focus {
+    box-shadow: none;
+    outline-width: var(--focus-form-outline-width, 3px);
+    outline-offset: var(--focus-form-outline-offset, 0);
+    outline-color: var(--focus-form-outline-color, currentColor);
+    outline-style: var(--focus-form-outline-style, solid);
+  }
+
+  mark {
+    background-color: var(--color-primary-500);
+    color: var(--color-white);
+  }
+}

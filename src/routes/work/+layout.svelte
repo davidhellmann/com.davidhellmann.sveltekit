@@ -17,16 +17,16 @@
   {@render children?.()}
 </main>
 
-
-<style lang="postcss">
+<style>
+  @reference "tailwindcss/theme";
   main::before {
     content: "";
-    @apply bg-neutral-900 bg-fixed inset-0 fixed z-behind;
+    @apply bg-neutral-900 bg-fixed inset-0 fixed -z-10;
   }
   main::after {
     content: "";
     @apply bg-neutral-950 lg:max-w-[min(calc(100%-4vw),2000px)]
-    isolate backdrop-blur fixed top-0 h-[100dvh] z-behind w-full left-1/2 transform -translate-x-1/2;
+    isolate backdrop-blur-sm fixed top-0 h-[100dvh] -z-10 w-full left-1/2 transform -translate-x-1/2;
     box-shadow:
       rgba(0, 0, 0, 1) 0 0 0 0,
       rgba(0, 0, 0, 1) 0 0 0 1px,

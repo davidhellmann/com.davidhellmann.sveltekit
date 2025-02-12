@@ -1,0 +1,45 @@
+@theme {
+  --color-*: initial;
+
+  --color-black: #000;
+  --color-white: #fff;
+  --color-inherit: inherit;
+  --color-current: currentColor;
+  --color-transparent: transparent;
+
+  /* Neutral */
+  --color-neutral-50: oklch(0.985 0.001 106.423);
+  --color-neutral-100: oklch(0.97 0.001 106.424);
+  --color-neutral-200: oklch(0.923 0.003 48.717);
+  --color-neutral-300: oklch(0.869 0.005 56.366);
+  --color-neutral-400: oklch(0.709 0.01 56.259);
+  --color-neutral-500: oklch(0.553 0.013 58.071);
+  --color-neutral-600: oklch(0.444 0.011 73.639);
+  --color-neutral-700: oklch(0.374 0.01 67.558);
+  --color-neutral-800: oklch(0.268 0.007 34.298);
+  --color-neutral-900: oklch(0.216 0.006 56.043);
+  --color-neutral-950: oklch(0.147 0.004 49.25);
+
+  /* Neon */
+  --color-neon-green: oklch(0.85 0.357 146.65);
+  --color-neon-orange: oklch(0.652 0.296 25.94);
+  --color-neon-pink: oklch(0.652 0.293 17.47);
+  --color-neon-yellow: oklch(0.96 0.243 110.65);
+
+  /* Accent Pink  */
+  /* --color-accent-pink-50: #ff00d9; */
+  --color-accent-pink-50: oklch(0.681 0.2997 337.08);
+
+  /* Accent Purple  */
+  --color-accent-purple-50: oklch(0.977 0.014 308.299);
+  --color-accent-purple-100: oklch(0.946 0.033 307.174);
+  --color-accent-purple-200: oklch(0.902 0.063 306.703);
+  --color-accent-purple-300: oklch(0.827 0.119 306.383);
+  --color-accent-purple-400: oklch(0.714 0.203 305.504);
+  --color-accent-purple-500: oklch(0.627 0.265 303.9);
+  --color-accent-purple-600: oklch(0.558 0.288 302.321);
+  --color-accent-purple-700: oklch(0.496 0.265 301.924);
+  --color-accent-purple-800: oklch(0.438 0.218 303.724);
+  --color-accent-purple-900: oklch(0.381 0.176 304.987);
+  --color-accent-purple-950: oklch(0.291 0.149 302.717);
+}

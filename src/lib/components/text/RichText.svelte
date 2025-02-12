@@ -21,29 +21,32 @@
   </div>
 {/if}
 
-<style lang="postcss">
+<style>
+  @reference "tailwindcss/theme";
   :global([data-comp="RichText"] :is(h2, h3, h4, h5, h6)) {
-    @apply font-extrabold leading-tight pt-[2cap];
+    font-weight: var(--font-weight-extrabold);
+    padding-top: 2cap;
+    line-height: var(--line-height-tight);
   }
 
   :global([data-comp="RichText"] h2) {
-    @apply text-3xl;
+    font-size: var(--text-3xl);
   }
 
   :global([data-comp="RichText"] h3) {
-    @apply text-2xl;
+    font-size: var(--text-xl);
   }
 
   :global([data-comp="RichText"] h4) {
-    @apply text-xl;
+    font-size: var(--text-xl);
   }
 
   :global([data-comp="RichText"] h5) {
-    @apply text-lg;
+    font-size: var(--text-lg);
   }
 
   :global([data-comp="RichText"] h6) {
-    @apply text-base;
+    font-size: var(--text-base);
   }
 
   :global([data-comp="RichText"] :is(ul)) {
@@ -51,11 +54,11 @@
     list-style-position: inside;
 
     & li {
-      @apply pl-8;
+      padding-left: --spacing(8);
     }
 
     & li::marker {
-      @apply text-olkch-orange;
+      color: var(--color-neon-orange);
     }
   }
 
@@ -64,18 +67,19 @@
     list-style-position: inside;
 
     & li {
-      @apply pl-8;
+      padding-left: --spacing(8);
     }
 
     & li::before {
-      @apply text-olkch-orange pr-4;
+      color: var(--color-neon-orange);
+      padding-right: --spacing(4);
       content: counters(item, ".") ".";
       counter-increment: item;
     }
   }
 
   :global([data-comp="RichText"] mark) {
-    @apply py-0.5 px-1.5;
+    padding: --spacing(0.5) --spacing(1.5);
 
     &.green {
       background-color: #bdf8b5;
@@ -94,37 +98,57 @@
   }
 
   :global([data-comp="RichText"] kbd) {
-    @apply py-[0.25em] px-[0.5em] my-0 mx-0.5 text-[0.7em] rounded;
+    padding: 0.25em 0.5em;
+    margin: 0 --spacing(0.5);
+    font-size: 0.7em;
+    border-radius: var(--rounded-sm);
 
     &.light {
-      @apply bg-neutral-200 text-neutral-500 border-neutral-400 border;
-      box-shadow:
-        0 1px 0 theme("colors.neutral.300"),
-        inset 0 1px 0 theme("colors.neutral.50");
+      background-color: var(--color-neutral-200);
+      color: var(--color-neutral-500);
+      border: 1px solid var(--color-neutral-400);
+      box-shadow: 0 1px 0 var(--color-neutral-300),
+      inset 0 1px 0 var(--color-neutral-50);
     }
 
     &.dark {
-      @apply bg-neutral-800 text-neutral-400 border-neutral-900 border;
-      box-shadow:
-        0 1px 0 theme("colors.neutral.300"),
-        inset 0 1px 0 theme("colors.neutral.500");
+      background-color: var(--color-neutral-800);
+      color: var(--color-neutral-400);
+      border: 1px solid var(--color-neutral-900);
+      box-shadow: 0 1px 0 var(--color-neutral-300),
+      inset 0 1px 0 var(--color-neutral-500);
     }
   }
 
   :global([data-comp="RichText"] a) {
-    @apply underline decoration-wavy break-all inline-block relative
-    underline-offset-4 decoration-olkch-orange text-accent-purple-700 transition-all ease-in-out;
+    @apply transition-all;
+
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-underline-offset: 4px;
+    text-decoration-color: var(--color-neon-orange);
+    color: var(--color-accent-purple-700);
+    word-break: break-all;
+    display: inline-block;
+    position: relative;
+
 
     &:hover {
-      @apply underline-offset-2;
+      text-underline-offset: 2px
     }
   }
 
   :global([data-theme="dark"] [data-comp="RichText"] a) {
-    @apply text-neutral-50 decoration-accent-purple-400;
+    color: var(--color-neutral-50);
+    text-decoration-color: var(--color-accent-purple-400);
   }
 
   :global([data-comp="RichText"] code) {
-    @apply border border-neutral-300 bg-neutral-50 text-neutral-500 px-2 pt-1.5 pb-1 rounded-lg text-sm;
+    border: 1px solid var(--color-neutral-300);
+    background-color: var(--color-neutral-50);
+    color: var(--color-neutral-500);
+    padding: --spacing(1.5) --spacing(2) --spacing(1) --spacing(2);
+    border-radius: var(--rounded-lg);
+    font-size: var(--text-sm);
   }
 </style>

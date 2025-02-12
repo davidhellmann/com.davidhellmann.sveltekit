@@ -41,6 +41,7 @@
 <Footer />
 
 <style>
+  @reference "tailwindcss/theme";
   @keyframes fade-in {
     from {
       opacity: 0;

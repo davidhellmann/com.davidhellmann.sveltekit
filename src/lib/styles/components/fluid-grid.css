@@ -1,0 +1,72 @@
+
+@layer components {
+  .fluid-grid {
+    --col-min-padding: calc(var(--spacing) * 2);
+    --col-max-padding: calc(var(--spacing) * 16);
+    --col-fluidscale: 3vw;
+    --col-gap: clamp(var(--col-min-padding), var(--col-fluidscale), var(--col-max-padding));
+    --spacing-fluid: var(--col-gap);
+    --content-max-width: var(--breakpoint-2xl);
+    --popout: 0;
+    --padding-left: clamp(calc(env(safe-area-inset-left, 0rem) + var(--col-min-padding)), var(--col-fluidscale), calc(env(safe-area-inset-left, 0rem) + var(--col-max-padding)));
+
+    --padding-right: clamp(calc(env(safe-area-inset-right, 0rem) + var(--col-min-padding)), var(--col-fluidscale), calc(env(safe-area-inset-right, 0rem) + var(--col-max-padding)));
+    --col-width: calc((min(calc(100% - var(--padding-left) - var(--padding-right) - 2 * var(--col-gap)), var(--content-max-width)) - 11 * var(--col-gap)) / 12);
+    --side-width: minmax(0, 1fr);
+
+    display: grid;
+    column-gap: var(--col-gap);
+    grid-template-columns: [full-start] var(--side-width) [popout-start] var(--popout) [content-start col-1] var(--col-width) [col-2] var(--col-width) [col-3] var(--col-width) [col-4] var(--col-width) [col-5] var(--col-width) [col-6] var(--col-width) [col-7] var(--col-width) [col-8] var(--col-width) [col-9] var(--col-width) [col-10] var(--col-width) [col-11] var(--col-width) [col-12] var(--col-width) [content-end] var(--popout) [popout-end] var(--side-width) [full-end];
+  }
+
+  .span-full {
+    grid-column: full;
+  }
+
+  .span-popout {
+    grid-column: popout;
+  }
+
+  .span-content {
+    grid-column: content;
+  }
+
+  .span-md {
+    grid-column: content;
+
+    @media (min-width: theme(--breakpoint-md)) {
+      grid-column: col-3 / span 8;
+    }
+
+    @media (min-width: theme(--breakpoint-lg)) {
+      grid-column: col-4 / span 6;
+    }
+  }
+
+  .span-lg {
+    grid-column: content;
+
+    @media (min-width: theme(--breakpoint-md)) {
+      grid-column: col-2 / span 10;
+    }
+
+    @media (min-width: theme(--breakpoint-lg)) {
+      grid-column: col-3 / span 8;
+    }
+  }
+
+  .span-xl {
+    grid-column: content;
+
+    @media (min-width: theme(--breakpoint-md)) {
+      grid-column: col-1 / span 12;
+    }
+
+    @media (min-width: theme(--breakpoint-lg)) {
+      grid-column: col-2 / span 10;
+    }
+  }
+}
+
+
+

@@ -1,4 +1,4 @@
-@layer components {
+@layer utilities {
   [data-waypoint-target] {
     @apply transition duration-300 ease-out;
   }
@@ -17,7 +17,7 @@
 
   [data-waypoint-target][data-waypoint-animated].is-zoomInUp {
     @apply opacity-100 translate-y-0 scale-100 duration-500;
-    transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
 
   [data-waypoint-target].is-zoomInDown {
@@ -26,7 +26,7 @@
 
   [data-waypoint-target][data-waypoint-animated].is-zoomInDown {
     @apply opacity-100 translate-y-0 scale-100;
-    transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
 
   [data-waypoint-target].is-fadeInDown {
@@ -50,7 +50,7 @@
   }
 
   [data-waypoint-target][data-waypoint-animated].is-blurInLeftDown {
-    @apply opacity-100 translate-x-0 translate-y-0 blur-0 scale-100;
+    @apply opacity-100 translate-x-0 translate-y-0 blur-none scale-100;
   }
 
   [data-waypoint-target].is-fadeInRight {

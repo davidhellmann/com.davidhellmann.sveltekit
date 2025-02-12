@@ -14,22 +14,18 @@
 /*  src: url($lib/fonts/GT-Walsheim-Pro-Bold.woff2) format('woff2');*/
 /*}*/
 
-
 @font-face {
-  font-family: 'Geomanist';
+  font-family: "Geomanist";
   font-style: normal;
   font-display: swap;
   font-weight: 950;
-  src: url($lib/fonts/hinted-Geomanist-Ultra.woff2) format('woff2');
+  src: url($lib/fonts/hinted-Geomanist-Ultra.woff2) format("woff2");
 }
 
-
-
 @font-face {
-  font-family: 'Geomanist';
+  font-family: "Geomanist";
   font-style: normal;
   font-display: swap;
   font-weight: 700;
-  src: url($lib/fonts/hinted-Geomanist-Medium.woff2) format('woff2');
+  src: url($lib/fonts/hinted-Geomanist-Medium.woff2) format("woff2");
 }
-

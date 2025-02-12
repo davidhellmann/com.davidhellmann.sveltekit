@@ -38,7 +38,8 @@
   {/if}
 {/if}
 
-<style lang="postcss">
+<style>
+  @reference "tailwindcss/theme";
   /* Lightbox Styles */
   :global(.lg-container .lg-content) {
     top: 0 !important;

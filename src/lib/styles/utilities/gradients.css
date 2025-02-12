@@ -1,0 +1,7 @@
+/* @utility bg-linear-primary-to-r {
+  background-image: linear-gradient(90deg in oklab,
+    var(--color-secondary-500) 0%,
+    var(--color-primary-500) 52.08%,
+    var(--color-positive-500) 100%
+  );
+} */

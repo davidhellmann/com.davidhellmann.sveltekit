@@ -1,81 +1,85 @@
+@reference "tailwindcss/theme";
 .lg-next,
 .lg-prev {
-  color: theme("colors.olkch.orange");
-  background-color: theme("colors.neutral.50");
-  box-shadow: theme("boxShadow.md");
-  border-radius: theme("borderRadius.lg");
-  @apply  backdrop-blur ring-1 ring-white/5 transition-all;
+  color: var(--color-neon-orange);
+  background-color: var(--color-neutral-50);
+  box-shadow: var(--shadow-md);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(var(--blur-sm));
+  @apply ring-1 ring-white/5 transition-all;
 }
 
 .lg-container.is-dark .lg-next,
 .lg-container.is-dark .lg-prev {
-  background-color: theme("colors.neutral.950");
+  background-color: var(--color-neutral-950);
 }
 
 .lg-next:focus-visible:not(.disabled),
 .lg-prev:focus-visible:not(.disabled),
 .lg-next:hover:not(.disabled),
 .lg-prev:hover:not(.disabled) {
-  color: theme("colors.olkch.green");
+  color: var(--color-neon-green);
 }
 
 .lg-toolbar {
   @apply right-5 top-5 left-auto w-auto px-2;
-  background-color: theme("colors.neutral.50");
-  box-shadow: theme("boxShadow.md");
-  border-radius: theme("borderRadius.lg");
-  @apply  backdrop-blur ring-1 ring-white/5  transition-all;
+  background-color: var(--color-neutral-50);
+  box-shadow: var(--shadow-md);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(var(--blur-sm));
+  @apply ring-1 ring-white/5 transition-all;
 }
 
 .lg-container.is-dark .lg-toolbar {
-  background-color: theme("colors.neutral.950");
+  background-color: var(--color-neutral-950);
 }
 
 .lg-toolbar .lg-icon {
-  color: theme("colors.olkch.orange");
+  color: var(--color-neon-orange);
 }
 
 .lg-toolbar .lg-icon:hover {
-  color: theme("colors.olkch.green");
+  color: var(--color-neon-green);
 }
 
 .lg-sub-html {
-  line-height: theme("lineHeight.tight");
-  color: theme("colors.neutral.500");
-  font-size: theme("fontSizeFluid.xs");
+  line-height: var(--leading-tight);
+  color: var(--color-neutral-500);
+  font-size: var(--text-xs);
 
   background-color: transparent;
 }
 
 .lg-error-msg {
-  color: theme("colors.neutral.500");
+  color: var(--color-neutral-500);
 }
 
 .lg-counter {
-  color: theme("colors.neutral.500");
+  color: var(--color-neutral-500);
 }
 
 .lg-backdrop {
   isolation: isolate;
-  background-color: theme("colors.white/0.8");
-  box-shadow: theme("boxShadow.md");
-  @apply  backdrop-blur ring-1 ring-black/5;
+  background-color: --alpha(var(--color-white) / 80%);
+  box-shadow: var(--shadow-md);
+  backdrop-filter: blur(var(--blur-sm));
+  @apply ring-1 ring-black/5;
 }
-
 
 .lg-container.is-dark .lg-backdrop {
   isolation: isolate;
-  background-color: theme("colors.neutral.950/0.8");
-  box-shadow: theme("boxShadow.md");
-  @apply  backdrop-blur ring-1 ring-black/5;
+  background-color: --alpha(var(--color-neutral-950) / 80%);
+  box-shadow: var(--shadow-md);
+  backdrop-filter: blur(var(--blur-sm));
+  @apply ring-1 ring-black/5;
 }
 
 /* Thumb */
 .lg-outer .lg-thumb-outer {
-  background-color: theme("colors.transparent");
+  background-color: var(--color-transparent);
 }
 
 .lg-outer .lg-thumb-item.active,
 .lg-outer .lg-thumb-item:hover {
-  border: 2px solid theme("colors.olkch.orange");
+  border: 2px solid var(--color-neon-orange);
 }

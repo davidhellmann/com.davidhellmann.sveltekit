@@ -10,7 +10,6 @@ tailwind.config.mjs
 svelte.config.js
 sly.json
 README.md
-postcss.config.js
 pnpm-lock.yaml
 package.json
 graphql-request.d.ts
