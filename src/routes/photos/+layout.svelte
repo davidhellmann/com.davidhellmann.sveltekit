@@ -17,7 +17,8 @@
   {@render children?.()}
 </main>
 
-<style lang="postcss">
+<style>
+  @reference "tailwindcss/theme";
   :global(body) {
     background-color: #d5d3d1;
     background-image: url($lib/images/bg-triangle-beige.avif);

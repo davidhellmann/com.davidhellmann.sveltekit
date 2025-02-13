@@ -1,0 +1,44 @@
+@layer base {
+  html {
+    color: var(--color-neutral-600);
+    background-color: var(--color-white);
+    /* Set sans, serif or mono stack with optional custom font as default. */
+    font-family: var(--font-serif);
+    /* font-family: var(--font-serif); */
+    /* font-family: var(--font-mono); */
+    line-height: var(--leading-relaxed, 1.6);
+    font-size: 100%;
+    /* Safari resize fix. */
+    min-height: 0vw;
+    scrollbar-gutter: stable;
+    hyphens: auto;
+  }
+
+  html.no-scroll {
+    overflow: hidden;
+  }
+
+  body {
+    font-size: var(--text-base);
+  }
+
+  [data-theme="dark"] {
+    color: var(--color-neutral-300);
+
+    :is(h1, h2, h3, h4, h5, h6): {
+      color: var(--color-neutral-50);
+    }
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    a {
+      transition-property: color, background-color;
+      transition-duration: var(--default-transition-duration);
+      transition-timing-function: var(--default-transition-timing-function);
+    }
+  }
+}

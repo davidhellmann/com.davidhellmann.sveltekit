@@ -1,13 +1,29 @@
-@import "animations.css";
+@import "tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "./animations.css";
 
-html {
-  @apply hyphens-auto;
-}
+@import "./theme/aspect-ratio.css";
+@import "./theme/breakpoints.css";
+@import "./theme/colors.css";
+@import "./theme/spacings.css";
+@import "./theme/transitions.css";
+@import "./theme/typography.css";
 
-html.no-scroll {
-  overflow: hidden;
-}
+/* Variants */
+@import "./variants/themes.css";
+
+/* Base */
+@import "./base/global.css";
+@import "./base/focus.css";
+
+/* Utilities */
+@import "./utilities/gradients.css";
+@import "./utilities/grid-columns.css";
+@import "./utilities/stacks.css";
+
+/* Components  */
+@import "./components/fluid-grid.css";
+@import "./components/rich-text.css";
+
+/*@source "../components!**!*.svelte";*/
+/*@source "../../routes!**!*.svelte";*/

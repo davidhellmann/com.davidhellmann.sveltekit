@@ -6,8 +6,9 @@
   const tvCode = tv({
     slots: {
       slotWrapper: "mt-10",
-      slotCode: "flex items-center gap-3 inline-flex label text-xs text-neutral-200 px-4 !-mb-fluid -mt-10 py-2 ml-fluid rounded-t-xl self-start after:size-2 after:bg-accent-purple-400 after:rounded-full",
-    },
+      slotCode:
+        "flex items-center gap-3 inline-flex label text-xs text-neutral-200 px-4 !-mb-fluid -mt-10 py-2 ml-fluid rounded-t-xl self-start after:size-2 after:bg-accent-purple-400 after:rounded-full"
+    }
   });
 
   type CodeProps = {
@@ -19,25 +20,13 @@
     html?: string;
   } & VariantProps<typeof tvCode>;
 
-  const {
-    compName = "Code",
-    className,
-    code,
-    language = "js",
-    name,
-    html,
-  }: CodeProps = $props();
+  const { compName = "Code", className, code, language = "js", name, html }: CodeProps = $props();
 
   const { slotWrapper, slotCode } = tvCode({ className });
-
 </script>
 
 {#if code && language}
-  <div
-    data-comp={compName}
-    class={slotWrapper({ className })}
-
-  >
+  <div data-comp={compName} class={slotWrapper({ className })}>
     <Figure {html}>
       {#if name}
         <span class={slotCode()}>{name}</span>
@@ -47,7 +36,8 @@
   </div>
 {/if}
 
-<style lang="postcss">
+<style>
+  @reference "tailwindcss/theme";
   [data-comp="Code"] .label {
     background-color: #262335;
   }
@@ -76,12 +66,12 @@
     margin-right: 0.5rem;
     padding-right: 0.5rem;
     display: inline-block;
-    color: rgba(255,255,255,.2)
+    color: rgba(255, 255, 255, 0.2);
   }
 
   @screen lg {
     [data-comp="Code"] :global(code .line::before) {
-      border-right: 1px solid rgba(255, 255, 255, .2);
+      border-right: 1px solid rgba(255, 255, 255, 0.2);
       width: 5rem;
       margin-right: 1.5rem;
       padding-right: 1rem;

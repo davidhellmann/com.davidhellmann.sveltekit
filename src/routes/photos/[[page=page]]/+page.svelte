@@ -26,7 +26,7 @@
   });
 
   const cc = {
-    heading: "span-content text-olkch-pink is-zoomInDown",
+    heading: "span-content text-neon-pink is-zoomInDown",
     text: "col-start-[col-3] col-end-[col-10] text-2xl is-zoomInDown",
     list: "span-popout z-10 @container",
     underline: "underline decoration-wavy decoration-4 decoration-accent-purple-400"
@@ -68,7 +68,7 @@
     />
     <RichText className={cc.text} html={content.about} data-waypoint data-waypoint-target data-waypoint-delay="200" />
   {:else}
-    <div class="span-content text-olkch-pink flex font-decorative text-7xl font-extrabold" data-waypoint>
+    <div class="span-content text-neon-pink flex font-decorative text-7xl font-extrabold" data-waypoint>
       <!-- eslint-disable-next-line -->
       {@html splitText(`Page ${page.toString()}`)}
     </div>

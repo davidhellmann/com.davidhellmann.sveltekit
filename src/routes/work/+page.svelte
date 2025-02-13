@@ -16,7 +16,7 @@
   let entries = $derived(data.entries);
 
   const cc = {
-    heading: "span-content text-olkch-pink is-zoomInDown text-7xl font-decorative font-extrabold flex flex-wrap",
+    heading: "span-content text-neon-pink is-zoomInDown text-7xl font-decorative font-extrabold flex flex-wrap",
     text: "span-content xl:col-start-[col-3] xl:col-end-[col-10] text-2xl is-zoomInDown [&_*_strong]:decoration-wavy [&_*_strong]:underline [&_*_strong]:decoration-4 [&_*_strong]:decoration-accent-purple-400",
     list: "span-popout z-10 @container"
   };
@@ -38,7 +38,7 @@
     <ul class="span-content flex flex-col gap-1">
       {#each entries as entry (entry.id)}
         <li>
-          <a class="flex p-4 bg-neutral-900 rounded transition hover:bg-neutral-800" href={entry.url}>{entry.title}</a>
+          <a class="flex p-4 bg-neutral-900 rounded-sm transition hover:bg-neutral-800" href={entry.url}>{entry.title}</a>
         </li>
       {/each}
     </ul>

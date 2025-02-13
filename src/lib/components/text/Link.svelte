@@ -30,25 +30,25 @@
           group-hover:border-neutral-50/80 group-hover:ring-neutral-50/80
         `,
         inline: `
-          underline decoration-wavy underline-offset-4 text-accent-purple-700 decoration-olkch-orange
+          underline decoration-wavy underline-offset-4 text-accent-purple-700 decoration-neon-orange
           hover:underline-offset-2 group-hover:underline-offset-2
-        `,
+        `
       },
       iconPosition: {
         left: "[&_svg]:-mr-2 flex-row",
         right: "[&_svg]:-ml-2 flex-row-reverse",
-        only: "[&_svg]:-mx-2",
+        only: "[&_svg]:-mx-2"
       },
       gapSize: {
         2: "gap-2",
         4: "gap-4",
-        8: "gap-8",
-      },
+        8: "gap-8"
+      }
     },
     defaultVariants: {
       variant: "primary",
-      gapSize: 4,
-    },
+      gapSize: 4
+    }
   });
 
   type LinkProps = {
@@ -79,16 +79,17 @@
 </script>
 
 {#snippet iconSnippet()}
-  <IconSprite icon={icon} size={"relative"} />
+  <IconSprite {icon} size={"relative"} />
 {/snippet}
 
 {#if href && (text || icon)}
   <svelte:element
     this={fakeLink ? "div" : "a"}
     data-comp={compName}
-    href="{fakeLink ? undefined : href}"
+    href={fakeLink ? undefined : href}
     class={tvLink({ variant, iconPosition, gapSize, className })}
-    {...rest}>
+    {...rest}
+  >
     {#if icon}{@render iconSnippet()}{/if}
     {text}
   </svelte:element>

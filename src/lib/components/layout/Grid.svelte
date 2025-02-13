@@ -12,12 +12,12 @@
         4: "grid-cols-1 @lg:grid-cols-2 @3xl:grid-cols-3 @5xl:grid-cols-4",
         5: "grid-cols-2 @lg:grid-cols-3 @3xl:grid-cols-4 @5xl:grid-cols-5",
         6: "grid-cols-2 @lg:grid-cols-4 @3xl:grid-cols-6",
-        cards: "grid-cols-cards",
-        "cards-xs": "grid-cols-cards-xs",
-        "cards-sm": "grid-cols-cards-sm",
-        "cards-md": "grid-cols-cards-md",
-        "cards-lg": "grid-cols-cards-lg",
-        "cards-xl": "grid-cols-cards-xl",
+        "grid-cols-auto-min-120": "grid-cols-auto-min-120",
+        "grid-cols-auto-min-180": "grid-cols-auto-min-180",
+        "grid-cols-auto-min-260": "grid-cols-auto-min-260",
+        "grid-cols-auto-min-300": "grid-cols-auto-min-300",
+        "grid-cols-auto-min-360": "grid-cols-auto-min-360",
+        "grid-cols-auto-min-480": "grid-cols-auto-min-480",
         "work-gallery": `
           grid-cols-2 md:grid-cols-3 md:grid-rows-3
           [&>*:nth-child(1)]:col-span-2 md:[&>*:nth-child(1)]:col-span-3 [&>*:nth-child(1)]:row-span-3
@@ -29,7 +29,7 @@
           [&>img:nth-child(1)]:col-span-1 md:[&>img:nth-child(1)]:col-span-2 [&>img:nth-child(1)]:row-span-1 md:[&>img:nth-child(1)]:row-span-2
           [&>img:nth-child(2)]:col-span-1 [&>img:nth-child(2)]:row-span-1
           [&>img:nth-child(3)]:col-span-2 md:[&>img:nth-child(3)]:col-span-1 [&>img:nth-child(3)]:row-span-2 md:[&>img:nth-child(3)]:row-span-1
-        `,
+        `
       },
       gap: {
         unset: "",
@@ -38,7 +38,7 @@
         8: "gap-8",
         16: "gap-16",
         32: "gap-32",
-        fluid: "gap-fluid",
+        fluid: "gap-fluid"
       },
       gapX: {
         unset: "",
@@ -47,7 +47,7 @@
         8: "gap-x-8",
         16: "gap-x-16",
         32: "gap-x-32",
-        fluid: "gap-x-fluid",
+        fluid: "gap-x-fluid"
       },
       gapY: {
         unset: "",
@@ -56,9 +56,9 @@
         8: "gap-y-8",
         16: "gap-y-16",
         32: "gap-y-32",
-        fluid: "gap-y-fluid",
-      },
-    },
+        fluid: "gap-y-fluid"
+      }
+    }
   });
 
   type GridProps = {
@@ -74,7 +74,7 @@
     gap = "fluid",
     gapX = "unset",
     gapY = "unset",
-    children,
+    children
   }: GridProps = $props();
 
   if (gapX !== "unset" || gapY !== "unset") {
@@ -83,10 +83,7 @@
 </script>
 
 {#if children}
-  <div
-    data-comp={compName}
-    class={tvGrid({ columns, gap, gapX, gapY, className })}
-  >
+  <div data-comp={compName} class={tvGrid({ columns, gap, gapX, gapY, className })}>
     {@render children()}
   </div>
 {/if}

@@ -12,16 +12,33 @@
   {@render children?.()}
 </main>
 
-<style lang="postcss">
+<style>
+  @reference "tailwindcss/theme";
   main::before {
     content: "";
-    @apply bg-neutral-300 bg-fixed inset-0 fixed z-behind;
+    background-color: var(--bg-neutral-300);
+    background-attachment: fixed;
+    inset: 0;
+    position: fixed;
+    z-index: -1;
     background-image: url($lib/images/bg-triangle-gray.avif);
   }
   main::after {
     content: "";
-    @apply bg-neutral-900 lg:max-w-[min(calc(100%-4vw),2000px)]
-    isolate backdrop-blur fixed top-0 h-[100dvh] z-behind w-full left-1/2 transform -translate-x-1/2;
+    background-color: var(--bg-neutral-900);
+
+    @media (width >= theme(--breakpoint-lg)) {
+      max-width: min(calc(100% - 4vw), 2000px);
+    }
+    isolation: isolate;
+    backdrop-filter: blur(var(--blur-sm));
+    position: fixed;
+    top: 0;
+    height: 100dvh;
+    z-index: -10;
+    width: 100%;
+    left: 50%;
+    translate: -50% 0;
     box-shadow:
       rgba(255, 255, 255, 1) 0 0 0 0,
       rgba(255, 255, 255, 1) 0 0 0 1px,

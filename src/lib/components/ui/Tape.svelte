@@ -16,7 +16,7 @@
       after:flex
       after:absolute
       after:h-8
-      after:blur-sm
+      after:blur-xs
       after:rotate-45
       after:rounded-full
       after:w-0.5
@@ -29,7 +29,7 @@
       before:flex
       before:absolute
       before:h-8
-      before:blur-sm
+      before:blur-xs
       before:rotate-45
       before:rounded-full
       before:w-4
