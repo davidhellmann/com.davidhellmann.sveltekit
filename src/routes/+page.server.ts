@@ -3,10 +3,17 @@ import type { PageServerLoad } from "./$types";
 import { GetEntriesDocument, type GetEntriesQuery, type GetEntriesQueryVariables } from "$graphql/graphql";
 import { getGqlData } from "$graphql/graphql-client";
 
+import { GetHomeQuery, GetHomeResult, GetHomeVariables } from "./query";
+
 export const load: PageServerLoad = async () => {
   const { entries } = (await getGqlData<GetEntriesQueryVariables>(GetEntriesDocument, {
     section: ["home"]
   })) as GetEntriesQuery;
+
+  const { entry } = (await getGqlData(GetHomeQuery, {
+    section: ["home"]
+  } as GetHomeVariables)) as GetHomeResult;
+  console.log(entry);
 
   const { entries: blogEntries } = (await getGqlData<GetEntriesQueryVariables>(GetEntriesDocument, {
     section: ["blog"],
