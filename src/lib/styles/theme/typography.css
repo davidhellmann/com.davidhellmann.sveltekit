@@ -32,8 +32,9 @@
   --leading-loose: 2;
 
   /*
-    https://www.fluid-type-scale.com/calculate?minFontSize=19&minWidth=320&minRatio=1.125&maxFontSize=23&maxWidth=1536&maxRatio=1.333&steps=2xs,xs,sm,base,lg,xl,2xl,3xl,4xl,5xl,6xl,7xl,8xl,9xl,10xl,11xl&baseStep=base&prefix=text&useContainerWidth=false&includeFallbacks=false&useRems=true&remValue=15&decimals=2&previewFont=Inter&previewText=Almost+before+we+knew+it,+we+had+left+the+ground&previewWidth=1280
+   https://www.fluid-type-scale.com/calculate?minFontSize=19&minWidth=320&minRatio=1.125&maxFontSize=23&maxWidth=1536&maxRatio=1.333&steps=2xs,xs,sm,base,lg,xl,2xl,3xl,4xl,5xl,6xl,7xl,8xl,9xl,10xl,11xl&baseStep=base&prefix=text&useContainerWidth=false&includeFallbacks=false&useRems=true&remValue=16&decimals=2&previewFont=Inter&previewText=Almost+before+we+knew+it,+we+had+left+the+ground&previewWidth=487
   */
+  
   /* Font Size */
   --font-size-*: initial;
   --text-2xs: 0.5625rem;

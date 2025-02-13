@@ -16,16 +16,16 @@
   @reference "tailwindcss/theme";
   main::before {
     content: "";
-    background-color: var(--bg-neutral-300);
+    background-color: var(--color-neutral-300);
     background-attachment: fixed;
     inset: 0;
     position: fixed;
-    z-index: -1;
+    z-index: -10;
     background-image: url($lib/images/bg-triangle-gray.avif);
   }
   main::after {
     content: "";
-    background-color: var(--bg-neutral-900);
+    background-color: var(--color-neutral-900);
 
     @media (width >= theme(--breakpoint-lg)) {
       max-width: min(calc(100% - 4vw), 2000px);
