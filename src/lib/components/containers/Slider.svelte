@@ -3,7 +3,7 @@
   import type { Snippet } from "svelte";
 
   const tvSlider = tv({
-    base: ""
+    base: "",
   });
 
   type SliderProps = {
