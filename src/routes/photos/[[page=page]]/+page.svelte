@@ -1,9 +1,9 @@
 <script lang="ts">
   import type { PageData } from "./$types";
-  import StackPhotos from "$components/stack/Photos.svelte";
+  import StackPhotos from "$components/stacks/Photos.svelte";
   import Headline from "$components/text/Headline.svelte";
   import RichText from "$components/text/RichText.svelte";
-  import Seo from "$components/head/Seo.svelte";
+  import Seo from "$components/seo/Seo.svelte";
   import { getFirstEntry } from "$utils/getFirstEntry";
   import { afterNavigate } from "$app/navigation";
   import { replaceState } from "$app/navigation";

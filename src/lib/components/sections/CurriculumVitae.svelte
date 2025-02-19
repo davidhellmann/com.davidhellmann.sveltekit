@@ -1,7 +1,7 @@
 <script lang="ts">
   import { tv, type VariantProps } from "tailwind-variants";
   import type { Matrix_CurriculumVitaeFragment } from "$graphql/graphql";
-  import CardCV from "$components/card/CV.svelte";
+  import CardCV from "$components/cards/CV.svelte";
 
   const tvCurriculumVitae = tv({
     base: "flex flex-col gap-1"

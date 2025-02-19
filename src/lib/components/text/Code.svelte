@@ -1,7 +1,7 @@
 <script lang="ts">
   import { tv, type VariantProps } from "tailwind-variants";
   import { useShiki } from "$lib/actions/action.shiki";
-  import Figure from "$components/wrapper/Figure.svelte";
+  import Figure from "$components/blocks/Figure.svelte";
 
   const tvCode = tv({
     slots: {

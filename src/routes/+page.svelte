@@ -1,18 +1,18 @@
 <script lang="ts">
   import type { PageData } from "./$types";
   import { getFirstEntry } from "$utils/getFirstEntry";
-  import Seo from "$components/head/Seo.svelte";
+  import Seo from "$components/seo/Seo.svelte";
   import Headline from "$components/text/Headline.svelte";
   import RichText from "$components/text/RichText.svelte";
-  import Image from "$components/image/Image.svelte";
-  import DecorativeWrapper from "$components/wrapper/DecorativeWrapper.svelte";
-  import GridBentoWork from "$components/layout/GridBentoWork.svelte";
+  import Image from "$components/media/Image.svelte";
+  import DecorativeWrapper from "$components/blocks/DecorativeWrapper.svelte";
+  import GridBentoWork from "$components/containers/GridBentoWork.svelte";
   import { useFullWidthText } from "$lib/actions/action.fullWidthText";
   import { useWaypoint } from "$lib/actions/action.waypoint";
   import { splitTextIntoDivs } from "$utils/splitTextIntoDivs";
   import type { ComponentProps } from "svelte";
-  import CardBlog from "$components/card/Blog.svelte";
-  import CardPhotos from "$components/card/Photos.svelte";
+  import CardBlog from "$components/cards/Blog.svelte";
+  import CardPhotos from "$components/cards/Photos.svelte";
 
   interface Props {
     data: PageData;

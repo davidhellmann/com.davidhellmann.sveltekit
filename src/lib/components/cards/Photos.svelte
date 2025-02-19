@@ -1,9 +1,9 @@
 <script lang="ts">
   import { tv, type VariantProps } from "tailwind-variants";
   import type { ComponentProps } from "svelte";
-  import Image from "$components/image/Image.svelte";
+  import Image from "$components/media/Image.svelte";
   import Headline from "$components/text/Headline.svelte";
-  import DecorativeWrapper from "$components/wrapper/DecorativeWrapper.svelte";
+  import DecorativeWrapper from "$components/blocks/DecorativeWrapper.svelte";
   import { getRandomNumberFromRange } from "$lib/utils/getRandomNumberFromRange";
   import { getRandomString } from "$lib/utils/getRandomString";
   import { getRandomItemFromArray } from "$lib/utils/getRandomItemFromArray";

@@ -1,9 +1,9 @@
 <script lang="ts">
   import type { PageData } from "./$types";
   import { getFirstEntry } from "$utils/getFirstEntry";
-  import Seo from "$components/head/Seo.svelte";
-  import HeroBlog from "$components/hero/Blog.svelte";
-  import ContentBuilder from "$components/builder/ContentBuilder.svelte";
+  import Seo from "$components/seo/Seo.svelte";
+  import HeroBlog from "$components/heros/Blog.svelte";
+  import ContentBuilder from "$components/builders/ContentBuilder.svelte";
 
   interface Props {
     data: PageData;
@@ -30,9 +30,6 @@
   {/if}
 
   {#if entry?.contentBuilder}
-    <ContentBuilder
-      blockTypes={entry?.contentBuilder}
-    />
+    <ContentBuilder blockTypes={entry?.contentBuilder} />
   {/if}
 {/if}
-

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { tv, type VariantProps } from "tailwind-variants";
   import type { Snippet } from "svelte";
-  import Tape from "$components/ui/Tape.svelte";
+  import Tape from "$components/decorative/Tape.svelte";
 
   const tvDecorativeWrapper = tv({
     slots: {

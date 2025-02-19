@@ -7,22 +7,19 @@
   } from "$graphql/graphql";
   import { tv, type VariantProps } from "tailwind-variants";
   import Pagination from "$components/navigation/Pagination.svelte";
-  import CardBlog from "$components/card/Blog.svelte";
+  import CardBlog from "$components/cards/Blog.svelte";
   import { type ComponentProps } from "svelte";
 
-  const tvStackWork = tv({
+  const tvStackPhotos = tv({
     slots: {
       slotWrapper: "",
       slotList: "grid grid-cols-1 @3xl:grid-cols-2 @6xl:grid-cols-3 gap-fluid"
     }
   });
 
-  type Entry = Entry_DataFragment
-    & EntryType_BlogSingleFragment
-    & Entry_SeoFragment
-    & Entry_DatesFragment;
+  type Entry = Entry_DataFragment & EntryType_BlogSingleFragment & Entry_SeoFragment & Entry_DatesFragment;
 
-  type StackWorkProps = {
+  type StackPhotosProps = {
     compName?: string;
     className?: string;
     entries: Entry[];
@@ -30,23 +27,26 @@
     totalItems?: number;
     totalPages?: number;
     page?: number;
-  } & VariantProps<typeof tvStackWork>;
+  } & VariantProps<typeof tvStackPhotos>;
 
   let {
-    compName = "StackWork",
+    compName = "StackPhotos",
     className,
     entries,
     showPagination = true,
     totalItems,
     totalPages,
     page
-  }: StackWorkProps = $props();
+  }: StackPhotosProps = $props();
 
-  const { slotWrapper, slotList } = tvStackWork({ className });
+  const { slotWrapper, slotList } = tvStackPhotos({ className });
 
-  const getColWidth = (index: number, page: number = 1): {
-    colSpan: string,
-    theme: ComponentProps<typeof CardBlog>["theme"]
+  const getColWidth = (
+    index: number,
+    page: number = 1
+  ): {
+    colSpan: string;
+    theme: ComponentProps<typeof CardBlog>["theme"];
   } => {
     let colSpan;
     let theme: ComponentProps<typeof CardBlog>["theme"] = "default";
@@ -74,8 +74,8 @@
   <div class={slotWrapper({ className })} data-comp={compName}>
     {#if showPagination && totalItems && totalPages && page && page > 1}
       <Pagination
-        totalItems={totalItems}
-        totalPages={totalPages}
+        {totalItems}
+        {totalPages}
         currentPage={page}
         yPosition="top"
         simple={true}
@@ -104,12 +104,7 @@
     </ul>
 
     {#if showPagination && totalItems && totalPages && totalPages > 1 && page}
-      <Pagination
-        totalItems={totalItems}
-        totalPages={totalPages}
-        currentPage={page}
-        uri="/blog"
-      />
+      <Pagination {totalItems} {totalPages} currentPage={page} uri="/blog" />
     {/if}
   </div>
 {/if}

@@ -1,8 +1,8 @@
 <script lang="ts">
-  import Image from "$components/image/Image.svelte";
+  import Image from "$components/media/Image.svelte";
   import type { ComponentProps } from "svelte";
   import { tv, type VariantProps } from "tailwind-variants";
-  import Grid from "$components/layout/Grid.svelte";
+  import Grid from "$components/containers/Grid.svelte";
   import { useLightbox } from "$lib/actions/action.lightbox";
   import "$styles/lightbox.css";
 

@@ -1,12 +1,13 @@
 <script lang="ts">
   import type { PageData } from "./$types";
   import { getFirstEntry } from "$utils/getFirstEntry";
-  import Seo from "$components/head/Seo.svelte";
+  import Seo from "$components/seo/Seo.svelte";
   import RichText from "$components/text/RichText.svelte";
   import Headline from "$components/text/Headline.svelte";
-  import Image from "$components/image/Image.svelte";
-  import DecorativeWrapper from "$components/wrapper/DecorativeWrapper.svelte";
-  import CurriculumVitae from "$components/block/CurriculumVitae.svelte";
+  import Image from "$components/media/Image.svelte";
+  import ImageGridI from "$components/sections/ImageGridI.svelte";
+  import DecorativeWrapper from "$components/blocks/DecorativeWrapper.svelte";
+  import CurriculumVitae from "$components/sections/CurriculumVitae.svelte";
   import { useWaypoint } from "$lib/actions/action.waypoint";
   import { splitTextIntoDivs } from "$utils/splitTextIntoDivs";
 
@@ -52,6 +53,11 @@
         </div>
       {/if}
     </DecorativeWrapper>
+
+    {#if entry?.imageGridI}
+      <Headline className={"span-xl z-10 pb-12"} text={"Working experience"} />
+      <ImageGridI images={entry.imageGridI} className="span-content z-10" />
+    {/if}
 
     {#if entry?.curriculumVitae}
       <Headline className={"span-xl z-10 pb-12"} text={"Working experience"} />

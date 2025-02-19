@@ -1,10 +1,10 @@
 <script lang="ts">
-  import type {Hyper_DataFragment} from "$lib/graphql/graphql";
-  import CtaWrapper from "$components/wrapper/CtaWrapper.svelte";
+  import type { Hyper_DataFragment } from "$lib/graphql/graphql";
+  import CtaWrapper from "$components/blocks/CtaWrapper.svelte";
   import Headline from "$components/text/Headline.svelte";
   import RichText from "$components/text/RichText.svelte";
   import Link from "$components/text/Link.svelte";
-  import IconSprite from "$components/ui/IconSprite.svelte";
+  import IconSprite from "$components/media/IconSprite.svelte";
   import type { HeroiconsIcons } from "$lib/types/heroicons-icons";
 
   type BlockCta = {
@@ -13,19 +13,13 @@
     description?: string;
     icon?: HeroiconsIcons;
     links: Hyper_DataFragment[];
-  }
+  };
 
-  const {
-    compName = "BlockCta",
-    headline,
-    description,
-    icon = "face-smile-outline",
-    links
-  }: BlockCta = $props();
+  const { compName = "BlockCta", headline, description, icon = "face-smile-outline", links }: BlockCta = $props();
 </script>
 
 {#if links}
-  <CtaWrapper className="span-popout stack-space-24" compName={compName}>
+  <CtaWrapper className="span-popout stack-space-24" {compName}>
     {#if headline}
       <Headline text={headline} />
     {/if}
@@ -42,6 +36,6 @@
         {/each}
       </div>
     {/if}
-    <IconSprite size={96} className="absolute right-10 top-10 no-space-y opacity-40" icon={icon} />
+    <IconSprite size={96} className="absolute right-10 top-10 no-space-y opacity-40" {icon} />
   </CtaWrapper>
 {/if}

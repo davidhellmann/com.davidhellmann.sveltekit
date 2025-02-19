@@ -7,7 +7,7 @@
   } from "$graphql/graphql";
   import { tv, type VariantProps } from "tailwind-variants";
   import Pagination from "$components/navigation/Pagination.svelte";
-  import CardBlog from "$components/card/Blog.svelte";
+  import CardBlog from "$components/cards/Blog.svelte";
   import { type ComponentProps } from "svelte";
   import { useWaypoint } from "$lib/actions/action.waypoint";
 

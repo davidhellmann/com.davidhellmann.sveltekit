@@ -1,8 +1,8 @@
 <script lang="ts">
   import type { PageData } from "./$types";
-  import StackBlog from "$components/stack/Blog.svelte";
+  import StackBlog from "$components/stacks/Blog.svelte";
   import RichText from "$components/text/RichText.svelte";
-  import Seo from "$components/head/Seo.svelte";
+  import Seo from "$components/seo/Seo.svelte";
   import { getFirstEntry } from "$utils/getFirstEntry";
   import { splitTextIntoDivs } from "$utils/splitTextIntoDivs";
   import { useWaypoint } from "$lib/actions/action.waypoint";
@@ -38,7 +38,9 @@
     <ul class="span-content flex flex-col gap-1">
       {#each entries as entry (entry.id)}
         <li>
-          <a class="flex p-4 bg-neutral-900 rounded-sm transition hover:bg-neutral-800" href={entry.url}>{entry.title}</a>
+          <a class="flex p-4 bg-neutral-900 rounded-sm transition hover:bg-neutral-800" href={entry.url}
+            >{entry.title}</a
+          >
         </li>
       {/each}
     </ul>

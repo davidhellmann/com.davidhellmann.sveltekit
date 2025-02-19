@@ -13,6 +13,16 @@
     ...asset_transforms
     ...asset_customFields
   }
+  imageGridI {
+    ...asset_data
+    ...asset_transforms
+    ...asset_customFields
+  }
+  imageGridII {
+    ...asset_data
+    ...asset_transforms
+    ...asset_customFields
+  }
   aboutMeRichText
   awardsRichText
   awards {

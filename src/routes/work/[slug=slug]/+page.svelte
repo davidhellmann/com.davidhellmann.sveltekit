@@ -1,11 +1,11 @@
 <script lang="ts">
   import type { PageData } from "./$types";
   import { getFirstEntry } from "$utils/getFirstEntry";
-  import Seo from "$components/head/Seo.svelte";
-  import LightboxWork from "$components/wrapper/LightboxWork.svelte";
+  import Seo from "$components/seo/Seo.svelte";
+  import LightboxWork from "$components/modals/LightboxWork.svelte";
   import Headline from "$components/text/Headline.svelte";
   import RichText from "$components/text/RichText.svelte";
-  import ContentBuilder from "$components/builder/ContentBuilder.svelte";
+  // import ContentBuilder from "$components/builders/ContentBuilder.svelte";
 
   interface Props {
     data: PageData;

@@ -11,8 +11,8 @@
   import type { Snippet } from "svelte";
   import { dayjs } from "svelte-time";
   import "dayjs/locale/de";
-  import Header from "$components/block/Header.svelte";
-  import Footer from "$components/block/Footer.svelte";
+  import Header from "$components/sections/Header.svelte";
+  import Footer from "$components/sections/Footer.svelte";
 
   dayjs.locale("de");
 

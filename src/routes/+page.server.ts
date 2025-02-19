@@ -15,7 +15,7 @@ export const load: PageServerLoad = async () => {
 
   const { entries: workEntries } = (await getGqlData<GetEntriesQueryVariables>(GetEntriesDocument, {
     section: ["work"],
-    limit: undefined,
+    limit: 4,
     orderBy: "RAND()"
   })) as GetEntriesQuery;
 

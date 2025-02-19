@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { PageData } from "./$types";
   import { getFirstEntry } from "$utils/getFirstEntry";
-  import Seo from "$components/head/Seo.svelte";
+  import Seo from "$components/seo/Seo.svelte";
   import Headline from "$components/text/Headline.svelte";
 
   interface Props {

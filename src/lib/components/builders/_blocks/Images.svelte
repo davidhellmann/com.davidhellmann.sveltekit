@@ -1,8 +1,8 @@
 <script lang="ts">
-  import Image from "$components/image/Image.svelte";
-  import Grid from "$components/layout/Grid.svelte";
-  import Lightbox from "$components/wrapper/Lightbox.svelte";
-  import ImageGridCalculated from "$components/wrapper/ImageGridCalculated.svelte";
+  import Image from "$components/media/Image.svelte";
+  import Grid from "$components/containers/Grid.svelte";
+  import Lightbox from "$components/modals/Lightbox.svelte";
+  import ImageGridCalculated from "$components/containers/ImageGridCalculated.svelte";
   import type { ComponentProps } from "svelte";
 
   type BlockImage = {
@@ -11,14 +11,9 @@
     ratio?: ComponentProps<typeof Image>["ratio"];
     showCaption?: boolean;
     imagesViewMode?: string;
-  }
+  };
 
-  const {
-    compName = "BlockImages",
-    images,
-    ratio,
-    imagesViewMode,
-  }: BlockImage = $props();
+  const { compName = "BlockImages", images, ratio, imagesViewMode }: BlockImage = $props();
 
   type Columns = 1 | 2 | 3 | 4 | 5 | 6;
 
@@ -39,13 +34,13 @@
     {#if imagesViewMode && imagesViewMode.startsWith("grid-cols-")}
       <Grid columns={getColumns()}>
         {#each images as image (image)}
-          <Image image={image} ratio={ratio} />
+          <Image {image} {ratio} />
         {/each}
       </Grid>
     {:else if imagesViewMode === "gallery"}
-      <Lightbox images={images} ratio={"aspect-landscape"} />
+      <Lightbox {images} ratio={"aspect-landscape"} />
     {:else if imagesViewMode === "grid-calculated"}
-      <ImageGridCalculated images={images} />
+      <ImageGridCalculated {images} />
     {/if}
   </div>
 {/if}

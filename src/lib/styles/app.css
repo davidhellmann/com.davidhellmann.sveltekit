@@ -23,7 +23,6 @@
 
 /* Components  */
 @import "./components/fluid-grid.css";
-@import "./components/rich-text.css";
 
 /*@source "../components!**!*.svelte";*/
 /*@source "../../routes!**!*.svelte";*/

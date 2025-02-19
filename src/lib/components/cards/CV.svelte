@@ -3,7 +3,7 @@
   import Headline from "$components/text/Headline.svelte";
   import PlainText from "$components/text/PlainText.svelte";
   import Time from "$components/text/Time.svelte";
-  import InlineSvg from "$components/ui/InlineSvg.svelte";
+  import InlineSvg from "$components/media/InlineSvg.svelte";
 
   const tvCardCV = tv({
     slots: {

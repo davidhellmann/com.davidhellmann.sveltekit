@@ -4,6 +4,7 @@
   const baseClasses = {
     size: "fixed h-screen w-full max-w-[2000px]  pointer-events-none",
     position: "left-1/2 top-0 -translate-x-1/2 z-[9999] px-fluid",
+    spacing: "",
   };
 
 

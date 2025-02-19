@@ -1,6 +1,6 @@
 <script lang="ts">
   import { tv, type VariantProps } from "tailwind-variants";
-  import IconSprite from "$components/ui/IconSprite.svelte";
+  import IconSprite from "$components/media/IconSprite.svelte";
   import type { HeroiconsIcons } from "$lib/types/heroicons-icons";
 
   type Icon = HeroiconsIcons | undefined;
