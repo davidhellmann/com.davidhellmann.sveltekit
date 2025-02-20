@@ -3,7 +3,7 @@
   import type { ComponentProps } from "svelte";
   import Image from "$components/media/Image.svelte";
   import Headline from "$components/text/Headline.svelte";
-  import DecorativeWrapper from "$components/blocks/DecorativeWrapper.svelte";
+  import Polaroid from "$components/decorative/Polaroid.svelte";
   import { getRandomNumberFromRange } from "$lib/utils/getRandomNumberFromRange";
   import { getRandomString } from "$lib/utils/getRandomString";
   import { getRandomItemFromArray } from "$lib/utils/getRandomItemFromArray";
@@ -42,7 +42,7 @@
     data-waypoint-target
   >
     {#if image}
-      <DecorativeWrapper preset="polaroid">
+      <Polaroid>
         <div class={slotImage({})}>
           <Image {image} noscript={false} className="transition-all group-hover:scale-105" ratio="aspect-auto" />
         </div>
@@ -53,7 +53,7 @@
           </div>
           <Headline text={headline} size="sm" family="mono" weight="semibold" className={slotHeadline({})} />
         </div>
-      </DecorativeWrapper>
+      </Polaroid>
     {/if}
   </a>
 {/if}

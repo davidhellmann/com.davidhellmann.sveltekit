@@ -5,7 +5,7 @@
   import Headline from "$components/text/Headline.svelte";
   import RichText from "$components/text/RichText.svelte";
   import Image from "$components/media/Image.svelte";
-  import DecorativeWrapper from "$components/blocks/DecorativeWrapper.svelte";
+  import Glass from "$components/decorative/Glass.svelte";
   import GridBentoWork from "$components/containers/GridBentoWork.svelte";
   import { useFullWidthText } from "$lib/actions/action.fullWidthText";
   import { useWaypoint } from "$lib/actions/action.waypoint";
@@ -30,7 +30,7 @@
     heroHeadline:
       "font-decorative text-7xl font-extrabold !leading-[0.85] [font-size:min(12vw,13.5rem)] text-neon-green -translate-y-[1.75cap] -mb-[1.25cap] flex flex-wrap [br]:w-full",
     heroRichText: "is-fadeInUp span-content lg:col-start-2 lg:col-end-10 text-white text-3xl max-w-prose",
-    decorativeWrapper: "span-popout px-fluid relative z-20  mt-[16vw] pb-32",
+    glass: "span-popout px-fluid relative z-20  mt-[16vw] pb-32",
     bigTextWrapper: "span-full px-4 -mt-48 z-20 pointer-events-none ",
     bigText:
       "uppercase font-decorative bg-gradient-to-b from-neutral-400/10 to-neutral-700/5 py-12 opacity-70 text-transparent bg-clip-text text-center translate-y-full",
@@ -50,7 +50,7 @@
       <Image className={cc.heroImage} lazy={false} ratio="aspect-auto" noscript={false} image={entry?.heroImage[0]} />
     {/if}
     <div class="fluid-grid">
-      <DecorativeWrapper preset="glass-home" className={cc.decorativeWrapper}>
+      <Glass preset="glass-home" className={cc.glass}>
         {#if entry?.customTitle}
           <div class={cc.heroHeadline} use:useWaypoint data-waypoint>
             <!-- eslint-disable-next-line -->
@@ -63,7 +63,7 @@
             <RichText data-waypoint-target className={cc.heroRichText} html={entry?.description} />
           </div>
         {/if}
-      </DecorativeWrapper>
+      </Glass>
     </div>
 
     {#if blogEntries}
