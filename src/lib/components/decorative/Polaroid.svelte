@@ -31,12 +31,12 @@
     children: Snippet;
   } & VariantProps<typeof tvPolaroid>;
 
-  const { compName = "Polaroid", className, preset, children }: PolaroidProps = $props();
+  const { compName = "Polaroid", className, preset, children, ...rest }: PolaroidProps = $props();
   const { slotBase, slotTape } = tvPolaroid({ preset, className });
 </script>
 
 {#if children}
-  <div data-comp={compName} class={slotBase({ preset, className })}>
+  <div data-comp={compName} class={slotBase({ preset, className })} {...rest}>
     {@render children()}
     <Tape className={slotTape()} />
   </div>

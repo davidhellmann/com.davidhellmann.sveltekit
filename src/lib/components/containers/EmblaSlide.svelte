@@ -35,7 +35,7 @@
     index?: number;
   } & VariantProps<typeof tvEmblaSlide>;
 
-  let { compName = "EmblaSlide", width, gap, className, index, children }: EmblaSlideProps = $props();
+  let { compName = "EmblaSlide", width, gap, className, index, children, ...rest }: EmblaSlideProps = $props();
 
   const getMarginClass = (index: number | null) => {
     if (!index) return "";
@@ -47,7 +47,7 @@
 </script>
 
 {#if children}
-  <div class={[getMarginClass(index ?? null), tvEmblaSlide({ width, gap, className })]} data-comp={compName}>
+  <div class={[getMarginClass(index ?? null), tvEmblaSlide({ width, gap, className })]} {...rest} data-comp={compName}>
     {@render children()}
   </div>
 {/if}

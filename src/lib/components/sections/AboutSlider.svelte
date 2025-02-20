@@ -6,6 +6,7 @@
   import Polaroid from "$components/decorative/Polaroid.svelte";
   import Headline from "$components/text/Headline.svelte";
   import type { ComponentProps } from "svelte";
+  import { getRandomNumberFromRange } from "$lib/utils/getRandomNumberFromRange";
 
   const tvAboutSlider = tv({
     base: "grid grid-cols-subgrid span-full"
@@ -34,7 +35,11 @@
       {#each images as image, i}
         {@const width = image?.width || 0}
         {@const height = image?.height || 0}
-        <EmblaSlide index={i} width={width > height ? "half" : "quarter"}>
+        <EmblaSlide
+          index={i}
+          width={width > height ? "half" : "quarter"}
+          style={`rotate: ${getRandomNumberFromRange(-3, 3)}deg;`}
+        >
           <Polaroid className="p-2 rounded-md *:rounded-xs">
             {#if image?.width && image?.height}
               <Image
