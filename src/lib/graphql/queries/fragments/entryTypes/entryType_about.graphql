@@ -3,7 +3,7 @@
   description
   descriptionPlain: description @stripTags
   customTitle
-    
+
   image {
     ...asset_data
     ...asset_transforms
