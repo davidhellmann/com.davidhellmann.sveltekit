@@ -5,7 +5,7 @@
   import RichText from "$components/text/RichText.svelte";
   import Headline from "$components/text/Headline.svelte";
   import Image from "$components/media/Image.svelte";
-  import ImageGridI from "$components/sections/ImageGridI.svelte";
+  // import ImageGridI from "$components/sections/ImageGridI.svelte";
   import DecorativeWrapper from "$components/blocks/DecorativeWrapper.svelte";
   import CurriculumVitae from "$components/sections/CurriculumVitae.svelte";
   import { useWaypoint } from "$lib/actions/action.waypoint";
@@ -54,10 +54,10 @@
       {/if}
     </DecorativeWrapper>
 
-    {#if entry?.imageGridI}
-      <Headline className={"span-xl z-10 pb-12"} text={"Working experience"} />
-      <ImageGridI images={entry.imageGridI} className="span-content z-10" />
-    {/if}
+    <!--{#if entry?.imageGridI}-->
+    <!--  <Headline className={"span-xl z-10 pb-12"} text={"Working experience"} />-->
+    <!--  <ImageGridI images={entry.imageGridI} className="span-content z-10" />-->
+    <!--{/if}-->
 
     {#if entry?.curriculumVitae}
       <Headline className={"span-xl z-10 pb-12"} text={"Working experience"} />

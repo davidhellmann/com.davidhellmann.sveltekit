@@ -13,12 +13,12 @@
     ...asset_transforms
     ...asset_customFields
   }
-  imageGridI {
+  imageSliderI {
     ...asset_data
     ...asset_transforms
     ...asset_customFields
   }
-  imageGridII {
+  imageSliderII {
     ...asset_data
     ...asset_transforms
     ...asset_customFields
