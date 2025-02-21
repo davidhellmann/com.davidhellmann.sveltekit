@@ -2,6 +2,7 @@
   import type { EmblaOptionsType } from "embla-carousel";
   import emblaCarouselSvelte from "embla-carousel-svelte";
   import Autoscroll from "embla-carousel-auto-scroll";
+  import type { AutoScrollOptionsType } from "embla-carousel-auto-scroll";
   import { tv, type VariantProps } from "tailwind-variants";
   import type { Snippet } from "svelte";
 
@@ -34,8 +35,9 @@
     className?: string;
     children: Snippet;
     pluginAutoscroll?: boolean;
-  } & VariantProps<typeof tvEmblaSlider> &
-    EmblaOptionsType;
+    emblaOptions?: EmblaOptionsType;
+    autoScrollOptions?: AutoScrollOptionsType;
+  } & VariantProps<typeof tvEmblaSlider>;
 
   let {
     compName = "EmblaSlider",
@@ -43,13 +45,23 @@
     className,
     children,
     pluginAutoscroll = false,
-    ...rest
+    emblaOptions,
+    autoScrollOptions,
   }: EmblaSliderProps = $props();
-  let options = { ...rest };
+  let options = { loop: true, dragFree: true, align:"start", ...emblaOptions };
   let plugins = [];
 
   if (pluginAutoscroll) {
-    plugins.push(Autoscroll({ speed: 1, startDelay: 0, stopOnMouseEnter: false, stopOnInteraction: false }));
+    plugins.push(
+      Autoscroll({
+        speed: 1,
+        direction: "forward",
+        startDelay: 0,
+        stopOnMouseEnter: false,
+        stopOnInteraction: false,
+        ...autoScrollOptions
+      })
+    );
   }
 
   const { slotBase, slotContainer } = tvEmblaSlider({ vAlign, className });
