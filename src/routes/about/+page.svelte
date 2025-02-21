@@ -59,7 +59,7 @@
     {/if}
 
     {#if entry?.imageSliderII}
-      <AboutSlider images={entry?.imageSliderII} headline={"Working experience"} />
+      <AboutSlider images={entry?.imageSliderII} autoScrollOptions={{direction: "backward"}} headline={"Working experience"} />
     {/if}
 
     {#if entry?.curriculumVitae}

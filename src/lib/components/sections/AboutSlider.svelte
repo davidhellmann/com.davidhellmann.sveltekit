@@ -17,9 +17,11 @@
     className?: string;
     headline: string;
     images: ComponentProps<typeof Image>["image"][];
+    emblaOptions?: ComponentProps<typeof EmblaSlider>["emblaOptions"];
+    autoScrollOptions?: ComponentProps<typeof EmblaSlider>["autoScrollOptions"];
   } & VariantProps<typeof tvAboutSlider>;
 
-  let { compName = "AboutSlider", className, images, headline }: AboutSliderProps = $props();
+  let { compName = "AboutSlider", className, images, headline, emblaOptions, autoScrollOptions }: AboutSliderProps = $props();
 </script>
 
 {#if images && headline}
@@ -27,9 +29,8 @@
     <Headline className={"span-xl z-10 pb-12"} text={headline} />
     <EmblaSlider
       pluginAutoscroll={true}
-      loop={true}
-      dragFree={true}
-      align="start"
+      emblaOptions={{ ...emblaOptions }}
+      autoScrollOptions={{ ...autoScrollOptions }}
       className="span-full z-10 items-center pb-fluid opacity-90"
     >
       {#each images as image, i}
