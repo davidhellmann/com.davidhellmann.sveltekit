@@ -39,7 +39,7 @@
 {/if}
 
 <style>
-  @reference "tailwindcss/theme";
+  @reference "../../../lib/styles/app.css";
   /* Lightbox Styles */
   :global(.lg-container .lg-content) {
     top: 0 !important;

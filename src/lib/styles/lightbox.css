@@ -1,4 +1,4 @@
-@reference "tailwindcss/theme";
+@reference "./app.css";
 .lg-next,
 .lg-prev {
   color: var(--color-neon-orange);

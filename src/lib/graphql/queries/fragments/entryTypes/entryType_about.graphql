@@ -14,6 +14,7 @@
     ...asset_transforms
     ...asset_customFields
   }
+
   imageSliderI {
     ...asset_data
     ...asset_transforms
@@ -24,7 +25,14 @@
     ...asset_transforms
     ...asset_customFields
   }
+  imageSliderIII {
+    ...asset_data
+    ...asset_transforms
+    ...asset_customFields
+  }
   aboutMeRichText
+  aboutMeRichTextII
+  aboutMeRichTextIII
   awardsRichText
   awards {
     ...matrix_awards

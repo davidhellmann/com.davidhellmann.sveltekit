@@ -3,14 +3,14 @@
   import type { Snippet } from "svelte";
 
   const tvEmblaSlide = tv({
-    base: "shrink-0",
+    base: "shrink-0 w-full",
     variants: {
       width: {
         full: "w-full",
-        half: "w-1/2",
-        third: "w-1/3",
-        quarter: "w-1/4",
-        fifth: "w-1/5"
+        half: "w-2/3 md:w-1/2",
+        third: " md:w-1/3",
+        quarter: "w-1/3 md:w-1/4",
+        fifth: "md:w-1/5"
       },
       gap: {
         unset: "",
@@ -41,8 +41,8 @@
     if (!index) return "";
     const count = Math.floor(Math.random() * 4);
     return index % 2 === 0
-      ? ["mt-8", "mt-12", "mt-16", "mt-20"][count]
-      : ["-mt-8", "-mt-12", "-mt-16", "-mt-20"][count];
+      ? ["mt-4 md:mt-8", "mt-6 md:mt-12", "mt-8 md:mt-16", "mt-10 md:mt-20"][count]
+      : ["-mt-4 md:-mt-8", "-mt-6 md:-mt-12", "-mt-8 md:-mt-16", "-mt-10 md:-mt-20"][count];
   };
 </script>
 
