@@ -14,25 +14,28 @@
     ...asset_transforms
     ...asset_customFields
   }
-
+  aboutMeRichText
+  sliderHeadingI
+  sliderRichTextI
   imageSliderI {
     ...asset_data
     ...asset_transforms
     ...asset_customFields
   }
+  sliderHeadingII
+  sliderRichTextII
   imageSliderII {
     ...asset_data
     ...asset_transforms
     ...asset_customFields
   }
+  sliderHeadingIII
+  sliderRichTextIII
   imageSliderIII {
     ...asset_data
     ...asset_transforms
     ...asset_customFields
   }
-  aboutMeRichText
-  aboutMeRichTextII
-  aboutMeRichTextIII
   awardsRichText
   awards {
     ...matrix_awards

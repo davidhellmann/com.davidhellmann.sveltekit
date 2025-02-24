@@ -54,21 +54,26 @@
       {/if}
     </Glass>
 
-    {#if entry?.imageSliderI}
-      <AboutSlider images={entry?.imageSliderI} headline={"Working experience"} />
-    {/if}
-
-    {#if entry?.imageSliderII}
+    {#if entry?.imageSliderI && entry?.sliderHeadingI}
       <AboutSlider
-        images={entry?.imageSliderII}
-        autoScrollOptions={{ direction: "backward" }}
-        headline={"Working experience"}
-        html={entry?.aboutMeRichTextII}
+        className="z-10"
+        images={entry?.imageSliderI}
+        headline={entry?.sliderHeadingI}
+        html={entry?.sliderRichTextI}
       />
     {/if}
 
-    {#if entry?.imageSliderIII}
-      <AboutSlider images={entry?.imageSliderIII} headline={"Working experience"} html={entry?.aboutMeRichTextIII} />
+    {#if entry?.imageSliderII && entry?.sliderHeadingII}
+      <AboutSlider
+        autoScrollOptions={{ direction: "backward" }}
+        images={entry?.imageSliderII}
+        headline={entry?.sliderHeadingII}
+        html={entry?.sliderRichTextII}
+      />
+    {/if}
+
+    {#if entry?.imageSliderIII && entry?.sliderHeadingIII}
+      <AboutSlider images={entry?.imageSliderIII} headline={entry?.sliderHeadingIII} html={entry?.sliderRichTextIII} />
     {/if}
 
     {#if entry?.curriculumVitae}
