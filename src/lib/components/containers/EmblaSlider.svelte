@@ -8,7 +8,7 @@
 
   const tvEmblaSlider = tv({
     slots: {
-      slotBase: "embla overflow-hidden",
+      slotBase: "embla",
       slotContainer: "embla__container flex",
       slotSlide: "embla__slide"
     },
@@ -46,9 +46,9 @@
     children,
     pluginAutoscroll = false,
     emblaOptions,
-    autoScrollOptions,
+    autoScrollOptions
   }: EmblaSliderProps = $props();
-  let options = { loop: true, dragFree: true, align:"start", ...emblaOptions };
+  let options = { loop: true, dragFree: true, align: "start", ...emblaOptions };
   let plugins = [];
 
   if (pluginAutoscroll) {

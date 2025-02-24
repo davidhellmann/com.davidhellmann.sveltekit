@@ -18,7 +18,7 @@
 </main>
 
 <style>
-  @reference "tailwindcss/theme";
+  @reference "../../lib/styles/app.css";
   main::before {
     content: "";
     @apply bg-neutral-900 bg-fixed inset-0 fixed -z-10;

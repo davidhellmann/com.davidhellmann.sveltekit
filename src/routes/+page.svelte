@@ -131,7 +131,7 @@
 {/if}
 
 <style>
-  @reference "tailwindcss/theme";
+  @reference "../lib/styles/app.css";
   :global(body) {
     background-color: theme("colors.neutral.300");
     background-image: url($lib/images/bg-triangle-gray.avif);

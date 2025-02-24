@@ -5,6 +5,7 @@
   import EmblaSlide from "$components/containers/EmblaSlide.svelte";
   import Polaroid from "$components/decorative/Polaroid.svelte";
   import Headline from "$components/text/Headline.svelte";
+  import RichText from "$components/text/RichText.svelte";
   import type { ComponentProps } from "svelte";
   import { getRandomNumberFromRange } from "$lib/utils/getRandomNumberFromRange";
 
@@ -16,17 +17,30 @@
     compName?: string;
     className?: string;
     headline: string;
+    html?: string;
     images: ComponentProps<typeof Image>["image"][];
     emblaOptions?: ComponentProps<typeof EmblaSlider>["emblaOptions"];
     autoScrollOptions?: ComponentProps<typeof EmblaSlider>["autoScrollOptions"];
   } & VariantProps<typeof tvAboutSlider>;
 
-  let { compName = "AboutSlider", className, images, headline, emblaOptions, autoScrollOptions }: AboutSliderProps = $props();
+  let {
+    compName = "AboutSlider",
+    className,
+    images,
+    headline,
+    html,
+    emblaOptions,
+    autoScrollOptions
+  }: AboutSliderProps = $props();
 </script>
 
 {#if images && headline}
   <section class={tvAboutSlider({ className })} data-comp={compName}>
-    <Headline className={"span-xl z-10 pb-12"} text={headline} />
+    <Headline className="span-xl z-10 pb-12" text={headline} />
+    {#if html}
+      <RichText className="span-xl pb-12" {html} />
+    {/if}
+
     <EmblaSlider
       pluginAutoscroll={true}
       emblaOptions={{ ...emblaOptions }}

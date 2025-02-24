@@ -18,7 +18,7 @@
 </main>
 
 <style>
-  @reference "tailwindcss/theme";
+  @reference "../../lib/styles/app.css";
   :global(body) {
     background-color: #d5d3d1;
     background-image: url($lib/images/bg-triangle-beige.avif);
