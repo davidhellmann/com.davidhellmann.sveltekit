@@ -2,6 +2,7 @@
   import type { EmblaOptionsType } from "embla-carousel";
   import emblaCarouselSvelte from "embla-carousel-svelte";
   import Autoscroll from "embla-carousel-auto-scroll";
+  import { WheelGesturesPlugin, type WheelGesturesPluginOptions } from "embla-carousel-wheel-gestures";
   import type { AutoScrollOptionsType } from "embla-carousel-auto-scroll";
   import { tv, type VariantProps } from "tailwind-variants";
   import type { Snippet } from "svelte";
@@ -34,8 +35,10 @@
     className?: string;
     children: Snippet;
     pluginAutoscroll?: boolean;
+    pluginWheelGestures?: boolean;
     emblaOptions?: EmblaOptionsType;
     autoScrollOptions?: AutoScrollOptionsType;
+    wheelGesturesOptions?: WheelGesturesPluginOptions;
   } & VariantProps<typeof tvEmblaSlider>;
 
   let {
@@ -44,8 +47,10 @@
     className,
     children,
     pluginAutoscroll = false,
+    pluginWheelGestures = true,
     emblaOptions,
-    autoScrollOptions
+    autoScrollOptions,
+    wheelGesturesOptions
   }: EmblaSliderProps = $props();
   let options = { loop: true, dragFree: true, align: "start", ...emblaOptions };
   let plugins = [];
@@ -59,6 +64,14 @@
         stopOnMouseEnter: false,
         stopOnInteraction: false,
         ...autoScrollOptions
+      })
+    );
+  }
+
+  if (pluginWheelGestures) {
+    plugins.push(
+      WheelGesturesPlugin({
+        ...wheelGesturesOptions
       })
     );
   }
