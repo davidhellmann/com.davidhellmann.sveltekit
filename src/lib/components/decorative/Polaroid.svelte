@@ -2,6 +2,7 @@
   import { tv, type VariantProps } from "tailwind-variants";
   import type { Snippet } from "svelte";
   import Tape from "$components/decorative/Tape.svelte";
+  import type { HTMLAttributes } from "svelte/elements";
 
   const tvPolaroid = tv({
     slots: {
@@ -29,7 +30,8 @@
     compName?: string;
     className?: string | undefined;
     children: Snippet;
-  } & VariantProps<typeof tvPolaroid>;
+  } & VariantProps<typeof tvPolaroid> &
+    HTMLAttributes<HTMLDivElement>;
 
   const { compName = "Polaroid", className, preset, children, ...rest }: PolaroidProps = $props();
   const { slotBase, slotTape } = tvPolaroid({ preset, className });

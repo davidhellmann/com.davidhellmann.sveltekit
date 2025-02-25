@@ -53,7 +53,7 @@
   if (pluginAutoscroll) {
     plugins.push(
       Autoscroll({
-        speed: 1,
+        speed: 2,
         direction: "forward",
         startDelay: 0,
         stopOnMouseEnter: false,
