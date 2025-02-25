@@ -9,8 +9,7 @@
   const tvEmblaSlider = tv({
     slots: {
       slotBase: "embla",
-      slotContainer: "embla__container flex",
-      slotSlide: "embla__slide"
+      slotContainer: "embla__container flex"
     },
     variants: {
       vAlign: {
