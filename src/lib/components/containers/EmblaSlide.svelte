@@ -3,14 +3,14 @@
   import type { Snippet } from "svelte";
 
   const tvEmblaSlide = tv({
-    base: "shrink-0 w-full",
+    base: "embla__slide shrink-0 grow-0 w-full min-w-0",
     variants: {
       width: {
-        full: "w-full",
-        half: "w-2/3 md:w-1/2",
-        third: " md:w-1/3",
-        quarter: "w-1/3 md:w-1/4",
-        fifth: "md:w-1/5"
+        full: "basis-full",
+        half: "basis-2/3 md:basis-1/2",
+        third: "basis-1/3  md:basis-1/3",
+        quarter: "basis-1/3 md:basis-1/4",
+        fifth: "basis-1/3 md:basis-1/5"
       },
       gap: {
         unset: "",
