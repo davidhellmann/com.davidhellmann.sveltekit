@@ -50,12 +50,8 @@
       {#each images as image, i}
         {@const width = image?.width || 0}
         {@const height = image?.height || 0}
-        <EmblaSlide
-          index={i}
-          width={width > height ? "half" : "quarter"}
-          style={`rotate: ${getRandomNumberFromRange(-3, 3)}deg;`}
-        >
-          <Polaroid className="p-2 rounded-md *:rounded-xs">
+        <EmblaSlide index={i} width={width > height ? "half" : "quarter"}>
+          <Polaroid className="p-2 rounded-md *:rounded-xs" style={`rotate: ${getRandomNumberFromRange(-3, 3)}deg;`}>
             {#if image?.width && image?.height}
               <Image
                 ratio={image?.width > image?.height ? "aspect-landscape" : "aspect-portrait"}
