@@ -7,7 +7,7 @@
   const tvHeader = tv({
     slots: {
       slotBase:
-        "fixed inset-x-0 z-20 fluid-grid lg:max-w-[min(calc(100%-4vw),2000px)] mx-auto bottom-4 md:bottom-auto md:top-12 lg:top-16 font-decorative h-12 xs:h-16",
+        "fixed inset-x-0 z-20 fluid-grid lg:max-w-[min(calc(100%-4vw),2000px)] mx-auto bottom-8 md:bottom-auto md:top-12 lg:top-16 font-decorative h-12 xs:h-16",
       slotWrapper: "span-content relative flex justify-center items-center",
       slotLogo:
         "transition duration-200 block fixed md:absolute left-fluid top-fluid md:left-0 md:top-0 md:bottom-0 rounded-full shadow-sm isolote backdrop-blur-sm bg-white/10 size-16 hover:scale-125 hover:rotate-3",
