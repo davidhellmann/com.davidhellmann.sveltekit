@@ -12,7 +12,9 @@
     "lint": "prettier --check . && eslint .",
     "format": "prettier --write .",
     "codegen": "graphql-codegen --require dotenv/config --config codegen.ts dotenv_config_path=.env",
-    "icons:add": "npx @sly-cli/sly add --overwrite"
+    "icons:add": "npx @sly-cli/sly add --overwrite",
+    "a": "sh ./scripts/scopes-all.sh",
+    "f": "sh ./scripts/scopes-focus.sh"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^5.0.5",
