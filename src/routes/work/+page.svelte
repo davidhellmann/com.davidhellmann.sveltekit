@@ -22,14 +22,9 @@
     list: "span-popout z-10 @container"
   };
 
-  const { html, setupEventListeners } = splitTextIntoDivs(entry?.customTitle, "is-blurInLeftDown", "$");
-  let jumpingLetters = $state(undefined);
-
-  onMount(() => {
-    if (jumpingLetters) {
-      setupEventListeners(jumpingLetters);
-    }
-  });
+  let splitResult = $derived.by(() => splitTextIntoDivs(workEntry?.customTitle, "is-blurInLeftDown", "$"));
+  let html = $derived(splitResult.html);
+  let setupEventListeners = $derived(splitResult.setupEventListeners);
 </script>
 
 {#if workEntry?.seomatic}

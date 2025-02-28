@@ -40,14 +40,11 @@
     cardGridPhotos: "grid-cols-auto-min-120 xs:grid-cols-auto-min-180 lg:gap-8 items-center"
   };
 
-  const { html, setupEventListeners } = splitTextIntoDivs(entry?.customTitle, "is-blurInLeftDown", "$");
   let jumpingLetters = $state(undefined);
 
-  onMount(() => {
-    if (jumpingLetters) {
-      setupEventListeners(jumpingLetters);
-    }
-  });
+  let splitResult = $derived.by(() => splitTextIntoDivs(entry?.customTitle, "is-blurInLeftDown", "$"));
+  let html = $derived(splitResult.html);
+  let setupEventListeners = $derived(splitResult.setupEventListeners);
 </script>
 
 {#if entry?.seomatic}

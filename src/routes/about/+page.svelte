@@ -29,14 +29,9 @@
     glass: "span-popout px-fluid relative z-20  mt-[16vw] pb-32"
   };
 
-  const { html, setupEventListeners } = splitTextIntoDivs(entry?.customTitle, "is-blurInLeftDown", "$");
-  let jumpingLetters = $state(undefined);
-
-  onMount(() => {
-    if (jumpingLetters) {
-      setupEventListeners(jumpingLetters);
-    }
-  });
+  let splitResult = $derived.by(() => splitTextIntoDivs(entry?.customTitle, "is-blurInLeftDown", "$"));
+  let html = $derived(splitResult.html);
+  let setupEventListeners = $derived(splitResult.setupEventListeners);
 </script>
 
 {#if entry?.seomatic}
