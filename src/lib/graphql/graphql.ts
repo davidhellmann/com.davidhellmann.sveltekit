@@ -301,6 +301,7 @@ export type EntryRelationCriteriaInput = {
   imageRatio?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageSliderI?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageSliderII?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageSliderIII?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageWidth?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   images?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imagesViewMode?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -389,6 +390,12 @@ export type EntryRelationCriteriaInput = {
   siteId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   /** Narrows the query results based on the unique identifier for an element-site relation. */
   siteSettingsId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  sliderHeadingI?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  sliderHeadingII?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  sliderHeadingIII?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  sliderRichTextI?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  sliderRichTextII?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  sliderRichTextIII?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   /** Narrows the query results based on the elements’ slugs. */
   slug?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   source?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
