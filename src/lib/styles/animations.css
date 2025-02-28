@@ -3,6 +3,14 @@
     @apply transition duration-300 ease-out;
   }
 
+  [data-waypoint-target].is-fadeIn {
+    @apply opacity-0;
+  }
+
+  [data-waypoint-target][data-waypoint-animated].is-fadeIn {
+    @apply opacity-100;
+  }
+
   [data-waypoint-target].is-fadeInUp {
     @apply opacity-0 transform-gpu translate-y-8;
   }

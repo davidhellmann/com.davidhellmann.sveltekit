@@ -22,7 +22,7 @@
 {/if}
 
 <style>
-  @reference "tailwindcss/theme";
+  @reference "../../styles/app.css";
   :global([data-comp="RichText"] :is(h2, h3, h4, h5, h6)) {
     font-weight: var(--font-weight-extrabold);
     padding-top: 2cap;
@@ -107,16 +107,18 @@
       background-color: var(--color-neutral-200);
       color: var(--color-neutral-500);
       border: 1px solid var(--color-neutral-400);
-      box-shadow: 0 1px 0 var(--color-neutral-300),
-      inset 0 1px 0 var(--color-neutral-50);
+      box-shadow:
+        0 1px 0 var(--color-neutral-300),
+        inset 0 1px 0 var(--color-neutral-50);
     }
 
     &.dark {
       background-color: var(--color-neutral-800);
       color: var(--color-neutral-400);
       border: 1px solid var(--color-neutral-900);
-      box-shadow: 0 1px 0 var(--color-neutral-300),
-      inset 0 1px 0 var(--color-neutral-500);
+      box-shadow:
+        0 1px 0 var(--color-neutral-300),
+        inset 0 1px 0 var(--color-neutral-500);
     }
   }
 
@@ -132,13 +134,12 @@
     display: inline-block;
     position: relative;
 
-
     &:hover {
-      text-underline-offset: 2px
+      text-underline-offset: 2px;
     }
   }
 
-  :global([data-theme="dark"] [data-comp="RichText"] a) {
+  :global(:where([data-theme=dark]) [data-comp="RichText"] a) {
     color: var(--color-neutral-50);
     text-decoration-color: var(--color-accent-purple-400);
   }

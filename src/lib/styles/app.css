@@ -13,6 +13,7 @@
 @import "./variants/themes.css";
 
 /* Base */
+@import "./base/animations.css";
 @import "./base/global.css";
 @import "./base/focus.css";
 

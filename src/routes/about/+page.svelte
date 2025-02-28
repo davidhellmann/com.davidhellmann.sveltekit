@@ -5,11 +5,12 @@
   import RichText from "$components/text/RichText.svelte";
   import Headline from "$components/text/Headline.svelte";
   import Image from "$components/media/Image.svelte";
-  // import ImageGridI from "$components/sections/ImageGridI.svelte";
-  import DecorativeWrapper from "$components/blocks/DecorativeWrapper.svelte";
+  import AboutSlider from "$components/sections/AboutSlider.svelte";
+  import Glass from "$components/decorative/Glass.svelte";
   import CurriculumVitae from "$components/sections/CurriculumVitae.svelte";
   import { useWaypoint } from "$lib/actions/action.waypoint";
   import { splitTextIntoDivs } from "$utils/splitTextIntoDivs";
+  import { onMount } from "svelte";
 
   interface Props {
     data: PageData;
@@ -25,8 +26,17 @@
     heroSubline: "is-fadeInUp span-content lg:col-start-2 lg:col-end-10 text-white text-3xl max-w-prose",
     heroRichText:
       "is-fadeInUp mt-12 span-content lg:col-start-2 md:columns-2 gap-fluid lg:col-end-10 text-white text max-w-prose",
-    decorativeWrapper: "span-popout px-fluid relative z-20  mt-[16vw] pb-32"
+    glass: "span-popout px-fluid relative z-20  mt-[16vw] pb-32"
   };
+
+  const { html, setupEventListeners } = splitTextIntoDivs(entry?.customTitle, "is-blurInLeftDown", "$");
+  let jumpingLetters = $state(undefined);
+
+  onMount(() => {
+    if (jumpingLetters) {
+      setupEventListeners(jumpingLetters);
+    }
+  });
 </script>
 
 {#if entry?.seomatic}
@@ -38,11 +48,11 @@
     <Image className={cc.heroImage} lazy={false} ratio="aspect-auto" noscript={false} image={entry?.heroImage[0]} />
   {/if}
   <div class="fluid-grid">
-    <DecorativeWrapper preset="glass-home" className={cc.decorativeWrapper}>
+    <Glass preset="glass-home" className={cc.glass}>
       {#if entry?.customTitle}
-        <div class={cc.heroHeadline} use:useWaypoint data-waypoint>
+        <div class={cc.heroHeadline} use:useWaypoint data-waypoint bind:this={jumpingLetters}>
           <!-- eslint-disable-next-line -->
-          {@html splitTextIntoDivs(entry?.customTitle, "is-blurInLeftDown", "$")}
+          {@html html}
         </div>
       {/if}
 
@@ -52,12 +62,29 @@
           <RichText data-waypoint-target className={cc.heroRichText} html={entry?.aboutMeRichText} />
         </div>
       {/if}
-    </DecorativeWrapper>
+    </Glass>
 
-    <!--{#if entry?.imageGridI}-->
-    <!--  <Headline className={"span-xl z-10 pb-12"} text={"Working experience"} />-->
-    <!--  <ImageGridI images={entry.imageGridI} className="span-content z-10" />-->
-    <!--{/if}-->
+    {#if entry?.imageSliderI && entry?.sliderHeadingI}
+      <AboutSlider
+        className="z-10"
+        images={entry?.imageSliderI}
+        headline={entry?.sliderHeadingI}
+        html={entry?.sliderRichTextI}
+      />
+    {/if}
+
+    {#if entry?.imageSliderII && entry?.sliderHeadingII}
+      <AboutSlider
+        autoScrollOptions={{ direction: "backward" }}
+        images={entry?.imageSliderII}
+        headline={entry?.sliderHeadingII}
+        html={entry?.sliderRichTextII}
+      />
+    {/if}
+
+    {#if entry?.imageSliderIII && entry?.sliderHeadingIII}
+      <AboutSlider images={entry?.imageSliderIII} headline={entry?.sliderHeadingIII} html={entry?.sliderRichTextIII} />
+    {/if}
 
     {#if entry?.curriculumVitae}
       <Headline className={"span-xl z-10 pb-12"} text={"Working experience"} />

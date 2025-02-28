@@ -37,7 +37,7 @@
 {/if}
 
 <style>
-  @reference "tailwindcss/theme";
+  @reference "../../styles/app.css";
   [data-comp="Code"] .label {
     background-color: #262335;
   }

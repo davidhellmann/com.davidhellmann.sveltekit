@@ -13,7 +13,7 @@
 </main>
 
 <style>
-  @reference "tailwindcss/theme";
+  @reference "../../lib/styles/app.css";
   main::before {
     content: "";
     background-color: var(--color-neutral-300);
