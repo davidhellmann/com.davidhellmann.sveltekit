@@ -6,6 +6,7 @@
   import { getFirstEntry } from "$utils/getFirstEntry";
   import { splitTextIntoDivs } from "$utils/splitTextIntoDivs";
   import { useWaypoint } from "$lib/actions/action.waypoint";
+  import { onMount } from "svelte";
 
   interface Props {
     data: PageData;
@@ -20,6 +21,15 @@
     text: "span-content xl:col-start-[col-3] xl:col-end-[col-10] text-2xl is-zoomInDown [&_*_strong]:decoration-wavy [&_*_strong]:underline [&_*_strong]:decoration-4 [&_*_strong]:decoration-accent-purple-400",
     list: "span-popout z-10 @container"
   };
+
+  const { html, setupEventListeners } = splitTextIntoDivs(entry?.customTitle, "is-blurInLeftDown", "$");
+  let jumpingLetters = $state(undefined);
+
+  onMount(() => {
+    if (jumpingLetters) {
+      setupEventListeners(jumpingLetters);
+    }
+  });
 </script>
 
 {#if workEntry?.seomatic}
@@ -27,10 +37,10 @@
 {/if}
 
 {#if workEntry && workEntry?.__typename === "entryWorkList_Entry"}
-  <div class={cc.heading} use:useWaypoint data-waypoint>
+  <div class={cc.heading} use:useWaypoint data-waypoint bind:this={jumpingLetters}>
     {#if workEntry?.customTitle}
       <!-- eslint-disable-next-line -->
-      {@html splitTextIntoDivs(workEntry?.customTitle, "is-blurInLeftDown", "$")}
+      {@html html}
     {/if}
   </div>
 
