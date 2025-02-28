@@ -10,6 +10,7 @@
   import CurriculumVitae from "$components/sections/CurriculumVitae.svelte";
   import { useWaypoint } from "$lib/actions/action.waypoint";
   import { splitTextIntoDivs } from "$utils/splitTextIntoDivs";
+  import { onMount } from "svelte";
 
   interface Props {
     data: PageData;
@@ -27,6 +28,15 @@
       "is-fadeInUp mt-12 span-content lg:col-start-2 md:columns-2 gap-fluid lg:col-end-10 text-white text max-w-prose",
     glass: "span-popout px-fluid relative z-20  mt-[16vw] pb-32"
   };
+
+  const { html, setupEventListeners } = splitTextIntoDivs(entry?.customTitle, "is-blurInLeftDown", "$");
+  let jumpingLetters = $state(undefined);
+
+  onMount(() => {
+    if (jumpingLetters) {
+      setupEventListeners(jumpingLetters);
+    }
+  });
 </script>
 
 {#if entry?.seomatic}
@@ -40,9 +50,9 @@
   <div class="fluid-grid">
     <Glass preset="glass-home" className={cc.glass}>
       {#if entry?.customTitle}
-        <div class={cc.heroHeadline} use:useWaypoint data-waypoint>
+        <div class={cc.heroHeadline} use:useWaypoint data-waypoint bind:this={jumpingLetters}>
           <!-- eslint-disable-next-line -->
-          {@html splitTextIntoDivs(entry?.customTitle, "is-blurInLeftDown", "$")}
+          {@html html}
         </div>
       {/if}
 

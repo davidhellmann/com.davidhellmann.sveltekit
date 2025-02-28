@@ -13,6 +13,7 @@
   import type { ComponentProps } from "svelte";
   import CardBlog from "$components/cards/Blog.svelte";
   import CardPhotos from "$components/cards/Photos.svelte";
+  import { onMount } from "svelte";
 
   interface Props {
     data: PageData;
@@ -38,6 +39,15 @@
     cardGrid: "span-content grid gap-8 lg:gap-fluid -mt-6 mb-24 z-10",
     cardGridPhotos: "grid-cols-auto-min-120 xs:grid-cols-auto-min-180 lg:gap-8 items-center"
   };
+
+  const { html, setupEventListeners } = splitTextIntoDivs(entry?.customTitle, "is-blurInLeftDown", "$");
+  let jumpingLetters = $state(undefined);
+
+  onMount(() => {
+    if (jumpingLetters) {
+      setupEventListeners(jumpingLetters);
+    }
+  });
 </script>
 
 {#if entry?.seomatic}
@@ -52,9 +62,9 @@
     <div class="fluid-grid">
       <Glass preset="glass-home" className={cc.glass}>
         {#if entry?.customTitle}
-          <div class={cc.heroHeadline} use:useWaypoint data-waypoint>
+          <div class={cc.heroHeadline} use:useWaypoint data-waypoint bind:this={jumpingLetters}>
             <!-- eslint-disable-next-line -->
-            {@html splitTextIntoDivs(entry?.customTitle, "is-blurInLeftDown", "$")}
+            {@html html}
           </div>
         {/if}
 
