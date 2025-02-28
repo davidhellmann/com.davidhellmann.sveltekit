@@ -8,7 +8,7 @@
   import { afterNavigate } from "$app/navigation";
   import { replaceState } from "$app/navigation";
   import { useWaypoint } from "$lib/actions/action.waypoint";
-  import { onMount } from "svelte";
+  import { useJumpingLetters } from "$lib/actions/action.jumpingLetters";
 
   interface Props {
     data: PageData;
@@ -33,9 +33,7 @@
     list: "span-popout z-10 @container"
   };
 
-  let splitResult = $derived.by(() => splitTextIntoDivs(blogEntry?.customTitle, "is-blurInLeftDown", "$"));
-  let html = $derived(splitResult.html);
-  let setupEventListeners = $derived(splitResult.setupEventListeners);
+  let letters = $derived(splitTextIntoDivs(blogEntry?.customTitle, "is-blurInLeftDown", "$"));
 </script>
 
 {#if blogEntry?.seomatic}
@@ -45,9 +43,9 @@
 {#if blogEntry && blogEntry?.__typename === "entryBlogList_Entry"}
   {#if page === 1}
     {#if blogEntry?.customTitle}
-      <div class={cc.heading} use:useWaypoint data-waypoint bind:this={jumpingLetters}>
+      <div class={cc.heading} use:useWaypoint data-waypoint use:useJumpingLetters>
         <!-- eslint-disable-next-line -->
-        {@html html}
+        {@html letters}
       </div>
     {/if}
     {#if blogEntry.description}

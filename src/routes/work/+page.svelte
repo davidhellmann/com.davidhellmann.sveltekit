@@ -6,7 +6,7 @@
   import { getFirstEntry } from "$utils/getFirstEntry";
   import { splitTextIntoDivs } from "$utils/splitTextIntoDivs";
   import { useWaypoint } from "$lib/actions/action.waypoint";
-  import { onMount } from "svelte";
+  import { useJumpingLetters } from "$lib/actions/action.jumpingLetters";
 
   interface Props {
     data: PageData;
@@ -22,9 +22,7 @@
     list: "span-popout z-10 @container"
   };
 
-  let splitResult = $derived.by(() => splitTextIntoDivs(workEntry?.customTitle, "is-blurInLeftDown", "$"));
-  let html = $derived(splitResult.html);
-  let setupEventListeners = $derived(splitResult.setupEventListeners);
+  let letters = $derived(splitTextIntoDivs(workEntry?.customTitle, "is-blurInLeftDown", "$"));
 </script>
 
 {#if workEntry?.seomatic}
@@ -32,10 +30,10 @@
 {/if}
 
 {#if workEntry && workEntry?.__typename === "entryWorkList_Entry"}
-  <div class={cc.heading} use:useWaypoint data-waypoint bind:this={jumpingLetters}>
+  <div class={cc.heading} use:useWaypoint data-waypoint use:useJumpingLetters>
     {#if workEntry?.customTitle}
       <!-- eslint-disable-next-line -->
-      {@html html}
+      {@html letters}
     {/if}
   </div>
 

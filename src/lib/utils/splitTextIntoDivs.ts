@@ -1,5 +1,5 @@
 export const splitTextIntoDivs = (str: string, animateClass: string = "is-zoomInDown", brIdentifier: string = "") => {
-  const html = str
+  return str
     .split("")
     .map((letter, index) => {
       if (letter === " ") return "&nbsp;";
@@ -9,22 +9,4 @@ export const splitTextIntoDivs = (str: string, animateClass: string = "is-zoomIn
       </div>`;
     })
     .join("");
-
-  // Function to set up event listeners after the component is mounted
-  const setupEventListeners = (container: HTMLElement) => {
-    const letterDivs = container.querySelectorAll("[data-letter-index]");
-    letterDivs.forEach((div) => {
-      div.addEventListener("mouseover", (event: Event) => {
-        const span = (event.currentTarget as HTMLElement).querySelector("span");
-        if (span) span.classList.add("animate-letter");
-      });
-
-      div.addEventListener("animationend", (event: Event) => {
-        const span = (event.currentTarget as HTMLElement).querySelector("span");
-        if (span) span.classList.remove("animate-letter");
-      });
-    });
-  };
-
-  return { html, setupEventListeners };
 };

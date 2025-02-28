@@ -9,8 +9,8 @@
   import Glass from "$components/decorative/Glass.svelte";
   import CurriculumVitae from "$components/sections/CurriculumVitae.svelte";
   import { useWaypoint } from "$lib/actions/action.waypoint";
+  import { useJumpingLetters } from "$lib/actions/action.jumpingLetters";
   import { splitTextIntoDivs } from "$utils/splitTextIntoDivs";
-  import { onMount } from "svelte";
 
   interface Props {
     data: PageData;
@@ -29,9 +29,7 @@
     glass: "span-popout px-fluid relative z-20  mt-[16vw] pb-32"
   };
 
-  let splitResult = $derived.by(() => splitTextIntoDivs(entry?.customTitle, "is-blurInLeftDown", "$"));
-  let html = $derived(splitResult.html);
-  let setupEventListeners = $derived(splitResult.setupEventListeners);
+  let letters = $derived(splitTextIntoDivs(entry?.customTitle, "is-blurInLeftDown", "$"));
 </script>
 
 {#if entry?.seomatic}
@@ -45,9 +43,9 @@
   <div class="fluid-grid">
     <Glass preset="glass-home" className={cc.glass}>
       {#if entry?.customTitle}
-        <div class={cc.heroHeadline} use:useWaypoint data-waypoint bind:this={jumpingLetters}>
+        <div class={cc.heroHeadline} use:useWaypoint data-waypoint use:useJumpingLetters>
           <!-- eslint-disable-next-line -->
-          {@html html}
+          {@html letters}
         </div>
       {/if}
 
