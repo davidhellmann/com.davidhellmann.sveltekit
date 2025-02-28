@@ -33,7 +33,7 @@
     list: "span-popout z-10 @container"
   };
 
-  const { html, setupEventListeners } = splitTextIntoDivs(entry?.customTitle, "is-blurInLeftDown", "$");
+  const { html, setupEventListeners } = splitTextIntoDivs(blogEntry?.customTitle, "is-blurInLeftDown", "$");
   let jumpingLetters = $state(undefined);
 
   onMount(() => {
