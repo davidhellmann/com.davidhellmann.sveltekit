@@ -46,3 +46,36 @@
     view-transition-name: header;
   }
 </style> -->
+
+<html data-theme="light">
+  <body>
+    <section data-theme="blue">
+      <h1>Hello</h1>
+    </section>
+    <section data-theme="red">
+      <h1>Hello</h1>
+    </section>
+  </body>
+</html>
+
+<style>
+  :root {
+    --bg: #fff;
+    --fg: #000;
+  }
+
+  [data-theme="blue"] {
+    --bg: blue;
+    --fg: white;
+  }
+
+  [data-theme="red"] {
+    --bg: red;
+    --fg: white;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--fg);
+  }
+</style>

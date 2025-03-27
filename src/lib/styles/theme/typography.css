@@ -1,13 +1,16 @@
 @theme {
   /* Font Family */
   --font-*: initial;
-  --font-sans: Poppins, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-  "Noto Color Emoji";
+  --font-sans:
+    Poppins, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
   --font-serif: "Bitter Variable", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-  --font-mono: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
-  "Courier New", monospace;
-  --font-decorative: "Geomanist", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-  "Segoe UI Symbol", "Noto Color Emoji";
+  --font-mono:
+    "JetBrains Mono Variable", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+    monospace;
+  --font-decorative:
+    "Geomanist", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
 
   /* Font Weight */
   --font-weight-*: initial;
@@ -34,9 +37,9 @@
   /*
    https://www.fluid-type-scale.com/calculate?minFontSize=19&minWidth=320&minRatio=1.125&maxFontSize=23&maxWidth=1536&maxRatio=1.333&steps=2xs,xs,sm,base,lg,xl,2xl,3xl,4xl,5xl,6xl,7xl,8xl,9xl,10xl,11xl&baseStep=base&prefix=text&useContainerWidth=false&includeFallbacks=false&useRems=true&remValue=16&decimals=2&previewFont=Inter&previewText=Almost+before+we+knew+it,+we+had+left+the+ground&previewWidth=487
   */
-  
+
   /* Font Size */
-  --font-size-*: initial;
+  --text-*: initial;
   --text-2xs: 0.5625rem;
   --text-xs: 0.75rem;
   --text-sm: 0.9375rem;
