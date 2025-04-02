@@ -13,7 +13,6 @@
   use:useWaypoint
   data-waypoint
 >
-  sss
   {@render children?.()}
 </main>
 

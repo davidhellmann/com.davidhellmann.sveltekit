@@ -1,5 +1,6 @@
 fragment asset_customFields on AssetInterface {
   ... on images_Asset {
+    exif
     customTitle
     caption
     source
