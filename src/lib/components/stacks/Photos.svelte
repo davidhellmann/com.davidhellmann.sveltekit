@@ -14,7 +14,7 @@
   const tvStackPhotos = tv({
     slots: {
       slotWrapper: "",
-      slotList: "grid grid-cols-1 @3xl:grid-cols-2 @6xl:grid-cols-3 gap-fluid"
+      slotList: "grid grid-cols-1 @3xl:grid-cols-2 @6xl:grid-cols-3 items-center gap-fluid"
     }
   });
 
@@ -62,7 +62,7 @@
         {#if entry?.__typename === "entryPhotosSingle_Entry"}
           {#if entry?.title && entry?.url && entry?.postDate}
             <li class="is-zoomInUp" data-waypoint-target>
-              <CardPhotos headline={entry.title} url={entry?.url} image={entry?.images[0]} className="h-full" />
+              <CardPhotos headline={entry.title} url={entry?.url} image={entry?.image[0]} className="h-full" />
             </li>
           {/if}
         {/if}

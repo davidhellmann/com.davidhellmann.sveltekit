@@ -5,7 +5,6 @@
   import Headline from "$components/text/Headline.svelte";
   import Polaroid from "$components/decorative/Polaroid.svelte";
   import { getRandomNumberFromRange } from "$lib/utils/getRandomNumberFromRange";
-  import { getRandomString } from "$lib/utils/getRandomString";
   import { getRandomItemFromArray } from "$lib/utils/getRandomItemFromArray";
 
   const cameras = ["Fuji X100VI", "Fuji X-Pro3", "Ricoh GR IIIx"];
@@ -29,6 +28,7 @@
   } & VariantProps<typeof tvCardPhotos>;
 
   let { compName = "CardPhotos", className, headline, url, image }: CardPhotosProps = $props();
+  const exif = JSON.parse(image?.exif);
 
   const { slotBase, slotImage, slotContent, slotHeadline, slotNumber } = tvCardPhotos({ className });
 </script>
@@ -48,8 +48,21 @@
         </div>
         <div class={slotContent()}>
           <div class={slotNumber()}>
-            <span>{getRandomItemFromArray(cameras)}</span>
-            <span>{getRandomString(10)}</span>
+            <span>{exif?.cameraModel ?? getRandomItemFromArray(cameras)}</span>
+            <span>
+              {#if exif?.iso}
+                <span>ISO {exif?.iso}</span>
+              {/if}
+              {#if exif?.shutterSpeed}
+                <span>{exif?.shutterSpeed}</span>
+              {/if}
+              {#if exif?.aperture}
+                <span>{exif?.aperture}</span>
+              {/if}
+              {#if exif?.focalLength}
+                <span>{exif?.focalLength}</span>
+              {/if}
+            </span>
           </div>
           <Headline text={headline} size="sm" family="mono" weight="semibold" className={slotHeadline({})} />
         </div>
