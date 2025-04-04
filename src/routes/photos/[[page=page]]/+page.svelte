@@ -7,6 +7,9 @@
   import { getFirstEntry } from "$utils/getFirstEntry";
   import { afterNavigate } from "$app/navigation";
   import { replaceState } from "$app/navigation";
+  import { splitTextIntoDivs } from "$utils/splitTextIntoDivs";
+  import { useWaypoint } from "$lib/actions/action.waypoint";
+  import { useJumpingLetters } from "$lib/actions/action.jumpingLetters";
 
   interface Props {
     data: PageData;
@@ -19,6 +22,8 @@
   let entries = $derived(data.entries);
   let page = $derived(data.page);
 
+  console.log("YAY", photosEntry);
+
   afterNavigate(() => {
     if (page === 1) {
       replaceState("/photos", {});
@@ -26,51 +31,34 @@
   });
 
   const cc = {
-    heading: "span-content text-neon-pink is-zoomInDown",
-    text: "col-start-[col-3] col-end-[col-10] text-2xl is-zoomInDown",
-    list: "span-popout z-10 @container",
-    underline: "underline decoration-wavy decoration-4 decoration-accent-purple-400"
-  };
-
-  const content = {
-    heading: "WRITING ABOUT …",
-    about: `<p>…things I’m interested in—<br><strong class="${cc.underline}">stories</strong> from my <strong class="${cc.underline}">life</strong>, <strong class="${cc.underline}">adventures</strong> with my <strong class="${cc.underline}">bikes</strong>, <strong class="${cc.underline}">gadgets</strong>, and so on.</p>`
+    heading: "span-content text-neon-pink is-zoomInDown text-7xl font-decorative font-extrabold flex flex-wrap",
+    text: "span-content xl:col-start-[col-3] xl:col-end-[col-10] text-2xl is-zoomInDown [&_*_strong]:decoration-wavy [&_*_strong]:underline [&_*_strong]:decoration-4 [&_*_strong]:decoration-accent-purple-400",
+    list: "span-popout z-10 @container"
   };
 
   // split string and map each letter into a div
-  const splitText = (str: string) =>
-    str
-      .split("")
-      .map(
-        (letter) => `
-    <div class="is-zoomInDown" data-waypoint-target>
-      ${letter === " " ? "&nbsp;" : letter}
-    </div>
-  `
-      )
-      .join("");
+  let letters = $derived(splitTextIntoDivs(photosEntry?.customTitle, "is-blurInLeftDown", "$"));
 </script>
 
 {#if photosEntry?.seomatic}
   <Seo seo={photosEntry.seomatic} />
 {/if}
 
-{#if photosEntry && photosEntry?.__typename === "entryListPhotos_Entry"}
+{#if photosEntry && photosEntry?.__typename === "entryPhotosList_Entry"}
   {#if page === 1}
-    <Headline
-      className={cc.heading}
-      text={photosEntry?.customTitle}
-      size="7xl"
-      family="decorative"
-      weight="extrabold"
-      data-waypoint
-      data-waypoint-target
-    />
-    <RichText className={cc.text} html={content.about} data-waypoint data-waypoint-target data-waypoint-delay="200" />
+    {#if photosEntry?.customTitle}
+      <div class={cc.heading} use:useWaypoint data-waypoint use:useJumpingLetters>
+        <!-- eslint-disable-next-line -->
+        {@html letters}
+      </div>
+    {/if}
+    {#if photosEntry.description}
+      <RichText className={cc.text} html={photosEntry.description} data-waypoint-target />
+    {/if}
   {:else}
-    <div class="span-content text-neon-pink flex font-decorative text-7xl font-extrabold" data-waypoint>
+    <div class="span-content text-neon-pink flex font-decorative text-7xl font-extrabold" use:useWaypoint data-waypoint>
       <!-- eslint-disable-next-line -->
-      {@html splitText(`Page ${page.toString()}`)}
+      {@html splitTextIntoDivs(`Page ${page.toString()}`, "is-blurInLeftDown")}
     </div>
   {/if}
   <StackPhotos {entries} showPagination={true} totalItems={entryCount} {totalPages} {page} className={cc.list} />

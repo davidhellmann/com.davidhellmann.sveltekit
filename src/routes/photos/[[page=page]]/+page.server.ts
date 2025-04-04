@@ -47,7 +47,7 @@ export const load: PageServerLoad = async ({ params }) => {
 
   const { entries: photosEntry } = (await getGqlData<GetEntriesQueryVariables>(GetEntriesDocument, {
     section: ["pages"],
-    type: "entryListPhotos"
+    type: "entryPhotosList"
   })) as GetEntriesQuery;
 
   console.log("Render:", photosEntry?.[0]?.title);

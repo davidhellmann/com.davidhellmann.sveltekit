@@ -3,12 +3,13 @@
     Entry_DataFragment,
     Entry_DatesFragment,
     Entry_SeoFragment,
-    EntryType_BlogSingleFragment
+    EntryType_PhotosSingleFragment
   } from "$graphql/graphql";
   import { tv, type VariantProps } from "tailwind-variants";
   import Pagination from "$components/navigation/Pagination.svelte";
-  import CardBlog from "$components/cards/Blog.svelte";
+  import CardPhotos from "$components/cards/Photos.svelte";
   import { type ComponentProps } from "svelte";
+  import { useWaypoint } from "$lib/actions/action.waypoint";
 
   const tvStackPhotos = tv({
     slots: {
@@ -17,7 +18,7 @@
     }
   });
 
-  type Entry = Entry_DataFragment & EntryType_BlogSingleFragment & Entry_SeoFragment & Entry_DatesFragment;
+  type Entry = Entry_DataFragment & EntryType_PhotosSingleFragment & Entry_SeoFragment & Entry_DatesFragment;
 
   type StackPhotosProps = {
     compName?: string;
@@ -40,34 +41,6 @@
   }: StackPhotosProps = $props();
 
   const { slotWrapper, slotList } = tvStackPhotos({ className });
-
-  const getColWidth = (
-    index: number,
-    page: number = 1
-  ): {
-    colSpan: string;
-    theme: ComponentProps<typeof CardBlog>["theme"];
-  } => {
-    let colSpan;
-    let theme: ComponentProps<typeof CardBlog>["theme"] = "default";
-    if (page === 1) {
-      colSpan = index <= 2 ? "col-span-1 @3xl:col-span-2 @6xl:col-span-3" : "col-span-1";
-      if (index === 0) {
-        theme = "high";
-      } else if (index === 1) {
-        theme = "middle";
-      } else if (index === 2) {
-        theme = "low";
-      }
-    } else {
-      colSpan = "col-span-1";
-    }
-
-    return {
-      colSpan,
-      theme
-    };
-  };
 </script>
 
 {#if entries}
@@ -84,19 +57,12 @@
       />
     {/if}
 
-    <ul class={slotList({ className })} data-waypoint>
+    <ul class={slotList({ className })} use:useWaypoint data-waypoint>
       {#each entries as entry, i (entry.id)}
-        {#if entry?.__typename === "entryBlogSingle_Entry"}
-          {#if entry?.title && entry?.url && entry?.postDate && entry.category[0]?.title}
-            <li class={`${getColWidth(i, page).colSpan} is-zoomInUp`} data-waypoint-target>
-              <CardBlog
-                headline={entry.title}
-                url={entry?.url}
-                postDate={entry?.postDate}
-                categoryTitle={entry.category[0].title}
-                className="h-full"
-                theme={getColWidth(i, page).theme}
-              />
+        {#if entry?.__typename === "entryPhotosSingle_Entry"}
+          {#if entry?.title && entry?.url && entry?.postDate}
+            <li class="is-zoomInUp" data-waypoint-target>
+              <CardPhotos headline={entry.title} url={entry?.url} image={entry?.images[0]} className="h-full" />
             </li>
           {/if}
         {/if}
