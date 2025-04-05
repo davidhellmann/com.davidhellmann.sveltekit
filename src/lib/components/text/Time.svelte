@@ -4,18 +4,18 @@
   import IconSprite from "$components/media/IconSprite.svelte";
   import type { HeroiconsIcons } from "$lib/types/heroicons-icons";
 
-  const tvCategory = tv({
+  const tvTime = tv({
     base: "flex items-center gap-2 font-mono text-sm"
   });
 
-  type CategoryProps = {
+  type TimeProps = {
     compName?: string;
     className?: string;
     timestamp?: string;
     text?: string;
     format?: string;
     icon?: HeroiconsIcons | false;
-  } & VariantProps<typeof tvCategory>;
+  } & VariantProps<typeof tvTime>;
 
   const {
     compName = "Time",
@@ -24,11 +24,11 @@
     text,
     format = "DD. MMM YYYY",
     icon = "calendar-outline"
-  }: CategoryProps = $props();
+  }: TimeProps = $props();
 </script>
 
 {#if timestamp || text}
-  <div data-comp={compName} class={tvCategory({ className })}>
+  <div data-comp={compName} class={tvTime({ className })}>
     {#if icon}
       <IconSprite className="-translate-y-px" {icon} size={"relative"} />
     {/if}

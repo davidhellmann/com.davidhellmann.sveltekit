@@ -7,7 +7,8 @@
   import "@fontsource/poppins/700.css";
   import "$styles/webfonts.css";
   import "$styles/app.css";
-  import { onNavigate } from "$app/navigation";
+  import { onNavigate, afterNavigate } from "$app/navigation";
+  import { page } from "$app/state";
   import type { Snippet } from "svelte";
   import { dayjs } from "svelte-time";
   import "dayjs/locale/de";
@@ -23,6 +24,12 @@
   let { children }: Props = $props();
   let scrollY = $state(0);
 
+  let isPhotos = $state(page.url.pathname.startsWith("/photos"));
+
+  afterNavigate(() => {
+    isPhotos = page.url.pathname.startsWith("/photos");
+  });
+
   onNavigate((navigation) => {
     if (!document.startViewTransition) return;
 
@@ -36,12 +43,11 @@
 </script>
 
 <svelte:window bind:scrollY />
-<Header {scrollY} />
+<Header {scrollY} {isPhotos} />
 {@render children?.()}
-<Footer />
+<Footer {isPhotos} />
 
 <style>
-  @reference "../lib/styles/app.css";
   @keyframes fade-in {
     from {
       opacity: 0;

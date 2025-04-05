@@ -15,14 +15,20 @@
   type FooterProps = {
     compName?: string;
     className?: string;
+    isPhotos?: boolean;
   } & VariantProps<typeof tvFooter>;
 
-  let { compName = "Footer", className }: FooterProps = $props();
+  let { compName = "Footer", className, isPhotos = false }: FooterProps = $props();
 
   const { slotBase, slotInner, slotBigText } = tvFooter({ className });
 </script>
 
-<footer class={`${slotBase({ className })}`} data-comp={compName} use:useWaypoint data-waypoint>
+<footer
+  class={`${slotBase({ className })} ${isPhotos ? "border-t-0" : ""}`}
+  data-comp={compName}
+  use:useWaypoint
+  data-waypoint
+>
   <div class={slotInner()} data-waypoint-target>
     <div class={slotBigText()} use:useFullWidthText><span class="leading-[1]!">LÄUFT</span></div>
   </div>

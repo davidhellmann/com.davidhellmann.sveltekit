@@ -22,8 +22,6 @@
   let entries = $derived(data.entries);
   let page = $derived(data.page);
 
-  console.log("YAY", photosEntry);
-
   afterNavigate(() => {
     if (page === 1) {
       replaceState("/photos", {});
@@ -31,7 +29,7 @@
   });
 
   const cc = {
-    heading: "span-content text-neon-pink is-zoomInDown text-7xl font-decorative font-extrabold flex flex-wrap",
+    heading: "span-content text-black is-zoomInDown text-7xl font-decorative font-extrabold flex flex-wrap",
     text: "span-content xl:col-start-[col-3] xl:col-end-[col-10] text-2xl is-zoomInDown [&_*_strong]:decoration-wavy [&_*_strong]:underline [&_*_strong]:decoration-4 [&_*_strong]:decoration-accent-purple-400",
     list: "span-popout z-10 @container"
   };

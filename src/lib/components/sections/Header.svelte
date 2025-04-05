@@ -19,9 +19,10 @@
     compName?: string;
     className?: string;
     scrollY: number;
+    isPhotos?: boolean;
   } & VariantProps<typeof tvHeader>;
 
-  let { compName = "Header", className, scrollY }: HeaderProps = $props();
+  let { compName = "Header", className, scrollY, isPhotos = false }: HeaderProps = $props();
 
   const { slotBase, slotWrapper, slotLogo, slotLogoLink } = tvHeader({ className });
 </script>
@@ -34,6 +35,7 @@
       </a>
     </h1>
     <NavigationMain
+      styling={isPhotos ? "photos" : "default"}
       className={`${
         scrollY > 100 ? "transition duration-200 translate-y-2 md:-translate-y-10 scale-90" : "transition duration-200 "
       }`}

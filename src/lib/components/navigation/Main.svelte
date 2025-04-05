@@ -6,11 +6,20 @@
   const tvNavigationMain = tv({
     slots: {
       slotNav: "h-full",
-      slotList:
-        "flex sm:gap-2 xl:gap-4 rounded-full text-accent-purple-100 px-2 sm:px-4 xl:px-8 shadow-sm isolote backdrop-blur-sm bg-accent-purple-500/50 ring-1 ring-white/50 h-full",
+      slotList: "flex sm:gap-2 xl:gap-4 rounded-full px-2 sm:px-4 xl:px-8 shadow-sm isolote backdrop-blur-sm h-full",
       slotLink:
         "inline-flex px-2.5 sm:pt-1 !leading-none flex-col justify-center xl:flex-row items-center text-2xs xs:text-xs sm:text-sm xl:text-base gap-x-2.5 gap-y-1 font-bold md:font-normal font-sans md:font-decorative h-full relative",
       slotIcon: "size-6 xs:size-5 xl:-translate-y-0.5"
+    },
+    variants: {
+      styling: {
+        default: {
+          slotList: "text-accent-purple-100 ring-white/50 bg-accent-purple-500/50 ring-1"
+        },
+        photos: {
+          slotList: "bg-white text-black ring-1 ring-black"
+        }
+      }
     }
   });
 
@@ -19,13 +28,11 @@
     className?: string;
   } & VariantProps<typeof tvNavigationMain>;
 
-  const { compName = "NavigationMain", className }: NavigationMainProps = $props();
-
-  const { slotNav, slotList, slotLink, slotIcon } = tvNavigationMain({ className });
+  const { compName = "NavigationMain", className, styling = "default" }: NavigationMainProps = $props();
+  const { slotNav, slotList, slotLink, slotIcon } = tvNavigationMain();
 
   const isCurrentPage = (matcher: string | string[]) => {
     const pathname = page.url.pathname;
-    // console.log(pathname, matcher);
 
     if (Array.isArray(matcher)) {
       return matcher.some((prefix) => pathname.startsWith(prefix) && prefix.length > 1) ? "page" : undefined;
@@ -39,40 +46,40 @@
   };
 </script>
 
-<nav class={`${slotNav({ className })}`} data-comp={compName}>
-  <ul class={`${slotList()}`}>
+<nav class={`${slotNav({ styling, className })}`} data-comp={compName}>
+  <ul class={`${slotList({ styling })}`}>
     <li data-waypoint-target class="is-zoomInDown">
-      <a class={`${slotLink()}`} aria-current={isCurrentPage("/")} href="/">
+      <a class={`${slotLink({ styling })}`} aria-current={isCurrentPage("/")} href="/">
         <IconSprite className={slotIcon()} size={20} icon="home-modern-outline" />
         <span class="hidden xs:inline-block">home.</span>
       </a>
     </li>
     <li data-waypoint-target class="is-zoomInDown">
-      <a class={slotLink()} aria-current={isCurrentPage("/work")} href="/work">
+      <a class={slotLink({ styling })} aria-current={isCurrentPage("/work")} href="/work">
         <IconSprite className={slotIcon()} size={20} icon="rectangle-group-outline" />
         <span class="hidden xs:inline-block">work.</span>
       </a>
     </li>
     <li data-waypoint-target class="is-zoomInDown">
-      <a class={slotLink()} aria-current={isCurrentPage("/blog")} href="/blog">
+      <a class={slotLink({ styling })} aria-current={isCurrentPage("/blog")} href="/blog">
         <IconSprite className={slotIcon()} size={20} icon="document-text-outline" />
         <span class="hidden xs:inline-block">blog.</span>
       </a>
     </li>
     <li data-waypoint-target class="is-zoomInDown">
-      <a class={slotLink()} aria-current={isCurrentPage("/projects")} href="/projects">
+      <a class={slotLink({ styling })} aria-current={isCurrentPage("/projects")} href="/projects">
         <IconSprite className={slotIcon()} size={20} icon="rectangle-stack-outline" />
         <span class="hidden xs:inline-block">projects.</span>
       </a>
     </li>
     <li data-waypoint-target class="is-zoomInDown">
-      <a class={slotLink()} aria-current={isCurrentPage("/photos")} href="/photos">
+      <a class={slotLink({ styling })} aria-current={isCurrentPage("/photos")} href="/photos">
         <IconSprite className={slotIcon()} size={20} icon="photo-outline" />
         <span class="hidden xs:inline-block">photos.</span>
       </a>
     </li>
     <li data-waypoint-target class="is-zoomInDown">
-      <a class={slotLink()} aria-current={isCurrentPage("/about")} href="/about">
+      <a class={slotLink({ styling })} aria-current={isCurrentPage("/about")} href="/about">
         <IconSprite className={slotIcon()} size={20} icon="identification-outline" />
         <span class="hidden xs:inline-block">about.</span>
       </a>
@@ -87,7 +94,7 @@
     width: calc(100% - 20px);
     height: 3px;
     border-radius: 8px;
-    background-color: white;
+    background-color: currentColor;
     bottom: 0;
     left: 50%;
     translate: -50% 2px;
