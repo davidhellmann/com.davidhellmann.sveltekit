@@ -14,6 +14,6 @@
 
 <style>
   :global(body) {
-    background-color: var(--color-white);
+    background-color: var(--color-white) !important;
   }
 </style>
