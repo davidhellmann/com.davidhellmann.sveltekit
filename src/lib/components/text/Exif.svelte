@@ -3,7 +3,7 @@
 
   const tvExif = tv({
     slots: {
-      slotRoot: "text-2xs @md:text-xs font-mono flex flex-col @3xs:flex-row justify-between",
+      slotRoot: "text-2xs @md:text-xs font-mono flex flex-col 2xs:flex-row justify-between",
       slotCamera: "",
       slotSettings: ""
     },

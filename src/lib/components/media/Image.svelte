@@ -1,10 +1,13 @@
+<script module lang="ts">
+  export type Asset = Asset_DataFragment & Asset_TransformsFragment & Asset_CustomFieldsFragment;
+</script>
+
 <script lang="ts">
   import { useUnlazy } from "$lib/actions/action.unlazy";
   import { tv, type VariantProps } from "tailwind-variants";
   import type { Asset_CustomFieldsFragment, Asset_DataFragment, Asset_TransformsFragment } from "$graphql/graphql";
 
   type ObjectFit = "cover" | "contain" | "fill" | "none" | "scale-down";
-  type Asset = Asset_DataFragment & Asset_TransformsFragment & Asset_CustomFieldsFragment;
 
   const tvImage = tv({
     base: "bg-primary-200 w-full",

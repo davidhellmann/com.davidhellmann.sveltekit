@@ -10,6 +10,7 @@
   import CardPhotos from "$components/cards/Photos.svelte";
   import Image from "$components/media/Image.svelte";
   import Headline from "$components/text/Headline.svelte";
+  import { getExifData } from "$utils/getExifData";
   import { type ComponentProps } from "svelte";
   import { useWaypoint } from "$lib/actions/action.waypoint";
 
@@ -19,7 +20,9 @@
       slotList: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4",
       slotListItem: "",
       slotListItemLink:
-        "border-1 border-neutral-300 shadow-md shadow-neutral-200 p-8 transition-all grayscale-100 hover:grayscale-0 hover:translate-y-0.5 hover:shadow-2xs h-full flex flex-col justify-between gap-24"
+        "group border-1 border-neutral-300 shadow-md shadow-neutral-200 p-8 pt-12 transition-all grayscale-100 hover:grayscale-0 hover:translate-y-0.5 hover:shadow-2xs h-full flex flex-col gap-8",
+      slotGearList:
+        "font-mono text-xs font-medium text-neutral-400 opacity-0 translate-y-4 transition-all group-hover:opacity-100 group-hover:translate-y-0 -mt-6"
     }
   });
 
@@ -45,7 +48,7 @@
     page
   }: StackPhotosProps = $props();
 
-  const { slotRoot, slotList, slotListItem, slotListItemLink } = tvStackPhotos({ className });
+  const { slotRoot, slotList, slotListItem, slotListItemLink, slotGearList } = tvStackPhotos({ className });
 </script>
 
 {#if entries}
@@ -65,11 +68,25 @@
     <ul class={slotList()} use:useWaypoint data-waypoint>
       {#each entries as entry, i (entry.id)}
         {#if entry?.__typename === "entryPhotosSingle_Entry"}
-          {#if entry?.title && entry?.url && entry?.postDate}
+          {#if entry?.title && entry?.url && entry?.images}
+            {@const exifDataParsed = getExifData(entry?.images)}
             <li class={`is-zoomInUp ${slotListItem()}`} data-waypoint-target>
               <a class={slotListItemLink()} href={entry?.url}>
-                <Headline className="font-mono text-sm font-medium" text={entry?.title} />
-                <Image ratio="aspect-auto" image={entry?.image[0]} />
+                <Headline className="font-mono text-sm font-medium leading-tight" text={entry?.title} />
+
+                {#if exifDataParsed.cameras || exifDataParsed.lenses}
+                  <div class="flex flex-col gap-2">
+                    {#if exifDataParsed.cameras}
+                      <ul class={slotGearList()}>
+                        {#each exifDataParsed.cameras as camera}
+                          <li>{camera}</li>
+                        {/each}
+                      </ul>
+                    {/if}
+                  </div>
+                {/if}
+
+                <Image ratio="aspect-auto" className="mt-auto" image={entry?.image[0]} />
               </a>
             </li>
           {/if}
