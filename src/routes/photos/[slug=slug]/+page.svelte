@@ -4,7 +4,7 @@
   import Seo from "$components/seo/Seo.svelte";
   import HeroBlog from "$components/heros/Blog.svelte";
   import Exif from "$components/text/Exif.svelte";
-  import ContentBuilder from "$components/builders/ContentBuilder.svelte";
+  import Image from "$components/media/Image.svelte";
 
   interface Props {
     data: PageData;
@@ -31,12 +31,12 @@
   {/if}
 
   {#if entry?.images}
-    <ul class="span-content">
+    <ul class="span-content grid md:grid-cols-2 xl:grid-cols-3 gap-fluid items-center">
       {#each entry?.images as image, i (image.id)}
-        <li class="p-4 stack-4 @container">
-          <img src={image?.url} alt={image?.alt} />
+        <li class="stack-4 @container flex-col flex items-center">
+          <Image ratio="aspect-auto" className="w-full" noscript={false} {image} />
           {#if image?.exif}
-            <Exif exif={image?.exif} />
+            <Exif className="w-full" exif={image?.exif} />
           {/if}
         </li>
       {/each}

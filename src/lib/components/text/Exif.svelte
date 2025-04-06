@@ -3,21 +3,21 @@
 
   const tvExif = tv({
     slots: {
-      slotRoot: "text-2xs @md:text-xs font-mono flex flex-col 2xs:flex-row justify-between",
+      slotRoot: "text-2xs @md:text-xs font-mono flex flex-col @md:flex-row justify-between",
       slotCamera: "",
       slotSettings: ""
     },
     variants: {
       spacing: {
         default: {
-          slotRoot: "gap-8",
-          slotCamera: "flex gap-4",
-          slotSettings: "flex gap-8"
+          slotRoot: "gap-x-8",
+          slotCamera: "flex gap-x-4",
+          slotSettings: "flex gap-x-8"
         },
         compact: {
-          slotRoot: "gap-4",
-          slotCamera: "flex gap-2",
-          slotSettings: "flex gap-4"
+          slotRoot: "gap-x-4",
+          slotCamera: "flex gap-x-2",
+          slotSettings: "flex gap-x-4"
         }
       }
     }
