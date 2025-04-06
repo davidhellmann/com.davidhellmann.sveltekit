@@ -20,7 +20,7 @@
 {/if}
 
 {#if entry && entry?.__typename === "entryWorkSingle_Entry"}
-  <Headline className="span-content text-center" size="6xl" text={entry.customTitle ?? entry.title ?? ""} />
+  <Headline className="span-content text-center text-6xl" text={entry.customTitle ?? entry.title ?? ""} />
   {#if entry?.projectDescription}
     <RichText className="span-xl md:columns-2 gap-fluid" html={entry.projectDescription} />
   {/if}

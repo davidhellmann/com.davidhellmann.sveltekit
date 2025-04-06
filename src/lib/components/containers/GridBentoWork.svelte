@@ -56,7 +56,7 @@
               {#if entry?.workType.length > 0}
                 <Category className={"mb-3"} variant="work" title={entry.workType[0].title} />
               {/if}
-              <Headline preset={"h4"} weight={"medium"} text={entry?.title} className="font-sans" />
+              <Headline preset={"h4"} text={entry?.title} className="font-sans font-medium" />
               {#if entry?.descriptionPlain}
                 <!--            <PlainText text={entry?.descriptionPlain} className={"line-clamp-2 text-sm font-sans max-w-prose"} />-->
               {/if}

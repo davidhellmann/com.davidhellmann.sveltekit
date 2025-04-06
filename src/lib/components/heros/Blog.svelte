@@ -5,8 +5,8 @@
   const tvHeroBlog = tv({
     slots: {
       slotWrapper: "stack-4 span-xl",
-      slotHeadline: "max-w-[20ch]",
-    },
+      slotHeadline: "max-w-[20ch] text-5xl"
+    }
   });
 
   type HeroBlogProps = {
@@ -19,25 +19,17 @@
     };
   } & VariantProps<typeof tvHeroBlog>;
 
-  const {
-    compName = "HeroBlog",
-    className,
-    headline,
-    backButton
-  }: HeroBlogProps = $props();
+  const { compName = "HeroBlog", className, headline, backButton }: HeroBlogProps = $props();
 
-  const {slotWrapper, slotHeadline} = tvHeroBlog();
+  const { slotWrapper, slotHeadline } = tvHeroBlog();
 </script>
 
 {#if headline}
-  <header
-    data-comp={compName}
-    class={slotWrapper({ className })}
-  >
-      <a href="/blog">←</a>
-      {#if backButton?.title}
-        <a href={backButton?.url}>{backButton?.title}</a>
-      {/if}
-      <Headline text={headline} tag="h1" size="5xl" className={slotHeadline()}/>
+  <header data-comp={compName} class={slotWrapper({ className })}>
+    <a href="/blog">←</a>
+    {#if backButton?.title}
+      <a href={backButton?.url}>{backButton?.title}</a>
+    {/if}
+    <Headline text={headline} tag="h1" className={slotHeadline()} />
   </header>
 {/if}

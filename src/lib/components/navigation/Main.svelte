@@ -8,7 +8,7 @@
       slotNav: "h-full",
       slotList: "flex sm:gap-2 xl:gap-4 rounded-full px-2 sm:px-4 xl:px-8 shadow-sm isolote backdrop-blur-sm h-full",
       slotLink:
-        "inline-flex px-2.5 sm:pt-1 !leading-none flex-col justify-center xl:flex-row items-center text-2xs xs:text-xs sm:text-sm xl:text-base gap-x-2.5 gap-y-1 font-bold md:font-normal font-sans md:font-decorative h-full relative",
+        "inline-flex px-2.5 sm:pt-1 !leading-none flex-col justify-center xl:flex-row items-center text-2xs xs:text-xs sm:text-sm xl:text-base gap-x-2.5 gap-y-1 font-bold md:font-normal font-sans md:font-decorative h-full relative transition-none",
       slotIcon: "size-6 xs:size-5 xl:-translate-y-0.5"
     },
     variants: {

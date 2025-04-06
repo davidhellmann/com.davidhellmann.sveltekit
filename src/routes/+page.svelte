@@ -35,7 +35,7 @@
     bigTextWrapper: "span-full px-4 -mt-48 z-20 pointer-events-none ",
     bigText:
       "uppercase font-decorative bg-gradient-to-b from-neutral-400/10 to-neutral-700/5 py-12 opacity-70 text-transparent bg-clip-text text-center translate-y-full",
-    bigTextOverlay: "span-lg z-30 text-neutral-700 -mt-16 pt-4 sm:pt-0 sm:-mt-6 lg:mt-12 -translate-y-full",
+    bigTextOverlay: "span-lg z-30 text-neutral-700 -mt-16 pt-4 sm:pt-0 sm:-mt-6 lg:mt-12 -translate-y-full text-4xl",
     cardGrid: "span-content grid gap-8 lg:gap-fluid -mt-6 mb-24 z-10",
     cardGridPhotos: "grid-cols-auto-min-120 xs:grid-cols-auto-min-180 lg:gap-8 items-center"
   };
@@ -74,7 +74,7 @@
         <div class={cc.bigTextWrapper}>
           <div class={cc.bigText} use:useFullWidthText><span>writing</span></div>
         </div>
-        <Headline className={cc.bigTextOverlay} size="4xl" text="blog." />
+        <Headline className={cc.bigTextOverlay} text="blog." />
 
         <div class="span-content grid grid-cols-1 gap-fluid -mt-6 mb-24 z-10" use:useWaypoint data-waypoint>
           {#each blogEntries as entry, i (entry.id)}
@@ -102,7 +102,7 @@
         <div class={cc.bigTextWrapper}>
           <div class={cc.bigText} use:useFullWidthText><span>working</span></div>
         </div>
-        <Headline className={cc.bigTextOverlay} size="4xl" text="work." />
+        <Headline className={cc.bigTextOverlay} text="work." />
         <GridBentoWork className={"span-content -mt-6 mb-24 z-10"} entries={workEntries} />
       </div>
     {/if}
@@ -112,7 +112,7 @@
         <div class={cc.bigTextWrapper}>
           <div class={cc.bigText} use:useFullWidthText><span>shooting</span></div>
         </div>
-        <Headline className={cc.bigTextOverlay} size="4xl" text="photos." />
+        <Headline className={cc.bigTextOverlay} text="photos." />
         <div class={`${cc.cardGrid} ${cc.cardGridPhotos}`} use:useWaypoint data-waypoint>
           {#each photoEntries as entry (entry.id)}
             {#if entry && entry?.__typename === "entryPhotosSingle_Entry"}

@@ -15,7 +15,7 @@
       slotBase: "font-mono block group relative @container",
       slotImage: "w-full overflow-hidden",
       slotContent: "px-3 pt-2 pb-4",
-      slotHeadline: "text-neutral-500 mt-1 line-clamp-1",
+      slotHeadline: "text-neutral-500 mt-1 line-clamp-1 text-sm font-mono font-semibold",
       slotExif: "text-neutral-700"
     }
   });
@@ -50,7 +50,7 @@
           {#if image?.exif}
             <Exif exif={image?.exif} spacing="compact" className={slotExif()} />
           {/if}
-          <Headline text={headline} size="sm" family="mono" weight="semibold" className={slotHeadline({})} />
+          <Headline text={headline} className={slotHeadline({})} />
         </div>
       </Polaroid>
     {/if}
