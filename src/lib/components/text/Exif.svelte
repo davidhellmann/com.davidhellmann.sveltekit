@@ -3,7 +3,7 @@
 
   const tvExif = tv({
     slots: {
-      slotRoot: "text-2xs @md:text-xs font-mono flex flex-col @md:flex-row justify-between",
+      slotRoot: "text-2xs @xs:text-xs font-mono flex flex-col @xs:flex-row justify-between",
       slotCamera: "",
       slotSettings: ""
     },
@@ -59,7 +59,7 @@
   <div data-comp={compName} class={slotRoot({ spacing, className })}>
     <div class={slotCamera({ spacing })}>
       {#if exifParsed?.cameraMake && exifParsed.cameraModel && exifParsed.lensModel}
-        <span>{exifParsed?.cameraMake} {exifParsed.cameraModel}</span>
+        <span><!--{exifParsed?.cameraMake} -->{exifParsed.cameraModel}</span>
         <span>{exifParsed.lensModel}</span>
       {/if}
     </div>

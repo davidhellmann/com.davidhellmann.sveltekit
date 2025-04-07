@@ -6,13 +6,29 @@
   const tvPagination = tv({
     slots: {
       slotNav: "flex justify-center  text-sm",
-      slotList: "flex bg-neutral-100 rounded-md overflow-clip shadow-xs shadow-neutral-400",
-      slotListItem: "[&:not(:last-child)]:border-r-2 [&:not(:last-child)]:border-e-neutral-200",
-      slotLink: "flex px-4 pt-3 pb-2 border-b-4 border-transparent items-center hover:bg-neutral-50 transition",
-      slotSpacer: "flex px-4 pt-3 pb-2 border-b-4 border-transparent text-neutral-400",
-      slotCurrent: "flex px-4 pt-3 pb-2 border-b-4 border-accent-purple-400"
+      slotList: "flex rounded-md overflow-clip shadow-xs",
+      slotListItem: "[&:not(:last-child)]:border-r-2",
+      slotLink: "flex px-4 pt-3 pb-2 h-full items-center transition",
+      slotSpacer: "flex px-4 pt-3 pb-2 border-b-4 border-transparent ",
+      slotCurrent: "flex px-4 pt-3 pb-2 border-b-4"
     },
     variants: {
+      theme: {
+        default: {
+          slotList: "bg-neutral-100 shadow-neutral-400",
+          slotListItem: "[&:not(:last-child)]:border-e-neutral-200",
+          slotLink: "hover:bg-neutral-50",
+          slotSpacer: "text-neutral-400",
+          slotCurrent: "border-accent-purple-400"
+        },
+        photos: {
+          slotList: "bg-white shadow-0 outline outline-black",
+          slotListItem: "[&:not(:last-child)]:border-e-black",
+          slotLink: "hover:bg-black hover:text-white",
+          slotSpacer: "text-neutral-400",
+          slotCurrent: "border-accent-black"
+        }
+      },
       yPosition: {
         top: {
           slotNav: "mb-24"
@@ -65,7 +81,8 @@
     simple = false,
     uri,
     yPosition,
-    xPosition
+    xPosition,
+    theme = "default"
   }: PaginationProps = $props();
 
   const getRange = (start: number, end: number): number[] => {
@@ -73,16 +90,12 @@
   };
   const range = $derived(getRange(Math.max(1, currentPage - 2), Math.min(totalPages, currentPage + 2)));
 
-  const {
-    slotNav,
-    slotList,
-    slotListItem,
-    slotLink,
-    slotCurrent,
-    slotSpacer
-  } = tvPagination({ xPosition, yPosition, className });
+  const { slotNav, slotList, slotListItem, slotLink, slotCurrent, slotSpacer } = tvPagination({
+    xPosition,
+    yPosition,
+    theme
+  });
 </script>
-
 
 <nav class={slotNav({ className })} data-comp={compName}>
   <ul class={slotList()}>
@@ -104,13 +117,17 @@
       {#if totalPages <= 6}
         {#each { length: totalPages } as _, index (index)}
           <li class={slotListItem()}>
-            <a class={slotLink()} href="{uri}/{index + 1}">{index + 1}</a>
+            {#if index + 1 === currentPage}
+              <span class={slotCurrent()}>{index + 1}</span>
+            {:else}
+              <a class={slotLink()} href="{uri}/{index + 1}">{index + 1}</a>
+            {/if}
           </li>
         {/each}
       {:else}
         {#if range[0] !== 1}
           <li class={`${slotListItem()} hidden sm:block`}>
-            <a class={slotLink()} href="{uri}">1</a>
+            <a class={slotLink()} href={uri}>1</a>
           </li>
           {#if range[0] > 2}
             <li class={`${slotListItem()} hidden sm:block`}>
@@ -130,7 +147,7 @@
         {/each}
 
         <li class={`${slotListItem()} sm:hidden`}>
-            <span class={`${slotCurrent()} border-transparent`}>{currentPage} / {totalPages}</span>
+          <span class={`${slotCurrent()} border-transparent`}>{currentPage} / {totalPages}</span>
         </li>
 
         {#if range[range.length - 1] < totalPages - 2}

@@ -35,7 +35,7 @@
       </a>
     </h1>
     <NavigationMain
-      styling={isPhotos ? "photos" : "default"}
+      theme={isPhotos ? "photos" : "default"}
       className={`${
         scrollY > 100 ? "transition duration-200 translate-y-2 md:-translate-y-10 scale-90" : "transition duration-200 "
       }`}

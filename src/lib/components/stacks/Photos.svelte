@@ -62,6 +62,7 @@
         simple={true}
         uri="/photos"
         className="-mt-32"
+        theme="photos"
       />
     {/if}
 
@@ -95,7 +96,7 @@
     </ul>
 
     {#if showPagination && totalItems && totalPages && totalPages > 1 && page}
-      <Pagination {totalItems} {totalPages} currentPage={page} uri="/photos" />
+      <Pagination {totalItems} {totalPages} currentPage={page} theme="photos" uri="/photos" />
     {/if}
   </div>
 {/if}

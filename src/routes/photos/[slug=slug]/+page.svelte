@@ -5,6 +5,7 @@
   import HeroBlog from "$components/heros/Blog.svelte";
   import Exif from "$components/text/Exif.svelte";
   import Image from "$components/media/Image.svelte";
+  import LightboxPhotos from "$components/modals/LightboxPhotos.svelte";
 
   interface Props {
     data: PageData;
@@ -24,22 +25,13 @@
     <HeroBlog
       headline={entry?.customTitle ?? entry.title}
       backButton={{
-        title: "Blog overview",
-        url: "/blog"
+        title: "Photos",
+        url: "/photos"
       }}
     />
   {/if}
 
   {#if entry?.images}
-    <ul class="span-content grid md:grid-cols-2 xl:grid-cols-3 gap-fluid items-center">
-      {#each entry?.images as image, i (image.id)}
-        <li class="stack-4 @container flex-col flex items-center">
-          <Image ratio="aspect-auto" className="w-full" noscript={false} {image} />
-          {#if image?.exif}
-            <Exif className="w-full" exif={image?.exif} />
-          {/if}
-        </li>
-      {/each}
-    </ul>
+    <LightboxPhotos images={entry?.images} className="span-content" />
   {/if}
 {/if}

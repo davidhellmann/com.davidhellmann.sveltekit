@@ -12,7 +12,7 @@
       slotIcon: "size-6 xs:size-5 xl:-translate-y-0.5"
     },
     variants: {
-      styling: {
+      theme: {
         default: {
           slotList: "text-accent-purple-100 ring-white/50 bg-accent-purple-500/50 ring-1"
         },
@@ -28,7 +28,7 @@
     className?: string;
   } & VariantProps<typeof tvNavigationMain>;
 
-  const { compName = "NavigationMain", className, styling = "default" }: NavigationMainProps = $props();
+  const { compName = "NavigationMain", className, theme = "default" }: NavigationMainProps = $props();
   const { slotNav, slotList, slotLink, slotIcon } = tvNavigationMain();
 
   const isCurrentPage = (matcher: string | string[]) => {
@@ -46,40 +46,40 @@
   };
 </script>
 
-<nav class={`${slotNav({ styling, className })}`} data-comp={compName}>
-  <ul class={`${slotList({ styling })}`}>
+<nav class={`${slotNav({ theme, className })}`} data-comp={compName}>
+  <ul class={`${slotList({ theme })}`}>
     <li data-waypoint-target class="is-zoomInDown">
-      <a class={`${slotLink({ styling })}`} aria-current={isCurrentPage("/")} href="/">
+      <a class={`${slotLink({ theme })}`} aria-current={isCurrentPage("/")} href="/">
         <IconSprite className={slotIcon()} size={20} icon="home-modern-outline" />
         <span class="hidden xs:inline-block">home.</span>
       </a>
     </li>
     <li data-waypoint-target class="is-zoomInDown">
-      <a class={slotLink({ styling })} aria-current={isCurrentPage("/work")} href="/work">
+      <a class={slotLink({ theme })} aria-current={isCurrentPage("/work")} href="/work">
         <IconSprite className={slotIcon()} size={20} icon="rectangle-group-outline" />
         <span class="hidden xs:inline-block">work.</span>
       </a>
     </li>
     <li data-waypoint-target class="is-zoomInDown">
-      <a class={slotLink({ styling })} aria-current={isCurrentPage("/blog")} href="/blog">
+      <a class={slotLink({ theme })} aria-current={isCurrentPage("/blog")} href="/blog">
         <IconSprite className={slotIcon()} size={20} icon="document-text-outline" />
         <span class="hidden xs:inline-block">blog.</span>
       </a>
     </li>
     <li data-waypoint-target class="is-zoomInDown">
-      <a class={slotLink({ styling })} aria-current={isCurrentPage("/projects")} href="/projects">
+      <a class={slotLink({ theme })} aria-current={isCurrentPage("/projects")} href="/projects">
         <IconSprite className={slotIcon()} size={20} icon="rectangle-stack-outline" />
         <span class="hidden xs:inline-block">projects.</span>
       </a>
     </li>
     <li data-waypoint-target class="is-zoomInDown">
-      <a class={slotLink({ styling })} aria-current={isCurrentPage("/photos")} href="/photos">
+      <a class={slotLink({ theme })} aria-current={isCurrentPage("/photos")} href="/photos">
         <IconSprite className={slotIcon()} size={20} icon="photo-outline" />
         <span class="hidden xs:inline-block">photos.</span>
       </a>
     </li>
     <li data-waypoint-target class="is-zoomInDown">
-      <a class={slotLink({ styling })} aria-current={isCurrentPage("/about")} href="/about">
+      <a class={slotLink({ theme })} aria-current={isCurrentPage("/about")} href="/about">
         <IconSprite className={slotIcon()} size={20} icon="identification-outline" />
         <span class="hidden xs:inline-block">about.</span>
       </a>

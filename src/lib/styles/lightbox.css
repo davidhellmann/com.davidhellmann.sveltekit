@@ -9,6 +9,10 @@
   @apply ring-1 ring-white/5 transition-all;
 }
 
+.lg-img-wrap {
+  padding: 4rem;
+}
+
 .lg-container.is-dark .lg-next,
 .lg-container.is-dark .lg-prev {
   background-color: var(--color-neutral-950);

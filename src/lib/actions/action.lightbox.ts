@@ -9,6 +9,7 @@ export const useLightbox = (
   node: HTMLElement,
   {
     items,
+    showThumbs = true,
     className = ""
   }: {
     items: {
@@ -16,6 +17,7 @@ export const useLightbox = (
       thumb: string | undefined;
       width: string | undefined;
     }[];
+    showThumbs?: boolean;
     className?: string;
   }
 ) => {
@@ -23,7 +25,7 @@ export const useLightbox = (
     plugins: [lgThumbnail, lgZoom],
     addClass: className,
     download: false,
-    thumbnail: true,
+    thumbnail: showThumbs,
     counter: false,
     dynamic: true,
     infiniteZoom: false,
