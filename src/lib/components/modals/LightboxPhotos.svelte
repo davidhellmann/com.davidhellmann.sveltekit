@@ -32,7 +32,11 @@
 </script>
 
 {#if images}
-  <ul data-comp={compName} class={slotRoot({ className })} use:useLightbox={{ items: items, showThumbs: false }}>
+  <ul
+    data-comp={compName}
+    class={slotRoot({ className })}
+    use:useLightbox={{ items: items, showThumbs: false, className: "is-photos" }}
+  >
     {#each images as image, i (image?.id)}
       <li class={slotItem()}>
         <Image ratio="aspect-auto" className="w-full" noscript={false} {image} />
