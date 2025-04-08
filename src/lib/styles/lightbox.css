@@ -9,8 +9,8 @@
   @apply ring-1 ring-white/5 transition-all;
 }
 
-.lg-img-wrap {
-  padding: 4rem;
+.is-photos .lg-content {
+  top: 0 !important;
 }
 
 .lg-container.is-dark .lg-next,
