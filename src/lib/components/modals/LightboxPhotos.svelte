@@ -8,7 +8,7 @@
 
   const tvLightboxPhotos = tv({
     slots: {
-      slotRoot: "grid md:grid-cols-2 xl:grid-cols-3 gap-fluid items-center",
+      slotRoot: "grid md:grid-cols-2 xl:grid-cols-3 gap-fluid items-center pointer-events-none",
       slotItem: "stack-4 @container flex-col flex items-center group"
     }
   });
@@ -39,7 +39,13 @@
   >
     {#each images as image, i (image?.id)}
       <li class={slotItem()}>
-        <Image ratio="aspect-auto" className="w-full" noscript={false} {image} />
+        <Image
+          ratio="aspect-auto"
+          className="w-full pointer-events-auto cursor-pointer"
+          noscript={false}
+          {image}
+          index={i}
+        />
         {#if image?.exif}
           <Exif
             className="w-full transition-all translate-y-4 opacity-0 group-hover:opacity-100  group-hover:translate-y-0"
