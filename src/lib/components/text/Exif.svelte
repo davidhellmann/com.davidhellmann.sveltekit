@@ -59,8 +59,12 @@
   <div data-comp={compName} class={slotRoot({ spacing, className })}>
     <div class={slotCamera({ spacing })}>
       {#if exifParsed?.cameraMake && exifParsed.cameraModel && exifParsed.lensModel}
-        <span><!--{exifParsed?.cameraMake} -->{exifParsed.cameraModel}</span>
-        <span>{exifParsed.lensModel}</span>
+        <span
+          >{#if exifParsed.lensModel.includes(exifParsed.cameraModel)}{exifParsed.cameraMake}
+          {/if}
+          {exifParsed.cameraModel}</span
+        >
+        {#if !exifParsed.lensModel.includes(exifParsed.cameraModel)}<span>{exifParsed.lensModel}</span>{/if}
       {/if}
     </div>
     <div class={slotSettings({ spacing })}>
