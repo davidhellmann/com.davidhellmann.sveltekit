@@ -6,9 +6,6 @@
   import Exif from "$components/text/Exif.svelte";
   import Polaroid from "$components/decorative/Polaroid.svelte";
   import { getRandomNumberFromRange } from "$lib/utils/getRandomNumberFromRange";
-  import { getRandomItemFromArray } from "$lib/utils/getRandomItemFromArray";
-
-  const cameras = ["Fuji X100VI", "Fuji X-Pro3", "Ricoh GR IIIx"];
 
   const tvCardPhotos = tv({
     slots: {
