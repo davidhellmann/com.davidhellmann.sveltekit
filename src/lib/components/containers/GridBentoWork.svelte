@@ -20,7 +20,7 @@
     slots: {
       slotBase: "grid sm:grid-cols-2 lg:grid-cols-3 lg:grid-rows-4 gap-fluid",
       slotCard:
-        "overflow-clip rounded-xl flex flex-col items-start relative stack-10 bg-neutral-100 ring-1 ring-black/30 shadow-xl shadow-neutral-700/20 transition-all hover:shadow-2xl hover:shadow-neutral-700/50 hover:-translate-y-0.5",
+        "overflow-clip rounded-xl flex flex-col items-start relative stack-10 ring-1 shadow-xl transition-all hover:shadow-2xl hover:-translate-y-0.5",
       slotCard1:
         "col-span-1 lg:row-span-2 [&_.imageWrapper]:pb-0 [&_.imageWrapper]:px-6 [&_img]:rounded-b-none lg:[&_.imageWrapper]:pb-0 lg:[&_.imageWrapper]:pl-6 lg:[&_.imageWrapper]:pr-0 lg:[&_img]:rounded-b-none lg:[&_img]:rounded-tr-none",
       slotCard2: "lg:col-span-2 lg:row-span-2 [&_.imageWrapper]:pb-0 [&_.imageWrapper]:px-6 [&_img]:rounded-b-none",
@@ -30,6 +30,18 @@
       slotContent: "flex flex-col px-10 pt-10 stack-3",
       slotImageWrapper: "imageWrapper w-full h-full pb-3 px-3",
       slotImage: "w-full h-full aspect-[3/1.8] ring-1 ring-neutral-600/20 rounded-lg shadow-xl"
+    },
+    variants: {
+      theme: {
+        light: {
+          slotBase: "text-neutral-500",
+          slotCard: "bg-neutral-100 ring-black/30 shadow-neutral-700/20 hover:shadow-neutral-700/50"
+        },
+        dark: {
+          slotBase: "text-neutral-100",
+          slotCard: "bg-neutral-900 ring-neutral-800/80 shadow-neutral-700/20 hover:shadow-neutral-700/50"
+        }
+      }
     }
   });
 
@@ -37,21 +49,39 @@
     compName?: string;
     className?: string;
     entries: Entry[];
+    limit?: number;
+    random?: boolean;
   } & VariantProps<typeof tvGridBentoWork>;
 
-  let { compName = "GridBentoWork", className, entries }: GridBentoWorkProps = $props();
+  let {
+    compName = "GridBentoWork",
+    className,
+    entries,
+    limit,
+    random = false,
+    theme = "light"
+  }: GridBentoWorkProps = $props();
 
   const { slotBase, slotCard, slotCard1, slotCard2, slotCard3, slotCard4, slotContent, slotImageWrapper, slotImage } =
     tvGridBentoWork({ className });
   const cardClasses = [slotCard1, slotCard2, slotCard3, slotCard4];
+
+  let finalEntries = $state(entries);
+  if (random && limit) {
+    finalEntries = getRandomItemsFromArray(entries, limit);
+  }
 </script>
 
 {#if entries}
-  <div data-comp={compName} class={slotBase({ className })} use:useWaypoint data-waypoint>
-    {#each getRandomItemsFromArray(entries, 4) as entry, i (entry.id)}
+  <div data-comp={compName} class={slotBase({ theme, className })} use:useWaypoint data-waypoint>
+    {#each finalEntries as entry, i (entry.id)}
       {#if entry && entry?.__typename === "entryWorkSingle_Entry"}
         {#if entry?.title && entry?.url}
-          <a href={entry?.url} class={`${slotCard()} ${cardClasses[i]()} is-zoomInUp`} data-waypoint-target>
+          <a
+            href={entry?.url}
+            class={`${slotCard({ theme })} ${cardClasses[i % cardClasses.length]()} is-zoomInUp`}
+            data-waypoint-target
+          >
             <div class={slotContent()}>
               {#if entry?.workType.length > 0}
                 <Category className={"mb-3"} variant="work" title={entry.workType[0].title} />

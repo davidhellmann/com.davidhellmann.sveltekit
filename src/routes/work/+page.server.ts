@@ -6,12 +6,12 @@ import {
   type GetEntriesQueryVariables,
   type Entry_DataFragment,
   type Entry_SeoFragment,
-  type EntryType_BlogSingleFragment
+  type EntryType_WorkSingleFragment
 } from "$graphql/graphql";
 import { getGqlData } from "$graphql/graphql-client";
 
 export const load: PageServerLoad = async () => {
-  const { entries } = (await getGqlData<GetEntriesQueryVariables>(GetEntriesDocument, {
+  const { entries: workEntries } = (await getGqlData<GetEntriesQueryVariables>(GetEntriesDocument, {
     section: ["work"],
     limit: 999
   })) as GetEntriesQuery;
@@ -21,10 +21,10 @@ export const load: PageServerLoad = async () => {
     type: "entryWorkList"
   })) as GetEntriesQuery;
 
-  console.log("Render:", entries?.[0]?.title);
+  console.log("Render:", workEntry?.[0]?.title);
 
   return {
     workEntry: workEntry,
-    entries: entries as (Entry_DataFragment & Entry_SeoFragment & EntryType_BlogSingleFragment)[]
+    workEntries: workEntries as (Entry_DataFragment & Entry_SeoFragment & EntryType_WorkSingleFragment)[]
   };
 };

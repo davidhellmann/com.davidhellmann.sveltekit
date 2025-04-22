@@ -3,6 +3,8 @@
   import StackBlog from "$components/stacks/Blog.svelte";
   import RichText from "$components/text/RichText.svelte";
   import Seo from "$components/seo/Seo.svelte";
+  import GridBentoWork from "$components/containers/GridBentoWork.svelte";
+  import type { ComponentProps } from "svelte";
   import { getFirstEntry } from "$utils/getFirstEntry";
   import { splitTextIntoDivs } from "$utils/splitTextIntoDivs";
   import { useWaypoint } from "$lib/actions/action.waypoint";
@@ -14,7 +16,7 @@
 
   let { data }: Props = $props();
   let workEntry = getFirstEntry(data.workEntry);
-  let entries = $derived(data.entries);
+  let workEntries = data?.workEntries as ComponentProps<typeof GridBentoWork>["entries"];
 
   const cc = {
     heading: "span-content text-neon-pink is-zoomInDown text-7xl font-decorative font-extrabold flex flex-wrap",
@@ -37,15 +39,7 @@
     {/if}
   </div>
 
-  {#if entries}
-    <ul class="span-content flex flex-col gap-1">
-      {#each entries as entry (entry.id)}
-        <li>
-          <a class="flex p-4 bg-neutral-900 rounded-sm transition hover:bg-neutral-800" href={entry.url}
-            >{entry.title}</a
-          >
-        </li>
-      {/each}
-    </ul>
+  {#if workEntries}
+    <GridBentoWork theme="dark" className={"span-content -mt-6 mb-24 z-10"} entries={workEntries} />
   {/if}
 {/if}
