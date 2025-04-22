@@ -86,6 +86,8 @@ export type AssetRelationCriteriaInput = {
   relatedViaSite?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Narrows the query results to only elements that match a search query. */
   search?: InputMaybe<Scalars['String']['input']>;
+  /** Defines the default options that should be applied terms within the `search` argument. */
+  searchTermOptions?: InputMaybe<SearchTermOptions>;
   /** Determines which site(s) the elements should be queried in. Defaults to the current (requested) site. */
   site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Determines which site(s) the elements should be queried in. Defaults to the current (requested) site. */
@@ -196,6 +198,8 @@ export type CategoryRelationCriteriaInput = {
   relatedViaSite?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Narrows the query results to only elements that match a search query. */
   search?: InputMaybe<Scalars['String']['input']>;
+  /** Defines the default options that should be applied terms within the `search` argument. */
+  searchTermOptions?: InputMaybe<SearchTermOptions>;
   /** Determines which site(s) the elements should be queried in. Defaults to the current (requested) site. */
   site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Determines which site(s) the elements should be queried in. Defaults to the current (requested) site. */
@@ -379,6 +383,8 @@ export type EntryRelationCriteriaInput = {
   richText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   /** Narrows the query results to only elements that match a search query. */
   search?: InputMaybe<Scalars['String']['input']>;
+  /** Defines the default options that should be applied terms within the `search` argument. */
+  searchTermOptions?: InputMaybe<SearchTermOptions>;
   /** Narrows the query results based on the section handles the entries belong to. */
   section?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Narrows the query results based on the sections the entries belong to, per the sections’ IDs. */
@@ -424,6 +430,8 @@ export type EntryRelationCriteriaInput = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   videoId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   videoProvider?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  /** Whether canonical elements should be replaced with provisional drafts if those exist. */
+  withProvisionalDrafts?: InputMaybe<Scalars['Boolean']['input']>;
   /** Explicitly determines whether the query should join in the structure data. */
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
   workAreas?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -437,6 +445,13 @@ export type FileInput = {
   filename?: InputMaybe<Scalars['String']['input']>;
   /** The URL of the file. */
   url?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type SearchTermOptions = {
+  exact?: InputMaybe<Scalars['Boolean']['input']>;
+  exclude?: InputMaybe<Scalars['Boolean']['input']>;
+  subLeft?: InputMaybe<Scalars['Boolean']['input']>;
+  subRight?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 /** Optional - The SEOmatic environment that should be used */
@@ -511,6 +526,8 @@ export type TagRelationCriteriaInput = {
   relatedViaSite?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Narrows the query results to only elements that match a search query. */
   search?: InputMaybe<Scalars['String']['input']>;
+  /** Defines the default options that should be applied terms within the `search` argument. */
+  searchTermOptions?: InputMaybe<SearchTermOptions>;
   /** Determines which site(s) the elements should be queried in. Defaults to the current (requested) site. */
   site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Determines which site(s) the elements should be queried in. Defaults to the current (requested) site. */
@@ -602,6 +619,8 @@ export type UserRelationCriteriaInput = {
   relatedViaSite?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Narrows the query results to only elements that match a search query. */
   search?: InputMaybe<Scalars['String']['input']>;
+  /** Defines the default options that should be applied terms within the `search` argument. */
+  searchTermOptions?: InputMaybe<SearchTermOptions>;
   /** Determines which site(s) the elements should be queried in. Defaults to the current (requested) site. */
   site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Determines which site(s) the elements should be queried in. Defaults to the current (requested) site. */
