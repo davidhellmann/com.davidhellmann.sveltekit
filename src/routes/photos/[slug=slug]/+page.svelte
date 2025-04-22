@@ -23,7 +23,7 @@
 {#if entry && entry?.__typename === "entryPhotosSingle_Entry"}
   {#if entry?.title && entry?.images}
     {@const exifDataParsed = getExifData(entry?.images)}
-    <HeroPhotos headline={entry?.customTitle ?? entry.title} exif={exifDataParsed} />
+    <HeroPhotos imageCount={entry?.images?.length} headline={entry?.customTitle ?? entry.title} exif={exifDataParsed} />
   {/if}
 
   {#if entry?.images}

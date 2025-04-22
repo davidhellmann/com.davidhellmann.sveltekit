@@ -20,7 +20,7 @@
       slotList: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4",
       slotListItem: "",
       slotListItemLink:
-        "group border-1 border-neutral-300 shadow-md shadow-neutral-200 p-8 pt-12 transition-all grayscale-100 hover:grayscale-0 hover:translate-y-0.5 hover:shadow-2xs h-full flex flex-col gap-8",
+        "group border-1 overflow-hidden border-neutral-300 shadow-md shadow-neutral-200 p-8 pt-12 transition-all grayscale-100 hover:grayscale-0 hover:translate-y-0.5 hover:shadow-2xs h-full flex flex-col gap-8",
       slotGearList:
         "font-mono text-xs font-medium text-neutral-400 opacity-0 translate-y-4 transition-all group-hover:opacity-100 group-hover:translate-y-0 -mt-6"
     }
@@ -73,6 +73,10 @@
             {@const exifDataParsed = getExifData(entry?.images)}
             <li class={`is-zoomInUp ${slotListItem()}`} data-waypoint-target>
               <a class={slotListItemLink()} href={entry?.url}>
+                <span
+                  class="font-mono text-xs font-bold -mb-6 bg-neutral-100 text-[red] group-hover:bg-[red] self-start leading-[1cap] size-8 flex items-center justify-center rounded-full group-hover:text-white"
+                  >{entry?.images?.length}</span
+                >
                 <Headline className="font-mono text-sm font-medium leading-tight" text={entry?.title} />
 
                 {#if exifDataParsed.cameras || exifDataParsed.lenses}
@@ -87,7 +91,7 @@
                   </div>
                 {/if}
 
-                <Image ratio="aspect-auto" className="mt-auto" image={entry?.image[0]} />
+                <Image ratio="aspect-auto" className="mt-auto z-10" image={entry?.image[0]} />
               </a>
             </li>
           {/if}

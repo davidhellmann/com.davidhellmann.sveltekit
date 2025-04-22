@@ -16,9 +16,10 @@
     className?: string;
     headline: string;
     exif: { cameras: string[]; lenses: string[] };
+    imageCount: number;
   } & VariantProps<typeof tvHeroPhotos>;
 
-  const { compName = "HeroPhotos", className, headline, exif }: HeroPhotosProps = $props();
+  const { compName = "HeroPhotos", className, headline, exif, imageCount }: HeroPhotosProps = $props();
 
   const { slotWrapper, slotHeadline, slotGearList } = tvHeroPhotos();
 </script>
@@ -26,6 +27,12 @@
 {#if headline}
   <header data-comp={compName} class={slotWrapper({ className })}>
     <div>
+      {#if imageCount}
+        <span
+          class="font-mono text-base font-bold mb-2 bg-[red] self-start leading-[1cap] size-14 flex items-center justify-center rounded-full text-white"
+          >{imageCount}</span
+        >
+      {/if}
       <Headline text={headline} tag="h1" className={slotHeadline()} />
       <div class="flex gap-8 mt-2">
         {#if exif.cameras}
