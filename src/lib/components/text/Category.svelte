@@ -8,7 +8,7 @@
     variants: {
       variant: {
         blog: "",
-        work: "bg-neutral-200/50 border border-neutral-200 text-current px-2.5 pt-1.5 pb-1 rounded-lg self-start"
+        work: "bg-neutral-200/50 theme-dark:bg-neutral-950/50 text-current/60 theme-dark:text-current/30 px-2.5 pt-1.5 pb-1 rounded-lg self-start"
       }
     },
     defaultVariants: {

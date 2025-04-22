@@ -73,7 +73,7 @@
 </script>
 
 {#if entries}
-  <div data-comp={compName} class={slotBase({ theme, className })} use:useWaypoint data-waypoint>
+  <div data-comp={compName} data-theme={theme} class={slotBase({ theme, className })} use:useWaypoint data-waypoint>
     {#each finalEntries as entry, i (entry.id)}
       {#if entry && entry?.__typename === "entryWorkSingle_Entry"}
         {#if entry?.title && entry?.url}
