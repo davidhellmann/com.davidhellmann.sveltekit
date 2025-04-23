@@ -20,7 +20,7 @@
       slotList: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4",
       slotListItem: "",
       slotListItemLink:
-        "group border-1 overflow-hidden border-neutral-300 shadow-md shadow-neutral-200 p-8 pt-12 transition-all grayscale-100 hover:grayscale-0 hover:translate-y-0.5 hover:shadow-2xs h-full flex flex-col gap-8",
+        "group border-1 overflow-hidden border-neutral-300 shadow-md shadow-neutral-200 p-8 pt-12 transition-all hover:translate-y-0.5 hover:shadow-2xs h-full flex flex-col gap-8",
       slotGearList:
         "font-mono text-xs font-medium text-neutral-400 opacity-0 translate-y-4 transition-all group-hover:opacity-100 group-hover:translate-y-0 -mt-6"
     }
@@ -74,10 +74,13 @@
             <li class={`is-zoomInUp ${slotListItem()}`} data-waypoint-target>
               <a class={slotListItemLink()} href={entry?.url}>
                 <span
-                  class="font-mono text-xs font-bold -mb-6 bg-neutral-100 text-[red] group-hover:bg-[red] self-start leading-[1cap] size-8 flex items-center justify-center rounded-full group-hover:text-white"
+                  class="font-mono text-xs font-bold -mb-5 bg-black text-white group-hover:bg-[red] self-start leading-[1cap] size-8 flex items-center justify-center rounded-full transition-all opacity-0 group-hover:opacity-100 -translate-y-1/2 group-hover:translate-y-0"
                   >{entry?.images?.length}</span
                 >
-                <Headline className="font-mono text-sm font-medium leading-tight" text={entry?.title} />
+                <Headline
+                  className="font-mono text-sm font-medium leading-tight transition-all -translate-y-4 group-hover:translate-y-0"
+                  text={entry?.title}
+                />
 
                 {#if exifDataParsed.cameras || exifDataParsed.lenses}
                   <div class="flex flex-col gap-2">
@@ -91,7 +94,11 @@
                   </div>
                 {/if}
 
-                <Image ratio="aspect-auto" className="mt-auto z-10" image={entry?.image[0]} />
+                <Image
+                  ratio="aspect-auto"
+                  className="mt-auto z-10 grayscale-0 group-hover:grayscale-100 transition-all"
+                  image={entry?.image[0]}
+                />
               </a>
             </li>
           {/if}

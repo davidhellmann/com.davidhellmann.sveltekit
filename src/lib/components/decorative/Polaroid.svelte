@@ -7,7 +7,7 @@
   const tvPolaroid = tv({
     slots: {
       slotBase: "flex flex-col flex-wrap relative h-full z-20",
-      slotTape: "left-1/2 -translate-x-1/2 top-0 z-50"
+      slotTape: "left-1/2 -translate-x-1/2 top-0 z-50 origin-center scale-80 md:scale-100"
     },
     variants: {
       preset: {

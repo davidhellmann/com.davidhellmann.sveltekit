@@ -25,7 +25,7 @@
   }
   main::after {
     content: "";
-    @apply bg-neutral-950 lg:max-w-[min(calc(100%-4vw),2000px)]
+    @apply bg-neutral-950 bg-gradient-to-br from-neutral-800 to-neutral-950 lg:max-w-[min(calc(100%-4vw),2000px)]
     isolate backdrop-blur-sm fixed top-0 h-[100dvh] -z-10 w-full left-1/2 transform -translate-x-1/2;
     box-shadow:
       rgba(0, 0, 0, 1) 0 0 0 0,

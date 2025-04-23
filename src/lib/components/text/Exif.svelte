@@ -43,9 +43,10 @@
     compName?: string;
     className?: string;
     exif: string;
+    showSettings?: boolean;
   } & VariantProps<typeof tvExif>;
 
-  const { compName = "Exif", className, exif, spacing = "default" }: ExifProps = $props();
+  const { compName = "Exif", className, exif, spacing = "default", showSettings = true }: ExifProps = $props();
   let exifParsed: Exif = $state(undefined);
 
   if (exif) {
@@ -67,19 +68,21 @@
         {#if !exifParsed.lensModel.includes(exifParsed.cameraModel)}<span>{exifParsed.lensModel}</span>{/if}
       {/if}
     </div>
-    <div class={slotSettings({ spacing })}>
-      {#if exifParsed?.iso}
-        <span>ISO {exifParsed?.iso}</span>
-      {/if}
-      {#if exifParsed?.shutterSpeed}
-        <span>{exifParsed?.shutterSpeed}</span>
-      {/if}
-      {#if exifParsed?.aperture}
-        <span>{exifParsed?.aperture}</span>
-      {/if}
-      {#if exifParsed?.focalLength}
-        <span>{exifParsed?.focalLength}</span>
-      {/if}
-    </div>
+    {#if showSettings}
+      <div class={slotSettings({ spacing })}>
+        {#if exifParsed?.iso}
+          <span>ISO {exifParsed?.iso}</span>
+        {/if}
+        {#if exifParsed?.shutterSpeed}
+          <span>{exifParsed?.shutterSpeed}</span>
+        {/if}
+        {#if exifParsed?.aperture}
+          <span>{exifParsed?.aperture}</span>
+        {/if}
+        {#if exifParsed?.focalLength}
+          <span>{exifParsed?.focalLength}</span>
+        {/if}
+      </div>
+    {/if}
   </div>
 {/if}

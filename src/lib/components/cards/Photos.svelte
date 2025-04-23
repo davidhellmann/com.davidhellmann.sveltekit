@@ -45,7 +45,7 @@
         </div>
         <div class={slotContent()}>
           {#if image?.exif}
-            <Exif exif={image?.exif} spacing="compact" className={slotExif()} />
+            <Exif exif={image?.exif} showSettings={false} spacing="compact" className={slotExif()} />
           {/if}
           <Headline text={headline} className={slotHeadline({})} />
         </div>
