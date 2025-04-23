@@ -20,7 +20,7 @@
       slotList: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 gap-y-8",
       slotListItem: "",
       slotCount:
-        "font-mono text-xs absolute top-0 left-6 font-bold text-white bg-black groud-hover:bg-[red] -translate-y-1/2 leading-[1] size-10 rounded-full flex items-center justify-center border-4 border-white",
+        "font-mono text-xs absolute top-0 left-6 font-bold text-white bg-black group-hover:bg-[red] -translate-y-1/2 leading-[1] size-10 rounded-full flex items-center justify-center border-4 border-white",
       slotListItemLink:
         "group border-1 flex border-black shadow-md shadow-neutral-200 p-8 pt-12 transition-all  hover:shadow-2xs h-full flex flex-col gap-8",
       slotGearList:
