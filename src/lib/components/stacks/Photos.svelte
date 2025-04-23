@@ -17,10 +17,12 @@
   const tvStackPhotos = tv({
     slots: {
       slotRoot: "",
-      slotList: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4",
+      slotList: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 gap-y-8",
       slotListItem: "",
+      slotCount:
+        "font-mono text-xs absolute top-0 left-6 font-bold text-white bg-black groud-hover:bg-[red] -translate-y-1/2 leading-[1] size-10 rounded-full flex items-center justify-center border-4 border-white",
       slotListItemLink:
-        "group border-1 overflow-hidden border-neutral-300 shadow-md shadow-neutral-200 p-8 pt-12 transition-all hover:translate-y-0.5 hover:shadow-2xs h-full flex flex-col gap-8",
+        "group border-1 flex border-black shadow-md shadow-neutral-200 p-8 pt-12 transition-all  hover:shadow-2xs h-full flex flex-col gap-8",
       slotGearList:
         "font-mono text-xs font-medium text-neutral-400 opacity-0 translate-y-4 transition-all group-hover:opacity-100 group-hover:translate-y-0 -mt-6"
     }
@@ -48,7 +50,7 @@
     page
   }: StackPhotosProps = $props();
 
-  const { slotRoot, slotList, slotListItem, slotListItemLink, slotGearList } = tvStackPhotos({ className });
+  const { slotRoot, slotList, slotListItem, slotCount, slotListItemLink, slotGearList } = tvStackPhotos({ className });
 </script>
 
 {#if entries}
@@ -73,14 +75,8 @@
             {@const exifDataParsed = getExifData(entry?.images)}
             <li class={`is-zoomInUp ${slotListItem()}`} data-waypoint-target>
               <a class={slotListItemLink()} href={entry?.url}>
-                <span
-                  class="font-mono text-xs font-bold -mb-5 bg-black text-white group-hover:bg-[red] self-start leading-[1cap] size-8 flex items-center justify-center rounded-full transition-all opacity-0 group-hover:opacity-100 -translate-y-1/2 group-hover:translate-y-0"
-                  >{entry?.images?.length}</span
-                >
-                <Headline
-                  className="font-mono text-sm font-medium leading-tight transition-all -translate-y-4 group-hover:translate-y-0"
-                  text={entry?.title}
-                />
+                <span class={slotCount()}>{entry?.images?.length}</span>
+                <Headline className="font-mono text-sm font-medium leading-tight" text={entry?.title} />
 
                 {#if exifDataParsed.cameras || exifDataParsed.lenses}
                   <div class="flex flex-col gap-2">
