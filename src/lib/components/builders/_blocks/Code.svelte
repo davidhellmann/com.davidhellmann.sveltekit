@@ -7,15 +7,9 @@
     language: string;
     name?: string;
     html?: string;
-  }
+  };
 
-  const {
-    compName = "BlockCode",
-    code,
-    language,
-    name,
-    html
-  }: BlockCode = $props();
+  const { compName = "BlockCode", code, language, name, html }: BlockCode = $props();
 </script>
 
 {#if code}

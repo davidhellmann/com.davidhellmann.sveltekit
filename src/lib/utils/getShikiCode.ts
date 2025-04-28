@@ -1,5 +1,5 @@
 import { createHighlighterCoreSync } from "shiki/core";
-import { createJavaScriptRegexEngine } from "shiki/engine/javascript";
+import { createOnigurumaEngine } from "shiki/engine/oniguruma";
 import js from "shiki/langs/javascript.mjs";
 import css from "shiki/langs/css.mjs";
 import graphql from "shiki/langs/graphql.mjs";
@@ -34,11 +34,13 @@ const languages: Languages = {
   yaml: yaml
 };
 
+const engine = await createOnigurumaEngine(import("shiki/wasm"));
+
 export const getShikiCode = (code: string, language: string): string | undefined => {
   const shiki = createHighlighterCoreSync({
     themes: [theme],
     langs: [languages[language] ?? js],
-    engine: createJavaScriptRegexEngine()
+    engine
   });
   return shiki.codeToHtml(code, { lang: language, theme: theme }) ?? undefined;
 };
