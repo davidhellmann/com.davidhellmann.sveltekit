@@ -7,7 +7,7 @@
     slots: {
       slotWrapper: "mt-10",
       slotCode:
-        "flex items-center gap-3 inline-flex label text-xs text-neutral-200 px-4 !-mb-fluid -mt-10 py-2 ml-fluid rounded-t-xl self-start after:size-2 after:bg-accent-purple-400 after:rounded-full"
+        "flex items-center gap-3 label text-xs text-neutral-200 px-4 !-mb-fluid -mt-10 py-2 ml-fluid rounded-t-xl self-start after:size-2 after:bg-accent-purple-400 after:rounded-full"
     }
   });
 
