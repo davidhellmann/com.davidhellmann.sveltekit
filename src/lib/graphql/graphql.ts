@@ -250,6 +250,7 @@ export type EntryRelationCriteriaInput = {
   /** Narrows the query results to only entries that were posted before a certain date. */
   before?: InputMaybe<Scalars['String']['input']>;
   category?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ckeBuilder?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   client?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   clientWords?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   codeSnippet?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -1896,14 +1897,14 @@ const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationTy
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
-    GetEntries(variables?: GetEntriesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetEntriesQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetEntriesQuery>(GetEntriesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetEntries', 'query', variables);
+    GetEntries(variables?: GetEntriesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<GetEntriesQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetEntriesQuery>({ document: GetEntriesDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'GetEntries', 'query', variables);
     },
-    GetPrerenderData(variables?: GetPrerenderDataQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetPrerenderDataQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetPrerenderDataQuery>(GetPrerenderDataDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetPrerenderData', 'query', variables);
+    GetPrerenderData(variables?: GetPrerenderDataQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<GetPrerenderDataQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetPrerenderDataQuery>({ document: GetPrerenderDataDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'GetPrerenderData', 'query', variables);
     },
-    GetSeomatic(variables?: GetSeomaticQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetSeomaticQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetSeomaticQuery>(GetSeomaticDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetSeomatic', 'query', variables);
+    GetSeomatic(variables?: GetSeomaticQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<GetSeomaticQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetSeomaticQuery>({ document: GetSeomaticDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'GetSeomatic', 'query', variables);
     }
   };
 }
