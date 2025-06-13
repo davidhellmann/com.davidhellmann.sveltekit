@@ -1,29 +1,33 @@
-export const prerender = true;
 import type { PageServerLoad } from "./$types";
 import { GetEntriesDocument, type GetEntriesQuery, type GetEntriesQueryVariables } from "$graphql/graphql";
 import { getGqlData } from "$graphql/graphql-client";
+import { detectPreview, getPrerender } from "$utils/detectPreview";
 
-export const load: PageServerLoad = async () => {
+export const prerender = 'auto';
+
+export const load: PageServerLoad = async (event) => {
+  const { isPreview, tokens } = detectPreview(event);
+  
   const { entries } = (await getGqlData<GetEntriesQueryVariables>(GetEntriesDocument, {
     section: ["home"]
-  })) as GetEntriesQuery;
+  }, tokens)) as GetEntriesQuery;
 
   const { entries: blogEntries } = (await getGqlData<GetEntriesQueryVariables>(GetEntriesDocument, {
     section: ["blog"],
     limit: 3
-  })) as GetEntriesQuery;
+  }, tokens)) as GetEntriesQuery;
 
   const { entries: workEntries } = (await getGqlData<GetEntriesQueryVariables>(GetEntriesDocument, {
     section: ["work"],
     limit: 4,
     orderBy: "RAND()"
-  })) as GetEntriesQuery;
+  }, tokens)) as GetEntriesQuery;
 
   const { entries: photoEntries } = (await getGqlData<GetEntriesQueryVariables>(GetEntriesDocument, {
     section: ["photos"],
     limit: 8,
     orderBy: "RAND()"
-  })) as GetEntriesQuery;
+  }, tokens)) as GetEntriesQuery;
 
   console.log("Render:", entries?.[0]?.title);
 

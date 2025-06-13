@@ -1,4 +1,3 @@
-export const prerender = true;
 import type { PageServerLoad, EntryGenerator, RouteParams } from "./$types";
 import {
   GetEntriesDocument,
@@ -9,6 +8,7 @@ import {
   type GetPrerenderDataQuery
 } from "$graphql/graphql";
 import { getGqlData } from "$graphql/graphql-client";
+import { detectPreview } from "$utils/detectPreview";
 
 export const entries: EntryGenerator = async () => {
   const { entries } = (await getGqlData<GetPrerenderDataQueryVariables>(GetPrerenderDataDocument, {
@@ -25,17 +25,23 @@ export const entries: EntryGenerator = async () => {
   }) as RouteParams[];
 };
 
-export const load: PageServerLoad = async ({ params }) => {
+export const prerender = 'auto';
+
+export const load: PageServerLoad = async (event) => {
+  const { params } = event;
+  const { isPreview, tokens } = detectPreview(event);
+  
   const { entries } = (await getGqlData<GetEntriesQueryVariables>(GetEntriesDocument, {
     section: ["blog"],
     slug: params?.slug,
     limit: 1,
     includePrevNext: true
-  })) as GetEntriesQuery;
+  }, tokens)) as GetEntriesQuery;
 
-  console.log("Render:", entries?.[0]?.title);
+  console.log("Render:", entries?.[0]?.title, isPreview ? "(Preview)" : "");
 
   return {
-    entries: entries
+    entries: entries,
+    isPreview
   };
 };

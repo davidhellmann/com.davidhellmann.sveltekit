@@ -7,7 +7,7 @@ type IHeaders = {
   [key: string]: string;
 };
 
-type IPreviewTokens = {
+export type IPreviewTokens = {
   token?: string;
   xCraftPreview?: string;
   xCraftLivePreview?: string;
