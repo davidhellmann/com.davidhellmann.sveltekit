@@ -2,6 +2,7 @@
   "name": "com.davidhellmann.sveltekit",
   "version": "0.0.1",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "concurrently \"npm run codegen --watch\" \"vite dev\"",
     "build": "vite build",
@@ -49,7 +50,6 @@
     "vite-svg-sprite-wrapper": "^1.4.1",
     "vitest": "^3.2.3"
   },
-  "type": "module",
   "dependencies": {
     "@fontsource-variable/bitter": "^5.2.8",
     "@fontsource-variable/inter": "^5.2.6",
