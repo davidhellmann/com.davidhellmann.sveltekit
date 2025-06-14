@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "concurrently \"npm run codegen --watch\" \"vite dev\"",
     "build": "vite build",
+    "start": "node build",
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
@@ -22,6 +23,7 @@
     "@graphql-codegen/typescript-graphql-request": "^6.3.0",
     "@graphql-codegen/typescript-operations": "^4.6.1",
     "@sveltejs/adapter-auto": "^6.0.1",
+    "@sveltejs/adapter-node": "^5.2.12",
     "@sveltejs/adapter-static": "^3.0.8",
     "@sveltejs/kit": "^2.21.4",
     "@sveltejs/vite-plugin-svelte": "^5.1.0",
