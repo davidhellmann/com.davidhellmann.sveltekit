@@ -1,0 +1,6 @@
+export NODE_OPTIONS=--max_old_space_size=4096
+curl -fsSL https://get.pnpm.io/install.sh | bash -
+export PATH="/home/deploy-build/.local/share/pnpm:$PATH"
+
+pnpm install
+pnpm build
