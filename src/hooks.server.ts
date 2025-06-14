@@ -30,7 +30,15 @@ const securityHeaders: Handle = async ({ event, resolve }) => {
   response.headers.set('X-Content-Type-Options', 'nosniff');
   
   // Allow iframe embedding for preview routes, otherwise restrict
-  if (event.url.pathname.startsWith('/preview') || event.url.searchParams.has('x-craft-live-preview')) {
+  let isPreviewRoute = false;
+  try {
+    isPreviewRoute = event.url.pathname.startsWith('/preview') || event.url.searchParams.has('x-craft-live-preview');
+  } catch (error) {
+    // During prerendering, searchParams is not available
+    isPreviewRoute = event.url.pathname.startsWith('/preview');
+  }
+  
+  if (isPreviewRoute) {
     response.headers.set('X-Frame-Options', 'ALLOWALL');
   } else {
     response.headers.set('X-Frame-Options', 'SAMEORIGIN');
