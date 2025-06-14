@@ -9,23 +9,23 @@ export interface PreviewContext {
 export function detectPreview(event: RequestEvent): PreviewContext {
   try {
     const { url } = event;
-    
-    const token = url.searchParams.get('token');
-    const xCraftPreview = url.searchParams.get('x-craft-preview');
-    const xCraftLivePreview = url.searchParams.get('x-craft-live-preview');
-    
+
+    const token = url.searchParams.get("token");
+    const xCraftPreview = url.searchParams.get("x-craft-preview");
+    const xCraftLivePreview = url.searchParams.get("x-craft-live-preview");
+
     const isPreview = Boolean(token);
-    
+
     if (!isPreview) {
       return { isPreview: false };
     }
-    
+
     const tokens: IPreviewTokens = {
       token: token || undefined,
       xCraftPreview: xCraftPreview || undefined,
       xCraftLivePreview: xCraftLivePreview || undefined
     };
-    
+
     return {
       isPreview: true,
       tokens
