@@ -18,8 +18,25 @@ const redirectSitemap: Handle = async ({ event, resolve }) => {
       }
     });
   }
-
+  
   return resolve(event);
 };
 
-export const handle = sequence(preloadFonts, redirectSitemap);
+const securityHeaders: Handle = async ({ event, resolve }) => {
+  const response = await resolve(event);
+  
+  // Security headers
+  response.headers.set('X-XSS-Protection', '1; mode=block');
+  response.headers.set('X-Content-Type-Options', 'nosniff');
+  
+  // Allow iframe embedding for preview routes, otherwise restrict
+  if (event.url.pathname.startsWith('/preview') || event.url.searchParams.has('x-craft-live-preview')) {
+    response.headers.set('X-Frame-Options', 'ALLOWALL');
+  } else {
+    response.headers.set('X-Frame-Options', 'SAMEORIGIN');
+  }
+  
+  return response;
+};
+
+export const handle = sequence(preloadFonts, redirectSitemap, securityHeaders);
