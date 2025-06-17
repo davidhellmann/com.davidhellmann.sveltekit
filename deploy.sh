@@ -86,9 +86,9 @@ else
 fi
 
 # Setze Berechtigungen
-echo -e "${YELLOW}Setting permissions...${NC}"
-chown -R forge:forge $RELEASE_PATH
-chmod -R 755 $RELEASE_PATH
+# echo -e "${YELLOW}Setting permissions...${NC}"
+# chown -R forge:forge $RELEASE_PATH
+# chmod -R 755 $RELEASE_PATH
 
 # Aktiviere neues Release durch Symlink Update
 echo -e "${YELLOW}Activating new release...${NC}"
