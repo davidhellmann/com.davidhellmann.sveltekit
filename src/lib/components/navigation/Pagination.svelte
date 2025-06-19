@@ -82,7 +82,8 @@
     uri,
     yPosition,
     xPosition,
-    theme = "default"
+    theme = "default",
+    ...rest
   }: PaginationProps = $props();
 
   const getRange = (start: number, end: number): number[] => {
@@ -97,7 +98,7 @@
   });
 </script>
 
-<nav class={slotNav({ className })} data-comp={compName}>
+<nav class="{slotNav()} {className}" data-comp={compName}>
   <ul class={slotList()}>
     {#if currentPage > 1}
       <li class={slotListItem()}>
@@ -136,7 +137,7 @@
           {/if}
         {/if}
 
-        {#each range as i}
+        {#each range as i (i)}
           <li class={`${slotListItem()} hidden sm:block`}>
             {#if i === currentPage}
               <span class={slotCurrent()}>{i}</span>
