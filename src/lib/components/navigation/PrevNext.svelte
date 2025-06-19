@@ -29,22 +29,14 @@
     }
   });
 
-  type Variants = VariantProps<typeof tvPrevNext>;
-
-  interface Props extends Variants {
+  type PrevNextProps = {
     prev?: Entry_DataFragment | null;
     next?: Entry_DataFragment | null;
     compName?: string;
     className?: string;
-  }
+  } & VariantProps<typeof tvPrevNext>;
 
-  let {
-    prev = null,
-    next = null,
-    theme = "default",
-    compName = "PrevNext",
-    className = ""
-  }: Props = $props();
+  let { prev = null, next = null, theme = "default", compName = "PrevNext", className = "" }: PrevNextProps = $props();
 
   const { slotNav, slotLink, slotIcon, slotText, slotLabel, slotTitle } = tvPrevNext({ theme });
 </script>
@@ -52,25 +44,21 @@
 <nav data-comp={compName} class="{slotNav()} {className}">
   {#if prev}
     <a href="/{prev.uri}" class={slotLink()}>
-      <IconSprite icon="arrow-left-outline" size="sm" className={slotIcon()} />
+      <IconSprite icon="arrow-left-outline" size={48} className={slotIcon()} />
       <span class={slotText()}>
         <span class={slotLabel()}>Previous</span>
         <span class={slotTitle()}>{prev.title}</span>
       </span>
     </a>
-  {:else}
-    <div></div>
   {/if}
 
   {#if next}
     <a href="/{next.uri}" class="{slotLink()} flex-row-reverse">
-      <IconSprite icon="arrow-right-outline" size="sm" className={slotIcon()} />
+      <IconSprite icon="arrow-right-outline" size={48} className={slotIcon()} />
       <span class="{slotText()} text-end">
         <span class={slotLabel()}>Next</span>
         <span class={slotTitle()}>{next.title}</span>
       </span>
     </a>
-  {:else}
-    <div></div>
   {/if}
 </nav>

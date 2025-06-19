@@ -14,7 +14,7 @@
 
   let { data }: Props = $props();
 
-  const entry = getFirstEntry(data.entries);
+  const entry = $derived(getFirstEntry(data.entries));
 </script>
 
 {#if entry?.seomatic}
