@@ -5,6 +5,7 @@
   import HeroPhotos from "$components/heros/Photos.svelte";
   import Image from "$components/media/Image.svelte";
   import LightboxPhotos from "$components/modals/LightboxPhotos.svelte";
+  import PrevNext from "$components/navigation/PrevNext.svelte";
   import { getExifData } from "$utils/getExifData";
 
   interface Props {
@@ -29,4 +30,6 @@
   {#if entry?.images}
     <LightboxPhotos images={entry?.images} className="span-content" />
   {/if}
+
+  <PrevNext prev={entry?.prev} next={entry?.next} theme="photos" className="span-content" />
 {/if}
