@@ -17,15 +17,15 @@
 {/if}
 
 {#if entry && entry?.__typename === "entryAbout_Entry"}
-    {#if entry.title}
-      About
-      <Headline text={entry.title} />
-    {/if}
+  {#if entry.title}
+    About
+    <Headline text={entry.title} />
+  {/if}
 {/if}
 
 {#if entry && entry?.__typename === "entryWorkList_Entry"}
-    {#if entry.title}
-      Work
-      <Headline text={entry.title} />
-    {/if}
+  {#if entry.title}
+    Work
+    <Headline text={entry.title} />
+  {/if}
 {/if}

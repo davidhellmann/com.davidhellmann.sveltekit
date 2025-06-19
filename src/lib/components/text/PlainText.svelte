@@ -2,7 +2,7 @@
   import { tv, type VariantProps } from "tailwind-variants";
 
   const tvPlainText = tv({
-    base: "",
+    base: ""
   });
 
   type PlainTextProps = {
@@ -11,19 +11,11 @@
     text: string;
   } & VariantProps<typeof tvPlainText>;
 
-  const {
-    compName = "PlainText",
-    className,
-    text
-  }: PlainTextProps = $props();
-
+  const { compName = "PlainText", className, text }: PlainTextProps = $props();
 </script>
 
 {#if text}
-  <p
-    data-comp={compName}
-    class={tvPlainText({ className })}
-  >
+  <p data-comp={compName} class={tvPlainText({ className })}>
     {#each text.split("\n") as line}
       {line}
       <br />

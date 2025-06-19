@@ -1,4 +1,3 @@
-
 @layer components {
   .fluid-grid {
     --col-min-padding: calc(var(--spacing) * 2);
@@ -8,15 +7,37 @@
     --spacing-fluid: var(--col-gap);
     --content-max-width: var(--breakpoint-2xl);
     --popout: 0;
-    --padding-left: clamp(calc(env(safe-area-inset-left, 0rem) + var(--col-min-padding)), var(--col-fluidscale), calc(env(safe-area-inset-left, 0rem) + var(--col-max-padding)));
+    --padding-left: clamp(
+      calc(env(safe-area-inset-left, 0rem) + var(--col-min-padding)),
+      var(--col-fluidscale),
+      calc(env(safe-area-inset-left, 0rem) + var(--col-max-padding))
+    );
 
-    --padding-right: clamp(calc(env(safe-area-inset-right, 0rem) + var(--col-min-padding)), var(--col-fluidscale), calc(env(safe-area-inset-right, 0rem) + var(--col-max-padding)));
-    --col-width: calc((min(calc(100% - var(--padding-left) - var(--padding-right) - 2 * var(--col-gap)), var(--content-max-width)) - 11 * var(--col-gap)) / 12);
+    --padding-right: clamp(
+      calc(env(safe-area-inset-right, 0rem) + var(--col-min-padding)),
+      var(--col-fluidscale),
+      calc(env(safe-area-inset-right, 0rem) + var(--col-max-padding))
+    );
+    --col-width: calc(
+      (
+          min(calc(100% - var(--padding-left) - var(--padding-right) - 2 * var(--col-gap)), var(--content-max-width)) -
+            11 * var(--col-gap)
+        ) /
+        12
+    );
     --side-width: minmax(0, 1fr);
 
     display: grid;
     column-gap: var(--col-gap);
-    grid-template-columns: [full-start] var(--side-width) [popout-start] var(--popout) [content-start col-1] var(--col-width) [col-2] var(--col-width) [col-3] var(--col-width) [col-4] var(--col-width) [col-5] var(--col-width) [col-6] var(--col-width) [col-7] var(--col-width) [col-8] var(--col-width) [col-9] var(--col-width) [col-10] var(--col-width) [col-11] var(--col-width) [col-12] var(--col-width) [content-end] var(--popout) [popout-end] var(--side-width) [full-end];
+    grid-template-columns: [full-start] var(--side-width) [popout-start] var(--popout) [content-start col-1] var(
+        --col-width
+      ) [col-2] var(--col-width) [col-3] var(--col-width) [col-4] var(--col-width) [col-5] var(--col-width) [col-6] var(
+        --col-width
+      ) [col-7] var(--col-width) [col-8] var(--col-width) [col-9] var(--col-width) [col-10] var(
+        --col-width
+      ) [col-11] var(--col-width) [col-12] var(--col-width) [content-end] var(--popout) [popout-end] var(
+        --side-width
+      ) [full-end];
   }
 
   .span-full {
@@ -67,6 +88,3 @@
     }
   }
 }
-
-
-

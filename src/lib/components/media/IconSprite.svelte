@@ -16,7 +16,7 @@
         64: "size-16",
         96: "size-24",
         128: "size-32",
-        relative: "[--size:1.65cap] [width:var(--size)] [height:var(--size)] [flex-basis:var(--size)]",
+        relative: "[--size:1.65cap] [width:var(--size)] [height:var(--size)] [flex-basis:var(--size)]"
       }
     },
     defaultVariants: {
@@ -31,22 +31,11 @@
     iconSet?: IconSets;
   } & VariantProps<typeof tvIconSprite>;
 
-  const {
-    compName = "IconSprite",
-    className,
-    icon: iconName,
-    iconSet = "heroicons",
-    size,
-  }: IconSpriteProps = $props();
+  const { compName = "IconSprite", className, icon: iconName, iconSet = "heroicons", size }: IconSpriteProps = $props();
 </script>
 
 {#if iconName}
-  <svg
-    data-icon-name={iconName}
-    data-comp={compName}
-    class={tvIconSprite({ size, className })}
-    aria-hidden="true"
-  >
+  <svg data-icon-name={iconName} data-comp={compName} class={tvIconSprite({ size, className })} aria-hidden="true">
     <use xlink:href={`/icons/sprites/${iconSet}/sprite.svg#${iconName}`} />
   </svg>
 {/if}

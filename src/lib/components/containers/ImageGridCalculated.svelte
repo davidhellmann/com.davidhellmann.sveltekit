@@ -5,8 +5,8 @@
 
   const tvLightbox = tv({
     slots: {
-      slotWrapper: "flex flex-col lg:flex-row flex-nowrap gap-4 md:gap-8",
-    },
+      slotWrapper: "flex flex-col lg:flex-row flex-nowrap gap-4 md:gap-8"
+    }
   });
 
   type LightboxProps = {
@@ -15,20 +15,19 @@
     images: ComponentProps<typeof Image>["image"][];
   } & VariantProps<typeof tvLightbox>;
 
-  let {
-    compName = "Lightbox",
-    className,
-    images,
-  }: LightboxProps = $props();
+  let { compName = "Lightbox", className, images }: LightboxProps = $props();
 
   const { slotWrapper } = tvLightbox({ className });
 </script>
+
 {#if images}
-  <div data-comp={compName} class={slotWrapper({className})}>
+  <div data-comp={compName} class={slotWrapper({ className })}>
     {#each images.slice(0, images.length) as image (image?.id)}
       {#if image && image?.width && image?.height}
-        <div style={`--ratio: ${image?.width} / ${image?.height}; flex-basis: 0; aspect-ratio: var(--ratio); flex-grow: calc(var(--ratio) * 2);`}>
-          <Image image={image} ratio={"aspect-auto"} noscript={false} />
+        <div
+          style={`--ratio: ${image?.width} / ${image?.height}; flex-basis: 0; aspect-ratio: var(--ratio); flex-grow: calc(var(--ratio) * 2);`}
+        >
+          <Image {image} ratio={"aspect-auto"} noscript={false} />
         </div>
       {/if}
     {/each}

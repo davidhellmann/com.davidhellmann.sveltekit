@@ -13,7 +13,7 @@
         "[column-break-inside:avoid] group overflow-clip rounded-xl flex flex-col bg-black ring-1 ring-neutral-800 shadow-xl shadow-black transition-all hover:shadow-2xl hover:shadow-black hover:-translate-y-0.5",
       slotBrowser: "bg-neutral-900 rounded-t-lg h-8 flex flex-row items-center gap-1 pl-4",
       slotBrowserDot: "block rounded-full size-2 transition"
-    },
+    }
   });
 
   type LightboxWorkProps = {
@@ -23,20 +23,15 @@
     ratio?: ComponentProps<typeof Image>["ratio"];
   } & VariantProps<typeof tvLightboxWork>;
 
-  let {
-    compName = "LightboxWork",
-    className,
-    images,
-    ratio = "aspect-auto"
-  }: LightboxWorkProps = $props();
+  let { compName = "LightboxWork", className, images, ratio = "aspect-auto" }: LightboxWorkProps = $props();
 
   const items = images.map((image) => ({
     src: image?.url,
     thumb: image?.url,
-    width: image?.width?.toString(),
+    width: image?.width?.toString()
   }));
 
-  const { slotWrapper, slotCard, slotBrowser, slotBrowserDot} = tvLightboxWork({ className });
+  const { slotWrapper, slotCard, slotBrowser, slotBrowserDot } = tvLightboxWork({ className });
 
   const getAspectRatio = (image: ComponentProps<typeof Image>["image"]) => {
     const ratio = (image?.width ?? 1) / (image?.height ?? 1);
@@ -44,9 +39,9 @@
     if (ratio < 1) return "aspect-square md:aspect-portrait";
   };
 </script>
+
 {#if images}
-  <div data-comp={compName} class={slotWrapper({className})}
-       use:useLightbox={{ items: items, className: "is-dark"}}>
+  <div data-comp={compName} class={slotWrapper({ className })} use:useLightbox={{ items: items, className: "is-dark" }}>
     <Grid columns={"work-gallery"} gap={"fluid"}>
       {#each images as image, i (image?.id)}
         <div class={slotCard()}>
@@ -58,9 +53,9 @@
           <Image
             className={`size-full ${getAspectRatio(image) ?? ratio}`}
             index={i}
-            image={image}
+            {image}
             ratio={"unset"}
-            focalPoint={[0.5,0]}
+            focalPoint={[0.5, 0]}
             noscript={false}
           />
         </div>

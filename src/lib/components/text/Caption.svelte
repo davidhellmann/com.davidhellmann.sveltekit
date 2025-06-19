@@ -31,7 +31,7 @@
     className?: string;
     headline?: string | undefined;
     text: string;
-    tag?: CaptionTags,
+    tag?: CaptionTags;
     source?: string | undefined;
     sourceUrl?: string | undefined;
   } & VariantProps<typeof tvCaption>;
@@ -50,26 +50,13 @@
   const { slotFigcaption, slotHeadline, slotText, slotSource, textSize } = tvCaption({ size });
 </script>
 
-
 {#if text}
-  <svelte:element this={tag}
-    data-comp={compName}
-    class={`${slotFigcaption({ size, className })} ${textSize()}`}
-  >
+  <svelte:element this={tag} data-comp={compName} class={`${slotFigcaption({ size, className })} ${textSize()}`}>
     {#if headline}
-      <Headline
-        text={headline}
-        tag={"h3"}
-        size={size}
-        weight={"semibold"}
-        className={slotHeadline()}
-      />
+      <Headline text={headline} tag={"h3"} {size} weight={"semibold"} className={slotHeadline()} />
     {/if}
 
-    <PlainText
-      className={slotText()}
-      text={text}
-    />
+    <PlainText className={slotText()} {text} />
 
     {#if source && !sourceUrl}
       <PlainText className={slotSource()} text={source} />

@@ -52,7 +52,7 @@
         8: "w-28 h-12",
         9: "w-32 h-12",
         10: "w-16 h-12",
-        11: "w-20 h-16",
+        11: "w-20 h-16"
       },
       rotate: {
         1: "rotate-1",
@@ -62,20 +62,20 @@
         5: "-rotate-1",
         6: "-rotate-2",
         7: "-rotate-3",
-        8: "-rotate-6",
+        8: "-rotate-6"
       },
       translateY: {
         1: "-translate-y-1/2",
         2: "-translate-y-1/3",
         3: "-translate-y-4",
         4: "-translate-y-5",
-        5: "-translate-y-6",
+        5: "-translate-y-6"
       }
     },
     defaultVariants: {
-      size: getRandomNumberFromRange(1, 11) as 1 | 2| 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11,
+      size: getRandomNumberFromRange(1, 11) as 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11,
       rotate: getRandomNumberFromRange(1, 8) as 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8,
-      translateY: getRandomNumberFromRange(1, 5) as 1 | 2 | 3 | 4 | 5,
+      translateY: getRandomNumberFromRange(1, 5) as 1 | 2 | 3 | 4 | 5
     }
   });
 
@@ -84,13 +84,7 @@
     className?: string;
   } & VariantProps<typeof tvTape>;
 
-  const {
-    compName = "Tape",
-    className,
-    size,
-    rotate,
-    translateY
-  }: TapeProps = $props();
-
+  const { compName = "Tape", className, size, rotate, translateY }: TapeProps = $props();
 </script>
+
 <div data-comp={compName} class={tvTape({ size, rotate, translateY, className })} aria-hidden="true"></div>

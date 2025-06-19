@@ -139,7 +139,7 @@
     }
   }
 
-  :global(:where([data-theme=dark]) [data-comp="RichText"] a) {
+  :global(:where([data-theme="dark"]) [data-comp="RichText"] a) {
     color: var(--color-neutral-50);
     text-decoration-color: var(--color-accent-purple-400);
   }

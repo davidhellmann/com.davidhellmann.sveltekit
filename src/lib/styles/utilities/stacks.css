@@ -12,7 +12,7 @@
   }
 
   > *:not(.no-space-y, .no-space-b) + *:not(.no-space-y, .no-space-t) {
-    margin-block-start: var(--stack-item-space, var(--stack-space, 4rem))
+    margin-block-start: var(--stack-item-space, var(--stack-space, 4rem));
   }
 }
 

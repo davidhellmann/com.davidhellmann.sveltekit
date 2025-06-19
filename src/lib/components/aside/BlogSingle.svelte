@@ -4,8 +4,8 @@
 
   const tvAsideBlogSingle = tv({
     slots: {
-      slotWrapper: "sticky top-12",
-    },
+      slotWrapper: "sticky top-12"
+    }
   });
 
   type AsideBlogSingleProps = {
@@ -17,20 +17,13 @@
     };
   } & VariantProps<typeof tvAsideBlogSingle>;
 
-  const {
-    compName = "AsideBlogSingle",
-    className,
-    category
-  }: AsideBlogSingleProps = $props();
+  const { compName = "AsideBlogSingle", className, category }: AsideBlogSingleProps = $props();
 
-  const {slotWrapper} = tvAsideBlogSingle();
+  const { slotWrapper } = tvAsideBlogSingle();
 </script>
 
 {#if category}
-  <div
-    data-comp={compName}
-    class={slotWrapper({ className })}
-  >
+  <div data-comp={compName} class={slotWrapper({ className })}>
     {#if category?.title}
       <Pill text={category?.title} url={category?.url} />
     {/if}

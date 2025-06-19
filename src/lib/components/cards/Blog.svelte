@@ -12,7 +12,8 @@
         "@container group text-neutral-50 px-8 md:px-10 pt-12 pb-20 rounded-3xl flex flex-col items-start stack-4 transition-all shadow-md hover:shadow-xl hover:-translate-y-0.5 transform-gpu",
       slotMeta: "flex flex-col @sm:flex-row @sm:items-center flex-wrap gap-x-6",
       slotCategory: "",
-      slotFakeLink: "transition absolute ease-out duration-300 right-6 -bottom-0 opacity-0 translate-y-1/2 group-hover:-translate-y-1/2 group-hover:opacity-100"
+      slotFakeLink:
+        "transition absolute ease-out duration-300 right-6 -bottom-0 opacity-0 translate-y-1/2 group-hover:-translate-y-1/2 group-hover:opacity-100"
     },
     variants: {
       theme: {

@@ -1,5 +1,5 @@
 @layer base {
- :root {
+  :root {
     --focus-outline-width: 2px;
     --focus-outline-offset: 3px;
     --focus-outline-color: currentColor;

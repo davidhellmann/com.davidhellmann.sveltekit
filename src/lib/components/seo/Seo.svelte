@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {parseSEO, type ISEO, type IParseSEO} from "$lib/utils/parseSEO";
+  import { parseSEO, type ISEO, type IParseSEO } from "$lib/utils/parseSEO";
 
   interface Props {
     seo: IParseSEO;
@@ -15,13 +15,13 @@
 
     {#if seomatic.meta}
       {#each seomatic.meta as item (item)}
-        <meta {...item}/>
+        <meta {...item} />
       {/each}
     {/if}
 
     {#if seomatic.links}
       {#each seomatic.links as item (item)}
-        <link {...item}/>
+        <link {...item} />
       {/each}
     {/if}
 

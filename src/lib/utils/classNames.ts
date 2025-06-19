@@ -17,7 +17,7 @@ const customConfig = {
   theme: {
     ...defaultConfig.theme,
     // Add fluid to the spacing scale
-    spacing: [...defaultConfig.theme.spacing, "fluid"],
+    spacing: [...defaultConfig.theme.spacing, "fluid"]
   },
   conflictingClassGroups: {
     ...defaultConfig.conflictingClassGroups,

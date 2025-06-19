@@ -7,14 +7,9 @@
     quote: string;
     source?: string;
     link?: Hyper_DataFragment | undefined;
-  }
+  };
 
-  const {
-    compName = "BlockQuote",
-    quote,
-    source,
-    link
-  }: BlockQuote = $props();
+  const { compName = "BlockQuote", quote, source, link }: BlockQuote = $props();
 </script>
 
 {#if quote}
