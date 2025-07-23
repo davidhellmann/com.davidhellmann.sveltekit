@@ -73,7 +73,6 @@
   const {
     compName = "Pagination",
     className,
-    totalItems,
     totalPages,
     currentPage = 1,
     iconPrev = "arrow-left-outline",
@@ -83,7 +82,6 @@
     yPosition,
     xPosition,
     theme = "default",
-    ...rest
   }: PaginationProps = $props();
 
   const getRange = (start: number, end: number): number[] => {

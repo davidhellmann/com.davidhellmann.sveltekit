@@ -18,15 +18,16 @@
     className?: string;
     images: ComponentProps<typeof Image>["image"][];
     ratio?: ComponentProps<typeof Image>["ratio"];
+    galleryId?: string;
   } & VariantProps<typeof tvLightboxPhotos>;
 
-  let { compName = "LightboxPhotos", className, images, ratio = "aspect-auto" }: LightboxPhotosProps = $props();
+  let { compName = "LightboxPhotos", className, images, ratio = "aspect-auto", galleryId }: LightboxPhotosProps = $props();
 
-  const items = images.map((image) => ({
+  const items = $derived(images.map((image) => ({
     src: image?.url,
     thumb: image?.url,
     width: image?.width?.toString()
-  }));
+  })));
 
   const { slotRoot, slotItem } = tvLightboxPhotos({ className });
 </script>
@@ -35,7 +36,7 @@
   <ul
     data-comp={compName}
     class={slotRoot({ className })}
-    use:useLightbox={{ items: items, showThumbs: false, className: "is-photos" }}
+    use:useLightbox={{ items, showThumbs: false, className: "is-photos" }}
   >
     {#each images as image, i (image?.id)}
       <li class={slotItem()}>

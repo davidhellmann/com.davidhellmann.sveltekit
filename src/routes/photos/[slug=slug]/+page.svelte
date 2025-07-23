@@ -28,7 +28,7 @@
   {/if}
 
   {#if entry?.images}
-    <LightboxPhotos images={entry?.images} className="span-content" />
+    <LightboxPhotos images={entry?.images} className="span-content" galleryId={entry.id || entry.slug} />
   {/if}
 
   <PrevNext prev={entry?.prev} next={entry?.next} theme="photos" className="span-content" />
