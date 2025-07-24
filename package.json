@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "svelte-kit sync && concurrently \"npm run codegen --watch\" \"vite dev\"",
-    "build": "svelte-kit sync &&vite build",
+    "build": "svelte-kit sync && vite build",
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
