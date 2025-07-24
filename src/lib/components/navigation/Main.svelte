@@ -66,12 +66,12 @@
         <span class="hidden xs:inline-block">blog.</span>
       </a>
     </li>
-    <li data-waypoint-target class="is-zoomInDown">
+    <!-- <li data-waypoint-target class="is-zoomInDown">
       <a class={slotLink({ theme })} aria-current={isCurrentPage("/projects")} href="/projects">
         <IconSprite className={slotIcon()} size={20} icon="rectangle-stack-outline" />
         <span class="hidden xs:inline-block">projects.</span>
       </a>
-    </li>
+    </li> -->
     <li data-waypoint-target class="is-zoomInDown">
       <a class={slotLink({ theme })} aria-current={isCurrentPage("/photos")} href="/photos">
         <IconSprite className={slotIcon()} size={20} icon="photo-outline" />
