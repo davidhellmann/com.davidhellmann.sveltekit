@@ -8,7 +8,7 @@
 
   const tvLightboxWork = tv({
     slots: {
-      slotWrapper: "relative cursor-pointer bg-neutral-950 rounded-t-3xl",
+      slotWrapper: "relative cursor-pointer rounded-t-3xl",
       slotCard:
         "[column-break-inside:avoid] group overflow-clip rounded-xl flex flex-col bg-black ring-1 ring-neutral-800 shadow-xl shadow-black transition-all hover:shadow-2xl hover:shadow-black hover:-translate-y-0.5",
       slotBrowser: "bg-neutral-900 rounded-t-lg h-8 flex flex-row items-center gap-1 pl-4",
