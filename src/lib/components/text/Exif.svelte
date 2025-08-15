@@ -65,22 +65,22 @@
           {/if}
           {exifParsed.cameraModel}</span
         >
-        {#if !exifParsed.lensModel.includes(exifParsed.cameraModel)}<span>{exifParsed.lensModel}</span>{/if}
+        <!-- {#if !exifParsed.lensModel.includes(exifParsed.cameraModel)}<span>{exifParsed.lensModel}</span>{/if} -->
       {/if}
     </div>
     {#if showSettings}
       <div class={slotSettings({ spacing })}>
-        {#if exifParsed?.iso}
-          <span>ISO {exifParsed?.iso}</span>
-        {/if}
-        {#if exifParsed?.shutterSpeed}
-          <span>{exifParsed?.shutterSpeed}</span>
+        {#if exifParsed?.focalLength}
+          <span>{exifParsed?.focalLength}</span>
         {/if}
         {#if exifParsed?.aperture}
           <span>{exifParsed?.aperture}</span>
         {/if}
-        {#if exifParsed?.focalLength}
-          <span>{exifParsed?.focalLength}</span>
+        {#if exifParsed?.shutterSpeed}
+          <span>{exifParsed?.shutterSpeed}</span>
+        {/if}
+        {#if exifParsed?.iso}
+          <span>ISO{exifParsed?.iso}</span>
         {/if}
       </div>
     {/if}

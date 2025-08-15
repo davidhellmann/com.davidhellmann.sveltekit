@@ -6,7 +6,8 @@ import {
   type GetEntriesQueryVariables,
   GetPrerenderDataDocument,
   type GetPrerenderDataQueryVariables,
-  type GetPrerenderDataQuery
+  type GetPrerenderDataQuery,
+  type EntryType_PhotosSingleFragment
 } from "$graphql/graphql";
 import { getGqlData } from "$graphql/graphql-client";
 
@@ -36,6 +37,6 @@ export const load: PageServerLoad = async ({ params }) => {
   console.log("Render:", entries?.[0]?.title);
 
   return {
-    entries: entries
+    entries: entries as EntryType_PhotosSingleFragment[]
   };
 };

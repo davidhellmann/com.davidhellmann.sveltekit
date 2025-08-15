@@ -9,7 +9,7 @@
   const tvLightboxPhotos = tv({
     slots: {
       slotRoot: "grid md:grid-cols-2 xl:grid-cols-3 gap-fluid items-center pointer-events-none",
-      slotItem: "stack-4 @container flex-col flex items-center group"
+      slotItem: "@container flex-col flex items-center group border-black border-t-24 border-x-4"
     }
   });
 
@@ -21,13 +21,21 @@
     galleryId?: string;
   } & VariantProps<typeof tvLightboxPhotos>;
 
-  let { compName = "LightboxPhotos", className, images, ratio = "aspect-auto", galleryId }: LightboxPhotosProps = $props();
+  let {
+    compName = "LightboxPhotos",
+    className,
+    images,
+    ratio = "aspect-auto",
+    galleryId
+  }: LightboxPhotosProps = $props();
 
-  const items = $derived(images.map((image) => ({
-    src: image?.url,
-    thumb: image?.url,
-    width: image?.width?.toString()
-  })));
+  const items = $derived(
+    images.map((image) => ({
+      src: image?.url,
+      thumb: image?.url,
+      width: image?.width?.toString()
+    }))
+  );
 
   const { slotRoot, slotItem } = tvLightboxPhotos({ className });
 </script>
@@ -48,11 +56,7 @@
           index={i}
         />
         {#if image?.exif}
-          <Exif
-            className="w-full transition-all translate-y-4 opacity-0 group-hover:opacity-100  group-hover:translate-y-0"
-            spacing="compact"
-            exif={image?.exif}
-          />
+          <Exif className="w-full bg-black text-neutral-200 p-2" spacing="compact" exif={image?.exif} />
         {/if}
       </li>
     {/each}

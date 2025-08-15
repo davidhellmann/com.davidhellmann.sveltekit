@@ -91,7 +91,7 @@
                 {/if}
 
                 <Image
-                  ratio="aspect-auto"
+                  ratio="aspect-instagram"
                   className="mt-auto z-10 grayscale-0 group-hover:grayscale-100 transition-all"
                   image={entry?.image[0]}
                 />
