@@ -8,7 +8,7 @@
 
   const tvLightboxPhotos = tv({
     slots: {
-      slotRoot: "columns-2 md:columns-3 xl:columns-4 gap-4 space-y-4 pointer-events-none",
+      slotRoot: "sm:columns-2 md:columns-3 xl:columns-4 gap-4 space-y-4 pointer-events-none",
       slotItem:
         "@container cursor-zoom-in flex-col flex flex-nowrap items-center group break-inside-avoid border border-neutral-200 bg-neutral-50 rounded-2xl p-3"
     }

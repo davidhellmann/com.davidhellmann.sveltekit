@@ -95,7 +95,11 @@
 }
 
 .lg-container .lg-img-wrap {
-  padding: 42px;
+  padding: 20px;
+
+  @media (min-width: theme(--breakpoint-md)) {
+    padding: 42px;
+  }
 
   img {
     border-radius: var(--radius-xl);
