@@ -50,7 +50,7 @@
       <li class={slotItem()}>
         <div class="rounded-xl overflow-hidden w-full">
           <Image
-            ratio="aspect-square"
+            ratio="aspect-instagram"
             className="w-full pointer-events-auto cursor-pointer group-hover:scale-105 transition-transform"
             noscript={false}
             {image}

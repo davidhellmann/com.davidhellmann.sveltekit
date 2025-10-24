@@ -17,14 +17,15 @@
   const tvStackPhotos = tv({
     slots: {
       slotRoot: "",
-      slotList: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 gap-y-8",
+      slotList: "grid grid-cols-1 divide-y-1 divide-neutral-200 divide-solid border-y-1 border-neutral-200",
       slotListItem: "",
       slotCount:
-        "font-mono text-xs absolute top-0 left-6 font-bold text-white bg-black group-hover:bg-[red] -translate-y-1/2 leading-[1] size-10 rounded-full flex items-center justify-center border-4 border-white",
+        "transition-colors mb-2 font-mono text-xs font-bold text-white bg-black group-hover:bg-[red] leading-[1] size-10 rounded-full flex items-center justify-center ",
       slotListItemLink:
-        "group border-1 flex border-black shadow-md shadow-neutral-200 p-8 pt-12 transition-all  hover:shadow-2xs h-full flex flex-col gap-8",
-      slotGearList:
-        "font-mono text-xs font-medium text-neutral-400 opacity-0 translate-y-4 transition-all group-hover:opacity-100 group-hover:translate-y-0 -mt-6"
+        "group flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 lg:gap-10 py-6 px-6 lg:px-10 transition-colors bg-white  hover:bg-neutral-50",
+      slotText: "lg:w-1/2",
+      slotImages: "flex gap-2 lg:w-1/2",
+      slotGearList: "font-mono text-xs font-medium text-neutral-400"
     }
   });
 
@@ -50,7 +51,10 @@
     page
   }: StackPhotosProps = $props();
 
-  const { slotRoot, slotList, slotListItem, slotCount, slotListItemLink, slotGearList } = tvStackPhotos({ className });
+  const { slotRoot, slotList, slotListItem, slotCount, slotText, slotImages, slotListItemLink, slotGearList } =
+    tvStackPhotos({
+      className
+    });
 </script>
 
 {#if entries}
@@ -75,26 +79,30 @@
             {@const exifDataParsed = getExifData(entry?.images)}
             <li class={`is-zoomInUp ${slotListItem()}`} data-waypoint-target>
               <a class={slotListItemLink()} href={entry?.url}>
-                <span class={slotCount()}>{entry?.images?.length}</span>
-                <Headline className="font-mono text-sm font-medium leading-tight" text={entry?.title} />
+                <div class={slotText()}>
+                  <span class={slotCount()}>{entry?.images?.length}</span>
+                  <Headline className="font-mono text-base font-medium leading-tight" text={entry?.title} />
 
-                {#if exifDataParsed.cameras || exifDataParsed.lenses}
-                  <div class="flex flex-col gap-2">
-                    {#if exifDataParsed.cameras}
-                      <ul class={slotGearList()}>
-                        {#each exifDataParsed.cameras as camera}
-                          <li>{camera}</li>
-                        {/each}
-                      </ul>
-                    {/if}
-                  </div>
-                {/if}
+                  {#if exifDataParsed.cameras || exifDataParsed.lenses}
+                    <div class="flex flex-col gap-2">
+                      {#if exifDataParsed.cameras}
+                        <ul class={slotGearList()}>
+                          {#each exifDataParsed.cameras as camera}
+                            <li>{camera}</li>
+                          {/each}
+                        </ul>
+                      {/if}
+                    </div>
+                  {/if}
+                </div>
 
-                <Image
-                  ratio="aspect-instagram"
-                  className="mt-auto z-10 grayscale-0 group-hover:grayscale-100 transition-all"
-                  image={entry?.image[0]}
-                />
+                <div class={slotImages()}>
+                  {#each entry?.previewImages as image, i (image.id)}
+                    <div class="rounded-md overflow-hidden flex">
+                      <Image ratio="aspect-instagram" className="hover:scale-105 transition-transform" {image} />
+                    </div>
+                  {/each}
+                </div>
               </a>
             </li>
           {/if}

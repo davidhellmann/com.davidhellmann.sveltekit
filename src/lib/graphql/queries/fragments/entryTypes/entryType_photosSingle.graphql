@@ -14,4 +14,10 @@ fragment entryType_photosSingle on entryPhotosSingle_Entry {
     ...asset_transforms
     ...asset_customFields
   }
+
+  previewImages: images (limit: 4, orderBy: "RAND()") {
+    ...asset_data
+    ...asset_transforms
+    ...asset_customFields
+  }
 }
