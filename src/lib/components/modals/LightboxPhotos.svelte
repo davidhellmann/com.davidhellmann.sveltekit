@@ -10,7 +10,7 @@
     slots: {
       slotRoot: "columns-2 md:columns-3 xl:columns-4 gap-4 space-y-4 pointer-events-none",
       slotItem:
-        "@container flex-col flex flex-nowrap items-center group break-inside-avoid border-1 border-neutral-200 bg-neutral-50 rounded-2xl p-3"
+        "@container cursor-zoom-in flex-col flex flex-nowrap items-center group break-inside-avoid border border-neutral-200 bg-neutral-50 rounded-2xl p-3"
     }
   });
 
@@ -52,7 +52,7 @@
         <div class="rounded-xl overflow-hidden w-full">
           <Image
             ratio="aspect-auto"
-            className="w-full pointer-events-auto cursor-pointer group-hover:scale-105 transition-transform"
+            className="w-full pointer-events-auto cursor-zoom-in group-hover:scale-105 transition-transform"
             noscript={false}
             {image}
             index={i}
