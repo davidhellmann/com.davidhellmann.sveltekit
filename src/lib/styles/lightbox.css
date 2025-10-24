@@ -94,6 +94,14 @@
   @apply ring-1 ring-black/5;
 }
 
+.lg-container .lg-img-wrap {
+  padding: 42px;
+
+  img {
+    border-radius: var(--radius-xl);
+  }
+}
+
 .lg-container.is-dark .lg-backdrop {
   isolation: isolate;
   background-color: --alpha(var(--color-neutral-950) / 80%);
