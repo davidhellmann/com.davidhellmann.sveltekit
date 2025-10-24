@@ -8,8 +8,9 @@
 
   const tvLightboxPhotos = tv({
     slots: {
-      slotRoot: "columns-2 md:columns-3 xl:columns-4 gap-fluid space-y-fluid pointer-events-none",
-      slotItem: "@container flex-col flex flex-nowrap items-center group break-inside-avoid"
+      slotRoot: "columns-2 md:columns-3 xl:columns-4 gap-4 space-y-4 pointer-events-none",
+      slotItem:
+        "@container flex-col flex flex-nowrap items-center group break-inside-avoid border-1 border-neutral-200 bg-neutral-50 rounded-2xl p-3"
     }
   });
 
@@ -58,7 +59,7 @@
           />
         </div>
         {#if image?.exif}
-          <Exif className="w-full text-neutral-600 p-2" spacing="compact" exif={image?.exif} />
+          <Exif className="w-full text-neutral-600 p-2 pt-3" spacing="compact" exif={image?.exif} />
         {/if}
       </li>
     {/each}
