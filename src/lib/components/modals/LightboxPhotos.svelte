@@ -8,8 +8,8 @@
 
   const tvLightboxPhotos = tv({
     slots: {
-      slotRoot: "grid md:grid-cols-3 xl:grid-cols-4 gap-fluid items-center pointer-events-none",
-      slotItem: "@container flex-col flex items-center group"
+      slotRoot: "columns-2 md:columns-3 xl:columns-4 gap-fluid space-y-fluid pointer-events-none",
+      slotItem: "@container flex-col flex flex-nowrap items-center group break-inside-avoid"
     }
   });
 
@@ -50,7 +50,7 @@
       <li class={slotItem()}>
         <div class="rounded-xl overflow-hidden w-full">
           <Image
-            ratio="aspect-instagram"
+            ratio="aspect-auto"
             className="w-full pointer-events-auto cursor-pointer group-hover:scale-105 transition-transform"
             noscript={false}
             {image}

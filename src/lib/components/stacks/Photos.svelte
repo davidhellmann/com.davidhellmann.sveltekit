@@ -24,7 +24,7 @@
       slotListItemLink:
         "group flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 lg:gap-10 py-6 px-6 lg:px-10 transition-colors bg-white  hover:bg-neutral-50",
       slotText: "w-full lg:w-1/2",
-      slotImages: "flex gap-2 w-full lg:w-1/2",
+      slotImages: "flex gap-2 w-full lg:w-1/2 ",
       slotGearList: "font-mono text-xs font-medium text-neutral-400"
     }
   });
