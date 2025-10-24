@@ -98,7 +98,7 @@
 
                 <div class={slotImages()}>
                   {#each entry?.previewImages as image, i (image.id)}
-                    <div class="rounded-md overflow-hidden flex">
+                    <div class="rounded-md grow overflow-hidden flex">
                       <Image ratio="aspect-instagram" className="hover:scale-105 transition-transform" {image} />
                     </div>
                   {/each}
