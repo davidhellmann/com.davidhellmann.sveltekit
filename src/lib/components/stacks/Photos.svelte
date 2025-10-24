@@ -22,7 +22,7 @@
       slotCount:
         "transition-colors mb-2 font-mono text-xs font-bold text-white bg-black group-hover:bg-[red] leading-[1] size-10 rounded-full flex items-center justify-center ",
       slotListItemLink:
-        "group flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 lg:gap-10 py-6 px-6 lg:px-10 transition-colors bg-white  hover:bg-neutral-50",
+        "group flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 lg:gap-10 py-6 lg:px-6 transition-colors bg-white  hover:bg-neutral-50",
       slotText: "w-full lg:w-1/2",
       slotImages: "flex gap-2 w-full lg:w-1/2 ",
       slotGearList: "font-mono text-xs font-medium text-neutral-400"
