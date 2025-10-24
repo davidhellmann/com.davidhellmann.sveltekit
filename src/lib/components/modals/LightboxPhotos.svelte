@@ -48,13 +48,15 @@
   >
     {#each images as image, i (image?.id)}
       <li class={slotItem()}>
-        <Image
-          ratio="aspect-portrait"
-          className="w-full pointer-events-auto cursor-pointer rounded-xl"
-          noscript={false}
-          {image}
-          index={i}
-        />
+        <div class="rounded-xl overflow-hidden w-full">
+          <Image
+            ratio="aspect-portrait"
+            className="w-full pointer-events-auto cursor-pointer group-hover:scale-105 transition-transform"
+            noscript={false}
+            {image}
+            index={i}
+          />
+        </div>
         {#if image?.exif}
           <Exif className="w-full text-neutral-600 p-2" spacing="compact" exif={image?.exif} />
         {/if}
