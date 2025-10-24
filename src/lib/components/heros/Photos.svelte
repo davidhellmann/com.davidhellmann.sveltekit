@@ -21,10 +21,12 @@
 
   const { compName = "HeroPhotos", className, headline, exif, imageCount }: HeroPhotosProps = $props();
 
+  const _headline = headline.split(" (")?.[0] ?? headline;
+
   const { slotWrapper, slotHeadline, slotGearList } = tvHeroPhotos();
 </script>
 
-{#if headline}
+{#if _headline}
   <header data-comp={compName} class={slotWrapper({ className })}>
     <div>
       {#if imageCount}
@@ -33,7 +35,7 @@
           >{imageCount}</span
         >
       {/if}
-      <Headline text={headline} tag="h1" className={slotHeadline()} />
+      <Headline text={_headline} tag="h1" className={slotHeadline()} />
       <div class="flex gap-8 mt-2">
         {#if exif.cameras}
           <span class={slotGearList()}>{exif.cameras.join(", ")}</span>

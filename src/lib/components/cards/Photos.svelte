@@ -26,11 +26,12 @@
   } & VariantProps<typeof tvCardPhotos>;
 
   let { compName = "CardPhotos", className, headline, url, image }: CardPhotosProps = $props();
+  const _headline = headline.split(" (")?.[0] ?? headline;
 
   const { slotBase, slotImage, slotContent, slotHeadline, slotExif } = tvCardPhotos({ className });
 </script>
 
-{#if headline && url}
+{#if _headline && url}
   <a
     href={url}
     class={slotBase({ className })}
@@ -47,7 +48,7 @@
           {#if image?.exif}
             <Exif exif={image?.exif} showSettings={false} spacing="compact" className={slotExif()} />
           {/if}
-          <Headline text={headline} className={slotHeadline({})} />
+          <Headline text={_headline} className={slotHeadline({})} />
         </div>
       </Polaroid>
     {/if}

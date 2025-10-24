@@ -55,6 +55,10 @@
     tvStackPhotos({
       className
     });
+
+  const transformTitle = (title: string) => {
+    return title.split(" (")?.[0] ?? title;
+  };
 </script>
 
 {#if entries}
@@ -81,7 +85,10 @@
               <a class={slotListItemLink()} href={entry?.url}>
                 <div class={slotText()}>
                   <span class={slotCount()}>{entry?.images?.length}</span>
-                  <Headline className="font-mono text-base font-medium leading-tight" text={entry?.title} />
+                  <Headline
+                    className="font-mono text-base font-medium leading-tight"
+                    text={transformTitle(entry?.title)}
+                  />
 
                   {#if exifDataParsed.cameras || exifDataParsed.lenses}
                     <div class="flex flex-col gap-2">
