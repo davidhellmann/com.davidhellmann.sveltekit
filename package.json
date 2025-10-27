@@ -21,9 +21,9 @@
     "@graphql-codegen/typescript": "^5.0.2",
     "@graphql-codegen/typescript-graphql-request": "^6.3.0",
     "@graphql-codegen/typescript-operations": "^5.0.2",
-    "@sveltejs/adapter-auto": "^6.0.1",
+    "@sveltejs/adapter-auto": "^7.0.0",
     "@sveltejs/adapter-static": "^3.0.10",
-    "@sveltejs/kit": "^2.47.3",
+    "@sveltejs/kit": "^2.48.0",
     "@sveltejs/vite-plugin-svelte": "^6.2.1",
     "@types/eslint": "^9.6.1",
     "autoprefixer": "^10.4.21",
@@ -37,8 +37,8 @@
     "globals": "^16.4.0",
     "prettier": "^3.6.2",
     "prettier-plugin-svelte": "^3.4.0",
-    "shiki": "^3.13.0",
-    "svelte": "5.41.3",
+    "shiki": "^3.14.0",
+    "svelte": "5.42.2",
     "svelte-check": "^4.3.3",
     "svelte-time": "^2.0.2",
     "tailwindcss": "^4.1.16",
@@ -46,7 +46,7 @@
     "typescript-eslint": "^8.46.2",
     "vite": "^7.1.12",
     "vite-svg-sprite-wrapper": "^1.5.0",
-    "vitest": "^4.0.2"
+    "vitest": "^4.0.4"
   },
   "type": "module",
   "dependencies": {
