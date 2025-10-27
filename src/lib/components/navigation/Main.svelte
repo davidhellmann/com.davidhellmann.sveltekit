@@ -17,7 +17,7 @@
           slotList: "text-accent-purple-100 ring-white/50 bg-accent-purple-500/50 ring-1"
         },
         photos: {
-          slotList: "bg-white/50 text-black ring-1 ring-black"
+          slotList: "bg-white/50 text-black ring-1 ring-black/5 shadow-md"
         }
       }
     }

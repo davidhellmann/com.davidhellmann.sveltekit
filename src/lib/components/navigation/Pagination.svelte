@@ -6,27 +6,28 @@
   const tvPagination = tv({
     slots: {
       slotNav: "flex justify-center  text-sm",
-      slotList: "flex rounded-md overflow-clip shadow-xs",
-      slotListItem: "[&:not(:last-child)]:border-r-2",
-      slotLink: "flex px-4 pt-3 pb-2 h-full items-center transition",
-      slotSpacer: "flex px-4 pt-3 pb-2 border-b-4 border-transparent ",
-      slotCurrent: "flex px-4 pt-3 pb-2 border-b-4"
+      slotList: "flex rounded-md",
+      slotListItem: "",
+      slotLink: "flex  h-full items-center transition",
+      slotSpacer: "flex",
+      slotCurrent: "flex"
     },
     variants: {
       theme: {
         default: {
-          slotList: "bg-neutral-100 shadow-neutral-400",
-          slotListItem: "[&:not(:last-child)]:border-e-neutral-200",
-          slotLink: "hover:bg-neutral-50",
-          slotSpacer: "text-neutral-400",
-          slotCurrent: "border-accent-purple-400"
+          slotList: "bg-neutral-100 shadow-neutral-400  shadow-xs",
+          slotListItem: "[&:not(:last-child)]:border-e-1 [&:not(:last-child)]:border-e-neutral-200",
+          slotLink: "hover:bg-neutral-50 px-4 pt-3 pb-2",
+          slotSpacer: " px-4 pt-3 pb-2  text-neutral-400",
+          slotCurrent:
+            "px-4 relative pt-3 pb-2 after:size-2 after:bg-accent-purple-400 after:rounded-full after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:translate-y-4"
         },
         photos: {
-          slotList: "bg-white shadow-0 outline outline-black",
-          slotListItem: "[&:not(:last-child)]:border-e-black",
-          slotLink: "hover:bg-black hover:text-white",
-          slotSpacer: "text-neutral-400",
-          slotCurrent: "border-accent-black"
+          slotList: "bg-white gap-1",
+          slotListItem: "",
+          slotLink: "hover:bg-neutral-100  rounded-full size-10 justify-center",
+          slotSpacer: "text-neutral-400  border-b-0  rounded-full",
+          slotCurrent: "bg-[red] text-white  rounded-full size-10 justify-center items-center"
         }
       },
       yPosition: {
@@ -81,7 +82,7 @@
     uri,
     yPosition,
     xPosition,
-    theme = "default",
+    theme = "default"
   }: PaginationProps = $props();
 
   const getRange = (start: number, end: number): number[] => {
@@ -108,7 +109,7 @@
 
     {#if simple}
       <li class={`${slotListItem()}`}>
-        <span class={`${slotCurrent()} border-transparent`}>{currentPage} / {totalPages}</span>
+        <span class={`${slotCurrent()} border-transparent after:hidden`}>{currentPage} / {totalPages}</span>
       </li>
     {/if}
 
