@@ -1,5 +1,6 @@
 <script lang="ts">
   import { tv, type VariantProps } from "tailwind-variants";
+  import type { HTMLAttributes } from "svelte/elements";
 
   const tvRichText = tv({
     base: "stack-4"
@@ -9,7 +10,8 @@
     compName?: string;
     className?: string;
     html: string;
-  } & VariantProps<typeof tvRichText>;
+  } & VariantProps<typeof tvRichText> &
+    HTMLAttributes<HTMLDivElement>;
 
   const { compName = "RichText", className, html, ...rest }: RichTextProps = $props();
 </script>

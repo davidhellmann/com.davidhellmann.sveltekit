@@ -30,7 +30,7 @@
 
   const cc = {
     heading: "span-content text-black is-zoomInDown text-7xl font-decorative font-extrabold flex flex-wrap",
-    text: "span-content xl:col-start-[col-3] xl:col-end-[col-10] text-2xl is-zoomInDown [&_*_strong]:decoration-wavy [&_*_strong]:underline [&_*_strong]:decoration-4 [&_*_strong]:decoration-accent-purple-400",
+    text: "span-content xl:col-start-[col-3] xl:col-end-[col-10] text-2xl is-zoomInDown [&*strong]:decoration-wavy [&*strong]:underline [&*strong]:decoration-4 [&*strong]:decoration-accent-purple-400",
     list: "span-content z-10 @container"
   };
 
