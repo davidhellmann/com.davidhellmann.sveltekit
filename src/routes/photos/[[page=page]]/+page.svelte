@@ -15,10 +15,19 @@
     data: PageData;
   }
 
+  import {
+    type Entry_DataFragment,
+    type Entry_SeoFragment,
+    type EntryType_PhotosSingleFragment,
+    type EntryType_PhotosListFragment
+  } from "$graphql/graphql";
+
   let { data }: Props = $props();
   const entryCount = data.entryCount ?? 1;
   const totalPages = data.totalPages ?? 1;
-  let photosEntry = getFirstEntry(data.photosEntry);
+  let photosEntry = getFirstEntry(data.photosEntry) as Entry_DataFragment &
+    Entry_SeoFragment &
+    EntryType_PhotosListFragment;
   let entries = $derived(data.entries);
   let page = $derived(data.page);
 
@@ -35,7 +44,7 @@
   };
 
   // split string and map each letter into a div
-  let letters = $derived(splitTextIntoDivs(photosEntry?.customTitle, "is-blurInLeftDown", "$"));
+  let letters = $derived(splitTextIntoDivs(photosEntry?.customTitle ?? "", "is-blurInLeftDown", "$"));
 </script>
 
 {#if photosEntry?.seomatic}
