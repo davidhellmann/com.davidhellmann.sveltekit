@@ -34,7 +34,7 @@
     glass: "span-popout px-fluid relative z-20  mt-[16vw] pb-32",
     bigTextWrapper: "span-full px-4 -mt-48 z-20 pointer-events-none ",
     bigText:
-      "uppercase font-decorative bg-gradient-to-b from-neutral-400/10 to-neutral-700/5 py-12 opacity-70 text-transparent bg-clip-text text-center translate-y-full",
+      "uppercase font-extrabold font-decorative bg-gradient-to-b from-neutral-400/10 to-neutral-700/5 py-12 opacity-70 text-transparent bg-clip-text text-center translate-y-full",
     bigTextOverlay: "span-lg z-30 text-neutral-700 -mt-16 pt-4 sm:pt-0 sm:-mt-6 lg:mt-12 -translate-y-full text-4xl",
     cardGrid: "span-content grid gap-8 lg:gap-fluid -mt-6 mb-24 z-10",
     cardGridPhotos: "grid-cols-auto-min-200 xs:grid-cols-auto-min-240 lg:gap-8 items-center"
