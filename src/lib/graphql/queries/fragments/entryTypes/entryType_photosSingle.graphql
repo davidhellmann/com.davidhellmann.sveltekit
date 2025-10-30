@@ -8,7 +8,6 @@ fragment entryType_photosSingle on entryPhotosSingle_Entry {
     ...asset_transforms
     ...asset_customFields
   }
-  viewMode: imagesViewMode
   images {
     ...asset_data
     ...asset_transforms

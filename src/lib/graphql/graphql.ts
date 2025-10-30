@@ -3064,7 +3064,7 @@ export type GetEntriesQuery = { __typename?: 'Query', entryCount: number, entrie
           > }
         | { __typename?: 'users_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
       > }
-    | { __typename: 'entryPhotosSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number, description?: string, customTitle?: string, postDate?: any, expireDate?: any, postUpdateDate?: any, timezone?: any, descriptionPlain?: string, viewMode?: string, seomatic?: { __typename?: 'SeomaticType', metaTagContainer?: string, metaLinkContainer?: string, metaTitleContainer?: string, metaJsonLdContainer?: string }, prev?:
+    | { __typename: 'entryPhotosSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number, description?: string, customTitle?: string, postDate?: any, expireDate?: any, postUpdateDate?: any, timezone?: any, descriptionPlain?: string, seomatic?: { __typename?: 'SeomaticType', metaTagContainer?: string, metaLinkContainer?: string, metaTitleContainer?: string, metaJsonLdContainer?: string }, prev?:
         | { __typename?: 'blockAward_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
         | { __typename?: 'blockCode_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
         | { __typename?: 'blockCodepen_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
@@ -8460,7 +8460,7 @@ export type EntryType_PhotosListFragment = { __typename: 'entryPhotosList_Entry'
     | { __typename?: 'users_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
   > };
 
-export type EntryType_PhotosSingleFragment = { __typename: 'entryPhotosSingle_Entry', description?: string, customTitle?: string, id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number, descriptionPlain?: string, viewMode?: string, image: Array<
+export type EntryType_PhotosSingleFragment = { __typename: 'entryPhotosSingle_Entry', description?: string, customTitle?: string, id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number, descriptionPlain?: string, image: Array<
     | { __typename?: 'files_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
     | { __typename?: 'imagesBwg_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
     | { __typename?: 'images_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, exif?: string, customTitle?: string, caption?: string, source?: string, svgCode?: string, base64BlurHash?: string, srcset?: string, hyperLink: Array<
@@ -10323,7 +10323,6 @@ export const EntryType_PhotosSingleFragmentDoc = gql`
     ...asset_transforms
     ...asset_customFields
   }
-  viewMode: imagesViewMode
   images {
     ...asset_data
     ...asset_transforms
