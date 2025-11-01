@@ -6,7 +6,8 @@ import {
   type GetEntriesQueryVariables,
   GetPrerenderDataDocument,
   type GetPrerenderDataQueryVariables,
-  type GetPrerenderDataQuery
+  type GetPrerenderDataQuery,
+  type EntryType_WorkSingleFragment
 } from "$graphql/graphql";
 import { getGqlData } from "$graphql/graphql-client";
 
@@ -31,7 +32,7 @@ export const load: PageServerLoad = async ({ params }) => {
     slug: params?.slug,
     limit: 1,
     includePrevNext: true
-  })) as GetEntriesQuery;
+  })) as { entries?: EntryType_WorkSingleFragment[] };
 
   console.log("Render:", entries?.[0]?.title);
 

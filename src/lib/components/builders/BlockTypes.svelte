@@ -5,11 +5,12 @@
   import Image from "$components/builders/_blocks/Image.svelte";
   import Images from "$components/builders/_blocks/Images.svelte";
   import Cta from "$components/builders/_blocks/Cta.svelte";
-  import type { Matrix_ContentBuilderFragment, EntryType_DataFragment } from "$lib/graphql/graphql";
+  import type { Matrix_ContentBuilderFragment } from "$lib/graphql/graphql";
+  import { ComponentProps } from "svelte";
 
   type BlockTypes = {
     compName?: string;
-    blockTypes: Array<Matrix_ContentBuilderFragment & EntryType_DataFragment>;
+    blockTypes?: Matrix_ContentBuilderFragment[];
     className?: string;
   };
 
@@ -33,14 +34,14 @@
       {:else if blockType.__typename === "blockImage_Entry" && blockType?.image[0]}
         <Image
           image={blockType.image[0]}
-          ratio={blockType.imageRatio}
+          ratio={blockType.imageRatio as ComponentProps<typeof Image>["ratio"]}
           width={blockType.imageWidth}
           showCaption={blockType.showCaption}
         />
       {:else if blockType.__typename === "blockImages_Entry" && blockType?.images}
         <Images
           images={blockType.images}
-          ratio={blockType.imageRatio}
+          ratio={blockType.imageRatio as ComponentProps<typeof Image>["ratio"]}
           showCaption={blockType.showCaption}
           imagesViewMode={blockType.imagesViewMode}
         />

@@ -7,7 +7,9 @@ import {
   type GetEntriesQueryVariables,
   GetPrerenderDataDocument,
   type GetPrerenderDataQueryVariables,
-  type GetPrerenderDataQuery
+  type GetPrerenderDataQuery,
+  type EntryType_PhotosListFragment,
+  type EntryType_PhotosSingleFragment
 } from "$graphql/graphql";
 import { getGqlData } from "$graphql/graphql-client";
 
@@ -34,7 +36,7 @@ export const load: PageServerLoad = async ({ params }) => {
     section: ["photos"],
     limit: limit,
     offset: offset
-  })) as GetEntriesQuery;
+  })) as { entries?: EntryType_PhotosSingleFragment[]; entryCount: number };
 
   const totalPages = getTotalPages(entryCount, limit);
 
@@ -44,8 +46,9 @@ export const load: PageServerLoad = async ({ params }) => {
 
   const { entries: photosEntry } = (await getGqlData<GetEntriesQueryVariables>(GetEntriesDocument, {
     section: ["pages"],
-    type: "entryPhotosList"
-  })) as GetEntriesQuery;
+    type: "entryPhotosList",
+    limit: 1
+  })) as { entries?: EntryType_PhotosListFragment[] };
 
   console.log("Render:", photosEntry?.[0]?.title);
 

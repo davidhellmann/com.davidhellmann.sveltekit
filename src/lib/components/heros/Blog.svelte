@@ -12,7 +12,7 @@
   type HeroBlogProps = {
     compName?: string;
     className?: string;
-    headline: string;
+    headline?: string;
     backButton?: {
       title?: string;
       url?: string;

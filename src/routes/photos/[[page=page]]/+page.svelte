@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { PageData } from "./$types";
+  import type { PageProps } from "./$types";
   import StackPhotos from "$components/stacks/Photos.svelte";
   import Headline from "$components/text/Headline.svelte";
   import RichText from "$components/text/RichText.svelte";
@@ -11,10 +11,6 @@
   import { useWaypoint } from "$lib/actions/action.waypoint";
   import { useJumpingLetters } from "$lib/actions/action.jumpingLetters";
 
-  interface Props {
-    data: PageData;
-  }
-
   import {
     type Entry_DataFragment,
     type Entry_SeoFragment,
@@ -22,7 +18,7 @@
     type EntryType_PhotosListFragment
   } from "$graphql/graphql";
 
-  let { data }: Props = $props();
+  let { data }: PageProps = $props();
   const entryCount = data.entryCount ?? 1;
   const totalPages = data.totalPages ?? 1;
   let photosEntry = getFirstEntry(data.photosEntry) as Entry_DataFragment &

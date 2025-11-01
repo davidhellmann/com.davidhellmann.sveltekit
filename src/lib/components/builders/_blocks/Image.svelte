@@ -4,7 +4,7 @@
 
   type BlockImage = {
     compName?: string;
-    image: ComponentProps<typeof Image>["image"];
+    image?: ComponentProps<typeof Image>["image"];
     ratio?: ComponentProps<typeof Image>["ratio"];
     width?: string;
     showCaption?: boolean;

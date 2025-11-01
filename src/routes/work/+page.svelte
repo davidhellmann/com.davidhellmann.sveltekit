@@ -1,5 +1,6 @@
 <script lang="ts">
-  import type { PageData } from "./$types";
+  import type { PageProps } from "./$types";
+  import type { EntryType_WorkSingleFragment, Entry_SeoFragment } from "$graphql/graphql";
   import StackBlog from "$components/stacks/Blog.svelte";
   import RichText from "$components/text/RichText.svelte";
   import Seo from "$components/seo/Seo.svelte";
@@ -10,12 +11,8 @@
   import { useWaypoint } from "$lib/actions/action.waypoint";
   import { useJumpingLetters } from "$lib/actions/action.jumpingLetters";
 
-  interface Props {
-    data: PageData;
-  }
-
-  let { data }: Props = $props();
-  let workEntry = getFirstEntry(data.workEntry);
+  let { data }: PageProps = $props();
+  let workEntry = getFirstEntry(data.workEntry) as EntryType_WorkSingleFragment & Entry_SeoFragment;
   let workEntries = data?.workEntries as ComponentProps<typeof GridBentoWork>["entries"];
 
   const cc = {
@@ -31,15 +28,13 @@
   <Seo seo={workEntry.seomatic} />
 {/if}
 
-{#if workEntry && workEntry?.__typename === "entryWorkList_Entry"}
-  <div class={cc.heading} use:useWaypoint data-waypoint use:useJumpingLetters>
-    {#if workEntry?.customTitle}
-      <!-- eslint-disable-next-line -->
-      {@html letters}
-    {/if}
-  </div>
-
-  {#if workEntries}
-    <GridBentoWork theme="dark" className={"span-content -mt-6 mb-24 z-10"} entries={workEntries} />
+<div class={cc.heading} use:useWaypoint data-waypoint use:useJumpingLetters>
+  {#if workEntry?.customTitle}
+    <!-- eslint-disable-next-line -->
+    {@html letters}
   {/if}
+</div>
+
+{#if workEntries}
+  <GridBentoWork theme="dark" className={"span-content -mt-6 mb-24 z-10"} entries={workEntries} />
 {/if}

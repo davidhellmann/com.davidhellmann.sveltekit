@@ -1,11 +1,9 @@
 <script lang="ts">
   import BlockTypes from "$components/builders/BlockTypes.svelte";
+  import type { Matrix_ContentBuilderFragment } from "$graphql/graphql";
 
   type ContentBuilder = {
-    blockTypes: {
-      __typename: string;
-      [key: string]: unknown;
-    }[];
+    blockTypes?: Matrix_ContentBuilderFragment[];
   };
 
   const { blockTypes }: ContentBuilder = $props();

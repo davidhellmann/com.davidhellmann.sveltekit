@@ -1,35 +1,26 @@
 <script lang="ts">
-  import type { PageData } from "./$types";
+  import type { PageProps } from "./$types";
+  import type { EntryType_BlogSingleFragment, Entry_SeoFragment } from "$graphql/graphql";
   import { getFirstEntry } from "$utils/getFirstEntry";
   import Seo from "$components/seo/Seo.svelte";
   import HeroBlog from "$components/heros/Blog.svelte";
   import ContentBuilder from "$components/builders/ContentBuilder.svelte";
 
-  interface Props {
-    data: PageData;
-  }
+  let { data }: PageProps = $props();
 
-  let { data }: Props = $props();
-
-  const entry = getFirstEntry(data.entries);
+  const entry = getFirstEntry(data.entries) as Entry_SeoFragment & EntryType_BlogSingleFragment;
 </script>
 
 {#if entry?.seomatic}
   <Seo seo={entry.seomatic} />
 {/if}
 
-{#if entry && entry?.__typename === "entryBlogSingle_Entry"}
-  {#if entry?.title && entry?.category}
-    <HeroBlog
-      headline={entry?.customTitle ?? entry.title}
-      backButton={{
-        title: "Blog overview",
-        url: "/blog"
-      }}
-    />
-  {/if}
+<HeroBlog
+  headline={entry?.customTitle ?? entry?.title}
+  backButton={{
+    title: "Blog overview",
+    url: "/blog"
+  }}
+/>
 
-  {#if entry?.contentBuilder}
-    <ContentBuilder blockTypes={entry?.contentBuilder} />
-  {/if}
-{/if}
+<ContentBuilder blockTypes={entry?.contentBuilder} />

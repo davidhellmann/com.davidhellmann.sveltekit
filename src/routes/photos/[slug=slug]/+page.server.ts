@@ -32,11 +32,11 @@ export const load: PageServerLoad = async ({ params }) => {
     slug: params?.slug,
     limit: 1,
     includePrevNext: true
-  })) as GetEntriesQuery;
+  })) as { entries?: EntryType_PhotosSingleFragment[] };
 
   console.log("Render:", entries?.[0]?.title);
 
   return {
-    entries: entries as EntryType_PhotosSingleFragment[]
+    entries: entries
   };
 };
