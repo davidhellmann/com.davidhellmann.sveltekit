@@ -46,13 +46,13 @@
     sourceUrl
   }: FigcaptionProps = $props();
 
-  const { slotFigcaption, slotHeadline, slotText, slotSource, textSize } = tvCaption({ size });
+  const { slotFigcaption, slotHeadline, slotText, slotSource, textSize } = tvCaption();
 </script>
 
 {#if text}
   <svelte:element this={tag} data-comp={compName} class={`${slotFigcaption({ className })} ${textSize()}`}>
     {#if headline}
-      <Headline text={headline} tag={"h3"} weight={"semibold"} className={slotHeadline()} />
+      <Headline text={headline} tag={"h3"} className={slotHeadline()} />
     {/if}
 
     <PlainText className={slotText()} {text} />
