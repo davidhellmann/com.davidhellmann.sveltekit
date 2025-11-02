@@ -9,7 +9,7 @@
 
   let { data }: PageProps = $props();
 
-  const entry = getFirstEntry(data.entries) as EntryType_BlogSingleFragment;
+  const entry = $derived(getFirstEntry(data.entries) as EntryType_BlogSingleFragment);
 </script>
 
 {#if entry?.seomatic}

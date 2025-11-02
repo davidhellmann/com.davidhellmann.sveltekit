@@ -15,7 +15,7 @@
   let { data }: PageProps = $props();
   const entryCount = data.entryCount ?? 1;
   const totalPages = data.totalPages ?? 1;
-  let blogEntry = getFirstEntry(data.blogEntry) as EntryType_BlogListFragment;
+  let blogEntry = $derived(getFirstEntry(data.blogEntry) as EntryType_BlogListFragment);
   let entries = $derived(data.entries as EntryType_BlogSingleFragment[]);
   let page = $derived(data.page);
 

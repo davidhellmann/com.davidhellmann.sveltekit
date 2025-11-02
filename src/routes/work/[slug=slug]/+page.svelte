@@ -9,7 +9,7 @@
   // import ContentBuilder from "$components/builders/ContentBuilder.svelte";
 
   let { data }: PageProps = $props();
-  const entry = getFirstEntry(data.entries) as EntryType_WorkSingleFragment;
+  const entry = $derived(getFirstEntry(data.entries) as EntryType_WorkSingleFragment);
 </script>
 
 {#if entry?.seomatic}

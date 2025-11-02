@@ -8,10 +8,11 @@
   import LightboxPhotos from "$components/modals/LightboxPhotos.svelte";
   import PrevNext from "$components/navigation/PrevNext.svelte";
   import { getExifData } from "$utils/getExifData";
+  import { derived } from "svelte/store";
 
   let { data }: PageProps = $props();
 
-  const entry = getFirstEntry(data.entries) as EntryType_PhotosSingleFragment;
+  const entry = $derived(getFirstEntry(data.entries) as EntryType_PhotosSingleFragment);
 </script>
 
 {#if entry?.seomatic}
