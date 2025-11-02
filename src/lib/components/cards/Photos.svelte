@@ -45,7 +45,7 @@
           <Image {image} noscript={false} className="transition-all group-hover:scale-105 aspect-auto" />
         </div>
         <div class={slotContent()}>
-          {#if image?.exif}
+          {#if image?.__typename === "images_Asset" && image?.exif}
             <Exif exif={image?.exif} showSettings={false} spacing="compact" className={slotExif()} />
           {/if}
           <Headline text={_headline} className={slotHeadline({})} />

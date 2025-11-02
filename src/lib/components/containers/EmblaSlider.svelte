@@ -52,7 +52,7 @@
     autoScrollOptions,
     wheelGesturesOptions
   }: EmblaSliderProps = $props();
-  let options = { loop: true, dragFree: true, align: "start", ...emblaOptions };
+  let options: EmblaOptionsType = { loop: true, dragFree: true, align: "start", ...emblaOptions };
   let plugins = [];
 
   if (pluginAutoscroll) {

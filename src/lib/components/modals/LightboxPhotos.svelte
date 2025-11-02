@@ -18,7 +18,7 @@
     compName?: string;
     className?: string;
     images: ComponentProps<typeof Image>["image"][];
-    ratio?: ComponentProps<typeof Image>["ratio"];
+    ratio?: string;
     galleryId?: string;
   } & VariantProps<typeof tvLightboxPhotos>;
 
@@ -51,13 +51,13 @@
       <li class={slotItem()}>
         <div class="rounded-xl overflow-hidden w-full">
           <Image
-            className="w-full aspect-auto pointer-events-auto cursor-zoom-in group-hover:scale-105 transition-transform"
+            className={`w-full pointer-events-auto cursor-zoom-in group-hover:scale-105 transition-transform ${ratio}`}
             noscript={false}
             {image}
             index={i}
           />
         </div>
-        {#if image?.exif}
+        {#if image?.__typename === "images_Asset" && image?.exif}
           <Exif className="w-full text-neutral-600 p-2 pt-3" spacing="compact" exif={image?.exif} />
         {/if}
       </li>

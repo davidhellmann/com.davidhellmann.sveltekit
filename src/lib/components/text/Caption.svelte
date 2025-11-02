@@ -39,7 +39,6 @@
   const {
     compName = "Caption",
     className,
-    size = "sm",
     headline,
     text,
     tag = "figcaption",
@@ -51,9 +50,9 @@
 </script>
 
 {#if text}
-  <svelte:element this={tag} data-comp={compName} class={`${slotFigcaption({ size, className })} ${textSize()}`}>
+  <svelte:element this={tag} data-comp={compName} class={`${slotFigcaption({ className })} ${textSize()}`}>
     {#if headline}
-      <Headline text={headline} tag={"h3"} {size} weight={"semibold"} className={slotHeadline()} />
+      <Headline text={headline} tag={"h3"} weight={"semibold"} className={slotHeadline()} />
     {/if}
 
     <PlainText className={slotText()} {text} />

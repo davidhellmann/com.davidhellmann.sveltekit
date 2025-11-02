@@ -42,7 +42,7 @@
   type ExifProps = {
     compName?: string;
     className?: string;
-    exif: string;
+    exif?: string;
     showSettings?: boolean;
   } & VariantProps<typeof tvExif>;
 

@@ -2,6 +2,7 @@
   import { tv, type VariantProps } from "tailwind-variants";
   import Link from "$components/text/Link.svelte";
   import type { Hyper_DataFragment } from "$graphql/graphql";
+  import type { ComponentProps } from "svelte";
 
   const tvQuote = tv({
     slots: {
@@ -38,12 +39,12 @@
       <p class={slotSource()}>
         {#if !link}
           {source}
-        {:else if link?.url}
+        {:else if link?.url && "linkStyle" in link}
           <Link
             href={link.url}
             text={source ?? link.text}
             icon="arrow-right-outline"
-            variant={link.linkStyle}
+            variant={link.linkStyle as ComponentProps<typeof Link>["variant"]}
             className={slotSourceLink()}
           />
         {/if}

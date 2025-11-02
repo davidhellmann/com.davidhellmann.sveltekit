@@ -19,7 +19,7 @@
   type CategoryProps = {
     compName?: string;
     className?: string;
-    title: string;
+    title?: string;
     icon?: HeroiconsIcons;
   } & VariantProps<typeof tvCategory>;
 

@@ -1,8 +1,6 @@
 <script lang="ts">
   import type { PageProps } from "./$types";
-  import type { EntryType_WorkListFragment } from "$graphql/graphql";
-  import StackBlog from "$components/stacks/Blog.svelte";
-  import RichText from "$components/text/RichText.svelte";
+  import type { EntryType_WorkListFragment, EntryType_WorkSingleFragment } from "$graphql/graphql";
   import Seo from "$components/seo/Seo.svelte";
   import GridBentoWork from "$components/containers/GridBentoWork.svelte";
   import type { ComponentProps } from "svelte";
@@ -13,7 +11,7 @@
 
   let { data }: PageProps = $props();
   let workEntry = getFirstEntry(data.workEntry) as EntryType_WorkListFragment;
-  let workEntries = data?.workEntries as ComponentProps<typeof GridBentoWork>["entries"];
+  let workEntries = data?.workEntries as EntryType_WorkSingleFragment[];
 
   const cc = {
     heading: "span-content text-neon-pink is-zoomInDown text-7xl font-decorative font-extrabold flex flex-wrap",

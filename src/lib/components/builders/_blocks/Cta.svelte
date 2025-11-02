@@ -6,6 +6,7 @@
   import Link from "$components/text/Link.svelte";
   import IconSprite from "$components/media/IconSprite.svelte";
   import type { HeroiconsIcons } from "$lib/types/heroicons-icons";
+  import type { ComponentProps } from "svelte";
 
   type BlockCta = {
     compName?: string;
@@ -30,8 +31,12 @@
       <!--TODO: Create Link Group Component (Or Grid) -->
       <div class="flex flex-col xs:flex-row flex-wrap gap-4 stack-space-8 @container">
         {#each links as link (link)}
-          {#if link.url}
-            <Link text={link.text} variant={link.linkStyle} href={link.url} />
+          {#if link.url && "linkStyle" in link}
+            <Link
+              text={link.text}
+              variant={link?.linkStyle as ComponentProps<typeof Link>["variant"]}
+              href={link.url}
+            />
           {/if}
         {/each}
       </div>

@@ -1,11 +1,6 @@
 <script lang="ts">
   import { tv, type VariantProps } from "tailwind-variants";
-  import type {
-    Entry_DataFragment,
-    Entry_DatesFragment,
-    Entry_SeoFragment,
-    EntryType_WorkSingleFragment
-  } from "$graphql/graphql";
+  import type { EntryType_WorkSingleFragment } from "$graphql/graphql";
   import { getRandomItemsFromArray } from "$utils/getRandomItemsFromArray";
   import Image from "$components/media/Image.svelte";
   // import PlainText from "$components/text/PlainText.svelte";
@@ -14,7 +9,7 @@
   import Time from "svelte-time";
   import { useWaypoint } from "$lib/actions/action.waypoint";
 
-  type Entry = Entry_DataFragment & EntryType_WorkSingleFragment & Entry_SeoFragment & Entry_DatesFragment;
+  type Entry = EntryType_WorkSingleFragment;
 
   const tvGridBentoWork = tv({
     slots: {
@@ -75,54 +70,56 @@
 {#if entries}
   <div data-comp={compName} data-theme={theme} class={slotBase({ theme, className })} use:useWaypoint data-waypoint>
     {#each finalEntries as entry, i (entry.id)}
-      {#if entry && entry?.__typename === "entryWorkSingle_Entry"}
-        {#if entry?.title && entry?.url}
-          <a
-            href={entry?.url}
-            class={`${slotCard({ theme })} ${cardClasses[i % cardClasses.length]()} is-zoomInUp`}
-            data-waypoint-target
-          >
-            <div class={slotContent()}>
-              {#if entry?.workType.length > 0}
-                <Category className={"mb-3"} variant="work" title={entry.workType[0].title} />
-              {/if}
-              <Headline preset={"h4"} text={entry?.title} className="font-sans font-medium" />
-              {#if entry?.descriptionPlain}
-                <!--            <PlainText text={entry?.descriptionPlain} className={"line-clamp-2 text-sm font-sans max-w-prose"} />-->
-              {/if}
+      {@const workType = entry?.workType?.[0]}
+      {@const client = entry?.client?.[0]}
+      {@const agency = entry?.agency?.[0]}
 
-              <div class="font-mono text-xs flex flex-col">
-                {#if entry?.postDate}
-                  <span>
-                    <span class="text-neutral-400">Y.</span>
-                    <Time
-                      format="YYYY"
-                      class="font-medium uppercase tracking-wider text-neutral-600"
-                      timestamp={entry?.postDate}
-                    />
-                  </span>
-                {/if}
-                {#if entry?.client.length > 0}
-                  <span>
-                    <span class="text-neutral-400">C.</span>
-                    <span class="font-medium uppercase tracking-wider text-neutral-600">{entry.client[0].title}</span>
-                  </span>
-                {/if}
-                {#if entry?.agency.length > 0}
-                  <span>
-                    <span class="text-neutral-400">A.</span>
-                    <span class="font-medium uppercase tracking-wider text-neutral-600">{entry.agency[0].title}</span>
-                  </span>
-                {/if}
-              </div>
-            </div>
-            {#if entry?.image}
-              <div class={slotImageWrapper()}>
-                <Image className={slotImage()} image={entry?.image[0]} focalPoint={[0, 0]} />
-              </div>
+      {#if entry?.title && entry?.url}
+        <a
+          href={entry?.url}
+          class={`${slotCard({ theme })} ${cardClasses[i % cardClasses.length]()} is-zoomInUp`}
+          data-waypoint-target
+        >
+          <div class={slotContent()}>
+            {#if workType && "title" in workType && workType.title}
+              <Category className={"mb-3"} variant="work" title={workType.title} />
             {/if}
-          </a>
-        {/if}
+            <Headline preset={"h4"} text={entry?.title} className="font-sans font-medium" />
+            {#if entry?.descriptionPlain}
+              <!--            <PlainText text={entry?.descriptionPlain} className={"line-clamp-2 text-sm font-sans max-w-prose"} />-->
+            {/if}
+
+            <div class="font-mono text-xs flex flex-col">
+              {#if entry?.postDate}
+                <span>
+                  <span class="text-neutral-400">Y.</span>
+                  <Time
+                    format="YYYY"
+                    class="font-medium uppercase tracking-wider text-neutral-600"
+                    timestamp={entry?.postDate}
+                  />
+                </span>
+              {/if}
+              {#if client && "title" in client && client.title}
+                <span>
+                  <span class="text-neutral-400">C.</span>
+                  <span class="font-medium uppercase tracking-wider text-neutral-600">{client.title}</span>
+                </span>
+              {/if}
+              {#if agency && "title" in agency && agency.title}
+                <span>
+                  <span class="text-neutral-400">A.</span>
+                  <span class="font-medium uppercase tracking-wider text-neutral-600">{agency.title}</span>
+                </span>
+              {/if}
+            </div>
+          </div>
+          {#if entry?.image}
+            <div class={slotImageWrapper()}>
+              <Image className={slotImage()} image={entry?.image[0]} focalPoint={[0, 0]} />
+            </div>
+          {/if}
+        </a>
       {/if}
     {/each}
   </div>
