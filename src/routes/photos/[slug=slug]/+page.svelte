@@ -4,11 +4,9 @@
   import type { EntryType_PhotosSingleFragment } from "$graphql/graphql";
   import Seo from "$components/seo/Seo.svelte";
   import HeroPhotos from "$components/heros/Photos.svelte";
-  import Image from "$components/media/Image.svelte";
   import LightboxPhotos from "$components/modals/LightboxPhotos.svelte";
   import PrevNext from "$components/navigation/PrevNext.svelte";
   import { getExifData } from "$utils/getExifData";
-  import { derived } from "svelte/store";
 
   let { data }: PageProps = $props();
 

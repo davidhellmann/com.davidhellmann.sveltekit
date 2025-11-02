@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { PageProps } from "./$types";
-  import type { EntryType_BlogSingleFragment } from "$graphql/graphql";
   import { getFirstEntry } from "$utils/getFirstEntry";
+  import type { EntryType_BlogSingleFragment } from "$graphql/graphql";
   import Seo from "$components/seo/Seo.svelte";
   import HeroBlog from "$components/heros/Blog.svelte";
   import ContentBuilder from "$components/builders/ContentBuilder.svelte";
