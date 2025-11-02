@@ -9,7 +9,7 @@
   type RichTextProps = {
     compName?: string;
     className?: string;
-    html: string;
+    html?: string;
   } & VariantProps<typeof tvRichText> &
     HTMLAttributes<HTMLDivElement>;
 

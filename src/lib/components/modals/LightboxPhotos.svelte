@@ -51,8 +51,7 @@
       <li class={slotItem()}>
         <div class="rounded-xl overflow-hidden w-full">
           <Image
-            ratio="aspect-auto"
-            className="w-full pointer-events-auto cursor-zoom-in group-hover:scale-105 transition-transform"
+            className="w-full aspect-auto pointer-events-auto cursor-zoom-in group-hover:scale-105 transition-transform"
             noscript={false}
             {image}
             index={i}

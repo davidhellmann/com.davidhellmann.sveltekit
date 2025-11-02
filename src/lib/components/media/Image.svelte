@@ -10,16 +10,8 @@
   type ObjectFit = "cover" | "contain" | "fill" | "none" | "scale-down";
 
   const tvImage = tv({
-    base: "bg-primary-200 w-full",
+    base: "bg-primary-200 w-full aspect-landscape",
     variants: {
-      ratio: {
-        unset: "",
-        "aspect-auto": "aspect-auto",
-        "aspect-landscape": "aspect-landscape",
-        "aspect-portrait": "aspect-portrait",
-        "aspect-square": "aspect-square",
-        "aspect-instagram": "aspect-instagram"
-      },
       animate: {
         unset: "",
         fade: "[&[data-srcset]]:blur-xl [&[data-srcset]]:scale-110 transition-all ease-in duration-500"
@@ -48,7 +40,7 @@
     decorative?: boolean;
     index?: number | undefined;
   } & VariantProps<typeof tvImage> &
-    (VariantProps<typeof tvImage>["ratio"] | (string & {}));
+    HTMLImageElement;
 
   let {
     compName = "Image",
@@ -56,7 +48,6 @@
     image = undefined,
     lazy = true,
     objectFit = "cover",
-    ratio = "aspect-landscape",
     animate,
     alt = "",
     focalPoint,
@@ -104,7 +95,7 @@
   <img
     data-index={index}
     data-comp={compName}
-    class={tvImage({ ratio, animate, className })}
+    class={tvImage({ animate, className })}
     {...attr}
     {alt}
     src={lazy && blurhash ? blurhash : src}

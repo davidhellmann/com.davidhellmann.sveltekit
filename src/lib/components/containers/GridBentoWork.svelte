@@ -118,7 +118,7 @@
             </div>
             {#if entry?.image}
               <div class={slotImageWrapper()}>
-                <Image className={slotImage()} image={entry?.image[0]} ratio="unset" focalPoint={[0, 0]} />
+                <Image className={slotImage()} image={entry?.image[0]} focalPoint={[0, 0]} />
               </div>
             {/if}
           </a>

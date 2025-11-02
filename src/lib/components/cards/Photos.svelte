@@ -42,7 +42,7 @@
     {#if image}
       <Polaroid>
         <div class={slotImage({})}>
-          <Image {image} noscript={false} className="transition-all group-hover:scale-105" ratio="aspect-auto" />
+          <Image {image} noscript={false} className="transition-all group-hover:scale-105 aspect-auto" />
         </div>
         <div class={slotContent()}>
           {#if image?.exif}
