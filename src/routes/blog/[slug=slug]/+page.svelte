@@ -22,6 +22,8 @@
     title: "Blog overview",
     url: "/blog"
   }}
+  category={entry?.category}
+  topics={entry?.topics}
 />
 
 <ContentBuilder blockTypes={entry?.contentBuilder} />
