@@ -56,8 +56,8 @@
       className
     });
 
-  const transformTitle = (title: string) => {
-    return title.split(" (")?.[0] ?? title;
+  const transformTitle = (title?: string) => {
+    return title?.split(" (")?.[0] ?? title;
   };
 </script>
 

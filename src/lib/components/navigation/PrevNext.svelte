@@ -48,8 +48,8 @@
 
   const { slotNav, slotLink, slotIcon, slotText, slotLabel, slotTitle } = tvPrevNext({ theme });
 
-  const splitTitle = (title?: string) => {
-    return title?.split(" (")?.[0] ?? title;
+  const transformTitle = (title?: string) => {
+    return title.split(" (")?.[0] ?? title;
   };
 </script>
 
@@ -59,7 +59,7 @@
       <IconSprite icon="arrow-left-outline" size={20} className={slotIcon()} />
       <span class={slotText()}>
         <span class={slotLabel()}>Previous</span>
-        <span class={slotTitle()}>{splitTitle(prev?.title)}</span>
+        <span class={slotTitle()}>{transformTitle(prev?.title)}</span>
       </span>
     </a>
   {/if}
@@ -69,7 +69,7 @@
       <IconSprite icon="arrow-right-outline" size={20} className={slotIcon()} />
       <span class="{slotText()} text-end">
         <span class={slotLabel()}>Next</span>
-        <span class={slotTitle()}>{splitTitle(next?.title)}</span>
+        <span class={slotTitle()}>{transformTitle(next?.title)}</span>
       </span>
     </a>
   {/if}

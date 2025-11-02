@@ -26,7 +26,7 @@
   } & VariantProps<typeof tvCardPhotos>;
 
   let { compName = "CardPhotos", className, headline, url, image }: CardPhotosProps = $props();
-  const _headline = headline.split(" (")?.[0] ?? headline;
+  const _headline = $derived(headline?.split(" (")?.[0] ?? headline);
 
   const { slotBase, slotImage, slotContent, slotHeadline, slotExif } = tvCardPhotos({ className });
 </script>

@@ -14,14 +14,14 @@
   type HeroPhotosProps = {
     compName?: string;
     className?: string;
-    headline: string;
+    headline?: string;
     exif?: { cameras?: string[]; lenses?: string[] };
     imageCount?: number;
   } & VariantProps<typeof tvHeroPhotos>;
 
   const { compName = "HeroPhotos", className, headline, exif, imageCount }: HeroPhotosProps = $props();
 
-  const _headline = headline.split(" (")?.[0] ?? headline;
+  const _headline = $derived(headline?.split(" (")?.[0] ?? headline);
 
   const { slotWrapper, slotHeadline, slotGearList } = tvHeroPhotos();
 </script>
