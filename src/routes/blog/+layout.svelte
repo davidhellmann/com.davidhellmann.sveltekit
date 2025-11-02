@@ -1,10 +1,8 @@
 <script lang="ts">
   import { useWaypoint } from "$lib/actions/action.waypoint";
-  interface Props {
-    children?: import("svelte").Snippet;
-  }
+  import type { LayoutProps } from "./$types";
 
-  let { children }: Props = $props();
+  let { children }: LayoutProps = $props();
 </script>
 
 <main

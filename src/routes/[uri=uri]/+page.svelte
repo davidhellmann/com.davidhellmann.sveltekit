@@ -1,31 +1,19 @@
 <script lang="ts">
-  import type { PageData } from "./$types";
+  import type { PageProps } from "./$types";
   import { getFirstEntry } from "$utils/getFirstEntry";
   import Seo from "$components/seo/Seo.svelte";
   import Headline from "$components/text/Headline.svelte";
+  import { type EntryType_ContentBuilderFragment } from "$graphql/graphql";
 
-  interface Props {
-    data: PageData;
-  }
-
-  let { data }: Props = $props();
-  let entry = $derived(getFirstEntry(data.entries));
+  let { data }: PageProps = $props();
+  let entry = getFirstEntry(data.entries) as EntryType_ContentBuilderFragment;
 </script>
 
 {#if entry?.seomatic}
   <Seo seo={entry.seomatic} />
 {/if}
 
-{#if entry && entry?.__typename === "entryAbout_Entry"}
-  {#if entry.title}
-    About
-    <Headline text={entry.title} />
-  {/if}
-{/if}
-
-{#if entry && entry?.__typename === "entryWorkList_Entry"}
-  {#if entry.title}
-    Work
-    <Headline text={entry.title} />
-  {/if}
+{#if entry.title}
+  About
+  <Headline text={entry.title} />
 {/if}

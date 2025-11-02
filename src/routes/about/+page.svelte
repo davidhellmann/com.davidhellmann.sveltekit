@@ -1,6 +1,7 @@
 <script lang="ts">
-  import type { PageData } from "./$types";
+  import type { PageProps } from "./$types";
   import { getFirstEntry } from "$utils/getFirstEntry";
+  import { type EntryType_AboutFragment } from "$graphql/graphql";
   import Seo from "$components/seo/Seo.svelte";
   import RichText from "$components/text/RichText.svelte";
   import Headline from "$components/text/Headline.svelte";
@@ -12,12 +13,8 @@
   import { useJumpingLetters } from "$lib/actions/action.jumpingLetters";
   import { splitTextIntoDivs } from "$utils/splitTextIntoDivs";
 
-  interface Props {
-    data: PageData;
-  }
-
-  let { data }: Props = $props();
-  let entry = $derived(getFirstEntry(data.entries));
+  let { data }: PageProps = $props();
+  let entry = getFirstEntry(data.entries) as EntryType_AboutFragment;
 
   const cc = {
     heroImage: "absolute inset-x-0 top-0 z-10",
@@ -36,52 +33,50 @@
   <Seo seo={entry.seomatic} />
 {/if}
 
-{#if entry && entry?.__typename === "entryAbout_Entry"}
-  {#if entry?.heroImage}
-    <Image className={cc.heroImage} lazy={false} ratio="aspect-auto" noscript={false} image={entry?.heroImage[0]} />
-  {/if}
-  <div class="fluid-grid">
-    <Glass preset="glass-home" className={cc.glass}>
-      {#if entry?.customTitle}
-        <div class={cc.heroHeadline} use:useWaypoint data-waypoint use:useJumpingLetters>
-          <!-- eslint-disable-next-line -->
-          {@html letters}
-        </div>
-      {/if}
-
-      {#if entry?.description}
-        <div use:useWaypoint={{ delay: 700, staggeringDelay: 100 }} data-waypoint class="grid grid-cols-12">
-          <RichText data-waypoint-target className={cc.heroSubline} html={entry?.description} />
-          <RichText data-waypoint-target className={cc.heroRichText} html={entry?.aboutMeRichText} />
-        </div>
-      {/if}
-    </Glass>
-
-    {#if entry?.imageSliderI && entry?.sliderHeadingI}
-      <AboutSlider
-        className="z-10"
-        images={entry?.imageSliderI}
-        headline={entry?.sliderHeadingI}
-        html={entry?.sliderRichTextI}
-      />
-    {/if}
-
-    {#if entry?.imageSliderII && entry?.sliderHeadingII}
-      <AboutSlider
-        autoScrollOptions={{ direction: "backward" }}
-        images={entry?.imageSliderII}
-        headline={entry?.sliderHeadingII}
-        html={entry?.sliderRichTextII}
-      />
-    {/if}
-
-    {#if entry?.imageSliderIII && entry?.sliderHeadingIII}
-      <AboutSlider images={entry?.imageSliderIII} headline={entry?.sliderHeadingIII} html={entry?.sliderRichTextIII} />
-    {/if}
-
-    {#if entry?.curriculumVitae}
-      <Headline className={"span-xl z-10 pb-12"} text={"Working experience"} />
-      <CurriculumVitae items={entry.curriculumVitae} className="span-content z-10" />
-    {/if}
-  </div>
+{#if entry?.heroImage}
+  <Image className={cc.heroImage} lazy={false} ratio="aspect-auto" noscript={false} image={entry?.heroImage[0]} />
 {/if}
+<div class="fluid-grid">
+  <Glass preset="glass-home" className={cc.glass}>
+    {#if entry?.customTitle}
+      <div class={cc.heroHeadline} use:useWaypoint data-waypoint use:useJumpingLetters>
+        <!-- eslint-disable-next-line -->
+        {@html letters}
+      </div>
+    {/if}
+
+    {#if entry?.description}
+      <div use:useWaypoint={{ delay: 700, staggeringDelay: 100 }} data-waypoint class="grid grid-cols-12">
+        <RichText data-waypoint-target className={cc.heroSubline} html={entry?.description} />
+        <RichText data-waypoint-target className={cc.heroRichText} html={entry?.aboutMeRichText} />
+      </div>
+    {/if}
+  </Glass>
+
+  {#if entry?.imageSliderI && entry?.sliderHeadingI}
+    <AboutSlider
+      className="z-10"
+      images={entry?.imageSliderI}
+      headline={entry?.sliderHeadingI}
+      html={entry?.sliderRichTextI}
+    />
+  {/if}
+
+  {#if entry?.imageSliderII && entry?.sliderHeadingII}
+    <AboutSlider
+      autoScrollOptions={{ direction: "backward" }}
+      images={entry?.imageSliderII}
+      headline={entry?.sliderHeadingII}
+      html={entry?.sliderRichTextII}
+    />
+  {/if}
+
+  {#if entry?.imageSliderIII && entry?.sliderHeadingIII}
+    <AboutSlider images={entry?.imageSliderIII} headline={entry?.sliderHeadingIII} html={entry?.sliderRichTextIII} />
+  {/if}
+
+  {#if entry?.curriculumVitae}
+    <Headline className={"span-xl z-10 pb-12"} text={"Working experience"} />
+    <CurriculumVitae items={entry.curriculumVitae} className="span-content z-10" />
+  {/if}
+</div>

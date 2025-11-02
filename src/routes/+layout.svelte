@@ -9,19 +9,15 @@
   import "$styles/app.css";
   import { onNavigate, afterNavigate } from "$app/navigation";
   import { page } from "$app/state";
-  import type { Snippet } from "svelte";
   import { dayjs } from "svelte-time";
   import "dayjs/locale/de";
   import Header from "$components/sections/Header.svelte";
   import Footer from "$components/sections/Footer.svelte";
+  import type { LayoutProps } from "./$types";
 
   dayjs.locale("de");
 
-  interface Props {
-    children?: Snippet;
-  }
-
-  let { children }: Props = $props();
+  let { children }: LayoutProps = $props();
   let scrollY = $state(0);
 
   let isPhotos = $state(page.url.pathname.startsWith("/photos"));
