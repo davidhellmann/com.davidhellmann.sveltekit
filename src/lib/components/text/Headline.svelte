@@ -30,7 +30,7 @@
   type HeadlineProps = {
     compName?: string;
     tag?: HeadlineTags;
-    text: string;
+    text?: string;
     className?: string;
   } & VariantProps<typeof tvHeadline>;
 

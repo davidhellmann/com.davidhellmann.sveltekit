@@ -6,8 +6,8 @@
   const tvPrevNext = tv({
     slots: {
       slotNav:
-        "flex justify-center items-center mt-16 mb-24 w-full max-w-2xl mx-auto divide-x divide-neutral-300 border border-neutral-300 rounded-full shadow-xs overflow-hidden",
-      slotLink: "group flex items-center gap-4 text-sm font-mono transition w-1/2 p-4 h-full",
+        "flex flex-col md:flex-row justify-center items-center mt-16 mb-24 w-full max-w-2xl mx-auto divide-y md:divide-y-0 md:divide-x divide-neutral-300 border border-neutral-300 rounded-4xl md:rounded-full shadow-xs overflow-hidden",
+      slotLink: "group flex items-center gap-4 text-sm font-mono transition w-full md:w-1/2 p-4 h-full",
       slotIcon: "shrink-0 rounded-full size-12 p-4",
       slotText: "flex flex-col",
       slotLabel: "text-2xs text-neutral-500 uppercase tracking-widest",
@@ -49,7 +49,7 @@
   const { slotNav, slotLink, slotIcon, slotText, slotLabel, slotTitle } = tvPrevNext({ theme });
 
   const transformTitle = (title?: string) => {
-    return title.split(" (")?.[0] ?? title;
+    return title?.split(" (")?.[0] ?? title;
   };
 </script>
 
