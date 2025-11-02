@@ -12,7 +12,7 @@ import {
 } from "$graphql/graphql";
 import { getGqlData } from "$graphql/graphql-client";
 
-const limit = 12;
+const limit = 48;
 const getTotalPages = (entryCount: number, limit: number): number => {
   return Math.ceil(entryCount / limit);
 };
