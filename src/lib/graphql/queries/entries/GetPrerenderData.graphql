@@ -4,6 +4,9 @@ query GetPrerenderData(
   $type: [String],
   $limit: Int = -1,
   $offset: Int = 0,
+
+  # Relations
+  $relatedToEntries: [EntryRelationCriteriaInput],
 ) {
   entries(
     site: $site,
@@ -11,12 +14,16 @@ query GetPrerenderData(
     type: $type,
     limit: $limit,
     offset: $offset,
+
+    # Relations
+    relatedToEntries: $relatedToEntries
   ) {
     ...entry_data
   }
   entryCount(
     site: $site,
     section: $section,
-    type: $type
+    type: $type,
+    relatedToEntries: $relatedToEntries
   )
 }

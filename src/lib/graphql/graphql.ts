@@ -3327,6 +3327,7 @@ export type GetPrerenderDataQueryVariables = Exact<{
   type?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
+  relatedToEntries?: InputMaybe<Array<InputMaybe<EntryRelationCriteriaInput>> | InputMaybe<EntryRelationCriteriaInput>>;
 }>;
 
 
@@ -11168,17 +11169,23 @@ ${EntryType_WorkListFragmentDoc}
 ${EntryType_CategoryFragmentDoc}
 ${EntryType_TopicFragmentDoc}`;
 export const GetPrerenderDataDocument = gql`
-    query GetPrerenderData($site: [String] = ["davidhellmann_en"], $section: [String]! = ["blog"], $type: [String], $limit: Int = -1, $offset: Int = 0) {
+    query GetPrerenderData($site: [String] = ["davidhellmann_en"], $section: [String]! = ["blog"], $type: [String], $limit: Int = -1, $offset: Int = 0, $relatedToEntries: [EntryRelationCriteriaInput]) {
   entries(
     site: $site
     section: $section
     type: $type
     limit: $limit
     offset: $offset
+    relatedToEntries: $relatedToEntries
   ) {
     ...entry_data
   }
-  entryCount(site: $site, section: $section, type: $type)
+  entryCount(
+    site: $site
+    section: $section
+    type: $type
+    relatedToEntries: $relatedToEntries
+  )
 }
     ${Entry_DataFragmentDoc}`;
 export const GetSeomaticDocument = gql`
