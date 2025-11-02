@@ -19,7 +19,6 @@
       }
     },
     defaultVariants: {
-      ratio: "aspect-landscape",
       animate: "unset"
     }
   });
