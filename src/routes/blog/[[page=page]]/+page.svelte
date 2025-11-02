@@ -32,8 +32,6 @@
   };
 
   let letters = $derived(splitTextIntoDivs(blogEntry?.customTitle, "is-blurInLeftDown", "$"));
-
-  console.log(blogEntry);
 </script>
 
 {#if blogEntry?.seomatic}
