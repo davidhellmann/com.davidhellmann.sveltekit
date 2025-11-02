@@ -38,10 +38,15 @@ query GetEntries(
     ...entryType_photosSingle
     ...entryType_workSingle
     ...entryType_workList
+
+    # Cateogories
+    ...entryType_category
+    ...entryType_topic
   }
   entryCount(
     site: $site,
     section: $section,
-    type: $type
+    type: $type,
+    relatedToEntries: $relatedToEntries
   )
 }

@@ -49,28 +49,30 @@
       </a>
     {/if}
     <Headline text={headline} tag="h1" className={slotHeadline()} />
-    <div class={slotMeta()}>
-      {#if category}
-        <ul class={slotList()}>
-          <li class={slotLabel()}>category:&nbsp;</li>
-          {#each category as cat, i (cat.url)}
-            <li>
-              <a class={slotLink()} href={cat.url}>{cat.title}</a>{#if i < category.length - 1},&nbsp;{/if}
-            </li>
-          {/each}
-        </ul>
-      {/if}
+    {#if (category && category.length > 0) || (topics && topics.length > 0)}
+      <div class={slotMeta()}>
+        {#if category && category.length > 0}
+          <ul class={slotList()}>
+            <li class={slotLabel()}>category:&nbsp;</li>
+            {#each category as cat, i (cat.url)}
+              <li>
+                <a class={slotLink()} href={cat.url}>{cat.title}</a>{#if i < category.length - 1},&nbsp;{/if}
+              </li>
+            {/each}
+          </ul>
+        {/if}
 
-      {#if topics}
-        <ul class={slotList()}>
-          <li class={slotLabel()}>topics:&nbsp;</li>
-          {#each topics as topic, i (topic.url)}
-            <li>
-              <a class={slotLink()} href={topic.url}>{topic.title}</a>{#if i < topics.length - 1},&nbsp;{/if}
-            </li>
-          {/each}
-        </ul>
-      {/if}
-    </div>
+        {#if topics && topics.length > 0}
+          <ul class={slotList()}>
+            <li class={slotLabel()}>topics:&nbsp;</li>
+            {#each topics as topic, i (topic.url)}
+              <li>
+                <a class={slotLink()} href={topic.url}>{topic.title}</a>{#if i < topics.length - 1},&nbsp;{/if}
+              </li>
+            {/each}
+          </ul>
+        {/if}
+      </div>
+    {/if}
   </header>
 {/if}

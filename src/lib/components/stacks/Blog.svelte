@@ -25,6 +25,7 @@
     className?: string;
     entries: Entry[];
     showPagination?: boolean;
+    paginationUri?: string;
     totalItems?: number;
     totalPages?: number;
     page?: number;
@@ -35,6 +36,7 @@
     className,
     entries,
     showPagination = true,
+    paginationUri = "/blog",
     totalItems,
     totalPages,
     page
@@ -86,7 +88,7 @@
         currentPage={page}
         yPosition="top"
         simple={true}
-        uri="/blog"
+        uri={paginationUri}
         className="-mt-28 pt-2 md:pt-0 md:-mt-32"
       />
     {/if}
@@ -112,7 +114,7 @@
     </ul>
 
     {#if showPagination && totalItems && totalPages && totalPages > 1 && page}
-      <Pagination {totalItems} {totalPages} currentPage={page} uri="/blog" />
+      <Pagination {totalItems} {totalPages} currentPage={page} uri={paginationUri} />
     {/if}
   </div>
 {/if}
