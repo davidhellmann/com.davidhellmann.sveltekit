@@ -26,7 +26,7 @@
     compName = "LightboxPhotos",
     className,
     images,
-    ratio = "aspect-auto",
+    ratio = "aspect-auto!",
     galleryId
   }: LightboxPhotosProps = $props();
 
