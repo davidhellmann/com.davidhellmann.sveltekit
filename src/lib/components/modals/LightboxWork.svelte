@@ -20,7 +20,7 @@
     compName?: string;
     className?: string;
     images: ComponentProps<typeof Image>["image"][];
-    ratio?: ComponentProps<typeof Image>["ratio"];
+    ratio?: string;
   } & VariantProps<typeof tvLightboxWork>;
 
   let { compName = "LightboxWork", className, images, ratio = "aspect-auto" }: LightboxWorkProps = $props();
@@ -54,7 +54,6 @@
             className={`size-full ${getAspectRatio(image) ?? ratio}`}
             index={i}
             {image}
-            ratio={"unset"}
             focalPoint={[0.5, 0]}
             noscript={false}
           />

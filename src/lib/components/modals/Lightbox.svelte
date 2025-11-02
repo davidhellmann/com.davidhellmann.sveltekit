@@ -18,7 +18,7 @@
     compName?: string;
     className?: string;
     images: ComponentProps<typeof Image>["image"][];
-    ratio?: ComponentProps<typeof Image>["ratio"];
+    ratio?: string;
   } & VariantProps<typeof tvLightbox>;
 
   let { compName = "Lightbox", className, images, ratio = "aspect-landscape" }: LightboxProps = $props();
@@ -37,7 +37,7 @@
   <div data-comp={compName} class={slotWrapper({ className })} use:useLightbox={{ items: items }}>
     <Grid columns={"image-gallery"} gap={0}>
       {#each images.slice(0, 3) as image, i (image?.id)}
-        <Image index={i} {image} {ratio} noscript={false} />
+        <Image index={i} {image} className={ratio} noscript={false} />
       {/each}
       <span class={slotButton({})}>Open Gallery ({images.length})</span>
     </Grid>

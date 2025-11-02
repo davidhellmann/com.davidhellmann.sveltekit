@@ -5,12 +5,12 @@
   type BlockImage = {
     compName?: string;
     image?: ComponentProps<typeof Image>["image"];
-    ratio?: ComponentProps<typeof Image>["ratio"];
+    className?: string;
     width?: string;
     showCaption?: boolean;
   };
 
-  const { compName = "BlockImage", image, ratio, width, showCaption }: BlockImage = $props();
+  const { compName = "BlockImage", image, width, className, showCaption }: BlockImage = $props();
 
   const containerWidht = {
     full: "span-full",
@@ -21,7 +21,7 @@
 
 {#if image}
   <div class={containerWidht} data-comp={compName}>
-    <Image {image} {ratio} />
+    <Image {image} {className} />
     {#if showCaption}{/if}
   </div>
 {/if}

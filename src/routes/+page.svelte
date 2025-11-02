@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { PageData } from "./$types";
+  import type { PageProps } from "./$types";
   import { getFirstEntry } from "$utils/getFirstEntry";
   import type {
     EntryType_WorkSingleFragment,
@@ -21,11 +21,7 @@
   import CardBlog from "$components/cards/Blog.svelte";
   import CardPhotos from "$components/cards/Photos.svelte";
 
-  interface Props {
-    data: PageData;
-  }
-
-  let { data }: Props = $props();
+  let { data }: PageProps = $props();
   let entry = getFirstEntry(data.entries) as EntryType_HomeFragment;
   let blogEntries = data?.blogEntries as EntryType_BlogSingleFragment[];
   let workEntries = data?.workEntries as EntryType_WorkSingleFragment[];
@@ -91,7 +87,7 @@
               url={entry?.url}
               postDate={entry?.postDate}
               categoryTitle={entry.category[0].title}
-              theme={(["high", "middle", "low"][i] as ComponentProps<(typeof CardBlog)["theme"]>) || "default"}
+              theme={(["high", "middle", "low"][i] || "default") as ComponentProps<typeof CardBlog>["theme"]}
               size="large"
             />
           {/if}

@@ -8,12 +8,12 @@
   type BlockImage = {
     compName?: string;
     images: ComponentProps<typeof Image>["image"][];
-    ratio?: ComponentProps<typeof Image>["ratio"];
+    ratio?: string;
     showCaption?: boolean;
     imagesViewMode?: string;
   };
 
-  const { compName = "BlockImages", images, ratio, imagesViewMode }: BlockImage = $props();
+  const { compName = "BlockImages", images, ratio = "aspect-auto", imagesViewMode }: BlockImage = $props();
 
   type Columns = 1 | 2 | 3 | 4 | 5 | 6;
 
@@ -34,7 +34,7 @@
     {#if imagesViewMode && imagesViewMode.startsWith("grid-cols-")}
       <Grid columns={getColumns()}>
         {#each images as image (image)}
-          <Image {image} {ratio} />
+          <Image {image} className={ratio} />
         {/each}
       </Grid>
     {:else if imagesViewMode === "gallery"}

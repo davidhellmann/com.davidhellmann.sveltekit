@@ -27,7 +27,7 @@
         <div
           style={`--ratio: ${image?.width} / ${image?.height}; flex-basis: 0; aspect-ratio: var(--ratio); flex-grow: calc(var(--ratio) * 2);`}
         >
-          <Image {image} ratio={"aspect-auto"} noscript={false} />
+          <Image {image} className={"aspect-auto"} noscript={false} />
         </div>
       {/if}
     {/each}

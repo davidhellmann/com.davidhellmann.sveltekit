@@ -34,14 +34,14 @@
       {:else if blockType.__typename === "blockImage_Entry" && blockType?.image[0]}
         <Image
           image={blockType.image[0]}
-          ratio={blockType.imageRatio as ComponentProps<typeof Image>["ratio"]}
           width={blockType.imageWidth}
           showCaption={blockType.showCaption}
+          className={blockType.imageRatio}
         />
       {:else if blockType.__typename === "blockImages_Entry" && blockType?.images}
         <Images
           images={blockType.images}
-          ratio={blockType.imageRatio as ComponentProps<typeof Image>["ratio"]}
+          ratio={blockType.imageRatio}
           showCaption={blockType.showCaption}
           imagesViewMode={blockType.imagesViewMode}
         />
