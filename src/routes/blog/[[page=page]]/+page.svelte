@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { PageData } from "./$types";
+  import type { PageProps } from "./$types";
   import StackBlog from "$components/stacks/Blog.svelte";
   import RichText from "$components/text/RichText.svelte";
   import Seo from "$components/seo/Seo.svelte";
@@ -10,15 +10,18 @@
   import { useWaypoint } from "$lib/actions/action.waypoint";
   import { useJumpingLetters } from "$lib/actions/action.jumpingLetters";
 
-  interface Props {
-    data: PageData;
-  }
+  import {
+    type Entry_DataFragment,
+    type Entry_SeoFragment,
+    type EntryType_BlogSingleFragment,
+    type EntryType_BlogListFragment
+  } from "$graphql/graphql";
 
-  let { data }: Props = $props();
+  let { data }: PageProps = $props();
   const entryCount = data.entryCount ?? 1;
   const totalPages = data.totalPages ?? 1;
-  let blogEntry = getFirstEntry(data.blogEntry);
-  let entries = $derived(data.entries);
+  let blogEntry = getFirstEntry(data.blogEntry) as Entry_DataFragment & Entry_SeoFragment & EntryType_BlogListFragment;
+  let entries = $derived(data.entries as EntryType_BlogSingleFragment[]);
   let page = $derived(data.page);
 
   afterNavigate(() => {
@@ -40,22 +43,20 @@
   <Seo seo={blogEntry.seomatic} />
 {/if}
 
-{#if blogEntry && blogEntry?.__typename === "entryBlogList_Entry"}
-  {#if page === 1}
-    {#if blogEntry?.customTitle}
-      <div class={cc.heading} use:useWaypoint data-waypoint use:useJumpingLetters>
-        <!-- eslint-disable-next-line -->
-        {@html letters}
-      </div>
-    {/if}
-    {#if blogEntry.description}
-      <RichText className={cc.text} html={blogEntry.description} data-waypoint-target />
-    {/if}
-  {:else}
-    <div class="span-content text-neon-pink flex font-decorative text-7xl font-extrabold" use:useWaypoint data-waypoint>
+{#if page === 1}
+  {#if blogEntry?.customTitle}
+    <div class={cc.heading} use:useWaypoint data-waypoint use:useJumpingLetters>
       <!-- eslint-disable-next-line -->
-      {@html splitTextIntoDivs(`Page ${page.toString()}`, "is-blurInLeftDown")}
+      {@html letters}
     </div>
   {/if}
-  <StackBlog {entries} showPagination={true} totalItems={entryCount} {totalPages} {page} className={cc.list} />
+  {#if blogEntry.description}
+    <RichText className={cc.text} html={blogEntry.description} data-waypoint-target />
+  {/if}
+{:else}
+  <div class="span-content text-neon-pink flex font-decorative text-7xl font-extrabold" use:useWaypoint data-waypoint>
+    <!-- eslint-disable-next-line -->
+    {@html splitTextIntoDivs(`Page ${page.toString()}`, "is-blurInLeftDown")}
+  </div>
 {/if}
+<StackBlog {entries} showPagination={true} totalItems={entryCount} {totalPages} {page} className={cc.list} />

@@ -10,7 +10,8 @@ import {
   type GetPrerenderDataQuery,
   type Entry_DataFragment,
   type Entry_SeoFragment,
-  type EntryType_BlogSingleFragment
+  type EntryType_BlogSingleFragment,
+  type EntryType_BlogListFragment
 } from "$graphql/graphql";
 import { getGqlData } from "$graphql/graphql-client";
 
@@ -37,7 +38,7 @@ export const load: PageServerLoad = async ({ params }) => {
     section: ["blog"],
     limit: limit,
     offset: offset
-  })) as GetEntriesQuery;
+  })) as { entries?: EntryType_BlogSingleFragment[]; entryCount: number };
 
   const totalPages = getTotalPages(entryCount, limit);
 
@@ -47,14 +48,15 @@ export const load: PageServerLoad = async ({ params }) => {
 
   const { entries: blogEntry } = (await getGqlData<GetEntriesQueryVariables>(GetEntriesDocument, {
     section: ["pages"],
-    type: "entryBlogList"
-  })) as GetEntriesQuery;
+    type: "entryBlogList",
+    limit: 1
+  })) as { entries?: EntryType_BlogListFragment[] };
 
   console.log("Render:", blogEntry?.[0]?.title);
 
   return {
     blogEntry: blogEntry,
-    entries: entries as (Entry_DataFragment & Entry_SeoFragment & EntryType_BlogSingleFragment)[],
+    entries: entries,
     entryCount: entryCount,
     totalPages: totalPages,
     page: page
