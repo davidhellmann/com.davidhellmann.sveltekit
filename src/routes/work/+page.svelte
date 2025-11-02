@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { PageProps } from "./$types";
-  import type { EntryType_WorkSingleFragment } from "$graphql/graphql";
+  import type { EntryType_WorkListFragment } from "$graphql/graphql";
   import StackBlog from "$components/stacks/Blog.svelte";
   import RichText from "$components/text/RichText.svelte";
   import Seo from "$components/seo/Seo.svelte";
@@ -12,7 +12,7 @@
   import { useJumpingLetters } from "$lib/actions/action.jumpingLetters";
 
   let { data }: PageProps = $props();
-  let workEntry = getFirstEntry(data.workEntry) as EntryType_WorkSingleFragment;
+  let workEntry = getFirstEntry(data.workEntry) as EntryType_WorkListFragment;
   let workEntries = data?.workEntries as ComponentProps<typeof GridBentoWork>["entries"];
 
   const cc = {
