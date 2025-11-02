@@ -1,5 +1,5 @@
 fragment blockType_blockCta on blockCta_Entry {
-  ...entryType_data
+  ...entry_data
   headline
   description
   hyperLinks {

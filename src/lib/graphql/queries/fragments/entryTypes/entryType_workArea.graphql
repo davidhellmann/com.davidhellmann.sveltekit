@@ -1,3 +1,12 @@
 fragment entryType_workArea on entryWorkArea_Entry {
-  ...entryType_data
+  # Entry Data
+  ...entry_data
+  ...entry_dates
+  ...entry_seo
+  ...entry_prev
+  ...entry_next
+
+  # Author Data
+  ...author_data
+
 }

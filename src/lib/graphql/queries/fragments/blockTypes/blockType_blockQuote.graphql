@@ -1,5 +1,5 @@
 fragment blockType_blockQuote on blockQuote_Entry {
-  ...entryType_data
+  ...entry_data
   quote
   source
   hyperLink {

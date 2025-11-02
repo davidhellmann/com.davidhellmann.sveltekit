@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { PageProps } from "./$types";
   import { getFirstEntry } from "$utils/getFirstEntry";
-  import type { EntryType_WorkSingleFragment, Entry_SeoFragment } from "$graphql/graphql";
+  import type { EntryType_WorkSingleFragment } from "$graphql/graphql";
   import Seo from "$components/seo/Seo.svelte";
   import LightboxWork from "$components/modals/LightboxWork.svelte";
   import Headline from "$components/text/Headline.svelte";
@@ -9,7 +9,7 @@
   // import ContentBuilder from "$components/builders/ContentBuilder.svelte";
 
   let { data }: PageProps = $props();
-  const entry = getFirstEntry(data.entries) as Entry_SeoFragment & EntryType_WorkSingleFragment;
+  const entry = getFirstEntry(data.entries) as EntryType_WorkSingleFragment;
 </script>
 
 {#if entry?.seomatic}

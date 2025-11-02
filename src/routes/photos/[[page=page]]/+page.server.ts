@@ -3,7 +3,6 @@ import type { PageServerLoad, EntryGenerator, RouteParams } from "./$types";
 import { redirect } from "@sveltejs/kit";
 import {
   GetEntriesDocument,
-  type GetEntriesQuery,
   type GetEntriesQueryVariables,
   GetPrerenderDataDocument,
   type GetPrerenderDataQueryVariables,

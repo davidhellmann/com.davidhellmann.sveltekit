@@ -1,11 +1,19 @@
 fragment entryType_company on entryCompany_Entry {
-  ...entryType_data
+  # Entry Data
+  ...entry_data
+  ...entry_dates
+  ...entry_seo
+  ...entry_prev
+  ...entry_next
+
+  # Author Data
+  ...author_data
+
   logoMonochrome {
     ...asset_data
     ...asset_transforms
     ...asset_customFields
   }
-  ...entryType_data
   logoColor {
     ...asset_data
     ...asset_transforms

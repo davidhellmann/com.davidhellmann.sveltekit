@@ -13,10 +13,6 @@ query GetEntries(
   # Relations
   $relatedToEntries: [EntryRelationCriteriaInput],
 
-  #Conditions
-  $includeSeo: Boolean = true
-  $includePrevNext: Boolean = false
-  $includeEntryTypes: Boolean = true
 ) {
   entries(
     site: $site,
@@ -33,25 +29,15 @@ query GetEntries(
     # Relations
     relatedToEntries: $relatedToEntries
   ) {
-    # Entry Data
-    ...entry_data
-    ...entry_dates
-    ...entry_seo @include(if: $includeSeo)
-    ...entry_prev @include(if: $includePrevNext)
-    ...entry_next @include(if: $includePrevNext)
-
-    # Author Data
-    ...author_data
-
     # Entry Types
-    ...entryType_about @include(if: $includeEntryTypes)
-    ...entryType_blogList @include(if: $includeEntryTypes)
-    ...entryType_blogSingle @include(if: $includeEntryTypes)
-    ...entryType_home @include(if: $includeEntryTypes)
-    ...entryType_photosList @include(if: $includeEntryTypes)
-    ...entryType_photosSingle @include(if: $includeEntryTypes)
-    ...entryType_workSingle @include(if: $includeEntryTypes)
-    ...entryType_workList @include(if: $includeEntryTypes)
+    ...entryType_about
+    ...entryType_blogList
+    ...entryType_blogSingle
+    ...entryType_home
+    ...entryType_photosList
+    ...entryType_photosSingle
+    ...entryType_workSingle
+    ...entryType_workList
   }
   entryCount(
     site: $site,

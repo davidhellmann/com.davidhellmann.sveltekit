@@ -2,10 +2,7 @@ export const prerender = true;
 import type { PageServerLoad } from "./$types";
 import {
   GetEntriesDocument,
-  type GetEntriesQuery,
   type GetEntriesQueryVariables,
-  type Entry_DataFragment,
-  type Entry_SeoFragment,
   type EntryType_WorkSingleFragment,
   type EntryType_WorkListFragment
 } from "$graphql/graphql";

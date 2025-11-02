@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { PageProps } from "./$types";
-  import type { EntryType_BlogSingleFragment, Entry_SeoFragment } from "$graphql/graphql";
+  import type { EntryType_BlogSingleFragment } from "$graphql/graphql";
   import { getFirstEntry } from "$utils/getFirstEntry";
   import Seo from "$components/seo/Seo.svelte";
   import HeroBlog from "$components/heros/Blog.svelte";
@@ -8,7 +8,7 @@
 
   let { data }: PageProps = $props();
 
-  const entry = getFirstEntry(data.entries) as Entry_SeoFragment & EntryType_BlogSingleFragment;
+  const entry = getFirstEntry(data.entries) as EntryType_BlogSingleFragment;
 </script>
 
 {#if entry?.seomatic}

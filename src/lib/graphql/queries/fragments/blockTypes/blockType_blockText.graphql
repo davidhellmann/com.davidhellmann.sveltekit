@@ -1,4 +1,4 @@
 fragment blockType_blockText on blockText_Entry {
-    ...entryType_data
+    ...entry_data
     richText
 }

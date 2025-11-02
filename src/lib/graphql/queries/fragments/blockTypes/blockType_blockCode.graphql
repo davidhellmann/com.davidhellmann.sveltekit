@@ -1,5 +1,5 @@
 fragment blockType_blockCode on blockCode_Entry {
-    ...entryType_data
+    ...entry_data
     codeSnippet {
         language
         value

@@ -11,19 +11,12 @@
   import { useWaypoint } from "$lib/actions/action.waypoint";
   import { useJumpingLetters } from "$lib/actions/action.jumpingLetters";
 
-  import {
-    type Entry_DataFragment,
-    type Entry_SeoFragment,
-    type EntryType_PhotosSingleFragment,
-    type EntryType_PhotosListFragment
-  } from "$graphql/graphql";
+  import { type EntryType_PhotosSingleFragment, type EntryType_PhotosListFragment } from "$graphql/graphql";
 
   let { data }: PageProps = $props();
   const entryCount = data.entryCount ?? 1;
   const totalPages = data.totalPages ?? 1;
-  let photosEntry = getFirstEntry(data.photosEntry) as Entry_DataFragment &
-    Entry_SeoFragment &
-    EntryType_PhotosListFragment;
+  let photosEntry = getFirstEntry(data.photosEntry) as EntryType_PhotosListFragment;
   let entries = $derived(data.entries);
   let page = $derived(data.page);
 

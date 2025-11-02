@@ -1,5 +1,5 @@
 fragment blockType_blockAward on blockAward_Entry {
-  ...entryType_data
+  ...entry_data
   company {
     ...entryType_company
   }

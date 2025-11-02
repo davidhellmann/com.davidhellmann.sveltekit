@@ -1,5 +1,14 @@
-  fragment entryType_about on entryAbout_Entry {
-  ...entryType_data
+fragment entryType_about on entryAbout_Entry {
+  # Entry Data
+  ...entry_data
+  ...entry_dates
+  ...entry_seo
+  ...entry_prev
+  ...entry_next
+
+  # Author Data
+  ...author_data
+
   description
   descriptionPlain: description @stripTags
   customTitle

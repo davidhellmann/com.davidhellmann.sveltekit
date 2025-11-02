@@ -1,5 +1,5 @@
 fragment blockType_blockImages on blockImages_Entry {
-  ...entryType_data
+  ...entry_data
   images {
     ...asset_data
     ...asset_transforms

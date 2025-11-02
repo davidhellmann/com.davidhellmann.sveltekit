@@ -1,12 +1,7 @@
 <script lang="ts">
   import type { PageProps } from "./$types";
   import { getFirstEntry } from "$utils/getFirstEntry";
-  import type {
-    EntryType_PhotosSingleFragment,
-    Entry_SeoFragment,
-    Entry_PrevFragment,
-    Entry_NextFragment
-  } from "$graphql/graphql";
+  import type { EntryType_PhotosSingleFragment } from "$graphql/graphql";
   import Seo from "$components/seo/Seo.svelte";
   import HeroPhotos from "$components/heros/Photos.svelte";
   import Image from "$components/media/Image.svelte";
@@ -16,10 +11,7 @@
 
   let { data }: PageProps = $props();
 
-  const entry = getFirstEntry(data.entries) as Entry_SeoFragment &
-    EntryType_PhotosSingleFragment &
-    Entry_PrevFragment &
-    Entry_NextFragment;
+  const entry = getFirstEntry(data.entries) as EntryType_PhotosSingleFragment;
 </script>
 
 {#if entry?.seomatic}

@@ -3,13 +3,10 @@ import type { PageServerLoad, EntryGenerator, RouteParams } from "./$types";
 import { redirect } from "@sveltejs/kit";
 import {
   GetEntriesDocument,
-  type GetEntriesQuery,
   type GetEntriesQueryVariables,
   GetPrerenderDataDocument,
   type GetPrerenderDataQueryVariables,
   type GetPrerenderDataQuery,
-  type Entry_DataFragment,
-  type Entry_SeoFragment,
   type EntryType_BlogSingleFragment,
   type EntryType_BlogListFragment
 } from "$graphql/graphql";

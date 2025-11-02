@@ -1,5 +1,5 @@
 fragment blockType_blockCurriculumVitae on blockCurriculumVitae_Entry {
-  ...entryType_data
+  ...entry_data
   company {
     ...entryType_company
   }

@@ -2,7 +2,6 @@ export const prerender = true;
 import type { PageServerLoad, EntryGenerator, RouteParams } from "./$types";
 import {
   GetEntriesDocument,
-  type GetEntriesQuery,
   type GetEntriesQueryVariables,
   GetPrerenderDataDocument,
   type GetPrerenderDataQueryVariables,
@@ -30,8 +29,7 @@ export const load: PageServerLoad = async ({ params }) => {
   const { entries } = (await getGqlData<GetEntriesQueryVariables>(GetEntriesDocument, {
     section: ["blog"],
     slug: params?.slug,
-    limit: 1,
-    includePrevNext: true
+    limit: 1
   })) as { entries?: EntryType_BlogSingleFragment[] };
 
   console.log("Render:", entries?.[0]?.title);

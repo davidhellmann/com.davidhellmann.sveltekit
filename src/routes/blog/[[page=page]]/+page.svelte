@@ -10,17 +10,12 @@
   import { useWaypoint } from "$lib/actions/action.waypoint";
   import { useJumpingLetters } from "$lib/actions/action.jumpingLetters";
 
-  import {
-    type Entry_DataFragment,
-    type Entry_SeoFragment,
-    type EntryType_BlogSingleFragment,
-    type EntryType_BlogListFragment
-  } from "$graphql/graphql";
+  import { type EntryType_BlogSingleFragment, type EntryType_BlogListFragment } from "$graphql/graphql";
 
   let { data }: PageProps = $props();
   const entryCount = data.entryCount ?? 1;
   const totalPages = data.totalPages ?? 1;
-  let blogEntry = getFirstEntry(data.blogEntry) as Entry_DataFragment & Entry_SeoFragment & EntryType_BlogListFragment;
+  let blogEntry = getFirstEntry(data.blogEntry) as EntryType_BlogListFragment;
   let entries = $derived(data.entries as EntryType_BlogSingleFragment[]);
   let page = $derived(data.page);
 
@@ -37,6 +32,8 @@
   };
 
   let letters = $derived(splitTextIntoDivs(blogEntry?.customTitle, "is-blurInLeftDown", "$"));
+
+  console.log(blogEntry);
 </script>
 
 {#if blogEntry?.seomatic}
