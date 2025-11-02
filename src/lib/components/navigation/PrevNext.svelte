@@ -55,7 +55,7 @@
 
 <nav data-comp={compName} class="{slotNav()} {className}">
   {#if prev}
-    <a href="/{prev.uri}" class={slotLink()}>
+    <a href="/{prev.uri}" class={`${slotLink()} ${!next ? "w-full" : ""}`}>
       <IconSprite icon="arrow-left-outline" size={20} className={slotIcon()} />
       <span class={slotText()}>
         <span class={slotLabel()}>Previous</span>
@@ -65,7 +65,7 @@
   {/if}
 
   {#if next}
-    <a href="/{next.uri}" class="{slotLink()} flex-row-reverse">
+    <a href="/{next.uri}" class="{`${slotLink()} ${!prev ? 'w-full' : ''}`} flex-row-reverse">
       <IconSprite icon="arrow-right-outline" size={20} className={slotIcon()} />
       <span class="{slotText()} text-end">
         <span class={slotLabel()}>Next</span>
