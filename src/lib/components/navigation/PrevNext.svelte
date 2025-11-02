@@ -5,21 +5,23 @@
 
   const tvPrevNext = tv({
     slots: {
-      slotNav: "flex justify-between items-center gap-8 mt-16 mb-24",
-      slotLink: "group flex items-center gap-3 text-sm font-mono transition-all leading-[1]",
-      slotIcon: "shrink-0 rounded-full size-10 p-3",
+      slotNav:
+        "flex justify-center items-center mt-16 mb-24 w-full max-w-2xl mx-auto divide-x divide-neutral-300 border border-neutral-300 rounded-full shadow-xs overflow-hidden",
+      slotLink: "group flex items-center gap-4 text-sm font-mono transition w-1/2 p-4 h-full",
+      slotIcon: "shrink-0 rounded-full size-12 p-4",
       slotText: "flex flex-col",
       slotLabel: "text-2xs text-neutral-500 uppercase tracking-widest",
-      slotTitle: "font-semibold"
+      slotTitle: "font-semibold wrap-break-word"
     },
     variants: {
       theme: {
         default: {
-          slotLink: "hover:text-accent-purple-700",
-          slotIcon: "text-neutral-400 group-hover:text-accent-purple-700"
+          slotNav: "bg-neutral-100 shadow-neutral-400",
+          slotLink: "hover:text-black  hover:bg-neutral-50",
+          slotIcon: "text-white bg-black group-hover:bg-accent-purple-700 transition"
         },
         photos: {
-          slotLink: "hover:text-black",
+          slotLink: "hover:text-black  hover:bg-neutral-50",
           slotIcon: "text-white bg-black group-hover:bg-[red] transition"
         }
       }
