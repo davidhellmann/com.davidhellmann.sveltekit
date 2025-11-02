@@ -6,7 +6,7 @@
   import Images from "$components/builders/_blocks/Images.svelte";
   import Cta from "$components/builders/_blocks/Cta.svelte";
   import type { Matrix_ContentBuilderFragment } from "$lib/graphql/graphql";
-  import { ComponentProps } from "svelte";
+  import type { ComponentProps } from "svelte";
 
   type BlockTypes = {
     compName?: string;
