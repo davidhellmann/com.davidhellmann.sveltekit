@@ -6,10 +6,10 @@
   const tvPrevNext = tv({
     slots: {
       slotNav: "flex justify-between items-center gap-8 mt-16 mb-24",
-      slotLink: "group flex items-center gap-3 text-sm font-mono transition-all hover:gap-4",
-      slotIcon: "shrink-0",
+      slotLink: "group flex items-center gap-3 text-sm font-mono transition-all leading-[1]",
+      slotIcon: "shrink-0 rounded-full size-10 p-3",
       slotText: "flex flex-col",
-      slotLabel: "text-xs text-neutral-500 uppercase tracking-wide",
+      slotLabel: "text-2xs text-neutral-500 uppercase tracking-widest",
       slotTitle: "font-semibold"
     },
     variants: {
@@ -20,7 +20,7 @@
         },
         photos: {
           slotLink: "hover:text-black",
-          slotIcon: "text-neutral-600 group-hover:text-black"
+          slotIcon: "text-white bg-black group-hover:bg-[red] transition"
         }
       }
     },
@@ -30,34 +30,44 @@
   });
 
   type PrevNextProps = {
-    prev?: Entry_DataFragment | null;
-    next?: Entry_DataFragment | null;
+    prev?: Entry_DataFragment;
+    next?: Entry_DataFragment;
     compName?: string;
     className?: string;
   } & VariantProps<typeof tvPrevNext>;
 
-  let { prev = null, next = null, theme = "default", compName = "PrevNext", className = "" }: PrevNextProps = $props();
+  let {
+    prev = undefined,
+    next = undefined,
+    theme = "default",
+    compName = "PrevNext",
+    className = ""
+  }: PrevNextProps = $props();
 
   const { slotNav, slotLink, slotIcon, slotText, slotLabel, slotTitle } = tvPrevNext({ theme });
+
+  const splitTitle = (title?: string) => {
+    return title?.split(" (")?.[0] ?? title;
+  };
 </script>
 
 <nav data-comp={compName} class="{slotNav()} {className}">
   {#if prev}
     <a href="/{prev.uri}" class={slotLink()}>
-      <IconSprite icon="arrow-left-outline" size={48} className={slotIcon()} />
+      <IconSprite icon="arrow-left-outline" size={20} className={slotIcon()} />
       <span class={slotText()}>
         <span class={slotLabel()}>Previous</span>
-        <span class={slotTitle()}>{prev.title}</span>
+        <span class={slotTitle()}>{splitTitle(prev?.title)}</span>
       </span>
     </a>
   {/if}
 
   {#if next}
     <a href="/{next.uri}" class="{slotLink()} flex-row-reverse">
-      <IconSprite icon="arrow-right-outline" size={48} className={slotIcon()} />
+      <IconSprite icon="arrow-right-outline" size={20} className={slotIcon()} />
       <span class="{slotText()} text-end">
         <span class={slotLabel()}>Next</span>
-        <span class={slotTitle()}>{next.title}</span>
+        <span class={slotTitle()}>{splitTitle(next?.title)}</span>
       </span>
     </a>
   {/if}

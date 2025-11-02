@@ -15,8 +15,8 @@
     compName?: string;
     className?: string;
     headline: string;
-    exif: { cameras: string[]; lenses: string[] };
-    imageCount: number;
+    exif?: { cameras?: string[]; lenses?: string[] };
+    imageCount?: number;
   } & VariantProps<typeof tvHeroPhotos>;
 
   const { compName = "HeroPhotos", className, headline, exif, imageCount }: HeroPhotosProps = $props();
@@ -37,11 +37,11 @@
       {/if}
       <Headline text={_headline} tag="h1" className={slotHeadline()} />
       <div class="flex gap-8 mt-2">
-        {#if exif.cameras}
-          <span class={slotGearList()}>{exif.cameras.join(", ")}</span>
+        {#if exif?.cameras}
+          <span class={slotGearList()}>{exif?.cameras.join(", ")}</span>
         {/if}
-        {#if exif.lenses}
-          <span class={slotGearList()}>{exif.lenses.join(", ")}</span>
+        {#if exif?.lenses}
+          <span class={slotGearList()}>{exif?.lenses.join(", ")}</span>
         {/if}
       </div>
     </div>

@@ -17,7 +17,7 @@
   const entryCount = data.entryCount ?? 1;
   const totalPages = data.totalPages ?? 1;
   let photosEntry = getFirstEntry(data.photosEntry) as EntryType_PhotosListFragment;
-  let entries = $derived(data.entries);
+  let entries = $derived(data.entries) as EntryType_PhotosSingleFragment[];
   let page = $derived(data.page);
 
   afterNavigate(() => {

@@ -1,9 +1,9 @@
 import type Asset from "$components/media/Image.svelte";
-export const getExifData = (images: Asset[]): { cameras: string[]; lenses: string[] } => {
+export const getExifData = (images?: Asset[]): { cameras?: string[]; lenses?: string[] } => {
   const camerasSet = new Set<string>();
   const lensesSet = new Set<string>();
 
-  images.forEach((image) => {
+  images?.forEach((image) => {
     if (!image?.exif) return;
 
     try {

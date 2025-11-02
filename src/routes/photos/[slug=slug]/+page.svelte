@@ -20,7 +20,11 @@
 
 {#if entry?.title && entry?.images}
   {@const exifDataParsed = getExifData(entry?.images)}
-  <HeroPhotos imageCount={entry?.images?.length} headline={entry?.customTitle ?? entry.title} exif={exifDataParsed} />
+  <HeroPhotos
+    imageCount={entry?.images?.length}
+    headline={entry?.customTitle ?? entry.title}
+    exif={exifDataParsed ?? undefined}
+  />
 {/if}
 
 {#if entry?.images}
