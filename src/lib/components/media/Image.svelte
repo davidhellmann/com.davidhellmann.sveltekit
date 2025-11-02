@@ -6,6 +6,7 @@
   import { useUnlazy } from "$lib/actions/action.unlazy";
   import { tv, type VariantProps } from "tailwind-variants";
   import type { Asset_CustomFieldsFragment, Asset_DataFragment, Asset_TransformsFragment } from "$graphql/graphql";
+  import { ComponentProps } from "svelte";
 
   type ObjectFit = "cover" | "contain" | "fill" | "none" | "scale-down";
 
@@ -39,8 +40,7 @@
     noscript?: boolean;
     decorative?: boolean;
     index?: number | undefined;
-  } & VariantProps<typeof tvImage> &
-    HTMLImageElement;
+  } & VariantProps<typeof tvImage>;
 
   let {
     compName = "Image",
