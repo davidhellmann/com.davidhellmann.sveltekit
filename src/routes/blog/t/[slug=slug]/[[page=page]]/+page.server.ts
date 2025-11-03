@@ -36,7 +36,7 @@ export const entries: EntryGenerator = async () => {
       relatedToEntries: [
         {
           section: ["topics"],
-          slug: category.slug
+          slug: [category.slug]
         }
       ]
     })) as GetPrerenderDataQuery;
@@ -64,7 +64,7 @@ export const load: PageServerLoad = async ({ params }) => {
     relatedToEntries: [
       {
         section: ["topics"],
-        slug: params?.slug
+        slug: [params?.slug]
       }
     ],
     limit: limit,

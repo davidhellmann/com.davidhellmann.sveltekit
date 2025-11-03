@@ -61,7 +61,7 @@
       </a>
     </li>
     <li data-waypoint-target class="is-zoomInDown">
-      <a class={slotLink({ theme })} aria-current={isCurrentPage(["/blog", "/t"])} href="/blog">
+      <a class={slotLink({ theme })} aria-current={isCurrentPage("/blog")} href="/blog">
         <IconSprite className={slotIcon()} size={20} icon="document-text-outline" />
         <span class="hidden xs:inline-block">blog.</span>
       </a>
