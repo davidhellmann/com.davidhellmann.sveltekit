@@ -2,6 +2,7 @@
   import { tv, type VariantProps } from "$utils/classNames";
   import IconSprite from "$components/media/IconSprite.svelte";
   import type { Entry_DataFragment } from "$graphql/graphql";
+  import CV from "$components/cards/CV.svelte";
 
   const tvPrevNext = tv({
     slots: {
@@ -51,11 +52,13 @@
   const transformTitle = (title?: string) => {
     return title?.split(" (")?.[0] ?? title;
   };
+
+  console.log(prev, next);
 </script>
 
 <nav data-comp={compName} class="{slotNav()} {className}">
   {#if prev}
-    <a href="/{prev.uri}" class={`${slotLink()} ${!next ? "w-full" : ""}`}>
+    <a href="/{prev.uri}" class={`${slotLink()} ${!next ? "w-full md:w-full" : ""}`}>
       <IconSprite icon="arrow-left-outline" size={20} className={slotIcon()} />
       <span class={slotText()}>
         <span class={slotLabel()}>Previous</span>
@@ -65,7 +68,7 @@
   {/if}
 
   {#if next}
-    <a href="/{next.uri}" class="{`${slotLink()} ${!prev ? 'w-full' : ''}`} flex-row-reverse">
+    <a href="/{next.uri}" class="{`${slotLink()} ${!prev ? 'w-full md:w-full' : ''}`} flex-row-reverse">
       <IconSprite icon="arrow-right-outline" size={20} className={slotIcon()} />
       <span class="{slotText()} text-end">
         <span class={slotLabel()}>Next</span>
