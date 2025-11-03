@@ -5,7 +5,7 @@
     Entry_SeoFragment,
     EntryType_PhotosSingleFragment
   } from "$graphql/graphql";
-  import { tv, type VariantProps } from "$lib/utils/classNames";
+  import { tv, type VariantProps } from "$utils/classNames";
   import Pagination from "$components/navigation/Pagination.svelte";
   import CardPhotos from "$components/cards/Photos.svelte";
   import Image from "$components/media/Image.svelte";

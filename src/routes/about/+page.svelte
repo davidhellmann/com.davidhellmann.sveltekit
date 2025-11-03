@@ -17,7 +17,7 @@
   let entry = getFirstEntry(data.entries) as EntryType_AboutFragment;
 
   const cc = {
-    heroImage: "absolute inset-x-0 top-0 z-10 aspect-auto",
+    heroImage: "absolute inset-x-0 top-0 z-10 aspect-auto!",
     heroHeadline:
       "font-decorative text-7xl font-extrabold uppercase leading-[0.85]! `text-[min(12vw,13.5rem)] text-neon-yellow -translate-y-[1.75cap] -mb-[1.25cap] flex flex-wrap [br]:w-full",
     heroSubline: "is-fadeInUp span-content lg:col-start-2 lg:col-end-10 text-white text-3xl max-w-prose",

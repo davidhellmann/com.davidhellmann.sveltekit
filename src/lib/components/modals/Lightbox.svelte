@@ -1,7 +1,7 @@
 <script lang="ts">
   import Image from "$components/media/Image.svelte";
   import type { ComponentProps } from "svelte";
-  import { tv, type VariantProps } from "$lib/utils/classNames";
+  import { tv, type VariantProps } from "$utils/classNames";
   import Grid from "$components/containers/Grid.svelte";
   import { useLightbox } from "$lib/actions/action.lightbox";
   import "$styles/lightbox.css";

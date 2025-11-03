@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { tv, type VariantProps } from "$lib/utils/classNames";
+  import { tv, type VariantProps } from "$utils/classNames";
   import Link from "$components/text/Link.svelte";
   import type { Hyper_DataFragment } from "$graphql/graphql";
   import type { ComponentProps } from "svelte";

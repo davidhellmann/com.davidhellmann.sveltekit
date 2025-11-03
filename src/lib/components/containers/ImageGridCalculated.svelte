@@ -1,7 +1,7 @@
 <script lang="ts">
   import Image from "$components/media/Image.svelte";
   import type { ComponentProps } from "svelte";
-  import { tv, type VariantProps } from "$lib/utils/classNames";
+  import { tv, type VariantProps } from "$utils/classNames";
 
   const tvLightbox = tv({
     slots: {
@@ -27,7 +27,7 @@
         <div
           style={`--ratio: ${image?.width} / ${image?.height}; flex-basis: 0; aspect-ratio: var(--ratio); flex-grow: calc(var(--ratio) * 2);`}
         >
-          <Image {image} className={"aspect-auto size-full"} noscript={false} />
+          <Image {image} className={"aspect-auto! size-full"} noscript={false} />
         </div>
       {/if}
     {/each}

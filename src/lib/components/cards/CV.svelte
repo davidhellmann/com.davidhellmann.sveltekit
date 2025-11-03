@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { tv, type VariantProps } from "$lib/utils/classNames";
+  import { tv, type VariantProps } from "$utils/classNames";
   import Headline from "$components/text/Headline.svelte";
   import PlainText from "$components/text/PlainText.svelte";
   import Time from "$components/text/Time.svelte";
@@ -13,7 +13,7 @@
 
       `,
       slotLogo:
-        "size-32 aspect-square bg-neutral-50 text-neutral-950 group-hover:text-neutral-50 group-hover:bg-neutral-950 px-4 flex items-center rounded-xl transition-all",
+        "size-32 aspect-square! bg-neutral-50 text-neutral-950 group-hover:text-neutral-50 group-hover:bg-neutral-950 px-4 flex items-center rounded-xl transition-all",
       slotContent: "flex flex-col text-center gap-y-4 md:gap-y-0 md:text-left",
       slotMeta:
         "flex items-center flex-wrap justify-center md:justify-start gap-x-4 text-neon-green group-hover:text-neutral-950",

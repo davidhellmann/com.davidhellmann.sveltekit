@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { tv, type VariantProps } from "$lib/utils/classNames";
+  import { tv, type VariantProps } from "$utils/classNames";
   import Image from "$components/media/Image.svelte";
   import EmblaSlider from "$components/containers/EmblaSlider.svelte";
   import EmblaSlide from "$components/containers/EmblaSlide.svelte";
@@ -54,7 +54,7 @@
           <Polaroid className="p-2 rounded-md *:rounded-xs" style={`rotate: ${getRandomNumberFromRange(-3, 3)}deg;`}>
             {#if image?.width && image?.height}
               <Image
-                className={image?.width > image?.height ? "aspect-landscape" : "aspect-portrait"}
+                className={image?.width > image?.height ? "aspect-landscape!" : "aspect-portrait!"}
                 noscript={false}
                 {image}
               />

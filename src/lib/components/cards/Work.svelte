@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { tv, type VariantProps } from "$lib/utils/classNames";
+  import { tv, type VariantProps } from "$utils/classNames";
   import Headline from "$components/text/Headline.svelte";
   import Time from "$components/text/Time.svelte";
   import PlainText from "$components/text/PlainText.svelte";

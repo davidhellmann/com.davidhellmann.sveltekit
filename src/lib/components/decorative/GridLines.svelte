@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { tv, type VariantProps } from "$lib/utils/classNames";
+  import { tv, type VariantProps } from "$utils/classNames";
 
   const baseClasses = {
     size: "fixed h-screen w-full max-w-[2000px]  pointer-events-none",

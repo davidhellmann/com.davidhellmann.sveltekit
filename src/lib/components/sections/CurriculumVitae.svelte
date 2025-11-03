@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { tv, type VariantProps } from "$lib/utils/classNames";
+  import { tv, type VariantProps } from "$utils/classNames";
   import type { Matrix_CurriculumVitaeFragment } from "$graphql/graphql";
   import CardCV from "$components/cards/CV.svelte";
 

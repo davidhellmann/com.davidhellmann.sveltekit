@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { tv, type VariantProps } from "$lib/utils/classNames";
+  import { tv, type VariantProps } from "$utils/classNames";
   import type { EntryType_WorkSingleFragment } from "$graphql/graphql";
   import { getRandomItemsFromArray } from "$utils/getRandomItemsFromArray";
   import Image from "$components/media/Image.svelte";
@@ -24,7 +24,7 @@
         "col-span-1 lg:row-span-2 [&_.imageWrapper]:pb-0 [&_.imageWrapper]:px-6 [&_img]:rounded-b-none lg:[&_.imageWrapper]:pb-0 lg:[&_.imageWrapper]:pr-6 lg:[&_.imageWrapper]:pl-0 lg:[&_img]:rounded-b-none lg:[&_img]:rounded-tl-none",
       slotContent: "flex flex-col px-10 pt-10 stack-3",
       slotImageWrapper: "imageWrapper w-full h-full pb-3 px-3",
-      slotImage: "w-full h-full aspect-[3/1.8] ring-1 ring-neutral-600/20 rounded-lg shadow-xl"
+      slotImage: "w-full h-full aspect-[3/1.8]! ring-1 ring-neutral-600/20 rounded-lg shadow-xl"
     },
     variants: {
       theme: {

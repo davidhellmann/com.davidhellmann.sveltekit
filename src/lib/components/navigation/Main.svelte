@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { tv, type VariantProps } from "$lib/utils/classNames";
+  import { tv, type VariantProps } from "$utils/classNames";
   import IconSprite from "$components/media/IconSprite.svelte";
   import { page } from "$app/state";
 
