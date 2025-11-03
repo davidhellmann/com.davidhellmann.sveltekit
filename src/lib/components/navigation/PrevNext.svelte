@@ -24,6 +24,11 @@
         photos: {
           slotLink: "hover:text-black  hover:bg-neutral-50",
           slotIcon: "text-white bg-black group-hover:bg-[red] transition"
+        },
+        work: {
+          slotNav: "bg-neutral-800 shadow-black border-neutral-700 divide-neutral-700",
+          slotLink: " hover:bg-neutral-700",
+          slotIcon: "text-white bg-black group-hover:bg-white group-hover:text-neutral-950 transition"
         }
       }
     },

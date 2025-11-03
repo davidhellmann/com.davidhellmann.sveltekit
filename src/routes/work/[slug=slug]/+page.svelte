@@ -6,6 +6,7 @@
   import LightboxWork from "$components/modals/LightboxWork.svelte";
   import Headline from "$components/text/Headline.svelte";
   import RichText from "$components/text/RichText.svelte";
+  import PrevNext from "$components/navigation/PrevNext.svelte";
   // import ContentBuilder from "$components/builders/ContentBuilder.svelte";
 
   let { data }: PageProps = $props();
@@ -32,6 +33,8 @@
     <LightboxWork images={entry?.images} ratio={"aspect-auto"} />
   </div>
 {/if}
+
+<PrevNext prev={entry?.prev} next={entry?.next} theme="work" className="span-content" />
 
 <style>
   @reference "../../../lib/styles/app.css";

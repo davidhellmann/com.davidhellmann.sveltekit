@@ -29,7 +29,7 @@ export const load: PageServerLoad = async () => {
 
   const { entries: photoEntries } = (await getGqlData<GetEntriesQueryVariables>(GetEntriesDocument, {
     section: ["photos"],
-    limit: 8,
+    limit: 4,
     orderBy: "RAND()"
   })) as { entries?: EntryType_PhotosSingleFragment[] };
 
