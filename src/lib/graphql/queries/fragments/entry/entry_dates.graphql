@@ -1,5 +1,8 @@
 fragment entry_dates on EntryInterface {
   postDate: postDate @formatDateTime(format: "short")
+  postDateDay: postDate @formatDateTime(format: "d")
+  postDateMonth: postDate @formatDateTime(format: "m")
+  postDateYear: postDate @formatDateTime(format: "Y")
   expireDate: expiryDate @formatDateTime(format: "short")
   postUpdateDate: dateUpdated @formatDateTime(format: "short")
   timezone: postDate @formatDateTime(format: "T")

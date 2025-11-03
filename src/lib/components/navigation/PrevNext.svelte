@@ -57,8 +57,6 @@
   const transformTitle = (title?: string) => {
     return title?.split(" (")?.[0] ?? title;
   };
-
-  console.log(prev, next);
 </script>
 
 <nav data-comp={compName} class="{slotNav()} {className}">
