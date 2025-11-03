@@ -82,8 +82,6 @@
     height,
     style: `object-fit: ${objectFit}; object-position: ${focalPointCoordinates.x * 100}% ${focalPointCoordinates.y * 100}%;`
   };
-
-  console.log(tvImage({ animate, className }), className);
 </script>
 
 {#snippet noScriptTag()}

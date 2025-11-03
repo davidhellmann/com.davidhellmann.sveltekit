@@ -23,7 +23,7 @@
     ratio?: string;
   } & VariantProps<typeof tvLightboxWork>;
 
-  let { compName = "LightboxWork", className, images, ratio = "aspect-auto!" }: LightboxWorkProps = $props();
+  let { compName = "LightboxWork", className, images, ratio = "aspect-auto" }: LightboxWorkProps = $props();
 
   const items = images.map((image) => ({
     src: image?.url,
@@ -35,8 +35,8 @@
 
   const getAspectRatio = (image: ComponentProps<typeof Image>["image"]) => {
     const ratio = (image?.width ?? 1) / (image?.height ?? 1);
-    if (ratio >= 1) return "aspect-auto!";
-    if (ratio < 1) return "aspect-square! md:aspect-portrait!";
+    if (ratio >= 1) return "aspect-auto";
+    if (ratio < 1) return "aspect-square md:aspect-portrait";
   };
 </script>
 

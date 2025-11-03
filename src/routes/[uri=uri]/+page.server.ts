@@ -30,7 +30,7 @@ export const load: PageServerLoad = async ({ params }) => {
     uri: params?.uri
   })) as { entries?: EntryType_ContentBuilderFragment[] };
 
-  console.log("Render:", entries?.[0]?.title);
+  console.log("Render:", entries?.[0]?.title, ": ", entries?.[0]?.uri);
 
   return {
     entries: entries

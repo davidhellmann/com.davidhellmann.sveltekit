@@ -32,7 +32,7 @@ export const load: PageServerLoad = async ({ params }) => {
     limit: 1
   })) as { entries?: EntryType_WorkSingleFragment[] };
 
-  console.log("Render:", entries?.[0]?.title);
+  console.log("Render:", entries?.[0]?.title, ": ", entries?.[0]?.uri);
 
   return {
     entries: entries

@@ -33,7 +33,7 @@ export const load: PageServerLoad = async () => {
     orderBy: "RAND()"
   })) as { entries?: EntryType_PhotosSingleFragment[] };
 
-  console.log("Render:", entries?.[0]?.title);
+  console.log("Render:", entries?.[0]?.title, ": ", entries?.[0]?.uri);
 
   return {
     entries: entries,

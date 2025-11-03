@@ -29,7 +29,7 @@
 
 {#if entry?.images}
   <div class="span-content lg:span-popout @container">
-    <LightboxWork images={entry?.images} ratio={"aspect-auto!"} />
+    <LightboxWork images={entry?.images} ratio={"aspect-auto"} />
   </div>
 {/if}
 

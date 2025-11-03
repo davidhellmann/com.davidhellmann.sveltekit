@@ -42,7 +42,7 @@
     {#if image}
       <Polaroid>
         <div class={slotImage({})}>
-          <Image {image} noscript={false} className="transition-all group-hover:scale-105 aspect-instagram!" />
+          <Image {image} noscript={false} className="transition-all group-hover:scale-105 aspect-instagram" />
         </div>
         <div class={slotContent()}>
           {#if image?.__typename === "images_Asset" && image?.exif}

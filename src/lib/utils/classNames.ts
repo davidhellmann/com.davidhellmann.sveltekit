@@ -13,6 +13,7 @@ const customConfig = {
       "stack-space-inherit",
       "stack-space-collapse"
     ],
+    aspect: ["aspect-instagram", "aspect-landscape", "aspect-portrait"],
     span: ["span-full", "span-popout", "span-content", "span-md", "span-lg", "span-xl"]
   },
   theme: {
