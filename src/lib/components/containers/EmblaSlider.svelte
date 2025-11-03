@@ -4,7 +4,7 @@
   import Autoscroll from "embla-carousel-auto-scroll";
   import { WheelGesturesPlugin, type WheelGesturesPluginOptions } from "embla-carousel-wheel-gestures";
   import type { AutoScrollOptionsType } from "embla-carousel-auto-scroll";
-  import { tv, type VariantProps } from "tailwind-variants";
+  import { tv, type VariantProps } from "$lib/utils/classNames";
   import type { Snippet } from "svelte";
 
   const tvEmblaSlider = tv({

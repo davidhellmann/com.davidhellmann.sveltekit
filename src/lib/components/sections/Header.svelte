@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { tv, type VariantProps } from "tailwind-variants";
+  import { tv, type VariantProps } from "$lib/utils/classNames";
   import NavigationMain from "$components/navigation/Main.svelte";
   import { useWaypoint } from "$lib/actions/action.waypoint";
   import meHi from "$lib/images/me-hi.avif";

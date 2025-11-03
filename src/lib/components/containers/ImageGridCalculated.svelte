@@ -1,7 +1,7 @@
 <script lang="ts">
   import Image from "$components/media/Image.svelte";
   import type { ComponentProps } from "svelte";
-  import { tv, type VariantProps } from "tailwind-variants";
+  import { tv, type VariantProps } from "$lib/utils/classNames";
 
   const tvLightbox = tv({
     slots: {

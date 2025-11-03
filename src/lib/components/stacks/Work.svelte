@@ -5,7 +5,7 @@
     Entry_SeoFragment,
     EntryType_BlogSingleFragment
   } from "$graphql/graphql";
-  import { tv, type VariantProps } from "tailwind-variants";
+  import { tv, type VariantProps } from "$lib/utils/classNames";
   import Pagination from "$components/navigation/Pagination.svelte";
   import CardBlog from "$components/cards/Blog.svelte";
   import { type ComponentProps } from "svelte";

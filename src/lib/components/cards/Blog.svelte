@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { tv, type VariantProps } from "tailwind-variants";
+  import { tv, type VariantProps } from "$lib/utils/classNames";
   import Headline from "$components/text/Headline.svelte";
   import Category from "$components/text/Category.svelte";
   import Time from "$components/text/Time.svelte";

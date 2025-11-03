@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { tv, type VariantProps } from "tailwind-variants";
+  import { tv, type VariantProps } from "$lib/utils/classNames";
 
   const tvPlainText = tv({
     base: ""

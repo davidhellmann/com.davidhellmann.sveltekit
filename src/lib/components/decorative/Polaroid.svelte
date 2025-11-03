@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { tv, type VariantProps } from "tailwind-variants";
+  import { tv, type VariantProps } from "$lib/utils/classNames";
   import type { Snippet } from "svelte";
   import Tape from "$components/decorative/Tape.svelte";
   import type { HTMLAttributes } from "svelte/elements";

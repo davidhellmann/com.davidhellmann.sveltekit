@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { tv, type VariantProps } from "tailwind-variants";
+  import { tv, type VariantProps } from "$lib/utils/classNames";
   import Caption from "$components/text/Caption.svelte";
   import RichText from "$components/text/RichText.svelte";
   import type { Snippet } from "svelte";

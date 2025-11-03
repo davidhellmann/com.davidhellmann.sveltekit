@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { tv, type VariantProps } from "tailwind-variants";
+  import { tv, type VariantProps } from "$lib/utils/classNames";
   import Time from "svelte-time";
   import IconSprite from "$components/media/IconSprite.svelte";
   import type { HeroiconsIcons } from "$lib/types/heroicons-icons";

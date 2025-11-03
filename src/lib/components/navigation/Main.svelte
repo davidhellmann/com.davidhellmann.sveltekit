@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { tv, type VariantProps } from "tailwind-variants";
+  import { tv, type VariantProps } from "$lib/utils/classNames";
   import IconSprite from "$components/media/IconSprite.svelte";
   import { page } from "$app/state";
 
@@ -61,7 +61,7 @@
       </a>
     </li>
     <li data-waypoint-target class="is-zoomInDown">
-      <a class={slotLink({ theme })} aria-current={isCurrentPage("/blog")} href="/blog">
+      <a class={slotLink({ theme })} aria-current={isCurrentPage(["/blog", "/t"])} href="/blog">
         <IconSprite className={slotIcon()} size={20} icon="document-text-outline" />
         <span class="hidden xs:inline-block">blog.</span>
       </a>

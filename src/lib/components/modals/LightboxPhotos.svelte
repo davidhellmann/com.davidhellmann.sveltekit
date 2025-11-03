@@ -2,7 +2,7 @@
   import Image from "$components/media/Image.svelte";
   import Exif from "$components/text/Exif.svelte";
   import type { ComponentProps } from "svelte";
-  import { tv, type VariantProps } from "tailwind-variants";
+  import { tv, type VariantProps } from "$lib/utils/classNames";
   import { useLightbox } from "$lib/actions/action.lightbox";
   import "$styles/lightbox.css";
 
