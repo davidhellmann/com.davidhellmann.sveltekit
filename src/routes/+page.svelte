@@ -1,6 +1,5 @@
 <script lang="ts">
   import type { PageProps } from "./$types";
-  import { twMerge } from "tailwind-merge";
   import { getFirstEntry } from "$utils/getFirstEntry";
   import type {
     EntryType_WorkSingleFragment,
