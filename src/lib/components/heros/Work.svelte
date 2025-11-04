@@ -8,7 +8,7 @@
     slots: {
       slotWrapper: "stack-12 span-content",
       slotHeadline: "text-center text-6xl",
-      slotDescription: "md:columns-2 gap-fluid xl:w-2/3 xl:mx-auto",
+      slotDescription: "md:columns-2 gap-fluid xl:w-5/6 xl:mx-auto",
       slotMeta:
         "gap-x-6 gap-y-2 border-dashed border-neutral-700 flex items-center justify-center flex-wrap font-mono text-xs",
       slotCategory: "text-neutral-400",
