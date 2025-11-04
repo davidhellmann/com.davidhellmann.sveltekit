@@ -54,6 +54,14 @@
     @apply opacity-100 translate-x-0;
   }
 
+  [data-waypoint-target].is-fadeInLeftDown {
+    @apply opacity-0 transform-gpu translate-x-8 -translate-y-24 scale-75;
+  }
+
+  [data-waypoint-target][data-waypoint-animated].is-fadeInLeftDown {
+    @apply opacity-100 translate-x-0 translate-y-0 scale-100;
+  }
+
   [data-waypoint-target].is-blurInLeftDown {
     @apply opacity-0 transform-gpu translate-x-8 -translate-y-24 blur-3xl  scale-75;
   }

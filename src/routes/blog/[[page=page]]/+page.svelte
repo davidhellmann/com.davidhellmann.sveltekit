@@ -31,7 +31,7 @@
     list: "span-popout z-10 @container"
   };
 
-  let letters = $derived(splitTextIntoDivs(blogEntry?.customTitle, "is-blurInLeftDown", "$"));
+  let letters = $derived(splitTextIntoDivs(blogEntry?.customTitle, "is-fadeInLeftDown lg:is-blurInLeftDown", "$"));
 </script>
 
 {#if blogEntry?.seomatic}
@@ -51,7 +51,7 @@
 {:else}
   <div class="span-content text-neon-pink flex font-decorative text-7xl font-extrabold" use:useWaypoint data-waypoint>
     <!-- eslint-disable-next-line -->
-    {@html splitTextIntoDivs(`Page ${page.toString()}`, "is-blurInLeftDown")}
+    {@html splitTextIntoDivs(`Page ${page.toString()}`, "is-fadeInLeftDown lg:is-blurInLeftDown")}
   </div>
 {/if}
 <StackBlog {entries} showPagination={true} totalItems={entryCount} {totalPages} {page} className={cc.list} />

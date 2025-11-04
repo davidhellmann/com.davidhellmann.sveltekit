@@ -26,7 +26,7 @@
     glass: "span-popout px-fluid relative z-20  mt-[16vw] pb-32"
   };
 
-  let letters = $derived(splitTextIntoDivs(entry?.customTitle, "is-blurInLeftDown", "$"));
+  let letters = $derived(splitTextIntoDivs(entry?.customTitle, "is-fadeInLeftDown lg:is-blurInLeftDown", "$"));
 </script>
 
 {#if entry?.seomatic}

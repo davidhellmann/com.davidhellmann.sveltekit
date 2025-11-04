@@ -9,7 +9,8 @@
       slotWrapper: "stack-12 span-content",
       slotHeadline: "text-center text-6xl",
       slotDescription: "md:columns-2 gap-fluid xl:w-2/3 xl:mx-auto",
-      slotMeta: "gap-6 border-dashed border-neutral-700 flex items-center justify-center font-mono text-xs",
+      slotMeta:
+        "gap-x-6 gap-y-2 border-dashed border-neutral-700 flex items-center justify-center flex-wrap font-mono text-xs",
       slotCategory: "text-neutral-400",
       slotCategoryText: "font-medium uppercase tracking-wider text-neutral-600",
       slotColors:
