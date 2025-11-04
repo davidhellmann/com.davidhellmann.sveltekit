@@ -42,9 +42,7 @@
     cardGridPhotos: "grid-cols-2 lg:grid-cols-4 lg:gap-8 items-center"
   };
 
-  let letters = $derived(
-    splitTextIntoDivs(entry?.customTitle, "is-blurInLeftDown will-change-auto backface-hidden", "$")
-  );
+  let letters = $derived(splitTextIntoDivs(entry?.customTitle, "is-blurInLeftDown", "$"));
 </script>
 
 {#if entry?.seomatic}

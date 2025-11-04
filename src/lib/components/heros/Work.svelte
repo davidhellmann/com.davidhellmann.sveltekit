@@ -27,7 +27,7 @@
     workType?: string;
     client?: string;
     agency?: string;
-    colors?: { color: string }[];
+    colors?: { color?: string }[];
   } & VariantProps<typeof tvHeroWork>;
 
   const {

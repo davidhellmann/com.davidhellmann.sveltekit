@@ -9,8 +9,6 @@
 
   let { data }: PageProps = $props();
   const entry = $derived(getFirstEntry(data.entries) as EntryType_WorkSingleFragment);
-
-  console.log(entry);
 </script>
 
 {#if entry?.seomatic}
