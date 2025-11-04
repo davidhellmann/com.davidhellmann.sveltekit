@@ -19,7 +19,7 @@
     list: "span-popout z-10 @container"
   };
 
-  let letters = $derived(splitTextIntoDivs(workEntry?.customTitle, "is-fadeInLeftDown lg:is-blurInLeftDown", "$"));
+  let letters = $derived(splitTextIntoDivs(workEntry?.customTitle, "is-fadeIn lg:is-blurInLeftDown", "$"));
 </script>
 
 {#if workEntry?.seomatic}
