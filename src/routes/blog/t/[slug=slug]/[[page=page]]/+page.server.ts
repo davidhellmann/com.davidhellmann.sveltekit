@@ -83,7 +83,7 @@ export const load: PageServerLoad = async ({ params }) => {
     redirect(307, `/${topicEntry?.[0]?.uri}/${totalPages}`);
   }
 
-  console.log("Render:", topicEntry?.[0]?.title, ": ", topicEntry?.[0]?.uri);
+  console.log("Render:", topicEntry?.[0]?.title, ": ", `${topicEntry?.[0]?.uri}/${page}`);
 
   return {
     topicEntry: topicEntry,

@@ -7,7 +7,7 @@
   import "@fontsource/poppins/700.css";
   import "$styles/webfonts.css";
   import "$styles/app.css";
-  import { onNavigate, afterNavigate } from "$app/navigation";
+  import { onNavigate } from "$app/navigation";
   import { page } from "$app/state";
   import { dayjs } from "svelte-time";
   import "dayjs/locale/de";
@@ -20,11 +20,7 @@
   let { children }: LayoutProps = $props();
   let scrollY = $state(0);
 
-  let isPhotos = $state(page.url.pathname.startsWith("/photos"));
-
-  afterNavigate(() => {
-    isPhotos = page.url.pathname.startsWith("/photos");
-  });
+  let isPhotos = $derived(page.url.pathname.startsWith("/photos"));
 
   onNavigate((navigation) => {
     if (!document.startViewTransition) return;

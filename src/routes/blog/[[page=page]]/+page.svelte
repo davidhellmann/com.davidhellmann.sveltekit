@@ -5,7 +5,6 @@
   import Seo from "$components/seo/Seo.svelte";
   import { getFirstEntry } from "$utils/getFirstEntry";
   import { splitTextIntoDivs } from "$utils/splitTextIntoDivs";
-  import { afterNavigate } from "$app/navigation";
   import { replaceState } from "$app/navigation";
   import { useWaypoint } from "$lib/actions/action.waypoint";
   import { useJumpingLetters } from "$lib/actions/action.jumpingLetters";
@@ -19,7 +18,7 @@
   let entries = $derived(data.entries as EntryType_BlogSingleFragment[]);
   let page = $derived(data.page);
 
-  afterNavigate(() => {
+  $effect(() => {
     if (page === 1) {
       replaceState("/blog", {});
     }

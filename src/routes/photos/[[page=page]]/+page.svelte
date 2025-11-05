@@ -5,7 +5,6 @@
   import RichText from "$components/text/RichText.svelte";
   import Seo from "$components/seo/Seo.svelte";
   import { getFirstEntry } from "$utils/getFirstEntry";
-  import { afterNavigate } from "$app/navigation";
   import { replaceState } from "$app/navigation";
   import { splitTextIntoDivs } from "$utils/splitTextIntoDivs";
   import { useWaypoint } from "$lib/actions/action.waypoint";
@@ -20,7 +19,7 @@
   let entries = $derived(data.entries) as EntryType_PhotosSingleFragment[];
   let page = $derived(data.page);
 
-  afterNavigate(() => {
+  $effect(() => {
     if (page === 1) {
       replaceState("/photos", {});
     }
