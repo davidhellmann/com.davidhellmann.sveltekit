@@ -74,7 +74,7 @@
   }
 
   [data-waypoint-target].is-fadeInLeftDown {
-    @apply opacity-0 transform-gpu translate-x-12 -translate-y-[8vw] scale-75;
+    @apply opacity-0 transform-gpu translate-x-12 -translate-y-[12vw] scale-75;
   }
 
   [data-waypoint-target][data-waypoint-animated].is-fadeInLeftDown {
@@ -82,7 +82,7 @@
   }
 
   [data-waypoint-target].is-blurInLeftDown {
-    @apply opacity-0 transform-gpu translate-x-12 -translate-y-[8vw] scale-75;
+    @apply opacity-0 transform-gpu translate-x-12 -translate-y-[12vw] scale-75;
   }
 
   [data-waypoint-target][data-waypoint-animated].is-blurInLeftDown {
