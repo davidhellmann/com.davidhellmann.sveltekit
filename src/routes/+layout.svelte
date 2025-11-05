@@ -21,6 +21,7 @@
   let scrollY = $state(0);
 
   let isPhotos = $derived(page.url.pathname.startsWith("/photos"));
+  let isHome = $derived(page.url.pathname === "/");
 
   onNavigate((navigation) => {
     if (!document.startViewTransition) return;
@@ -35,11 +36,14 @@
 </script>
 
 <svelte:window bind:scrollY />
+<svelte:body class:is-home={isHome} class:is-photos={isPhotos} />
 <Header {scrollY} {isPhotos} />
 {@render children?.()}
 <Footer {isPhotos} />
 
 <style>
+  @reference "../lib/styles/app.css";
+
   @keyframes fade-in {
     from {
       opacity: 0;
@@ -58,5 +62,17 @@
 
   :root::view-transition-new(root) {
     animation: 300ms cubic-bezier(0, 0, 0.2, 1) 90ms both fade-in;
+  }
+
+  /* Body background styles - dynamically applied based on route */
+  :global(body.is-home) {
+    background-color: theme("colors.neutral.300");
+    background-image: url($lib/images/bg-triangle-gray.avif);
+    background-attachment: fixed;
+  }
+
+  :global(body.is-photos) {
+    background-color: var(--color-white);
+    background-image: none;
   }
 </style>
