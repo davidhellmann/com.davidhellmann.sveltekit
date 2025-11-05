@@ -45,17 +45,29 @@ export const entries: EntryGenerator = async () => {
 
     // Generate routes for each page of this category
     for (let i = 1; i <= totalPages; i++) {
-      routes.push({
-        slug: category.slug,
-        page: i === 1 ? undefined : i.toString()
-      });
+      // Generate both /slug and /slug/1 for page 1
+      if (i === 1) {
+        routes.push({
+          slug: category.slug,
+          page: undefined
+        });
+        routes.push({
+          slug: category.slug,
+          page: "1"
+        });
+      } else {
+        routes.push({
+          slug: category.slug,
+          page: i.toString()
+        });
+      }
     }
   }
 
   return routes;
 };
 
-export const load: PageServerLoad = async ({ params }) => {
+export const load: PageServerLoad = async ({ params, url }) => {
   const page = params.page ? parseInt(params.page) : 1;
   const offset = (page - 1) * limit || 0;
 
@@ -78,6 +90,11 @@ export const load: PageServerLoad = async ({ params }) => {
     slug: params?.slug,
     limit: 1
   })) as { entries?: EntryType_CategoryFragment[] };
+
+  // Redirect /slug/1 to /slug
+  if (page === 1 && params.page === "1" && categoryEntry?.[0]?.uri) {
+    redirect(301, `/${categoryEntry[0].uri}`);
+  }
 
   if (entries?.length === 0) {
     redirect(307, `/${categoryEntry?.[0]?.uri}/${totalPages}`);

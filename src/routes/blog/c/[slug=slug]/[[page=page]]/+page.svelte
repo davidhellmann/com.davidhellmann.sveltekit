@@ -5,10 +5,8 @@
   import Seo from "$components/seo/Seo.svelte";
   import { getFirstEntry } from "$utils/getFirstEntry";
   import { splitTextIntoDivs } from "$utils/splitTextIntoDivs";
-  import { replaceState } from "$app/navigation";
   import { useWaypoint } from "$lib/actions/action.waypoint";
   import { useJumpingLetters } from "$lib/actions/action.jumpingLetters";
-  import { onMount } from "svelte";
 
   import { type EntryType_BlogSingleFragment, type EntryType_CategoryFragment } from "$graphql/graphql";
 
@@ -18,12 +16,6 @@
   let categoryEntry = $derived(getFirstEntry(data.categoryEntry) as EntryType_CategoryFragment);
   let entries = $derived(data.entries as EntryType_BlogSingleFragment[]);
   let page = $derived(data.page);
-
-  onMount(() => {
-    if (page === 1 && categoryEntry?.uri) {
-      replaceState(`/${categoryEntry.uri}`, {});
-    }
-  });
 
   const cc = {
     heading: "span-content text-neon-pink is-zoomInDown text-6xl font-decorative font-extrabold flex flex-wrap",

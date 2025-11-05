@@ -22,14 +22,30 @@ export const entries: EntryGenerator = async () => {
     section: ["photos"]
   })) as GetPrerenderDataQuery;
 
-  return Array.from({ length: getTotalPages(entryCount, limit) }, (_, i) => ({
-    page: (i + 1).toString()
-  })) as RouteParams[];
+  const routes: RouteParams[] = [];
+  const totalPages = getTotalPages(entryCount, limit);
+
+  for (let i = 1; i <= totalPages; i++) {
+    // Generate both /photos and /photos/1 for page 1
+    if (i === 1) {
+      routes.push({ page: undefined });
+      routes.push({ page: "1" });
+    } else {
+      routes.push({ page: i.toString() });
+    }
+  }
+
+  return routes;
 };
 
 export const load: PageServerLoad = async ({ params }) => {
   const page = params.page ? parseInt(params.page) : 1;
   const offset = (page - 1) * limit || 0;
+
+  // Redirect /photos/1 to /photos
+  if (page === 1 && params.page === "1") {
+    redirect(301, "/photos");
+  }
 
   const { entries, entryCount } = (await getGqlData<GetEntriesQueryVariables>(GetEntriesDocument, {
     section: ["photos"],
