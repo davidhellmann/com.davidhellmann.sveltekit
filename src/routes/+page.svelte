@@ -136,7 +136,7 @@
   main::after {
     content: "";
     isolation: isolate;
-    background-color: theme("colors.neutral.900");
+    background-color: var(--color-neutral-900);
     backdrop-filter: blur(8px);
     box-shadow:
       rgba(255, 255, 255, 1) 0 0 0 0,
@@ -149,6 +149,9 @@
     width: 100%;
     left: 50%;
     transform: translateX(-50%);
-    @apply lg:max-w-[min(calc(100%-4vw),2000px)];
+
+    @media (width >= theme(--breakpoint-lg)) {
+      max-width: min(calc(100% - 4vw), 2000px);
+    }
   }
 </style>
