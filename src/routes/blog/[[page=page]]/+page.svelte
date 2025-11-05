@@ -6,6 +6,7 @@
   import { getFirstEntry } from "$utils/getFirstEntry";
   import { splitTextIntoDivs } from "$utils/splitTextIntoDivs";
   import { replaceState } from "$app/navigation";
+  import { browser } from "$app/environment";
   import { useWaypoint } from "$lib/actions/action.waypoint";
   import { useJumpingLetters } from "$lib/actions/action.jumpingLetters";
 
@@ -19,7 +20,7 @@
   let page = $derived(data.page);
 
   $effect(() => {
-    if (page === 1) {
+    if (browser && page === 1) {
       replaceState("/blog", {});
     }
   });
