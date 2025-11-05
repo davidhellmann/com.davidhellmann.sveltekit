@@ -23,7 +23,7 @@
     list: "span-popout z-10 @container"
   };
 
-  let letters = $derived(splitTextIntoDivs(categoryEntry?.title, "is-fadeIn lg:is-blurInLeftDown", "$"));
+  let letters = $derived(splitTextIntoDivs(categoryEntry?.title, "is-blurInLeftDown", "$"));
 </script>
 
 {#if categoryEntry?.seomatic}
@@ -41,7 +41,7 @@
   {/if}
 {:else}
   <div class="span-content text-neon-pink flex font-decorative text-7xl font-extrabold" use:useWaypoint data-waypoint>
-    {@html splitTextIntoDivs(`Page ${page.toString()}`, "is-fadeIn lg:is-blurInLeftDown")}
+    {@html splitTextIntoDivs(`Page ${page.toString()}`, "is-blurInLeftDown")}
   </div>
 {/if}
 <StackBlog

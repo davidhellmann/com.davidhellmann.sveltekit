@@ -25,7 +25,7 @@
   };
 
   // split string and map each letter into a div
-  let letters = $derived(splitTextIntoDivs(photosEntry?.customTitle ?? "", "is-fadeIn lg:is-blurInLeftDown", "$"));
+  let letters = $derived(splitTextIntoDivs(photosEntry?.customTitle ?? "", "is-blurInLeftDown", "$"));
 </script>
 
 {#if photosEntry?.seomatic}
@@ -46,7 +46,7 @@
   {:else}
     <div class="span-content text-black flex font-decorative text-7xl font-extrabold" use:useWaypoint data-waypoint>
       <!-- eslint-disable-next-line -->
-      {@html splitTextIntoDivs(`Page ${page.toString()}`, "is-fadeIn lg:is-blurInLeftDown")}
+      {@html splitTextIntoDivs(`Page ${page.toString()}`, "is-blurInLeftDown")}
     </div>
   {/if}
   <StackPhotos {entries} showPagination={true} totalItems={entryCount} {totalPages} {page} className={cc.list} />
