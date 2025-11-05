@@ -6,9 +6,9 @@
   import { getFirstEntry } from "$utils/getFirstEntry";
   import { splitTextIntoDivs } from "$utils/splitTextIntoDivs";
   import { replaceState } from "$app/navigation";
-  import { browser } from "$app/environment";
   import { useWaypoint } from "$lib/actions/action.waypoint";
   import { useJumpingLetters } from "$lib/actions/action.jumpingLetters";
+  import { onMount } from "svelte";
 
   import { type EntryType_BlogSingleFragment, type EntryType_BlogListFragment } from "$graphql/graphql";
 
@@ -19,8 +19,8 @@
   let entries = $derived(data.entries as EntryType_BlogSingleFragment[]);
   let page = $derived(data.page);
 
-  $effect(() => {
-    if (browser && page === 1) {
+  onMount(() => {
+    if (page === 1) {
       replaceState("/blog", {});
     }
   });

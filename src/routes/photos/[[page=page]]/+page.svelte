@@ -6,10 +6,10 @@
   import Seo from "$components/seo/Seo.svelte";
   import { getFirstEntry } from "$utils/getFirstEntry";
   import { replaceState } from "$app/navigation";
-  import { browser } from "$app/environment";
   import { splitTextIntoDivs } from "$utils/splitTextIntoDivs";
   import { useWaypoint } from "$lib/actions/action.waypoint";
   import { useJumpingLetters } from "$lib/actions/action.jumpingLetters";
+  import { onMount } from "svelte";
 
   import { type EntryType_PhotosSingleFragment, type EntryType_PhotosListFragment } from "$graphql/graphql";
 
@@ -20,8 +20,8 @@
   let entries = $derived(data.entries) as EntryType_PhotosSingleFragment[];
   let page = $derived(data.page);
 
-  $effect(() => {
-    if (browser && page === 1) {
+  onMount(() => {
+    if (page === 1) {
       replaceState("/photos", {});
     }
   });
