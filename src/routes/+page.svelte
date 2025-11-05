@@ -64,7 +64,7 @@
       {/if}
 
       {#if entry?.description}
-        <div use:useWaypoint={{ delay: 900 }} data-waypoint class="grid grid-cols-12">
+        <div use:useWaypoint={{ delay: 600 }} data-waypoint class="grid grid-cols-12">
           <RichText data-waypoint-target className={cc.heroRichText} html={entry?.description} />
         </div>
       {/if}

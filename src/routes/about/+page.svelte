@@ -46,7 +46,7 @@
     {/if}
 
     {#if entry?.description}
-      <div use:useWaypoint={{ delay: 700, staggeringDelay: 100 }} data-waypoint class="grid grid-cols-12">
+      <div use:useWaypoint={{ delay: 600, staggeringDelay: 100 }} data-waypoint class="grid grid-cols-12">
         <RichText data-waypoint-target className={cc.heroSubline} html={entry?.description} />
         <RichText data-waypoint-target className={cc.heroRichText} html={entry?.aboutMeRichText} />
       </div>

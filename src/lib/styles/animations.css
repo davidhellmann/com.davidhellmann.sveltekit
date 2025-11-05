@@ -1,6 +1,6 @@
 @layer utilities {
   [data-waypoint-target] {
-    @apply transition duration-300 ease-out;
+    @apply transition duration-500 ease-out;
     will-change: transform, opacity;
   }
 
@@ -32,7 +32,7 @@
   }
 
   [data-waypoint-target].is-fadeInUp {
-    @apply opacity-0 transform-gpu translate-y-8;
+    @apply opacity-0 transform-gpu translate-y-12;
   }
 
   [data-waypoint-target][data-waypoint-animated].is-fadeInUp {
@@ -58,7 +58,7 @@
   }
 
   [data-waypoint-target].is-fadeInDown {
-    @apply opacity-0 transform-gpu -translate-y-8;
+    @apply opacity-0 transform-gpu -translate-y-12;
   }
 
   [data-waypoint-target][data-waypoint-animated].is-fadeInDown {
@@ -66,7 +66,7 @@
   }
 
   [data-waypoint-target].is-fadeInLeft {
-    @apply opacity-0 transform-gpu translate-x-8;
+    @apply opacity-0 transform-gpu translate-x-12;
   }
 
   [data-waypoint-target][data-waypoint-animated].is-fadeInLeft {
@@ -74,7 +74,7 @@
   }
 
   [data-waypoint-target].is-fadeInLeftDown {
-    @apply opacity-0 transform-gpu translate-x-8 -translate-y-[8vw] scale-75;
+    @apply opacity-0 transform-gpu translate-x-12 -translate-y-[8vw] scale-75;
   }
 
   [data-waypoint-target][data-waypoint-animated].is-fadeInLeftDown {
@@ -82,7 +82,7 @@
   }
 
   [data-waypoint-target].is-blurInLeftDown {
-    @apply opacity-0 transform-gpu translate-x-8 -translate-y-[8vw] scale-75;
+    @apply opacity-0 transform-gpu translate-x-12 -translate-y-[8vw] scale-75;
   }
 
   [data-waypoint-target][data-waypoint-animated].is-blurInLeftDown {
@@ -101,7 +101,7 @@
   }
 
   [data-waypoint-target].is-fadeInRight {
-    @apply opacity-0 transform-gpu -translate-x-8;
+    @apply opacity-0 transform-gpu -translate-x-12;
   }
 
   [data-waypoint-target][data-waypoint-animated].is-fadeInRight {
