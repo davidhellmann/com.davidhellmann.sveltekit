@@ -1,7 +1,26 @@
 @layer utilities {
   [data-waypoint-target] {
     @apply transition duration-300 ease-out;
-    will-change: transform, opacity, blur;
+    will-change: transform, opacity;
+  }
+
+  /* Only add blur to will-change on desktop where it's used */
+  @media (width >= theme(--breakpoint-lg)) {
+    [data-waypoint-target].is-blurInLeftDown {
+      will-change: transform, opacity, filter;
+    }
+  }
+
+  /* Respect reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    [data-waypoint-target] {
+      @apply transition-none;
+      will-change: auto;
+    }
+
+    [data-waypoint-target][data-waypoint-animated] {
+      @apply opacity-100 translate-x-0 translate-y-0 scale-100 blur-none;
+    }
   }
 
   [data-waypoint-target].is-fadeIn {
@@ -63,11 +82,22 @@
   }
 
   [data-waypoint-target].is-blurInLeftDown {
-    @apply opacity-0 transform-gpu translate-x-8 -translate-y-24 blur-3xl  scale-75;
+    @apply opacity-0 transform-gpu translate-x-8 -translate-y-24 scale-75;
   }
 
   [data-waypoint-target][data-waypoint-animated].is-blurInLeftDown {
-    @apply opacity-100 translate-x-0 translate-y-0 blur-none scale-100;
+    @apply opacity-100 translate-x-0 translate-y-0 scale-100;
+  }
+
+  /* Desktop-only blur for better mobile performance */
+  @media (width >= theme(--breakpoint-lg)) {
+    [data-waypoint-target].is-blurInLeftDown {
+      @apply blur-3xl;
+    }
+
+    [data-waypoint-target][data-waypoint-animated].is-blurInLeftDown {
+      @apply blur-none;
+    }
   }
 
   [data-waypoint-target].is-fadeInRight {
