@@ -23,6 +23,21 @@
   let isPhotos = $derived(page.url.pathname.startsWith("/photos"));
   let isHome = $derived(page.url.pathname === "/");
 
+  // Manage body classes reactively
+  $effect(() => {
+    if (isHome) {
+      document.body.classList.add("is-home");
+    } else {
+      document.body.classList.remove("is-home");
+    }
+
+    if (isPhotos) {
+      document.body.classList.add("is-photos");
+    } else {
+      document.body.classList.remove("is-photos");
+    }
+  });
+
   onNavigate((navigation) => {
     if (!document.startViewTransition) return;
 
