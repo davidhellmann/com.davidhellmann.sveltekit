@@ -97,7 +97,7 @@
     class={tvImage({ animate, className })}
     {...attr}
     {alt}
-    src={lazy && blurhash ? blurhash : src}
+    src={srcset && blurhash ? blurhash : src}
     srcSet={!lazy ? srcset : undefined}
     data-src={lazy && !srcset ? src : null}
     data-srcset={lazy && srcset ? srcset : null}
