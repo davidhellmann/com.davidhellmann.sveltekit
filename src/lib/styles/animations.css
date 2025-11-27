@@ -2,6 +2,8 @@
   [data-waypoint-target] {
     @apply transition duration-500 ease-out;
     will-change: transform, opacity;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
   }
 
   /* Only add blur to will-change on desktop where it's used */

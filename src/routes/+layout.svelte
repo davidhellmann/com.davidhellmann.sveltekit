@@ -42,9 +42,15 @@
     if (!document.startViewTransition) return;
 
     return new Promise((resolve) => {
-      document.startViewTransition(async () => {
+      document.documentElement.classList.add("view-transition-active");
+
+      const transition = document.startViewTransition(async () => {
         resolve();
         await navigation.complete;
+      });
+
+      transition.finished.then(() => {
+        document.documentElement.classList.remove("view-transition-active");
       });
     });
   });

@@ -16,8 +16,24 @@ const defaultOptions: WaypointOptions = {
   rootMargin: "0px 0px -50px 0px"
 };
 
+// Wait for any active view transition to finish
+const waitForViewTransition = (): Promise<void> => {
+  return new Promise((resolve) => {
+    // Check if View Transitions API is supported and a transition is active
+    const activeTransition = (document as any).activeViewTransition;
+    if (activeTransition) {
+      activeTransition.finished.then(resolve);
+    } else {
+      resolve();
+    }
+  });
+};
+
 export function useWaypoint(node: HTMLElement, options: WaypointOptions = {}) {
   const settings: WaypointOptions = { ...defaultOptions, ...options };
+  const pendingTimeouts: Set<ReturnType<typeof setTimeout>> = new Set();
+  let isDestroyed = false;
+  let observer: IntersectionObserver | null = null;
 
   const getWaypointTargets = (holder: HTMLElement): Array<HTMLElement> => {
     const selector = "[data-waypoint-target]:not([data-waypoint])";
@@ -29,9 +45,12 @@ export function useWaypoint(node: HTMLElement, options: WaypointOptions = {}) {
   };
 
   const animateElement = (element: HTMLElement, delay: number): void => {
-    setTimeout(() => {
+    const timeoutId = setTimeout(() => {
+      pendingTimeouts.delete(timeoutId);
+      if (isDestroyed) return;
       element.setAttribute("data-waypoint-animated", "true");
     }, delay);
+    pendingTimeouts.add(timeoutId);
   };
 
   const handleAnimateAttributes = (targets: HTMLElement[]) => {
@@ -45,36 +64,49 @@ export function useWaypoint(node: HTMLElement, options: WaypointOptions = {}) {
     });
   };
 
-  // Create and start the observer
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        const targets = getWaypointTargets(entry.target as HTMLElement);
+  const initObserver = () => {
+    if (isDestroyed) return;
 
-        if (entry.isIntersecting) {
-          if (!settings.endless) observer.unobserve(entry.target);
-          entry.target.setAttribute("data-waypoint-in-viewport", "true");
-          if (targets) handleAnimateAttributes(targets);
-        } else {
-          entry.target.removeAttribute("data-waypoint-in-viewport");
-          targets?.forEach((target) => target.removeAttribute("data-waypoint-animated"));
-        }
-      });
-    },
-    {
-      threshold: settings.threshold,
-      rootMargin: settings.rootMargin
-    }
-  );
+    observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const targets = getWaypointTargets(entry.target as HTMLElement);
 
-  observer.observe(node);
+          if (entry.isIntersecting) {
+            if (!settings.endless && observer) observer.unobserve(entry.target);
+            entry.target.setAttribute("data-waypoint-in-viewport", "true");
+            if (targets) handleAnimateAttributes(targets);
+          } else {
+            entry.target.removeAttribute("data-waypoint-in-viewport");
+            targets?.forEach((target) => target.removeAttribute("data-waypoint-animated"));
+          }
+        });
+      },
+      {
+        threshold: settings.threshold,
+        rootMargin: settings.rootMargin
+      }
+    );
+
+    observer.observe(node);
+  };
+
+  // Wait for view transition then start observer
+  // Use setTimeout to ensure DOM is settled after navigation
+  setTimeout(() => {
+    if (isDestroyed) return;
+    waitForViewTransition().then(() => {
+      if (isDestroyed) return;
+      initObserver();
+    });
+  }, 50);
 
   // Optional: Setup mutation observer for dynamic content
   const mutationObserver = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
       if (mutation.type === "childList") {
         const targets = getWaypointTargets(node);
-        if (targets.length) {
+        if (targets.length && observer) {
           observer.observe(node);
         }
       }
@@ -83,7 +115,7 @@ export function useWaypoint(node: HTMLElement, options: WaypointOptions = {}) {
 
   mutationObserver.observe(node, {
     childList: true,
-    attributes: true,
+    attributes: false,
     subtree: true
   });
 
@@ -97,12 +129,14 @@ export function useWaypoint(node: HTMLElement, options: WaypointOptions = {}) {
 
   return {
     update(newOptions: WaypointOptions) {
-      resetWaypoints(); // Waypoints zurücksetzen
+      resetWaypoints();
       Object.assign(settings, { ...defaultOptions, ...newOptions });
     },
     destroy() {
-      // Cleanup
-      observer.disconnect();
+      isDestroyed = true;
+      pendingTimeouts.forEach((id) => clearTimeout(id));
+      pendingTimeouts.clear();
+      observer?.disconnect();
       mutationObserver.disconnect();
     }
   };
