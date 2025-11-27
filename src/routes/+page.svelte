@@ -28,7 +28,7 @@
   let photoEntries = data?.photoEntries as EntryType_PhotosSingleFragment[];
 
   const cc = {
-    main: "w-full lg:max-w-[min(calc(100%-4vw),2000px)] mx-auto relative z-10 stack-24 pt-40 lg:pt-80 overflow-clip",
+    main: "w-full lg:max-w-[min(calc(100%-4vw),2000px)] mx-auto relative z-10 stack-24 pt-40 lg:pt-80 overflow-auto",
     heroImage: "absolute inset-x-0 top-0 z-10 aspect-auto",
     heroHeadline:
       "font-decorative text-7xl font-extrabold !leading-[0.85] [font-size:min(12vw,13.5rem)] text-neon-green -translate-y-[1.75cap] -mb-[1.25cap] flex flex-wrap [br]:w-full",

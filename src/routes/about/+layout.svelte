@@ -4,7 +4,7 @@
 </script>
 
 <main
-  class="w-full lg:max-w-[min(calc(100%-4vw),2000px)] mx-auto relative z-10 stack-24 pt-40 lg:pt-80 overflow-clip"
+  class="w-full lg:max-w-[min(calc(100%-4vw),2000px)] mx-auto relative z-10 stack-24 pt-40 lg:pt-80 overflow-auto"
   data-theme="dark"
 >
   {@render children?.()}

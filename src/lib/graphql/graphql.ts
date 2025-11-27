@@ -235,6 +235,7 @@ export type EntryRelationCriteriaInput = {
   ancestorDist?: InputMaybe<Scalars['Int']['input']>;
   /** Narrows the query results to only elements that are ancestors of another element in its structure, provided by its ID. */
   ancestorOf?: InputMaybe<Scalars['Int']['input']>;
+  anchorTitle?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   /** Narrows the query results to only elements that have been archived. */
   archived?: InputMaybe<Scalars['Boolean']['input']>;
   /** Narrows the query results based on the user group the entries’ authors belong to. */
