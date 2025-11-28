@@ -5,6 +5,7 @@
   import Image from "$components/media/Image.svelte";
   // import PlainText from "$components/text/PlainText.svelte";
   import Headline from "$components/text/Headline.svelte";
+  import Link from "$components/text/Link.svelte";
   import Category from "$components/text/Category.svelte";
   import Time from "svelte-time";
   import { useWaypoint } from "$lib/actions/action.waypoint";
@@ -15,7 +16,7 @@
     slots: {
       slotBase: "grid sm:grid-cols-2 lg:grid-cols-3 lg:grid-rows-4 gap-8 md:gap-fluid",
       slotCard:
-        "overflow-clip rounded-xl flex flex-col items-start relative stack-10 ring-1 shadow-xl transition-all hover:shadow-2xl hover:-translate-y-0.5",
+        "group/card overflow-clip rounded-xl flex flex-col items-start relative stack-10 ring-1 shadow-xl transition-all hover:shadow-2xl hover:-translate-y-0.5",
       slotCard1:
         "col-span-1 lg:row-span-2 [&_.imageWrapper]:pb-0 [&_.imageWrapper]:px-6 [&_img]:rounded-b-none lg:[&_.imageWrapper]:pb-0 lg:[&_.imageWrapper]:pl-6 lg:[&_.imageWrapper]:pr-0 lg:[&_img]:rounded-b-none lg:[&_img]:rounded-tr-none",
       slotCard2: "lg:col-span-2 lg:row-span-2 [&_.imageWrapper]:pb-0 [&_.imageWrapper]:px-6 [&_img]:rounded-b-none",
@@ -24,7 +25,9 @@
         "col-span-1 lg:row-span-2 [&_.imageWrapper]:pb-0 [&_.imageWrapper]:px-6 [&_img]:rounded-b-none lg:[&_.imageWrapper]:pb-0 lg:[&_.imageWrapper]:pr-6 lg:[&_.imageWrapper]:pl-0 lg:[&_img]:rounded-b-none lg:[&_img]:rounded-tl-none",
       slotContent: "flex flex-col px-10 pt-10 stack-3",
       slotImageWrapper: "imageWrapper w-full h-full pb-3 px-3",
-      slotImage: "w-full h-full aspect-[3/1.8] ring-1 ring-neutral-600/20 rounded-lg shadow-xl"
+      slotImage: "w-full h-full aspect-[3/1.8] ring-1 ring-neutral-600/20 rounded-lg shadow-xl",
+      slotFakeLink:
+        "transition absolute ease-out scale-50 duration-300 left-1/2 -translate-x-1/2 bottom-0 z-50 opacity-0 translate-y-1/2 grover:-translate-y-1/2 grover:scale-100 grover:opacity-100"
     },
     variants: {
       theme: {
@@ -57,8 +60,18 @@
     theme = "light"
   }: GridBentoWorkProps = $props();
 
-  const { slotBase, slotCard, slotCard1, slotCard2, slotCard3, slotCard4, slotContent, slotImageWrapper, slotImage } =
-    tvGridBentoWork({ className });
+  const {
+    slotBase,
+    slotCard,
+    slotCard1,
+    slotCard2,
+    slotCard3,
+    slotCard4,
+    slotContent,
+    slotImageWrapper,
+    slotImage,
+    slotFakeLink
+  } = tvGridBentoWork({ className });
   const cardClasses = [slotCard1, slotCard2, slotCard3, slotCard4];
 
   let finalEntries = $state(entries);
@@ -119,6 +132,15 @@
               <Image className={slotImage()} image={entry?.image[0]} focalPoint={[0, 0]} />
             </div>
           {/if}
+          <Link
+            className={slotFakeLink()}
+            href={entry?.url}
+            text="This way!"
+            fakeLink={true}
+            variant="primary"
+            icon="arrow-right-outline"
+            iconPosition="right"
+          />
         </a>
       {/if}
     {/each}
