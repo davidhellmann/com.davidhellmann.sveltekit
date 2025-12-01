@@ -8,7 +8,7 @@
       slotBase:
         "fluid-grid w-full lg:max-w-[min(calc(100%-4vw),2000px)] left-1/2 -translate-x-1/2 mt-40 z-20 relative bg-[rgba(255,255,255,0.025)]  border-t border-neutral-500/20",
       slotInner: "span-full is-zoomInUp overflow-clip",
-      slotBigText: "translate-y-1/4 scale-105 uppercase font-decorative font-extrabold text-neutral-500/5 text-center"
+      slotBigText: "translate-y-1/4 scale-105 uppercase font-decorative font-extrabold text-transparent text-center"
     }
   });
 
@@ -29,7 +29,20 @@
   use:useWaypoint
   data-waypoint
 >
-  <div class={slotInner()} data-waypoint-target>
-    <div class={slotBigText()} use:useFullWidthText><span class="leading-[1]!">LÄUFT</span></div>
+  <div class={slotInner()}>
+    <div class={slotBigText()} use:useFullWidthText>
+      <span class="leading-[1]!"
+        >LÄUFT
+        <div class="absolute left-0 bottom-0 text-neutral-500/5 inline">
+          <span data-waypoint-target class="is-blurInLeftDown -translate-y-[1.75cap]">L</span><span
+            data-waypoint-target
+            class="is-blurInLeftDown -translate-y-[1.75cap]">Ä</span
+          ><span data-waypoint-target class="is-blurInLeftDown -translate-y-[1.75cap]">U</span><span
+            data-waypoint-target
+            class="is-blurInLeftDown -translate-y-[1.75cap]">F</span
+          ><span data-waypoint-target class="is-blurInLeftDown -translate-y-[1.75cap]">T</span>
+        </div></span
+      >
+    </div>
   </div>
 </footer>
