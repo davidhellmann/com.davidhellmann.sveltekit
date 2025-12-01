@@ -33,7 +33,7 @@
     <div class={slotBigText()} use:useFullWidthText>
       <span class="leading-[1]!"
         >LÄUFT
-        <div class="absolute left-0 bottom-0 text-neutral-500/5 inline">
+        <div class="absolute left-1/2 bottom-0 text-neutral-500/5 inline">
           <span data-waypoint-target class="is-blurInLeftDown -translate-y-[1.75cap]">L</span><span
             data-waypoint-target
             class="is-blurInLeftDown -translate-y-[1.75cap]">Ä</span
