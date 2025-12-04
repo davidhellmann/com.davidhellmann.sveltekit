@@ -63,7 +63,7 @@
 
 {#if entries}
   <div class={slotRoot({ className })} data-comp={compName}>
-    {#if showPagination && totalItems && totalPages && page && page > 1}
+    <!-- {#if showPagination && totalItems && totalPages && page && page > 1}
       <Pagination
         {totalItems}
         {totalPages}
@@ -74,7 +74,7 @@
         className="-mt-32"
         theme="photos"
       />
-    {/if}
+    {/if} -->
 
     {#key page}
       <ul class={slotList()} use:useWaypoint data-waypoint>

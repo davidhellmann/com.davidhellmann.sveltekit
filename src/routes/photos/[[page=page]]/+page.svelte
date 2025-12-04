@@ -32,7 +32,7 @@
   <Seo seo={photosEntry.seomatic} />
 {/if}
 
-{#if photosEntry && photosEntry?.__typename === "entryPhotosList_Entry"}
+{#if photosEntry}
   {#key page}
     {#if page === 1}
       {#if photosEntry?.customTitle}

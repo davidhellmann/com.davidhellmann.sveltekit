@@ -81,7 +81,7 @@
 
 {#if entries}
   <div class={slotWrapper({ className })} data-comp={compName}>
-    {#if showPagination && totalItems && totalPages && page && page > 1}
+    <!-- {#if showPagination && totalItems && totalPages && page && page > 1}
       <Pagination
         {totalItems}
         {totalPages}
@@ -91,7 +91,7 @@
         uri={paginationUri}
         className="-mt-28 pt-2 md:pt-0 md:-mt-32"
       />
-    {/if}
+    {/if} -->
 
     {#key page}
       <ul class={slotList({ className })} use:useWaypoint data-waypoint>
