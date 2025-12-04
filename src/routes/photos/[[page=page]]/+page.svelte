@@ -33,21 +33,23 @@
 {/if}
 
 {#if photosEntry && photosEntry?.__typename === "entryPhotosList_Entry"}
-  {#if page === 1}
-    {#if photosEntry?.customTitle}
-      <div class={cc.heading} use:useWaypoint data-waypoint use:useJumpingLetters>
+  {#key page}
+    {#if page === 1}
+      {#if photosEntry?.customTitle}
+        <div class={cc.heading} use:useWaypoint data-waypoint use:useJumpingLetters>
+          <!-- eslint-disable-next-line -->
+          {@html letters}
+        </div>
+      {/if}
+      {#if photosEntry.description}
+        <RichText className={cc.text} html={photosEntry.description} data-waypoint-target />
+      {/if}
+    {:else}
+      <div class="span-content text-black flex font-decorative text-7xl font-extrabold" use:useWaypoint data-waypoint>
         <!-- eslint-disable-next-line -->
-        {@html letters}
+        {@html splitTextIntoDivs(`Page ${page.toString()}`, "is-blurInLeftDown")}
       </div>
     {/if}
-    {#if photosEntry.description}
-      <RichText className={cc.text} html={photosEntry.description} data-waypoint-target />
-    {/if}
-  {:else}
-    <div class="span-content text-black flex font-decorative text-7xl font-extrabold" use:useWaypoint data-waypoint>
-      <!-- eslint-disable-next-line -->
-      {@html splitTextIntoDivs(`Page ${page.toString()}`, "is-blurInLeftDown")}
-    </div>
-  {/if}
+  {/key}
   <StackPhotos {entries} showPagination={true} totalItems={entryCount} {totalPages} {page} className={cc.list} />
 {/if}

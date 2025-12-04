@@ -76,46 +76,48 @@
       />
     {/if}
 
-    <ul class={slotList()} use:useWaypoint data-waypoint>
-      {#each entries as entry, i (entry.id)}
-        {#if entry?.__typename === "entryPhotosSingle_Entry"}
-          {#if entry?.title && entry?.url && entry?.images}
-            {@const exifDataParsed = getExifData(entry?.images)}
-            <li class={`is-zoomInUp ${slotListItem()}`} data-waypoint-target>
-              <a class={slotListItemLink()} href={entry?.url}>
-                <div class={slotText()}>
-                  <span class={slotCount()}>{entry?.images?.length}</span>
-                  <Headline
-                    className="font-mono text-base font-medium leading-tight"
-                    text={transformTitle(entry?.title)}
-                  />
+    {#key page}
+      <ul class={slotList()} use:useWaypoint data-waypoint>
+        {#each entries as entry, i (entry.id)}
+          {#if entry?.__typename === "entryPhotosSingle_Entry"}
+            {#if entry?.title && entry?.url && entry?.images}
+              {@const exifDataParsed = getExifData(entry?.images)}
+              <li class={`is-zoomInUp ${slotListItem()}`} data-waypoint-target>
+                <a class={slotListItemLink()} href={entry?.url}>
+                  <div class={slotText()}>
+                    <span class={slotCount()}>{entry?.images?.length}</span>
+                    <Headline
+                      className="font-mono text-base font-medium leading-tight"
+                      text={transformTitle(entry?.title)}
+                    />
 
-                  {#if exifDataParsed.cameras || exifDataParsed.lenses}
-                    <div class="flex flex-col gap-2">
-                      {#if exifDataParsed.cameras}
-                        <ul class={slotGearList()}>
-                          {#each exifDataParsed.cameras as camera}
-                            <li>{camera}</li>
-                          {/each}
-                        </ul>
-                      {/if}
-                    </div>
-                  {/if}
-                </div>
+                    {#if exifDataParsed.cameras || exifDataParsed.lenses}
+                      <div class="flex flex-col gap-2">
+                        {#if exifDataParsed.cameras}
+                          <ul class={slotGearList()}>
+                            {#each exifDataParsed.cameras as camera}
+                              <li>{camera}</li>
+                            {/each}
+                          </ul>
+                        {/if}
+                      </div>
+                    {/if}
+                  </div>
 
-                <div class={slotImages()}>
-                  {#each entry?.previewImages as image, i (image.id)}
-                    <div class="rounded-md grow overflow-hidden flex h-full">
-                      <Image className="hover:scale-105 transition-transform size-full aspect-instagram" {image} />
-                    </div>
-                  {/each}
-                </div>
-              </a>
-            </li>
+                  <div class={slotImages()}>
+                    {#each entry?.previewImages as image, i (image.id)}
+                      <div class="rounded-md grow overflow-hidden flex h-full">
+                        <Image className="hover:scale-105 transition-transform size-full aspect-instagram" {image} />
+                      </div>
+                    {/each}
+                  </div>
+                </a>
+              </li>
+            {/if}
           {/if}
-        {/if}
-      {/each}
-    </ul>
+        {/each}
+      </ul>
+    {/key}
 
     {#if showPagination && totalItems && totalPages && totalPages > 1 && page}
       <Pagination {totalItems} {totalPages} currentPage={page} theme="photos" uri="/photos" />

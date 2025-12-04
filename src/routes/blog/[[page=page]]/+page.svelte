@@ -30,20 +30,22 @@
   <Seo seo={blogEntry.seomatic} />
 {/if}
 
-{#if page === 1}
-  {#if blogEntry?.customTitle}
-    <div class={cc.heading} use:useWaypoint data-waypoint use:useJumpingLetters>
+{#key page}
+  {#if page === 1}
+    {#if blogEntry?.customTitle}
+      <div class={cc.heading} use:useWaypoint data-waypoint use:useJumpingLetters>
+        <!-- eslint-disable-next-line -->
+        {@html letters}
+      </div>
+    {/if}
+    {#if blogEntry.description}
+      <RichText className={cc.text} html={blogEntry.description} data-waypoint-target />
+    {/if}
+  {:else}
+    <div class="span-content text-neon-pink flex font-decorative text-7xl font-extrabold" use:useWaypoint data-waypoint>
       <!-- eslint-disable-next-line -->
-      {@html letters}
+      {@html splitTextIntoDivs(`Page ${page.toString()}`, "is-blurInLeftDown")}
     </div>
   {/if}
-  {#if blogEntry.description}
-    <RichText className={cc.text} html={blogEntry.description} data-waypoint-target />
-  {/if}
-{:else}
-  <div class="span-content text-neon-pink flex font-decorative text-7xl font-extrabold" use:useWaypoint data-waypoint>
-    <!-- eslint-disable-next-line -->
-    {@html splitTextIntoDivs(`Page ${page.toString()}`, "is-blurInLeftDown")}
-  </div>
-{/if}
+{/key}
 <StackBlog {entries} showPagination={true} totalItems={entryCount} {totalPages} {page} className={cc.list} />

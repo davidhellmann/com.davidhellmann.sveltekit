@@ -93,25 +93,27 @@
       />
     {/if}
 
-    <ul class={slotList({ className })} use:useWaypoint data-waypoint>
-      {#each entries as entry, i (entry.id)}
-        {#if entry?.__typename === "entryBlogSingle_Entry"}
-          {#if entry?.title && entry?.url && entry?.postDate && entry.category[0]?.title}
-            <li class={`${getColWidth(i, page).colSpan} is-zoomInUp`} data-waypoint-target>
-              <CardBlog
-                headline={entry.title}
-                url={entry?.url}
-                postDate={entry?.postDate}
-                categoryTitle={entry.category[0].title}
-                className="h-full"
-                theme={getColWidth(i, page).theme}
-                size={getColWidth(i, page).size}
-              />
-            </li>
+    {#key page}
+      <ul class={slotList({ className })} use:useWaypoint data-waypoint>
+        {#each entries as entry, i (entry.id)}
+          {#if entry?.__typename === "entryBlogSingle_Entry"}
+            {#if entry?.title && entry?.url && entry?.postDate && entry.category[0]?.title}
+              <li class={`${getColWidth(i, page).colSpan} is-zoomInUp`} data-waypoint-target>
+                <CardBlog
+                  headline={entry.title}
+                  url={entry?.url}
+                  postDate={entry?.postDate}
+                  categoryTitle={entry.category[0].title}
+                  className="h-full"
+                  theme={getColWidth(i, page).theme}
+                  size={getColWidth(i, page).size}
+                />
+              </li>
+            {/if}
           {/if}
-        {/if}
-      {/each}
-    </ul>
+        {/each}
+      </ul>
+    {/key}
 
     {#if showPagination && totalItems && totalPages && totalPages > 1 && page}
       <Pagination {totalItems} {totalPages} currentPage={page} uri={paginationUri} />
