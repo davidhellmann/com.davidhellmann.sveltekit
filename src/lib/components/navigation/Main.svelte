@@ -51,37 +51,37 @@
     <li data-waypoint-target class="is-zoomInDown">
       <a class={`${slotLink({ theme })}`} aria-current={isCurrentPage("/")} href="/">
         <IconSprite className={slotIcon()} size={20} icon="home-modern-outline" />
-        <span class="hidden xs:inline-block">home.</span>
+        <span class="inline-block whitespace-pre">home.</span>
       </a>
     </li>
     <li data-waypoint-target class="is-zoomInDown">
       <a class={slotLink({ theme })} aria-current={isCurrentPage("/work")} href="/work">
         <IconSprite className={slotIcon()} size={20} icon="rectangle-group-outline" />
-        <span class="hidden xs:inline-block">work.</span>
+        <span class="inline-block whitespace-pre">work.</span>
       </a>
     </li>
     <li data-waypoint-target class="is-zoomInDown">
       <a class={slotLink({ theme })} aria-current={isCurrentPage("/blog")} href="/blog">
         <IconSprite className={slotIcon()} size={20} icon="document-text-outline" />
-        <span class="hidden xs:inline-block">blog.</span>
+        <span class="inline-block whitespace-pre">blog.</span>
       </a>
     </li>
     <!-- <li data-waypoint-target class="is-zoomInDown">
       <a class={slotLink({ theme })} aria-current={isCurrentPage("/projects")} href="/projects">
         <IconSprite className={slotIcon()} size={20} icon="rectangle-stack-outline" />
-        <span class="hidden xs:inline-block">projects.</span>
+        <span class="inline-block whitespace-pre">projects.</span>
       </a>
     </li> -->
     <li data-waypoint-target class="is-zoomInDown">
       <a class={slotLink({ theme })} aria-current={isCurrentPage("/photos")} href="/photos">
         <IconSprite className={slotIcon()} size={20} icon="photo-outline" />
-        <span class="hidden xs:inline-block">photos.</span>
+        <span class="inline-block whitespace-pre">photos.</span>
       </a>
     </li>
     <li data-waypoint-target class="is-zoomInDown">
       <a class={slotLink({ theme })} aria-current={isCurrentPage("/about")} href="/about">
         <IconSprite className={slotIcon()} size={20} icon="identification-outline" />
-        <span class="hidden xs:inline-block">about.</span>
+        <span class="inline-block whitespace-pre">about.</span>
       </a>
     </li>
   </ul>
