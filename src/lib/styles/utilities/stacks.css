@@ -9,6 +9,7 @@
 @utility stack-* {
   > * {
     --stack-space: calc(var(--spacing) * --value(number));
+    --stack-space: calc(var(--spacing) * --value([number]));
   }
 
   > *:not(.no-space-y, .no-space-b) + *:not(.no-space-y, .no-space-t) {
@@ -18,9 +19,19 @@
 
 @utility stack-space-* {
   --stack-item-space: calc(var(--spacing) * --value(number));
+  --stack-item-space: calc(var(--spacing) * --value([number]));
 
   &:is([class*="stack-"][class*="stack-space-"] > *) {
     --stack-item-space: calc(var(--spacing) * --value(number));
+    --stack-item-space: calc(var(--spacing) * --value([number]));
+  }
+}
+
+@utility stack-space-auto {
+  --stack-item-space: auto;
+
+  &:is([class*="stack-"][class*="stack-space-"] > *) {
+    --stack-item-space: auto;
   }
 }
 
