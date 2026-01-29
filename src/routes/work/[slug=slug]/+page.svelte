@@ -15,7 +15,7 @@
   <Seo seo={entry.seomatic} />
 {/if}
 
-<HeroWork
+<!-- <HeroWork
   headline={entry?.customTitle ?? entry?.title}
   description={entry?.projectDescription}
   postDate={entry?.postDate}
@@ -23,7 +23,7 @@
   client={entry?.client?.[0]?.title}
   agency={entry?.agency?.[0]?.title}
   colors={entry?.colors}
-/>
+/> -->
 
 {#if entry?.images}
   <div class="span-content lg:span-popout @container">
