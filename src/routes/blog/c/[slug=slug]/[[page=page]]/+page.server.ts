@@ -100,7 +100,6 @@ export const load: PageServerLoad = async ({ params, url }) => {
     redirect(307, `/${categoryEntry?.[0]?.uri}/${totalPages}`);
   }
 
-  console.log("Render:", categoryEntry?.[0]?.title, ": ", `${categoryEntry?.[0]?.uri}/${page}`);
 
   return {
     categoryEntry: categoryEntry,

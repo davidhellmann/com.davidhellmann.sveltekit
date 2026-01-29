@@ -51,7 +51,6 @@ export const load: PageServerLoad = async ({ params }) => {
     limit: 1
   })) as { entries?: EntryType_BlogListFragment[] };
 
-  console.log("Render:", blogEntry?.[0]?.title, ":", `${blogEntry?.[0]?.uri}/${page}`);
 
   return {
     blogEntry: blogEntry,

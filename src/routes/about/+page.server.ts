@@ -10,7 +10,6 @@ export const load: PageServerLoad = async () => {
     limit: 1
   })) as { entries?: EntryType_AboutFragment[] };
 
-  console.log("Render:", entries?.[0]?.title, ": ", entries?.[0]?.uri);
 
   return {
     entries: entries

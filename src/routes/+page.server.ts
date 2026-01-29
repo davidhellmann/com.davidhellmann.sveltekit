@@ -19,7 +19,6 @@ export const load: PageServerLoad = async () => {
   const workEntries = shuffle(await getWorkArray()).slice(0, 4);
   const photoEntries = shuffle(await getPhotosArray()).slice(0, 4);
 
-  console.log("Render:", entries?.[0]?.title, ":", entries?.[0]?.uri);
 
   return {
     entries: entries,

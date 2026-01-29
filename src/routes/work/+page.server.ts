@@ -12,7 +12,6 @@ export const load: PageServerLoad = async () => {
     type: "entryWorkList"
   })) as { entries: EntryType_WorkListFragment[] };
 
-  console.log("Render:", workEntry?.[0]?.title, ":", workEntry?.[0]?.uri);
 
   return {
     workEntry: workEntry,

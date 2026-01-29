@@ -51,7 +51,6 @@ export const load: PageServerLoad = async ({ params }) => {
     limit: 1
   })) as { entries?: EntryType_PhotosListFragment[] };
 
-  console.log("Render:", photosEntry?.[0]?.title, ":", photosEntry?.[0]?.uri);
 
   return {
     photosEntry: photosEntry,

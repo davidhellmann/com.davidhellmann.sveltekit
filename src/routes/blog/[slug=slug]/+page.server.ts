@@ -9,7 +9,6 @@ export const entries: EntryGenerator = async () => {
 
 export const load: PageServerLoad = async ({ params }) => {
   const entry = await getBlogEntry(params.slug!);
-  console.log("Render:", entry?.title, ":", entry?.uri);
   return {
     entries: entry ? [entry] : []
   };
