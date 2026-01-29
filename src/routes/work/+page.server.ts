@@ -1,25 +1,18 @@
 export const prerender = true;
 import type { PageServerLoad } from "./$types";
-import {
-  GetEntriesDocument,
-  type GetEntriesQueryVariables,
-  type EntryType_WorkSingleFragment,
-  type EntryType_WorkListFragment
-} from "$graphql/graphql";
+import { GetEntriesDocument, type GetEntriesQueryVariables, type EntryType_WorkListFragment } from "$graphql/graphql";
 import { getGqlData } from "$graphql/graphql-client";
+import { getWorkArray } from "$lib/data/work";
 
 export const load: PageServerLoad = async () => {
-  const { entries: workEntries } = (await getGqlData<GetEntriesQueryVariables>(GetEntriesDocument, {
-    section: ["work"],
-    limit: 999
-  })) as { entries?: EntryType_WorkSingleFragment[] };
+  const workEntries = await getWorkArray();
 
   const { entries: workEntry } = (await getGqlData<GetEntriesQueryVariables>(GetEntriesDocument, {
     section: ["pages"],
     type: "entryWorkList"
   })) as { entries: EntryType_WorkListFragment[] };
 
-  console.log("Render:", workEntry?.[0]?.title, ": ", workEntry?.[0]?.uri);
+  console.log("Render:", workEntry?.[0]?.title, ":", workEntry?.[0]?.uri);
 
   return {
     workEntry: workEntry,
