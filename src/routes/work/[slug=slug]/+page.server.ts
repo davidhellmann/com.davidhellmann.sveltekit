@@ -33,7 +33,7 @@ export const load: PageServerLoad = async ({ params }) => {
   })) as { entries?: EntryType_WorkSingleFragment[] };
 
   console.log("Render:", entries?.[0]?.title, ": ", entries?.[0]?.uri);
-
+  console.log("asdsad");
   return {
     entries: entries
   };
