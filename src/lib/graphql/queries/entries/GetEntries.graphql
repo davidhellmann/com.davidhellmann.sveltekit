@@ -30,18 +30,18 @@ query GetEntries(
     relatedToEntries: $relatedToEntries
   ) {
     # Entry Types
-    ...entryType_about
-    ...entryType_blogList
-    ...entryType_blogSingle
-    ...entryType_home
-    ...entryType_photosList
-    ...entryType_photosSingle
-    ...entryType_workSingle
-    ...entryType_workList
+    ...page_about
+    ...page_blogList
+    ...page_blogSingle
+    ...page_home
+    ...page_photosList
+    ...page_photosSingle
+    ...page_workSingle
+    ...page_workList
 
     # Cateogories
-    ...entryType_category
-    ...entryType_topic
+    ...page_category
+    ...page_topic
   }
   entryCount(
     site: $site,

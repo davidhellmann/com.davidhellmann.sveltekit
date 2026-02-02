@@ -1,4 +1,4 @@
-fragment entryType_photosSingle on entryPhotosSingle_Entry {
+fragment page_photosList on page_photosList_Entry {
   # Entry Data
   ...entry_data
   ...entry_dates
@@ -13,17 +13,6 @@ fragment entryType_photosSingle on entryPhotosSingle_Entry {
   descriptionPlain: description @stripTags
   customTitle
   image {
-    ...asset_data
-    ...asset_transforms
-    ...asset_customFields
-  }
-  images {
-    ...asset_data
-    ...asset_transforms
-    ...asset_customFields
-  }
-
-  previewImages: images (limit: 4, orderBy: "RAND()") {
     ...asset_data
     ...asset_transforms
     ...asset_customFields

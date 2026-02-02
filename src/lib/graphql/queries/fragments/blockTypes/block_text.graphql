@@ -1,0 +1,4 @@
+fragment block_text on block_text_Entry {
+    ...entry_data
+    richText
+}

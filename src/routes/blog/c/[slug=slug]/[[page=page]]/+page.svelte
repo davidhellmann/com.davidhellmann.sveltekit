@@ -8,13 +8,13 @@
   import { useWaypoint } from "$lib/actions/action.waypoint";
   import { useJumpingLetters } from "$lib/actions/action.jumpingLetters";
 
-  import { type EntryType_BlogSingleFragment, type EntryType_CategoryFragment } from "$graphql/graphql";
+  import { type Page_BlogSingleFragment, type Page_CategoryFragment } from "$graphql/graphql";
 
   let { data }: PageProps = $props();
   const entryCount = data.entryCount ?? 1;
   const totalPages = data.totalPages ?? 1;
-  let categoryEntry = $derived(getFirstEntry(data.categoryEntry) as EntryType_CategoryFragment);
-  let entries = $derived(data.entries as EntryType_BlogSingleFragment[]);
+  let categoryEntry = $derived(getFirstEntry(data.categoryEntry) as Page_CategoryFragment);
+  let entries = $derived(data.entries as Page_BlogSingleFragment[]);
   let page = $derived(data.page);
 
   const cc = {

@@ -1,6 +1,6 @@
 export const prerender = true;
 import type { PageServerLoad } from "./$types";
-import { GetEntriesDocument, type EntryType_HomeFragment, type GetEntriesQueryVariables } from "$graphql/graphql";
+import { GetEntriesDocument, type Page_HomeFragment, type GetEntriesQueryVariables } from "$graphql/graphql";
 import { getGqlData } from "$graphql/graphql-client";
 import { getBlogArray } from "$lib/data/blog";
 import { getWorkArray } from "$lib/data/work";
@@ -13,12 +13,11 @@ export const load: PageServerLoad = async () => {
   const { entries } = (await getGqlData<GetEntriesQueryVariables>(GetEntriesDocument, {
     section: ["home"],
     limit: 1
-  })) as { entries?: EntryType_HomeFragment[] };
+  })) as { entries?: Page_HomeFragment[] };
 
   const blogEntries = (await getBlogArray()).slice(0, 3);
   const workEntries = shuffle(await getWorkArray()).slice(0, 4);
   const photoEntries = shuffle(await getPhotosArray()).slice(0, 4);
-
 
   return {
     entries: entries,

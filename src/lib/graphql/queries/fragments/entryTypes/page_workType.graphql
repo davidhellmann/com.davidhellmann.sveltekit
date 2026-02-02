@@ -1,4 +1,4 @@
-fragment entryType_workArea on entryWorkArea_Entry {
+fragment page_workType on page_workType_Entry {
   # Entry Data
   ...entry_data
   ...entry_dates

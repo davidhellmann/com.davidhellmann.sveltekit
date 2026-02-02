@@ -2,10 +2,10 @@
   import type { PageProps } from "./$types";
   import { getFirstEntry } from "$utils/getFirstEntry";
   import type {
-    EntryType_WorkSingleFragment,
-    EntryType_HomeFragment,
-    EntryType_PhotosSingleFragment,
-    EntryType_BlogSingleFragment
+    Page_workSingleFragment,
+    Page_HomeFragment,
+    Page_PhotosSingleFragment,
+    Page_BlogSingleFragment
   } from "$graphql/graphql";
   import Seo from "$components/seo/Seo.svelte";
   import Headline from "$components/text/Headline.svelte";
@@ -22,10 +22,10 @@
   import CardPhotos from "$components/cards/Photos.svelte";
 
   let { data }: PageProps = $props();
-  let entry = getFirstEntry(data.entries) as EntryType_HomeFragment;
-  let blogEntries = data?.blogEntries as EntryType_BlogSingleFragment[];
-  let workEntries = data?.workEntries as EntryType_WorkSingleFragment[];
-  let photoEntries = data?.photoEntries as EntryType_PhotosSingleFragment[];
+  let entry = getFirstEntry(data.entries) as Page_HomeFragment;
+  let blogEntries = data?.blogEntries as Page_BlogSingleFragment[];
+  let workEntries = data?.workEntries as Page_workSingleFragment[];
+  let photoEntries = data?.photoEntries as Page_PhotosSingleFragment[];
 
   const cc = {
     main: "w-full lg:max-w-[min(calc(100%-4vw),2000px)] mx-auto relative z-10 stack-24 pt-40 lg:pt-80 overflow-auto",

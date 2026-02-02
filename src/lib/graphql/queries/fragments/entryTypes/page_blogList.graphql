@@ -1,4 +1,4 @@
-fragment entryType_home on entryHome_Entry {
+fragment page_blogList on page_blogList_Entry {
   # Entry Data
   ...entry_data
   ...entry_dates
@@ -13,11 +13,6 @@ fragment entryType_home on entryHome_Entry {
   descriptionPlain: description @stripTags
   customTitle
   image {
-    ...asset_data
-    ...asset_transforms
-    ...asset_customFields
-  }
-  heroImage {
     ...asset_data
     ...asset_transforms
     ...asset_customFields

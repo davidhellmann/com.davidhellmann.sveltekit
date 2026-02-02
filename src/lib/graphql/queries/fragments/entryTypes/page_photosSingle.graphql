@@ -1,4 +1,4 @@
-fragment entryType_company on entryCompany_Entry {
+fragment page_photosSingle on page_photosSingle_Entry {
   # Entry Data
   ...entry_data
   ...entry_dates
@@ -9,17 +9,23 @@ fragment entryType_company on entryCompany_Entry {
   # Author Data
   ...author_data
 
-  logoMonochrome {
+  description
+  descriptionPlain: description @stripTags
+  customTitle
+  image {
     ...asset_data
     ...asset_transforms
     ...asset_customFields
   }
-  logoColor {
+  images {
     ...asset_data
     ...asset_transforms
     ...asset_customFields
   }
-  hyperLink {
-    ...hyper_data
+
+  previewImages: images (limit: 4, orderBy: "RAND()") {
+    ...asset_data
+    ...asset_transforms
+    ...asset_customFields
   }
 }

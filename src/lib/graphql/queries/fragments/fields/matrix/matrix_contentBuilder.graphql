@@ -1,8 +1,8 @@
 fragment matrix_contentBuilder on contentBuilder_MatrixField {
-  ...blockType_blockText
-  ...blockType_blockCode
-  ...blockType_blockImage
-  ...blockType_blockImages
-  ...blockType_blockCta
-  ...blockType_blockQuote
+  ...block_text
+  ...block_code
+  ...block_image
+  ...block_images
+  ...block_cta
+  ...block_quote
 }

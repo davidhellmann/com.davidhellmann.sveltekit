@@ -1,4 +1,4 @@
-fragment blockType_blockImages on blockImages_Entry {
+fragment block_images on block_images_Entry {
   ...entry_data
   images {
     ...asset_data

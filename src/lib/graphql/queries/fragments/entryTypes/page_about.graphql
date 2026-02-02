@@ -1,4 +1,4 @@
-fragment entryType_about on entryAbout_Entry {
+fragment page_about on page_about_Entry {
   # Entry Data
   ...entry_data
   ...entry_dates

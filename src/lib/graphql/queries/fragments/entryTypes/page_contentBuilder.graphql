@@ -1,4 +1,4 @@
-fragment entryType_photosList on entryPhotosList_Entry {
+fragment page_contentBuilder on page_contentBuilder_Entry {
   # Entry Data
   ...entry_data
   ...entry_dates

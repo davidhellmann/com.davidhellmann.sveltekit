@@ -1,7 +1,7 @@
 export const prerender = true;
 import type { PageServerLoad, EntryGenerator, RouteParams } from "./$types";
 import { redirect } from "@sveltejs/kit";
-import { GetEntriesDocument, type GetEntriesQueryVariables, type EntryType_PhotosListFragment } from "$graphql/graphql";
+import { GetEntriesDocument, type GetEntriesQueryVariables, type Page_PhotosListFragment } from "$graphql/graphql";
 import { getGqlData } from "$graphql/graphql-client";
 import { getPhotosArray, getPhotosCount } from "$lib/data/photos";
 
@@ -47,10 +47,9 @@ export const load: PageServerLoad = async ({ params }) => {
   // photosEntry (Page-Metadata) muss separat geholt werden - anderer Type
   const { entries: photosEntry } = (await getGqlData<GetEntriesQueryVariables>(GetEntriesDocument, {
     section: ["pages"],
-    type: "entryPhotosList",
+    type: "page_photosList",
     limit: 1
-  })) as { entries?: EntryType_PhotosListFragment[] };
-
+  })) as { entries?: Page_PhotosListFragment[] };
 
   return {
     photosEntry: photosEntry,

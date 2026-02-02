@@ -1,7 +1,7 @@
-fragment blockType_blockCurriculumVitae on blockCurriculumVitae_Entry {
+fragment block_curriculumVitae on block_curriculumVitae_Entry {
   ...entry_data
   company {
-    ...entryType_company
+    ...page_company
   }
   position
   location

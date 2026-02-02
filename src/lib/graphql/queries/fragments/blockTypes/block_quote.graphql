@@ -1,4 +1,4 @@
-fragment blockType_blockQuote on blockQuote_Entry {
+fragment block_quote on block_quote_Entry {
   ...entry_data
   quote
   source

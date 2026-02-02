@@ -1,4 +1,4 @@
-fragment entryType_blogSingle on entryBlogSingle_Entry {
+fragment page_blogSingle on page_blogSingle_Entry {
   # Entry Data
   ...entry_data
   ...entry_dates

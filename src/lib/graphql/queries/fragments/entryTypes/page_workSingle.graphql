@@ -1,4 +1,4 @@
-fragment entryType_workSingle on entryWorkSingle_Entry {
+fragment page_workSingle on page_workSingle_Entry {
   # Entry Data
   ...entry_data
   ...entry_dates
@@ -34,15 +34,15 @@ fragment entryType_workSingle on entryWorkSingle_Entry {
     ...hyper_data
   }
   workAreas {
-    ...entryType_workArea
+    ...page_workArea
   }
   workType {
-    ...entryType_workType
+    ...page_workType
   }
   agency {
-    ...entryType_company
+    ...page_company
   }
   client {
-    ...entryType_company
+    ...page_company
   }
 }

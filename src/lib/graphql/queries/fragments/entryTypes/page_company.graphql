@@ -1,4 +1,4 @@
-fragment entryType_blogList on entryBlogList_Entry {
+fragment page_company on page_company_Entry {
   # Entry Data
   ...entry_data
   ...entry_dates
@@ -9,12 +9,17 @@ fragment entryType_blogList on entryBlogList_Entry {
   # Author Data
   ...author_data
 
-  description
-  descriptionPlain: description @stripTags
-  customTitle
-  image {
+  logoMonochrome {
     ...asset_data
     ...asset_transforms
     ...asset_customFields
+  }
+  logoColor {
+    ...asset_data
+    ...asset_transforms
+    ...asset_customFields
+  }
+  hyperLink {
+    ...hyper_data
   }
 }

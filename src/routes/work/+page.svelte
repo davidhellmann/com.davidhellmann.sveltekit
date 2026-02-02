@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { PageProps } from "./$types";
-  import type { EntryType_WorkListFragment, EntryType_WorkSingleFragment } from "$graphql/graphql";
+  import type { Page_workListFragment, Page_workSingleFragment } from "$graphql/graphql";
   import Seo from "$components/seo/Seo.svelte";
   import GridBentoWork from "$components/containers/GridBentoWork.svelte";
   import type { ComponentProps } from "svelte";
@@ -10,8 +10,8 @@
   import { useJumpingLetters } from "$lib/actions/action.jumpingLetters";
 
   let { data }: PageProps = $props();
-  let workEntry = getFirstEntry(data.workEntry) as EntryType_WorkListFragment;
-  let workEntries = data?.workEntries as EntryType_WorkSingleFragment[];
+  let workEntry = getFirstEntry(data.workEntry) as Page_workListFragment;
+  let workEntries = data?.workEntries as Page_workSingleFragment[];
 
   const cc = {
     heading: "span-content text-neon-pink is-zoomInDown text-7xl font-decorative font-extrabold flex flex-wrap",

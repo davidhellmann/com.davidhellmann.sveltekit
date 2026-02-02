@@ -1,4 +1,4 @@
-fragment blockType_blockCta on blockCta_Entry {
+fragment block_cta on block_cta_Entry {
   ...entry_data
   headline
   description

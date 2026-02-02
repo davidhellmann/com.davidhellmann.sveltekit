@@ -1,4 +1,0 @@
-fragment blockType_blockText on blockText_Entry {
-    ...entry_data
-    richText
-}

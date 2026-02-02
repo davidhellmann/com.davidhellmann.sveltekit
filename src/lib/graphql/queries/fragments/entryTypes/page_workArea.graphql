@@ -1,4 +1,4 @@
-fragment entryType_category on entryCategory_Entry {
+fragment page_workArea on page_workArea_Entry {
   # Entry Data
   ...entry_data
   ...entry_dates
@@ -9,5 +9,4 @@ fragment entryType_category on entryCategory_Entry {
   # Author Data
   ...author_data
 
-  description
 }

@@ -1,4 +1,4 @@
-fragment entryType_contentBuilder on entryContentBuilder_Entry {
+fragment page_home on page_home_Entry {
   # Entry Data
   ...entry_data
   ...entry_dates
@@ -13,6 +13,11 @@ fragment entryType_contentBuilder on entryContentBuilder_Entry {
   descriptionPlain: description @stripTags
   customTitle
   image {
+    ...asset_data
+    ...asset_transforms
+    ...asset_customFields
+  }
+  heroImage {
     ...asset_data
     ...asset_transforms
     ...asset_customFields

@@ -7,8 +7,8 @@ import {
   GetPrerenderDataDocument,
   type GetPrerenderDataQueryVariables,
   type GetPrerenderDataQuery,
-  type EntryType_BlogSingleFragment,
-  type EntryType_CategoryFragment
+  type Page_BlogSingleFragment,
+  type Page_CategoryFragment
 } from "$graphql/graphql";
 import { getGqlData } from "$graphql/graphql-client";
 
@@ -81,7 +81,7 @@ export const load: PageServerLoad = async ({ params, url }) => {
     ],
     limit: limit,
     offset: offset
-  })) as { entries?: EntryType_BlogSingleFragment[]; entryCount: number };
+  })) as { entries?: Page_BlogSingleFragment[]; entryCount: number };
 
   const totalPages = getTotalPages(entryCount, limit);
 
@@ -89,7 +89,7 @@ export const load: PageServerLoad = async ({ params, url }) => {
     section: ["categories"],
     slug: params?.slug,
     limit: 1
-  })) as { entries?: EntryType_CategoryFragment[] };
+  })) as { entries?: Page_CategoryFragment[] };
 
   // Redirect /slug/1 to /slug
   if (page === 1 && params.page === "1" && categoryEntry?.[0]?.uri) {
@@ -99,7 +99,6 @@ export const load: PageServerLoad = async ({ params, url }) => {
   if (entries?.length === 0) {
     redirect(307, `/${categoryEntry?.[0]?.uri}/${totalPages}`);
   }
-
 
   return {
     categoryEntry: categoryEntry,

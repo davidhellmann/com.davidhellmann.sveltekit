@@ -3,7 +3,7 @@
     Entry_DataFragment,
     Entry_DatesFragment,
     Entry_SeoFragment,
-    EntryType_PhotosSingleFragment
+    Page_PhotosSingleFragment
   } from "$graphql/graphql";
   import { tv, type VariantProps } from "$utils/classNames";
   import Pagination from "$components/navigation/Pagination.svelte";
@@ -29,7 +29,7 @@
     }
   });
 
-  type Entry = Entry_DataFragment & EntryType_PhotosSingleFragment & Entry_SeoFragment & Entry_DatesFragment;
+  type Entry = Entry_DataFragment & Page_PhotosSingleFragment & Entry_SeoFragment & Entry_DatesFragment;
 
   type StackPhotosProps = {
     compName?: string;
@@ -79,7 +79,7 @@
     {#key page}
       <ul class={slotList()} use:useWaypoint data-waypoint>
         {#each entries as entry, i (entry.id)}
-          {#if entry?.__typename === "entryPhotosSingle_Entry"}
+          {#if entry?.__typename === "page_photosSingle_Entry"}
             {#if entry?.title && entry?.url && entry?.images}
               {@const exifDataParsed = getExifData(entry?.images)}
               <li class={`is-zoomInUp ${slotListItem()}`} data-waypoint-target>

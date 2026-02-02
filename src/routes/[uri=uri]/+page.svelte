@@ -3,10 +3,10 @@
   import { getFirstEntry } from "$utils/getFirstEntry";
   import Seo from "$components/seo/Seo.svelte";
   import Headline from "$components/text/Headline.svelte";
-  import { type EntryType_ContentBuilderFragment } from "$graphql/graphql";
+  import { type Page_ContentBuilderFragment } from "$graphql/graphql";
 
   let { data }: PageProps = $props();
-  let entry = getFirstEntry(data.entries) as EntryType_ContentBuilderFragment;
+  let entry = getFirstEntry(data.entries) as Page_ContentBuilderFragment;
 </script>
 
 {#if entry?.seomatic}

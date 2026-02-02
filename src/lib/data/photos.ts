@@ -1,7 +1,7 @@
 import { getEntriesCache, getEntry, getEntriesArray, getEntriesCount } from "./entries-cache";
-import type { EntryType_PhotosSingleFragment } from "$graphql/graphql";
+import type { Page_PhotosSingleFragment } from "$graphql/graphql";
 
-export const getPhotosEntries = () => getEntriesCache<EntryType_PhotosSingleFragment>("photos");
-export const getPhotosEntry = (slug: string) => getEntry<EntryType_PhotosSingleFragment>("photos", slug);
-export const getPhotosArray = () => getEntriesArray<EntryType_PhotosSingleFragment>("photos");
+export const getPhotosEntries = () => getEntriesCache<Page_PhotosSingleFragment>("photos");
+export const getPhotosEntry = (slug: string) => getEntry<Page_PhotosSingleFragment>("photos", slug);
+export const getPhotosArray = () => getEntriesArray<Page_PhotosSingleFragment>("photos");
 export const getPhotosCount = () => getEntriesCount("photos");

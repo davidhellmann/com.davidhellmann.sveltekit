@@ -1,6 +1,6 @@
 export const prerender = true;
 import type { PageServerLoad } from "./$types";
-import { GetEntriesDocument, type EntryType_AboutFragment, type GetEntriesQueryVariables } from "$graphql/graphql";
+import { GetEntriesDocument, type Page_AboutFragment, type GetEntriesQueryVariables } from "$graphql/graphql";
 import { getGqlData } from "$graphql/graphql-client";
 
 export const load: PageServerLoad = async () => {
@@ -8,8 +8,7 @@ export const load: PageServerLoad = async () => {
     section: ["pages"],
     slug: "about",
     limit: 1
-  })) as { entries?: EntryType_AboutFragment[] };
-
+  })) as { entries?: Page_AboutFragment[] };
 
   return {
     entries: entries

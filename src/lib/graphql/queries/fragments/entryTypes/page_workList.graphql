@@ -1,4 +1,4 @@
-fragment entryType_workList on entryWorkList_Entry {
+fragment page_workList on page_workList_Entry {
   # Entry Data
   ...entry_data
   ...entry_dates

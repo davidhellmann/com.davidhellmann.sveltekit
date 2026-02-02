@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { PageProps } from "./$types";
   import { getFirstEntry } from "$utils/getFirstEntry";
-  import { type EntryType_AboutFragment } from "$graphql/graphql";
+  import { type Page_AboutFragment } from "$graphql/graphql";
   import Seo from "$components/seo/Seo.svelte";
   import RichText from "$components/text/RichText.svelte";
   import Headline from "$components/text/Headline.svelte";
@@ -14,7 +14,7 @@
   import { splitTextIntoDivs } from "$utils/splitTextIntoDivs";
 
   let { data }: PageProps = $props();
-  let entry = getFirstEntry(data.entries) as EntryType_AboutFragment;
+  let entry = getFirstEntry(data.entries) as Page_AboutFragment;
 
   const cc = {
     heroImage: "absolute inset-x-0 top-0 z-10 aspect-auto",

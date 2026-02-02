@@ -1,7 +1,7 @@
-fragment blockType_blockAward on blockAward_Entry {
+fragment block_award on block_award_Entry {
   ...entry_data
   company {
-    ...entryType_company
+    ...page_company
   }
   image {
     ...asset_data

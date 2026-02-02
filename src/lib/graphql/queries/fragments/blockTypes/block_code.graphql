@@ -1,4 +1,4 @@
-fragment blockType_blockCode on blockCode_Entry {
+fragment block_code on block_code_Entry {
     ...entry_data
     codeSnippet {
         language
