@@ -36,8 +36,9 @@ export const load: PageServerLoad = async ({ params }) => {
   }
 
   // Aus Cache (Build) oder direkt fetchen (Dev)
-  const entries = await getPhotosArray(limit, offset);
-  const entryCount = await getPhotosCount();
+  const allPhotos = await getPhotosArray();
+  const entries = allPhotos.slice(offset, offset + limit);
+  const entryCount = allPhotos.length;
   const totalPages = getTotalPages(entryCount, limit);
 
   if (entries.length === 0) {
