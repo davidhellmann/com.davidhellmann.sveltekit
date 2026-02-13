@@ -19,8 +19,8 @@
 {#if items}
   <div class={tvCurriculumVitae({ className })} data-comp={compName} {...rest}>
     {#each items as item (item.id)}
-      {#if item.__typename === "blockCurriculumVitae_Entry"}
-        {#if item?.company?.[0].__typename === "entryCompany_Entry" && item.company?.[0]}
+      {#if item.__typename === "block_curriculumVitae_Entry"}
+        {#if item?.company?.[0].__typename === "page_company_Entry" && item.company?.[0]}
           <CardCV
             position={item?.position ?? ""}
             dateStart={item?.dateStart}
