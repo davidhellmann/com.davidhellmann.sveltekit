@@ -2,7 +2,7 @@
   import type { PageProps } from "./$types";
   import { getFirstEntry } from "$utils/getFirstEntry";
   import type {
-    Page_workSingleFragment,
+    Page_WorkSingleFragment,
     Page_HomeFragment,
     Page_PhotosSingleFragment,
     Page_BlogSingleFragment
@@ -24,7 +24,7 @@
   let { data }: PageProps = $props();
   let entry = getFirstEntry(data.entries) as Page_HomeFragment;
   let blogEntries = data?.blogEntries as Page_BlogSingleFragment[];
-  let workEntries = data?.workEntries as Page_workSingleFragment[];
+  let workEntries = data?.workEntries as Page_WorkSingleFragment[];
   let photoEntries = data?.photoEntries as Page_PhotosSingleFragment[];
 
   const cc = {

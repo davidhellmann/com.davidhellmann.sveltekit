@@ -1,6 +1,6 @@
 <script lang="ts">
   import { tv, type VariantProps } from "$utils/classNames";
-  import type { EntryType_WorkSingleFragment } from "$graphql/graphql";
+  import type { Page_WorkSingleFragment } from "$graphql/graphql";
   import { getRandomItemsFromArray } from "$utils/getRandomItemsFromArray";
   import Image from "$components/media/Image.svelte";
   // import PlainText from "$components/text/PlainText.svelte";
@@ -10,7 +10,7 @@
   import Time from "svelte-time";
   import { useWaypoint } from "$lib/actions/action.waypoint";
 
-  type Entry = EntryType_WorkSingleFragment;
+  type Entry = Page_WorkSingleFragment;
 
   const tvGridBentoWork = tv({
     slots: {

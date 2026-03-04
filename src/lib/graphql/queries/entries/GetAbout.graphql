@@ -1,0 +1,15 @@
+query GetAboutEntry(
+  $site: [String] = ["davidhellmann_en"]
+  $section: [String]! = ["pages"]
+  $slug: [String] = ["about"]
+  $limit: Int = 1
+) {
+  entries(
+    site: $site,
+    section: $section,
+    slug: $slug,
+    limit: $limit
+  ) {
+    ...page_about
+  }
+}

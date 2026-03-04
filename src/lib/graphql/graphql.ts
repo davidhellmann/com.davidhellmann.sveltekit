@@ -647,22 +647,15 @@ export type UserRelationCriteriaInput = {
   username?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
-export type GetEntriesQueryVariables = Exact<{
+export type GetAboutEntryQueryVariables = Exact<{
   site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>>;
   section?: Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>;
-  type?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>>;
-  uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>>;
   slug?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>>;
-  id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>> | InputMaybe<Scalars['QueryArgument']['input']>>;
   limit?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  unique?: InputMaybe<Scalars['Boolean']['input']>;
-  orderBy?: InputMaybe<Scalars['String']['input']>;
-  relatedToEntries?: InputMaybe<Array<InputMaybe<EntryRelationCriteriaInput>> | InputMaybe<EntryRelationCriteriaInput>>;
 }>;
 
 
-export type GetEntriesQuery = { __typename?: 'Query', entryCount: number, entries?: Array<
+export type GetAboutEntryQuery = { __typename?: 'Query', entries?: Array<
     | { __typename?: 'block_award_Entry' }
     | { __typename?: 'block_code_Entry' }
     | { __typename?: 'block_codepen_Entry' }
@@ -1394,110 +1387,50 @@ export type GetEntriesQuery = { __typename?: 'Query', entryCount: number, entrie
           | { __typename?: 'images_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
           | { __typename?: 'users_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
          }> }
-    | { __typename: 'page_blogList_Entry', description?: string, customTitle?: string, id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number, descriptionPlain?: string, postDate?: any, postDateDay?: any, postDateMonth?: any, postDateYear?: any, expireDate?: any, postUpdateDate?: any, timezone?: any, image: Array<
-        | { __typename?: 'files_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
-        | { __typename?: 'imagesBwg_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
-        | { __typename?: 'images_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, exif?: string, customTitle?: string, caption?: string, source?: string, svgCode?: string, base64BlurHash?: string, srcset?: string, hyperLink: Array<
-            | { __typename: 'hyperLink_Asset_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
-            | { __typename: 'hyperLink_Category_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
-            | { __typename: 'hyperLink_Custom_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
-            | { __typename: 'hyperLink_Email_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
-            | { __typename: 'hyperLink_Embed_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
-            | { __typename: 'hyperLink_Entry_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
-            | { __typename: 'hyperLink_Phone_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
-            | { __typename: 'hyperLink_Site_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
-            | { __typename: 'hyperLink_Url_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
-            | { __typename: 'hyperLink_User_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
-            | { __typename: 'hyperLinks_Asset_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
-            | { __typename: 'hyperLinks_Category_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
-            | { __typename: 'hyperLinks_Custom_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
-            | { __typename: 'hyperLinks_Email_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
-            | { __typename: 'hyperLinks_Embed_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
-            | { __typename: 'hyperLinks_Entry_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
-            | { __typename: 'hyperLinks_Phone_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
-            | { __typename: 'hyperLinks_Site_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
-            | { __typename: 'hyperLinks_Url_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
-            | { __typename: 'hyperLinks_User_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
-            | { __typename: 'projectLink_Asset_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
-            | { __typename: 'projectLink_Category_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
-            | { __typename: 'projectLink_Custom_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
-            | { __typename: 'projectLink_Email_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
-            | { __typename: 'projectLink_Embed_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
-            | { __typename: 'projectLink_Entry_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
-            | { __typename: 'projectLink_Phone_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
-            | { __typename: 'projectLink_Site_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
-            | { __typename: 'projectLink_Url_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
-            | { __typename: 'projectLink_User_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
-          > }
-        | { __typename?: 'users_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
-      >, seomatic?: { __typename?: 'SeomaticType', metaTagContainer?: string, metaLinkContainer?: string, metaTitleContainer?: string, metaJsonLdContainer?: string }, prev?:
-        | { __typename: 'block_award_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_code_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_codepen_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_cta_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_curriculumVitae_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_image_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_images_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_links_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_quote_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_section_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_spacer_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_textImage_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_text_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_video_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_about_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_blogList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_blogSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_category_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_company_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_contentBuilder_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_home_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_photosList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_photosSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_projectList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_projectSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_topic_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_workArea_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_workList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_workSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_workType_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-      , next?:
-        | { __typename: 'block_award_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_code_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_codepen_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_cta_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_curriculumVitae_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_image_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_images_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_links_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_quote_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_section_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_spacer_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_textImage_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_text_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_video_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_about_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_blogList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_blogSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_category_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_company_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_contentBuilder_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_home_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_photosList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_photosSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_projectList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_projectSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_topic_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_workArea_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_workList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_workSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_workType_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-      , authors?: Array<{ __typename?: 'User', id?: string, fullName?: string, photo?:
-          | { __typename?: 'files_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
-          | { __typename?: 'imagesBwg_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
-          | { __typename?: 'images_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
-          | { __typename?: 'users_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
-         }> }
+    | { __typename?: 'page_blogList_Entry' }
+    | { __typename?: 'page_blogSingle_Entry' }
+    | { __typename?: 'page_category_Entry' }
+    | { __typename?: 'page_company_Entry' }
+    | { __typename?: 'page_contentBuilder_Entry' }
+    | { __typename?: 'page_home_Entry' }
+    | { __typename?: 'page_photosList_Entry' }
+    | { __typename?: 'page_photosSingle_Entry' }
+    | { __typename?: 'page_projectList_Entry' }
+    | { __typename?: 'page_projectSingle_Entry' }
+    | { __typename?: 'page_topic_Entry' }
+    | { __typename?: 'page_workArea_Entry' }
+    | { __typename?: 'page_workList_Entry' }
+    | { __typename?: 'page_workSingle_Entry' }
+    | { __typename?: 'page_workType_Entry' }
+  > };
+
+export type GetBlogEntriesQueryVariables = Exact<{
+  site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>>;
+  section?: Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Scalars['String']['input']>;
+  relatedToEntries?: InputMaybe<Array<InputMaybe<EntryRelationCriteriaInput>> | InputMaybe<EntryRelationCriteriaInput>>;
+}>;
+
+
+export type GetBlogEntriesQuery = { __typename?: 'Query', entryCount: number, entries?: Array<
+    | { __typename?: 'block_award_Entry' }
+    | { __typename?: 'block_code_Entry' }
+    | { __typename?: 'block_codepen_Entry' }
+    | { __typename?: 'block_cta_Entry' }
+    | { __typename?: 'block_curriculumVitae_Entry' }
+    | { __typename?: 'block_image_Entry' }
+    | { __typename?: 'block_images_Entry' }
+    | { __typename?: 'block_links_Entry' }
+    | { __typename?: 'block_quote_Entry' }
+    | { __typename?: 'block_section_Entry' }
+    | { __typename?: 'block_spacer_Entry' }
+    | { __typename?: 'block_textImage_Entry' }
+    | { __typename?: 'block_text_Entry' }
+    | { __typename?: 'block_video_Entry' }
+    | { __typename?: 'page_about_Entry' }
+    | { __typename?: 'page_blogList_Entry' }
     | { __typename: 'page_blogSingle_Entry', description?: string, customTitle?: string, id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number, descriptionPlain?: string, postDate?: any, postDateDay?: any, postDateMonth?: any, postDateYear?: any, expireDate?: any, postUpdateDate?: any, timezone?: any, image: Array<
         | { __typename?: 'files_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
         | { __typename?: 'imagesBwg_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
@@ -1810,6 +1743,190 @@ export type GetEntriesQuery = { __typename?: 'Query', entryCount: number, entrie
           | { __typename?: 'images_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
           | { __typename?: 'users_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
          }> }
+    | { __typename?: 'page_category_Entry' }
+    | { __typename?: 'page_company_Entry' }
+    | { __typename?: 'page_contentBuilder_Entry' }
+    | { __typename?: 'page_home_Entry' }
+    | { __typename?: 'page_photosList_Entry' }
+    | { __typename?: 'page_photosSingle_Entry' }
+    | { __typename?: 'page_projectList_Entry' }
+    | { __typename?: 'page_projectSingle_Entry' }
+    | { __typename?: 'page_topic_Entry' }
+    | { __typename?: 'page_workArea_Entry' }
+    | { __typename?: 'page_workList_Entry' }
+    | { __typename?: 'page_workSingle_Entry' }
+    | { __typename?: 'page_workType_Entry' }
+  > };
+
+export type GetBlogListPageQueryVariables = Exact<{
+  site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>>;
+  section?: Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+}>;
+
+
+export type GetBlogListPageQuery = { __typename?: 'Query', entries?: Array<
+    | { __typename?: 'block_award_Entry' }
+    | { __typename?: 'block_code_Entry' }
+    | { __typename?: 'block_codepen_Entry' }
+    | { __typename?: 'block_cta_Entry' }
+    | { __typename?: 'block_curriculumVitae_Entry' }
+    | { __typename?: 'block_image_Entry' }
+    | { __typename?: 'block_images_Entry' }
+    | { __typename?: 'block_links_Entry' }
+    | { __typename?: 'block_quote_Entry' }
+    | { __typename?: 'block_section_Entry' }
+    | { __typename?: 'block_spacer_Entry' }
+    | { __typename?: 'block_textImage_Entry' }
+    | { __typename?: 'block_text_Entry' }
+    | { __typename?: 'block_video_Entry' }
+    | { __typename?: 'page_about_Entry' }
+    | { __typename: 'page_blogList_Entry', description?: string, customTitle?: string, id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number, descriptionPlain?: string, postDate?: any, postDateDay?: any, postDateMonth?: any, postDateYear?: any, expireDate?: any, postUpdateDate?: any, timezone?: any, image: Array<
+        | { __typename?: 'files_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
+        | { __typename?: 'imagesBwg_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
+        | { __typename?: 'images_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, exif?: string, customTitle?: string, caption?: string, source?: string, svgCode?: string, base64BlurHash?: string, srcset?: string, hyperLink: Array<
+            | { __typename: 'hyperLink_Asset_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLink_Category_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLink_Custom_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLink_Email_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLink_Embed_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLink_Entry_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLink_Phone_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLink_Site_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLink_Url_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLink_User_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLinks_Asset_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLinks_Category_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLinks_Custom_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLinks_Email_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLinks_Embed_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLinks_Entry_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLinks_Phone_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLinks_Site_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLinks_Url_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLinks_User_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'projectLink_Asset_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'projectLink_Category_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'projectLink_Custom_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'projectLink_Email_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'projectLink_Embed_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'projectLink_Entry_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'projectLink_Phone_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'projectLink_Site_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'projectLink_Url_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'projectLink_User_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+          > }
+        | { __typename?: 'users_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
+      >, seomatic?: { __typename?: 'SeomaticType', metaTagContainer?: string, metaLinkContainer?: string, metaTitleContainer?: string, metaJsonLdContainer?: string }, prev?:
+        | { __typename: 'block_award_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_code_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_codepen_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_cta_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_curriculumVitae_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_image_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_images_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_links_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_quote_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_section_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_spacer_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_textImage_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_text_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_video_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_about_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_blogList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_blogSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_category_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_company_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_contentBuilder_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_home_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_photosList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_photosSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_projectList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_projectSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_topic_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workArea_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workType_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+      , next?:
+        | { __typename: 'block_award_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_code_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_codepen_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_cta_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_curriculumVitae_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_image_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_images_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_links_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_quote_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_section_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_spacer_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_textImage_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_text_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_video_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_about_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_blogList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_blogSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_category_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_company_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_contentBuilder_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_home_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_photosList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_photosSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_projectList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_projectSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_topic_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workArea_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workType_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+      , authors?: Array<{ __typename?: 'User', id?: string, fullName?: string, photo?:
+          | { __typename?: 'files_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
+          | { __typename?: 'imagesBwg_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
+          | { __typename?: 'images_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
+          | { __typename?: 'users_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
+         }> }
+    | { __typename?: 'page_blogSingle_Entry' }
+    | { __typename?: 'page_category_Entry' }
+    | { __typename?: 'page_company_Entry' }
+    | { __typename?: 'page_contentBuilder_Entry' }
+    | { __typename?: 'page_home_Entry' }
+    | { __typename?: 'page_photosList_Entry' }
+    | { __typename?: 'page_photosSingle_Entry' }
+    | { __typename?: 'page_projectList_Entry' }
+    | { __typename?: 'page_projectSingle_Entry' }
+    | { __typename?: 'page_topic_Entry' }
+    | { __typename?: 'page_workArea_Entry' }
+    | { __typename?: 'page_workList_Entry' }
+    | { __typename?: 'page_workSingle_Entry' }
+    | { __typename?: 'page_workType_Entry' }
+  > };
+
+export type GetCategoryEntryQueryVariables = Exact<{
+  site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>>;
+  section?: Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>;
+  slug?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+}>;
+
+
+export type GetCategoryEntryQuery = { __typename?: 'Query', entries?: Array<
+    | { __typename?: 'block_award_Entry' }
+    | { __typename?: 'block_code_Entry' }
+    | { __typename?: 'block_codepen_Entry' }
+    | { __typename?: 'block_cta_Entry' }
+    | { __typename?: 'block_curriculumVitae_Entry' }
+    | { __typename?: 'block_image_Entry' }
+    | { __typename?: 'block_images_Entry' }
+    | { __typename?: 'block_links_Entry' }
+    | { __typename?: 'block_quote_Entry' }
+    | { __typename?: 'block_section_Entry' }
+    | { __typename?: 'block_spacer_Entry' }
+    | { __typename?: 'block_textImage_Entry' }
+    | { __typename?: 'block_text_Entry' }
+    | { __typename?: 'block_video_Entry' }
+    | { __typename?: 'page_about_Entry' }
+    | { __typename?: 'page_blogList_Entry' }
+    | { __typename?: 'page_blogSingle_Entry' }
     | { __typename: 'page_category_Entry', description?: string, id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number, postDate?: any, postDateDay?: any, postDateMonth?: any, postDateYear?: any, expireDate?: any, postUpdateDate?: any, timezone?: any, seomatic?: { __typename?: 'SeomaticType', metaTagContainer?: string, metaLinkContainer?: string, metaTitleContainer?: string, metaJsonLdContainer?: string }, prev?:
         | { __typename: 'block_award_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
         | { __typename: 'block_code_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
@@ -1878,6 +1995,46 @@ export type GetEntriesQuery = { __typename?: 'Query', entryCount: number, entrie
           | { __typename?: 'images_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
           | { __typename?: 'users_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
          }> }
+    | { __typename?: 'page_company_Entry' }
+    | { __typename?: 'page_contentBuilder_Entry' }
+    | { __typename?: 'page_home_Entry' }
+    | { __typename?: 'page_photosList_Entry' }
+    | { __typename?: 'page_photosSingle_Entry' }
+    | { __typename?: 'page_projectList_Entry' }
+    | { __typename?: 'page_projectSingle_Entry' }
+    | { __typename?: 'page_topic_Entry' }
+    | { __typename?: 'page_workArea_Entry' }
+    | { __typename?: 'page_workList_Entry' }
+    | { __typename?: 'page_workSingle_Entry' }
+    | { __typename?: 'page_workType_Entry' }
+  > };
+
+export type GetHomeEntryQueryVariables = Exact<{
+  site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>>;
+  section?: Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+}>;
+
+
+export type GetHomeEntryQuery = { __typename?: 'Query', entries?: Array<
+    | { __typename?: 'block_award_Entry' }
+    | { __typename?: 'block_code_Entry' }
+    | { __typename?: 'block_codepen_Entry' }
+    | { __typename?: 'block_cta_Entry' }
+    | { __typename?: 'block_curriculumVitae_Entry' }
+    | { __typename?: 'block_image_Entry' }
+    | { __typename?: 'block_images_Entry' }
+    | { __typename?: 'block_links_Entry' }
+    | { __typename?: 'block_quote_Entry' }
+    | { __typename?: 'block_section_Entry' }
+    | { __typename?: 'block_spacer_Entry' }
+    | { __typename?: 'block_textImage_Entry' }
+    | { __typename?: 'block_text_Entry' }
+    | { __typename?: 'block_video_Entry' }
+    | { __typename?: 'page_about_Entry' }
+    | { __typename?: 'page_blogList_Entry' }
+    | { __typename?: 'page_blogSingle_Entry' }
+    | { __typename?: 'page_category_Entry' }
     | { __typename?: 'page_company_Entry' }
     | { __typename?: 'page_contentBuilder_Entry' }
     | { __typename: 'page_home_Entry', description?: string, customTitle?: string, id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number, descriptionPlain?: string, postDate?: any, postDateDay?: any, postDateMonth?: any, postDateYear?: any, expireDate?: any, postUpdateDate?: any, timezone?: any, image: Array<
@@ -2020,7 +2177,216 @@ export type GetEntriesQuery = { __typename?: 'Query', entryCount: number, entrie
           | { __typename?: 'images_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
           | { __typename?: 'users_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
          }> }
-    | { __typename: 'page_photosList_Entry', description?: string, customTitle?: string, id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number, descriptionPlain?: string, postDate?: any, postDateDay?: any, postDateMonth?: any, postDateYear?: any, expireDate?: any, postUpdateDate?: any, timezone?: any, image: Array<
+    | { __typename?: 'page_photosList_Entry' }
+    | { __typename?: 'page_photosSingle_Entry' }
+    | { __typename?: 'page_projectList_Entry' }
+    | { __typename?: 'page_projectSingle_Entry' }
+    | { __typename?: 'page_topic_Entry' }
+    | { __typename?: 'page_workArea_Entry' }
+    | { __typename?: 'page_workList_Entry' }
+    | { __typename?: 'page_workSingle_Entry' }
+    | { __typename?: 'page_workType_Entry' }
+  > };
+
+export type GetPageByUriQueryVariables = Exact<{
+  site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>>;
+  section?: Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>;
+  uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+}>;
+
+
+export type GetPageByUriQuery = { __typename?: 'Query', entries?: Array<
+    | { __typename?: 'block_award_Entry' }
+    | { __typename?: 'block_code_Entry' }
+    | { __typename?: 'block_codepen_Entry' }
+    | { __typename?: 'block_cta_Entry' }
+    | { __typename?: 'block_curriculumVitae_Entry' }
+    | { __typename?: 'block_image_Entry' }
+    | { __typename?: 'block_images_Entry' }
+    | { __typename?: 'block_links_Entry' }
+    | { __typename?: 'block_quote_Entry' }
+    | { __typename?: 'block_section_Entry' }
+    | { __typename?: 'block_spacer_Entry' }
+    | { __typename?: 'block_textImage_Entry' }
+    | { __typename?: 'block_text_Entry' }
+    | { __typename?: 'block_video_Entry' }
+    | { __typename?: 'page_about_Entry' }
+    | { __typename?: 'page_blogList_Entry' }
+    | { __typename?: 'page_blogSingle_Entry' }
+    | { __typename?: 'page_category_Entry' }
+    | { __typename: 'page_company_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number, postDate?: any, postDateDay?: any, postDateMonth?: any, postDateYear?: any, expireDate?: any, postUpdateDate?: any, timezone?: any, logoMonochrome: Array<
+        | { __typename?: 'files_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
+        | { __typename?: 'imagesBwg_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
+        | { __typename?: 'images_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, exif?: string, customTitle?: string, caption?: string, source?: string, svgCode?: string, base64BlurHash?: string, srcset?: string, hyperLink: Array<
+            | { __typename: 'hyperLink_Asset_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLink_Category_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLink_Custom_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLink_Email_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLink_Embed_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLink_Entry_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLink_Phone_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLink_Site_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLink_Url_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLink_User_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLinks_Asset_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLinks_Category_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLinks_Custom_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLinks_Email_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLinks_Embed_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLinks_Entry_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLinks_Phone_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLinks_Site_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLinks_Url_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLinks_User_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'projectLink_Asset_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'projectLink_Category_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'projectLink_Custom_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'projectLink_Email_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'projectLink_Embed_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'projectLink_Entry_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'projectLink_Phone_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'projectLink_Site_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'projectLink_Url_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'projectLink_User_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+          > }
+        | { __typename?: 'users_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
+      >, logoColor: Array<
+        | { __typename?: 'files_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
+        | { __typename?: 'imagesBwg_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
+        | { __typename?: 'images_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, exif?: string, customTitle?: string, caption?: string, source?: string, svgCode?: string, base64BlurHash?: string, srcset?: string, hyperLink: Array<
+            | { __typename: 'hyperLink_Asset_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLink_Category_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLink_Custom_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLink_Email_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLink_Embed_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLink_Entry_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLink_Phone_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLink_Site_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLink_Url_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLink_User_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLinks_Asset_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLinks_Category_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLinks_Custom_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLinks_Email_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLinks_Embed_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLinks_Entry_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLinks_Phone_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLinks_Site_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLinks_Url_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLinks_User_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'projectLink_Asset_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'projectLink_Category_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'projectLink_Custom_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'projectLink_Email_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'projectLink_Embed_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'projectLink_Entry_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'projectLink_Phone_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'projectLink_Site_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'projectLink_Url_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'projectLink_User_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+          > }
+        | { __typename?: 'users_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
+      >, hyperLink: Array<
+        | { __typename: 'hyperLink_Asset_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+        | { __typename: 'hyperLink_Category_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+        | { __typename: 'hyperLink_Custom_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+        | { __typename: 'hyperLink_Email_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+        | { __typename: 'hyperLink_Embed_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+        | { __typename: 'hyperLink_Entry_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+        | { __typename: 'hyperLink_Phone_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+        | { __typename: 'hyperLink_Site_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+        | { __typename: 'hyperLink_Url_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+        | { __typename: 'hyperLink_User_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+        | { __typename: 'hyperLinks_Asset_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+        | { __typename: 'hyperLinks_Category_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+        | { __typename: 'hyperLinks_Custom_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+        | { __typename: 'hyperLinks_Email_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+        | { __typename: 'hyperLinks_Embed_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+        | { __typename: 'hyperLinks_Entry_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+        | { __typename: 'hyperLinks_Phone_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+        | { __typename: 'hyperLinks_Site_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+        | { __typename: 'hyperLinks_Url_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+        | { __typename: 'hyperLinks_User_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+        | { __typename: 'projectLink_Asset_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+        | { __typename: 'projectLink_Category_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+        | { __typename: 'projectLink_Custom_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+        | { __typename: 'projectLink_Email_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+        | { __typename: 'projectLink_Embed_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+        | { __typename: 'projectLink_Entry_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+        | { __typename: 'projectLink_Phone_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+        | { __typename: 'projectLink_Site_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+        | { __typename: 'projectLink_Url_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+        | { __typename: 'projectLink_User_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+      >, seomatic?: { __typename?: 'SeomaticType', metaTagContainer?: string, metaLinkContainer?: string, metaTitleContainer?: string, metaJsonLdContainer?: string }, prev?:
+        | { __typename: 'block_award_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_code_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_codepen_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_cta_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_curriculumVitae_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_image_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_images_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_links_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_quote_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_section_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_spacer_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_textImage_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_text_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_video_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_about_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_blogList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_blogSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_category_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_company_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_contentBuilder_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_home_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_photosList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_photosSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_projectList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_projectSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_topic_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workArea_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workType_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+      , next?:
+        | { __typename: 'block_award_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_code_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_codepen_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_cta_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_curriculumVitae_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_image_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_images_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_links_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_quote_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_section_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_spacer_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_textImage_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_text_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_video_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_about_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_blogList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_blogSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_category_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_company_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_contentBuilder_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_home_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_photosList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_photosSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_projectList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_projectSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_topic_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workArea_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workType_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+      , authors?: Array<{ __typename?: 'User', id?: string, fullName?: string, photo?:
+          | { __typename?: 'files_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
+          | { __typename?: 'imagesBwg_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
+          | { __typename?: 'images_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
+          | { __typename?: 'users_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
+         }> }
+    | { __typename: 'page_contentBuilder_Entry', description?: string, customTitle?: string, id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number, descriptionPlain?: string, postDate?: any, postDateDay?: any, postDateMonth?: any, postDateYear?: any, expireDate?: any, postUpdateDate?: any, timezone?: any, image: Array<
         | { __typename?: 'files_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
         | { __typename?: 'imagesBwg_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
         | { __typename?: 'images_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, exif?: string, customTitle?: string, caption?: string, source?: string, svgCode?: string, base64BlurHash?: string, srcset?: string, hyperLink: Array<
@@ -2124,6 +2490,184 @@ export type GetEntriesQuery = { __typename?: 'Query', entryCount: number, entrie
           | { __typename?: 'images_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
           | { __typename?: 'users_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
          }> }
+    | { __typename?: 'page_home_Entry' }
+    | { __typename?: 'page_photosList_Entry' }
+    | { __typename?: 'page_photosSingle_Entry' }
+    | { __typename?: 'page_projectList_Entry' }
+    | { __typename?: 'page_projectSingle_Entry' }
+    | { __typename?: 'page_topic_Entry' }
+    | { __typename: 'page_workArea_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number, postDate?: any, postDateDay?: any, postDateMonth?: any, postDateYear?: any, expireDate?: any, postUpdateDate?: any, timezone?: any, seomatic?: { __typename?: 'SeomaticType', metaTagContainer?: string, metaLinkContainer?: string, metaTitleContainer?: string, metaJsonLdContainer?: string }, prev?:
+        | { __typename: 'block_award_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_code_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_codepen_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_cta_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_curriculumVitae_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_image_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_images_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_links_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_quote_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_section_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_spacer_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_textImage_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_text_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_video_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_about_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_blogList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_blogSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_category_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_company_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_contentBuilder_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_home_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_photosList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_photosSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_projectList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_projectSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_topic_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workArea_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workType_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+      , next?:
+        | { __typename: 'block_award_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_code_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_codepen_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_cta_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_curriculumVitae_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_image_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_images_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_links_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_quote_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_section_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_spacer_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_textImage_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_text_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_video_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_about_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_blogList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_blogSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_category_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_company_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_contentBuilder_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_home_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_photosList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_photosSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_projectList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_projectSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_topic_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workArea_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workType_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+      , authors?: Array<{ __typename?: 'User', id?: string, fullName?: string, photo?:
+          | { __typename?: 'files_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
+          | { __typename?: 'imagesBwg_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
+          | { __typename?: 'images_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
+          | { __typename?: 'users_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
+         }> }
+    | { __typename?: 'page_workList_Entry' }
+    | { __typename?: 'page_workSingle_Entry' }
+    | { __typename: 'page_workType_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number, postDate?: any, postDateDay?: any, postDateMonth?: any, postDateYear?: any, expireDate?: any, postUpdateDate?: any, timezone?: any, seomatic?: { __typename?: 'SeomaticType', metaTagContainer?: string, metaLinkContainer?: string, metaTitleContainer?: string, metaJsonLdContainer?: string }, prev?:
+        | { __typename: 'block_award_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_code_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_codepen_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_cta_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_curriculumVitae_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_image_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_images_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_links_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_quote_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_section_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_spacer_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_textImage_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_text_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_video_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_about_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_blogList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_blogSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_category_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_company_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_contentBuilder_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_home_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_photosList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_photosSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_projectList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_projectSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_topic_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workArea_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workType_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+      , next?:
+        | { __typename: 'block_award_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_code_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_codepen_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_cta_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_curriculumVitae_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_image_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_images_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_links_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_quote_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_section_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_spacer_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_textImage_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_text_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_video_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_about_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_blogList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_blogSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_category_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_company_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_contentBuilder_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_home_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_photosList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_photosSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_projectList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_projectSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_topic_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workArea_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workType_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+      , authors?: Array<{ __typename?: 'User', id?: string, fullName?: string, photo?:
+          | { __typename?: 'files_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
+          | { __typename?: 'imagesBwg_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
+          | { __typename?: 'images_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
+          | { __typename?: 'users_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
+         }> }
+  > };
+
+export type GetPhotosEntriesQueryVariables = Exact<{
+  site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>>;
+  section?: Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Scalars['String']['input']>;
+}>;
+
+
+export type GetPhotosEntriesQuery = { __typename?: 'Query', entryCount: number, entries?: Array<
+    | { __typename?: 'block_award_Entry' }
+    | { __typename?: 'block_code_Entry' }
+    | { __typename?: 'block_codepen_Entry' }
+    | { __typename?: 'block_cta_Entry' }
+    | { __typename?: 'block_curriculumVitae_Entry' }
+    | { __typename?: 'block_image_Entry' }
+    | { __typename?: 'block_images_Entry' }
+    | { __typename?: 'block_links_Entry' }
+    | { __typename?: 'block_quote_Entry' }
+    | { __typename?: 'block_section_Entry' }
+    | { __typename?: 'block_spacer_Entry' }
+    | { __typename?: 'block_textImage_Entry' }
+    | { __typename?: 'block_text_Entry' }
+    | { __typename?: 'block_video_Entry' }
+    | { __typename?: 'page_about_Entry' }
+    | { __typename?: 'page_blogList_Entry' }
+    | { __typename?: 'page_blogSingle_Entry' }
+    | { __typename?: 'page_category_Entry' }
+    | { __typename?: 'page_company_Entry' }
+    | { __typename?: 'page_contentBuilder_Entry' }
+    | { __typename?: 'page_home_Entry' }
+    | { __typename?: 'page_photosList_Entry' }
     | { __typename: 'page_photosSingle_Entry', description?: string, customTitle?: string, id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number, descriptionPlain?: string, postDate?: any, postDateDay?: any, postDateMonth?: any, postDateYear?: any, expireDate?: any, postUpdateDate?: any, timezone?: any, image: Array<
         | { __typename?: 'files_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
         | { __typename?: 'imagesBwg_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
@@ -2302,76 +2846,43 @@ export type GetEntriesQuery = { __typename?: 'Query', entryCount: number, entrie
          }> }
     | { __typename?: 'page_projectList_Entry' }
     | { __typename?: 'page_projectSingle_Entry' }
-    | { __typename: 'page_topic_Entry', description?: string, id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number, postDate?: any, postDateDay?: any, postDateMonth?: any, postDateYear?: any, expireDate?: any, postUpdateDate?: any, timezone?: any, seomatic?: { __typename?: 'SeomaticType', metaTagContainer?: string, metaLinkContainer?: string, metaTitleContainer?: string, metaJsonLdContainer?: string }, prev?:
-        | { __typename: 'block_award_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_code_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_codepen_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_cta_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_curriculumVitae_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_image_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_images_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_links_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_quote_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_section_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_spacer_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_textImage_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_text_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_video_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_about_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_blogList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_blogSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_category_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_company_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_contentBuilder_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_home_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_photosList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_photosSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_projectList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_projectSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_topic_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_workArea_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_workList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_workSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_workType_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-      , next?:
-        | { __typename: 'block_award_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_code_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_codepen_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_cta_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_curriculumVitae_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_image_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_images_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_links_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_quote_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_section_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_spacer_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_textImage_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_text_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'block_video_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_about_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_blogList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_blogSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_category_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_company_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_contentBuilder_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_home_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_photosList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_photosSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_projectList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_projectSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_topic_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_workArea_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_workList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_workSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-        | { __typename: 'page_workType_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-      , authors?: Array<{ __typename?: 'User', id?: string, fullName?: string, photo?:
-          | { __typename?: 'files_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
-          | { __typename?: 'imagesBwg_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
-          | { __typename?: 'images_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
-          | { __typename?: 'users_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
-         }> }
+    | { __typename?: 'page_topic_Entry' }
     | { __typename?: 'page_workArea_Entry' }
-    | { __typename: 'page_workList_Entry', description?: string, customTitle?: string, id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number, descriptionPlain?: string, postDate?: any, postDateDay?: any, postDateMonth?: any, postDateYear?: any, expireDate?: any, postUpdateDate?: any, timezone?: any, image: Array<
+    | { __typename?: 'page_workList_Entry' }
+    | { __typename?: 'page_workSingle_Entry' }
+    | { __typename?: 'page_workType_Entry' }
+  > };
+
+export type GetPhotosListPageQueryVariables = Exact<{
+  site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>>;
+  section?: Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+}>;
+
+
+export type GetPhotosListPageQuery = { __typename?: 'Query', entries?: Array<
+    | { __typename?: 'block_award_Entry' }
+    | { __typename?: 'block_code_Entry' }
+    | { __typename?: 'block_codepen_Entry' }
+    | { __typename?: 'block_cta_Entry' }
+    | { __typename?: 'block_curriculumVitae_Entry' }
+    | { __typename?: 'block_image_Entry' }
+    | { __typename?: 'block_images_Entry' }
+    | { __typename?: 'block_links_Entry' }
+    | { __typename?: 'block_quote_Entry' }
+    | { __typename?: 'block_section_Entry' }
+    | { __typename?: 'block_spacer_Entry' }
+    | { __typename?: 'block_textImage_Entry' }
+    | { __typename?: 'block_text_Entry' }
+    | { __typename?: 'block_video_Entry' }
+    | { __typename?: 'page_about_Entry' }
+    | { __typename?: 'page_blogList_Entry' }
+    | { __typename?: 'page_blogSingle_Entry' }
+    | { __typename?: 'page_category_Entry' }
+    | { __typename?: 'page_company_Entry' }
+    | { __typename?: 'page_contentBuilder_Entry' }
+    | { __typename?: 'page_home_Entry' }
+    | { __typename: 'page_photosList_Entry', description?: string, customTitle?: string, id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number, descriptionPlain?: string, postDate?: any, postDateDay?: any, postDateMonth?: any, postDateYear?: any, expireDate?: any, postUpdateDate?: any, timezone?: any, image: Array<
         | { __typename?: 'files_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
         | { __typename?: 'imagesBwg_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
         | { __typename?: 'images_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, exif?: string, customTitle?: string, caption?: string, source?: string, svgCode?: string, base64BlurHash?: string, srcset?: string, hyperLink: Array<
@@ -2475,6 +2986,214 @@ export type GetEntriesQuery = { __typename?: 'Query', entryCount: number, entrie
           | { __typename?: 'images_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
           | { __typename?: 'users_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
          }> }
+    | { __typename?: 'page_photosSingle_Entry' }
+    | { __typename?: 'page_projectList_Entry' }
+    | { __typename?: 'page_projectSingle_Entry' }
+    | { __typename?: 'page_topic_Entry' }
+    | { __typename?: 'page_workArea_Entry' }
+    | { __typename?: 'page_workList_Entry' }
+    | { __typename?: 'page_workSingle_Entry' }
+    | { __typename?: 'page_workType_Entry' }
+  > };
+
+export type GetPrerenderDataQueryVariables = Exact<{
+  site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>>;
+  section?: Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>;
+  type?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  relatedToEntries?: InputMaybe<Array<InputMaybe<EntryRelationCriteriaInput>> | InputMaybe<EntryRelationCriteriaInput>>;
+}>;
+
+
+export type GetPrerenderDataQuery = { __typename?: 'Query', entryCount: number, entries?: Array<
+    | { __typename: 'block_award_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+    | { __typename: 'block_code_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+    | { __typename: 'block_codepen_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+    | { __typename: 'block_cta_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+    | { __typename: 'block_curriculumVitae_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+    | { __typename: 'block_image_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+    | { __typename: 'block_images_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+    | { __typename: 'block_links_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+    | { __typename: 'block_quote_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+    | { __typename: 'block_section_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+    | { __typename: 'block_spacer_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+    | { __typename: 'block_textImage_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+    | { __typename: 'block_text_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+    | { __typename: 'block_video_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+    | { __typename: 'page_about_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+    | { __typename: 'page_blogList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+    | { __typename: 'page_blogSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+    | { __typename: 'page_category_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+    | { __typename: 'page_company_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+    | { __typename: 'page_contentBuilder_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+    | { __typename: 'page_home_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+    | { __typename: 'page_photosList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+    | { __typename: 'page_photosSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+    | { __typename: 'page_projectList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+    | { __typename: 'page_projectSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+    | { __typename: 'page_topic_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+    | { __typename: 'page_workArea_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+    | { __typename: 'page_workList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+    | { __typename: 'page_workSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+    | { __typename: 'page_workType_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+  > };
+
+export type GetSeomaticQueryVariables = Exact<{
+  site?: InputMaybe<Scalars['String']['input']>;
+  uri?: InputMaybe<Scalars['String']['input']>;
+  asArray?: InputMaybe<Scalars['Boolean']['input']>;
+}>;
+
+
+export type GetSeomaticQuery = { __typename?: 'Query', seomatic?: { __typename?: 'SeomaticType', frontendTemplates?: Array<{ __typename?: 'FileContents', contents?: string, filename: string }>, sitemapIndexes?: Array<{ __typename?: 'FileContents', contents?: string, filename: string }>, sitemapStyles?: { __typename?: 'FileContents', contents?: string, filename: string }, sitemaps?: Array<{ __typename?: 'FileContents', contents?: string, filename: string }> } };
+
+export type GetTopicEntryQueryVariables = Exact<{
+  site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>>;
+  section?: Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>;
+  slug?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+}>;
+
+
+export type GetTopicEntryQuery = { __typename?: 'Query', entries?: Array<
+    | { __typename?: 'block_award_Entry' }
+    | { __typename?: 'block_code_Entry' }
+    | { __typename?: 'block_codepen_Entry' }
+    | { __typename?: 'block_cta_Entry' }
+    | { __typename?: 'block_curriculumVitae_Entry' }
+    | { __typename?: 'block_image_Entry' }
+    | { __typename?: 'block_images_Entry' }
+    | { __typename?: 'block_links_Entry' }
+    | { __typename?: 'block_quote_Entry' }
+    | { __typename?: 'block_section_Entry' }
+    | { __typename?: 'block_spacer_Entry' }
+    | { __typename?: 'block_textImage_Entry' }
+    | { __typename?: 'block_text_Entry' }
+    | { __typename?: 'block_video_Entry' }
+    | { __typename?: 'page_about_Entry' }
+    | { __typename?: 'page_blogList_Entry' }
+    | { __typename?: 'page_blogSingle_Entry' }
+    | { __typename?: 'page_category_Entry' }
+    | { __typename?: 'page_company_Entry' }
+    | { __typename?: 'page_contentBuilder_Entry' }
+    | { __typename?: 'page_home_Entry' }
+    | { __typename?: 'page_photosList_Entry' }
+    | { __typename?: 'page_photosSingle_Entry' }
+    | { __typename?: 'page_projectList_Entry' }
+    | { __typename?: 'page_projectSingle_Entry' }
+    | { __typename: 'page_topic_Entry', description?: string, id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number, postDate?: any, postDateDay?: any, postDateMonth?: any, postDateYear?: any, expireDate?: any, postUpdateDate?: any, timezone?: any, seomatic?: { __typename?: 'SeomaticType', metaTagContainer?: string, metaLinkContainer?: string, metaTitleContainer?: string, metaJsonLdContainer?: string }, prev?:
+        | { __typename: 'block_award_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_code_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_codepen_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_cta_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_curriculumVitae_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_image_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_images_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_links_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_quote_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_section_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_spacer_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_textImage_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_text_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_video_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_about_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_blogList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_blogSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_category_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_company_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_contentBuilder_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_home_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_photosList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_photosSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_projectList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_projectSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_topic_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workArea_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workType_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+      , next?:
+        | { __typename: 'block_award_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_code_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_codepen_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_cta_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_curriculumVitae_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_image_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_images_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_links_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_quote_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_section_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_spacer_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_textImage_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_text_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_video_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_about_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_blogList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_blogSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_category_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_company_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_contentBuilder_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_home_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_photosList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_photosSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_projectList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_projectSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_topic_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workArea_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workType_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+      , authors?: Array<{ __typename?: 'User', id?: string, fullName?: string, photo?:
+          | { __typename?: 'files_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
+          | { __typename?: 'imagesBwg_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
+          | { __typename?: 'images_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
+          | { __typename?: 'users_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
+         }> }
+    | { __typename?: 'page_workArea_Entry' }
+    | { __typename?: 'page_workList_Entry' }
+    | { __typename?: 'page_workSingle_Entry' }
+    | { __typename?: 'page_workType_Entry' }
+  > };
+
+export type GetWorkEntriesQueryVariables = Exact<{
+  site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>>;
+  section?: Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Scalars['String']['input']>;
+}>;
+
+
+export type GetWorkEntriesQuery = { __typename?: 'Query', entryCount: number, entries?: Array<
+    | { __typename?: 'block_award_Entry' }
+    | { __typename?: 'block_code_Entry' }
+    | { __typename?: 'block_codepen_Entry' }
+    | { __typename?: 'block_cta_Entry' }
+    | { __typename?: 'block_curriculumVitae_Entry' }
+    | { __typename?: 'block_image_Entry' }
+    | { __typename?: 'block_images_Entry' }
+    | { __typename?: 'block_links_Entry' }
+    | { __typename?: 'block_quote_Entry' }
+    | { __typename?: 'block_section_Entry' }
+    | { __typename?: 'block_spacer_Entry' }
+    | { __typename?: 'block_textImage_Entry' }
+    | { __typename?: 'block_text_Entry' }
+    | { __typename?: 'block_video_Entry' }
+    | { __typename?: 'page_about_Entry' }
+    | { __typename?: 'page_blogList_Entry' }
+    | { __typename?: 'page_blogSingle_Entry' }
+    | { __typename?: 'page_category_Entry' }
+    | { __typename?: 'page_company_Entry' }
+    | { __typename?: 'page_contentBuilder_Entry' }
+    | { __typename?: 'page_home_Entry' }
+    | { __typename?: 'page_photosList_Entry' }
+    | { __typename?: 'page_photosSingle_Entry' }
+    | { __typename?: 'page_projectList_Entry' }
+    | { __typename?: 'page_projectSingle_Entry' }
+    | { __typename?: 'page_topic_Entry' }
+    | { __typename?: 'page_workArea_Entry' }
+    | { __typename?: 'page_workList_Entry' }
     | { __typename: 'page_workSingle_Entry', description?: string, customTitle?: string, clientWords?: string, projectDescription?: string, id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number, descriptionPlain?: string, postDate?: any, postDateDay?: any, postDateMonth?: any, postDateYear?: any, expireDate?: any, postUpdateDate?: any, timezone?: any, image: Array<
         | { __typename?: 'files_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
         | { __typename?: 'imagesBwg_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
@@ -3322,57 +4041,148 @@ export type GetEntriesQuery = { __typename?: 'Query', entryCount: number, entrie
     | { __typename?: 'page_workType_Entry' }
   > };
 
-export type GetPrerenderDataQueryVariables = Exact<{
+export type GetWorkListPageQueryVariables = Exact<{
   site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>>;
   section?: Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>;
-  type?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>>;
   limit?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  relatedToEntries?: InputMaybe<Array<InputMaybe<EntryRelationCriteriaInput>> | InputMaybe<EntryRelationCriteriaInput>>;
 }>;
 
 
-export type GetPrerenderDataQuery = { __typename?: 'Query', entryCount: number, entries?: Array<
-    | { __typename: 'block_award_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-    | { __typename: 'block_code_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-    | { __typename: 'block_codepen_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-    | { __typename: 'block_cta_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-    | { __typename: 'block_curriculumVitae_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-    | { __typename: 'block_image_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-    | { __typename: 'block_images_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-    | { __typename: 'block_links_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-    | { __typename: 'block_quote_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-    | { __typename: 'block_section_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-    | { __typename: 'block_spacer_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-    | { __typename: 'block_textImage_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-    | { __typename: 'block_text_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-    | { __typename: 'block_video_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-    | { __typename: 'page_about_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-    | { __typename: 'page_blogList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-    | { __typename: 'page_blogSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-    | { __typename: 'page_category_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-    | { __typename: 'page_company_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-    | { __typename: 'page_contentBuilder_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-    | { __typename: 'page_home_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-    | { __typename: 'page_photosList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-    | { __typename: 'page_photosSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-    | { __typename: 'page_projectList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-    | { __typename: 'page_projectSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-    | { __typename: 'page_topic_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-    | { __typename: 'page_workArea_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-    | { __typename: 'page_workList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-    | { __typename: 'page_workSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
-    | { __typename: 'page_workType_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+export type GetWorkListPageQuery = { __typename?: 'Query', entries?: Array<
+    | { __typename?: 'block_award_Entry' }
+    | { __typename?: 'block_code_Entry' }
+    | { __typename?: 'block_codepen_Entry' }
+    | { __typename?: 'block_cta_Entry' }
+    | { __typename?: 'block_curriculumVitae_Entry' }
+    | { __typename?: 'block_image_Entry' }
+    | { __typename?: 'block_images_Entry' }
+    | { __typename?: 'block_links_Entry' }
+    | { __typename?: 'block_quote_Entry' }
+    | { __typename?: 'block_section_Entry' }
+    | { __typename?: 'block_spacer_Entry' }
+    | { __typename?: 'block_textImage_Entry' }
+    | { __typename?: 'block_text_Entry' }
+    | { __typename?: 'block_video_Entry' }
+    | { __typename?: 'page_about_Entry' }
+    | { __typename?: 'page_blogList_Entry' }
+    | { __typename?: 'page_blogSingle_Entry' }
+    | { __typename?: 'page_category_Entry' }
+    | { __typename?: 'page_company_Entry' }
+    | { __typename?: 'page_contentBuilder_Entry' }
+    | { __typename?: 'page_home_Entry' }
+    | { __typename?: 'page_photosList_Entry' }
+    | { __typename?: 'page_photosSingle_Entry' }
+    | { __typename?: 'page_projectList_Entry' }
+    | { __typename?: 'page_projectSingle_Entry' }
+    | { __typename?: 'page_topic_Entry' }
+    | { __typename?: 'page_workArea_Entry' }
+    | { __typename: 'page_workList_Entry', description?: string, customTitle?: string, id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number, descriptionPlain?: string, postDate?: any, postDateDay?: any, postDateMonth?: any, postDateYear?: any, expireDate?: any, postUpdateDate?: any, timezone?: any, image: Array<
+        | { __typename?: 'files_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
+        | { __typename?: 'imagesBwg_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
+        | { __typename?: 'images_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, exif?: string, customTitle?: string, caption?: string, source?: string, svgCode?: string, base64BlurHash?: string, srcset?: string, hyperLink: Array<
+            | { __typename: 'hyperLink_Asset_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLink_Category_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLink_Custom_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLink_Email_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLink_Embed_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLink_Entry_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLink_Phone_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLink_Site_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLink_Url_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLink_User_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLinks_Asset_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLinks_Category_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLinks_Custom_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLinks_Email_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLinks_Embed_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLinks_Entry_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLinks_Phone_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLinks_Site_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLinks_Url_LinkType', linkStyle?: string, ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'hyperLinks_User_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'projectLink_Asset_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'projectLink_Category_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'projectLink_Custom_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'projectLink_Email_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'projectLink_Embed_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'projectLink_Entry_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'projectLink_Phone_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'projectLink_Site_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'projectLink_Url_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+            | { __typename: 'projectLink_User_LinkType', ariaLabel?: string, classes?: string, isElement?: boolean, isEmpty?: boolean, link?: string, linkText?: string, linkUrl?: string, linkValue?: string, newWindow?: boolean, target?: string, text?: string, title?: string, type?: string, url?: string, urlPrefix?: string, urlSuffix?: string, linkUri?: string }
+          > }
+        | { __typename?: 'users_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
+      >, seomatic?: { __typename?: 'SeomaticType', metaTagContainer?: string, metaLinkContainer?: string, metaTitleContainer?: string, metaJsonLdContainer?: string }, prev?:
+        | { __typename: 'block_award_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_code_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_codepen_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_cta_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_curriculumVitae_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_image_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_images_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_links_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_quote_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_section_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_spacer_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_textImage_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_text_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_video_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_about_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_blogList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_blogSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_category_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_company_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_contentBuilder_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_home_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_photosList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_photosSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_projectList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_projectSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_topic_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workArea_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workType_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+      , next?:
+        | { __typename: 'block_award_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_code_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_codepen_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_cta_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_curriculumVitae_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_image_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_images_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_links_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_quote_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_section_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_spacer_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_textImage_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_text_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'block_video_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_about_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_blogList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_blogSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_category_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_company_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_contentBuilder_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_home_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_photosList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_photosSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_projectList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_projectSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_topic_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workArea_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workList_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workSingle_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+        | { __typename: 'page_workType_Entry', id?: string, uid?: string, title?: string, slug?: string, uri?: string, url?: string, canonicalId?: number, language?: string, sectionHandle?: string, typeHandle: string, siteHandle?: string, siteId?: number }
+      , authors?: Array<{ __typename?: 'User', id?: string, fullName?: string, photo?:
+          | { __typename?: 'files_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
+          | { __typename?: 'imagesBwg_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
+          | { __typename?: 'images_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
+          | { __typename?: 'users_Asset', id?: string, url?: string, width?: number, height?: number, title?: string, alt?: string, filename: string, focalPoint?: Array<number>, svgCode?: string, base64BlurHash?: string, srcset?: string }
+         }> }
+    | { __typename?: 'page_workSingle_Entry' }
+    | { __typename?: 'page_workType_Entry' }
   > };
-
-export type GetSeomaticQueryVariables = Exact<{
-  site?: InputMaybe<Scalars['String']['input']>;
-  uri?: InputMaybe<Scalars['String']['input']>;
-  asArray?: InputMaybe<Scalars['Boolean']['input']>;
-}>;
-
-
-export type GetSeomaticQuery = { __typename?: 'Query', seomatic?: { __typename?: 'SeomaticType', frontendTemplates?: Array<{ __typename?: 'FileContents', contents?: string, filename: string }>, sitemapIndexes?: Array<{ __typename?: 'FileContents', contents?: string, filename: string }>, sitemapStyles?: { __typename?: 'FileContents', contents?: string, filename: string }, sitemaps?: Array<{ __typename?: 'FileContents', contents?: string, filename: string }> } };
 
 type Asset_CustomFields_Files_Asset_Fragment = { __typename?: 'files_Asset' };
 
@@ -11104,38 +11914,11 @@ export const Page_WorkSingleFragmentDoc = gql`
   }
 }
     `;
-export const GetEntriesDocument = gql`
-    query GetEntries($site: [String] = ["davidhellmann_en"], $section: [String]! = ["blog"], $type: [String], $uri: [String], $slug: [String], $id: [QueryArgument], $limit: Int = 1, $offset: Int = 0, $unique: Boolean = false, $orderBy: String = "postDate DESC", $relatedToEntries: [EntryRelationCriteriaInput]) {
-  entries(
-    site: $site
-    section: $section
-    type: $type
-    uri: $uri
-    id: $id
-    slug: $slug
-    limit: $limit
-    offset: $offset
-    unique: $unique
-    orderBy: $orderBy
-    relatedToEntries: $relatedToEntries
-  ) {
+export const GetAboutEntryDocument = gql`
+    query GetAboutEntry($site: [String] = ["davidhellmann_en"], $section: [String]! = ["pages"], $slug: [String] = ["about"], $limit: Int = 1) {
+  entries(site: $site, section: $section, slug: $slug, limit: $limit) {
     ...page_about
-    ...page_blogList
-    ...page_blogSingle
-    ...page_home
-    ...page_photosList
-    ...page_photosSingle
-    ...page_workSingle
-    ...page_workList
-    ...page_category
-    ...page_topic
   }
-  entryCount(
-    site: $site
-    section: $section
-    type: $type
-    relatedToEntries: $relatedToEntries
-  )
 }
     ${Page_AboutFragmentDoc}
 ${Entry_DataFragmentDoc}
@@ -11152,26 +11935,157 @@ ${Matrix_AwardsFragmentDoc}
 ${Block_AwardFragmentDoc}
 ${Page_CompanyFragmentDoc}
 ${Matrix_CurriculumVitaeFragmentDoc}
-${Block_CurriculumVitaeFragmentDoc}
-${Page_BlogListFragmentDoc}
-${Page_BlogSingleFragmentDoc}
+${Block_CurriculumVitaeFragmentDoc}`;
+export const GetBlogEntriesDocument = gql`
+    query GetBlogEntries($site: [String] = ["davidhellmann_en"], $section: [String]! = ["blog"], $limit: Int = 100, $offset: Int = 0, $orderBy: String = "postDate DESC", $relatedToEntries: [EntryRelationCriteriaInput]) {
+  entries(
+    site: $site
+    section: $section
+    limit: $limit
+    offset: $offset
+    orderBy: $orderBy
+    relatedToEntries: $relatedToEntries
+  ) {
+    ...page_blogSingle
+  }
+  entryCount(site: $site, section: $section, relatedToEntries: $relatedToEntries)
+}
+    ${Page_BlogSingleFragmentDoc}
+${Entry_DataFragmentDoc}
+${Entry_DatesFragmentDoc}
+${Entry_SeoFragmentDoc}
+${Entry_PrevFragmentDoc}
+${Entry_NextFragmentDoc}
+${Author_DataFragmentDoc}
+${Asset_DataFragmentDoc}
+${Asset_TransformsFragmentDoc}
+${Asset_CustomFieldsFragmentDoc}
+${Hyper_DataFragmentDoc}
 ${Matrix_ContentBuilderFragmentDoc}
 ${Block_TextFragmentDoc}
 ${Block_CodeFragmentDoc}
 ${Block_ImageFragmentDoc}
 ${Block_ImagesFragmentDoc}
 ${Block_CtaFragmentDoc}
-${Block_QuoteFragmentDoc}
-${Page_HomeFragmentDoc}
-${Page_PhotosListFragmentDoc}
-${Page_PhotosSingleFragmentDoc}
-${Page_WorkSingleFragmentDoc}
-${Matrix_ContentBuilderWorkFragmentDoc}
+${Block_QuoteFragmentDoc}`;
+export const GetBlogListPageDocument = gql`
+    query GetBlogListPage($site: [String] = ["davidhellmann_en"], $section: [String]! = ["pages"], $limit: Int = 1) {
+  entries(site: $site, section: $section, type: ["page_blogList"], limit: $limit) {
+    ...page_blogList
+  }
+}
+    ${Page_BlogListFragmentDoc}
+${Entry_DataFragmentDoc}
+${Entry_DatesFragmentDoc}
+${Entry_SeoFragmentDoc}
+${Entry_PrevFragmentDoc}
+${Entry_NextFragmentDoc}
+${Author_DataFragmentDoc}
+${Asset_DataFragmentDoc}
+${Asset_TransformsFragmentDoc}
+${Asset_CustomFieldsFragmentDoc}
+${Hyper_DataFragmentDoc}`;
+export const GetCategoryEntryDocument = gql`
+    query GetCategoryEntry($site: [String] = ["davidhellmann_en"], $section: [String]! = ["categories"], $slug: [String], $limit: Int = 1) {
+  entries(site: $site, section: $section, slug: $slug, limit: $limit) {
+    ...page_category
+  }
+}
+    ${Page_CategoryFragmentDoc}
+${Entry_DataFragmentDoc}
+${Entry_DatesFragmentDoc}
+${Entry_SeoFragmentDoc}
+${Entry_PrevFragmentDoc}
+${Entry_NextFragmentDoc}
+${Author_DataFragmentDoc}
+${Asset_DataFragmentDoc}
+${Asset_TransformsFragmentDoc}`;
+export const GetHomeEntryDocument = gql`
+    query GetHomeEntry($site: [String] = ["davidhellmann_en"], $section: [String]! = ["home"], $limit: Int = 1) {
+  entries(site: $site, section: $section, limit: $limit) {
+    ...page_home
+  }
+}
+    ${Page_HomeFragmentDoc}
+${Entry_DataFragmentDoc}
+${Entry_DatesFragmentDoc}
+${Entry_SeoFragmentDoc}
+${Entry_PrevFragmentDoc}
+${Entry_NextFragmentDoc}
+${Author_DataFragmentDoc}
+${Asset_DataFragmentDoc}
+${Asset_TransformsFragmentDoc}
+${Asset_CustomFieldsFragmentDoc}
+${Hyper_DataFragmentDoc}`;
+export const GetPageByUriDocument = gql`
+    query GetPageByUri($site: [String] = ["davidhellmann_en"], $section: [String]! = ["pages"], $uri: [String], $limit: Int = 1) {
+  entries(site: $site, section: $section, uri: $uri, limit: $limit) {
+    ...page_contentBuilder
+    ...page_company
+    ...page_workArea
+    ...page_workType
+  }
+}
+    ${Page_ContentBuilderFragmentDoc}
+${Entry_DataFragmentDoc}
+${Entry_DatesFragmentDoc}
+${Entry_SeoFragmentDoc}
+${Entry_PrevFragmentDoc}
+${Entry_NextFragmentDoc}
+${Author_DataFragmentDoc}
+${Asset_DataFragmentDoc}
+${Asset_TransformsFragmentDoc}
+${Asset_CustomFieldsFragmentDoc}
+${Hyper_DataFragmentDoc}
+${Page_CompanyFragmentDoc}
 ${Page_WorkAreaFragmentDoc}
-${Page_WorkTypeFragmentDoc}
-${Page_WorkListFragmentDoc}
-${Page_CategoryFragmentDoc}
-${Page_TopicFragmentDoc}`;
+${Page_WorkTypeFragmentDoc}`;
+export const GetPhotosEntriesDocument = gql`
+    query GetPhotosEntries($site: [String] = ["davidhellmann_en"], $section: [String]! = ["photos"], $limit: Int = 100, $offset: Int = 0, $orderBy: String = "postDate DESC") {
+  entries(
+    site: $site
+    section: $section
+    limit: $limit
+    offset: $offset
+    orderBy: $orderBy
+  ) {
+    ...page_photosSingle
+  }
+  entryCount(site: $site, section: $section)
+}
+    ${Page_PhotosSingleFragmentDoc}
+${Entry_DataFragmentDoc}
+${Entry_DatesFragmentDoc}
+${Entry_SeoFragmentDoc}
+${Entry_PrevFragmentDoc}
+${Entry_NextFragmentDoc}
+${Author_DataFragmentDoc}
+${Asset_DataFragmentDoc}
+${Asset_TransformsFragmentDoc}
+${Asset_CustomFieldsFragmentDoc}
+${Hyper_DataFragmentDoc}`;
+export const GetPhotosListPageDocument = gql`
+    query GetPhotosListPage($site: [String] = ["davidhellmann_en"], $section: [String]! = ["pages"], $limit: Int = 1) {
+  entries(
+    site: $site
+    section: $section
+    type: ["page_photosList"]
+    limit: $limit
+  ) {
+    ...page_photosList
+  }
+}
+    ${Page_PhotosListFragmentDoc}
+${Entry_DataFragmentDoc}
+${Entry_DatesFragmentDoc}
+${Entry_SeoFragmentDoc}
+${Entry_PrevFragmentDoc}
+${Entry_NextFragmentDoc}
+${Author_DataFragmentDoc}
+${Asset_DataFragmentDoc}
+${Asset_TransformsFragmentDoc}
+${Asset_CustomFieldsFragmentDoc}
+${Hyper_DataFragmentDoc}`;
 export const GetPrerenderDataDocument = gql`
     query GetPrerenderData($site: [String] = ["davidhellmann_en"], $section: [String]! = ["blog"], $type: [String], $limit: Int = -1, $offset: Int = 0, $relatedToEntries: [EntryRelationCriteriaInput]) {
   entries(
@@ -11214,6 +12128,68 @@ export const GetSeomaticDocument = gql`
   }
 }
     `;
+export const GetTopicEntryDocument = gql`
+    query GetTopicEntry($site: [String] = ["davidhellmann_en"], $section: [String]! = ["topics"], $slug: [String], $limit: Int = 1) {
+  entries(site: $site, section: $section, slug: $slug, limit: $limit) {
+    ...page_topic
+  }
+}
+    ${Page_TopicFragmentDoc}
+${Entry_DataFragmentDoc}
+${Entry_DatesFragmentDoc}
+${Entry_SeoFragmentDoc}
+${Entry_PrevFragmentDoc}
+${Entry_NextFragmentDoc}
+${Author_DataFragmentDoc}
+${Asset_DataFragmentDoc}
+${Asset_TransformsFragmentDoc}`;
+export const GetWorkEntriesDocument = gql`
+    query GetWorkEntries($site: [String] = ["davidhellmann_en"], $section: [String]! = ["work"], $limit: Int = 100, $offset: Int = 0, $orderBy: String = "postDate DESC") {
+  entries(
+    site: $site
+    section: $section
+    limit: $limit
+    offset: $offset
+    orderBy: $orderBy
+  ) {
+    ...page_workSingle
+  }
+  entryCount(site: $site, section: $section)
+}
+    ${Page_WorkSingleFragmentDoc}
+${Entry_DataFragmentDoc}
+${Entry_DatesFragmentDoc}
+${Entry_SeoFragmentDoc}
+${Entry_PrevFragmentDoc}
+${Entry_NextFragmentDoc}
+${Author_DataFragmentDoc}
+${Asset_DataFragmentDoc}
+${Asset_TransformsFragmentDoc}
+${Asset_CustomFieldsFragmentDoc}
+${Hyper_DataFragmentDoc}
+${Matrix_ContentBuilderWorkFragmentDoc}
+${Block_ImageFragmentDoc}
+${Block_ImagesFragmentDoc}
+${Page_WorkAreaFragmentDoc}
+${Page_WorkTypeFragmentDoc}
+${Page_CompanyFragmentDoc}`;
+export const GetWorkListPageDocument = gql`
+    query GetWorkListPage($site: [String] = ["davidhellmann_en"], $section: [String]! = ["pages"], $limit: Int = 1) {
+  entries(site: $site, section: $section, type: ["page_workList"], limit: $limit) {
+    ...page_workList
+  }
+}
+    ${Page_WorkListFragmentDoc}
+${Entry_DataFragmentDoc}
+${Entry_DatesFragmentDoc}
+${Entry_SeoFragmentDoc}
+${Entry_PrevFragmentDoc}
+${Entry_NextFragmentDoc}
+${Author_DataFragmentDoc}
+${Asset_DataFragmentDoc}
+${Asset_TransformsFragmentDoc}
+${Asset_CustomFieldsFragmentDoc}
+${Hyper_DataFragmentDoc}`;
 
 export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string, variables?: any) => Promise<T>;
 
@@ -11222,14 +12198,44 @@ const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationTy
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
-    GetEntries(variables?: GetEntriesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<GetEntriesQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetEntriesQuery>({ document: GetEntriesDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'GetEntries', 'query', variables);
+    GetAboutEntry(variables?: GetAboutEntryQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<GetAboutEntryQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetAboutEntryQuery>({ document: GetAboutEntryDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'GetAboutEntry', 'query', variables);
+    },
+    GetBlogEntries(variables?: GetBlogEntriesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<GetBlogEntriesQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetBlogEntriesQuery>({ document: GetBlogEntriesDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'GetBlogEntries', 'query', variables);
+    },
+    GetBlogListPage(variables?: GetBlogListPageQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<GetBlogListPageQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetBlogListPageQuery>({ document: GetBlogListPageDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'GetBlogListPage', 'query', variables);
+    },
+    GetCategoryEntry(variables?: GetCategoryEntryQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<GetCategoryEntryQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetCategoryEntryQuery>({ document: GetCategoryEntryDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'GetCategoryEntry', 'query', variables);
+    },
+    GetHomeEntry(variables?: GetHomeEntryQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<GetHomeEntryQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetHomeEntryQuery>({ document: GetHomeEntryDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'GetHomeEntry', 'query', variables);
+    },
+    GetPageByUri(variables?: GetPageByUriQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<GetPageByUriQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetPageByUriQuery>({ document: GetPageByUriDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'GetPageByUri', 'query', variables);
+    },
+    GetPhotosEntries(variables?: GetPhotosEntriesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<GetPhotosEntriesQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetPhotosEntriesQuery>({ document: GetPhotosEntriesDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'GetPhotosEntries', 'query', variables);
+    },
+    GetPhotosListPage(variables?: GetPhotosListPageQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<GetPhotosListPageQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetPhotosListPageQuery>({ document: GetPhotosListPageDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'GetPhotosListPage', 'query', variables);
     },
     GetPrerenderData(variables?: GetPrerenderDataQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<GetPrerenderDataQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetPrerenderDataQuery>({ document: GetPrerenderDataDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'GetPrerenderData', 'query', variables);
     },
     GetSeomatic(variables?: GetSeomaticQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<GetSeomaticQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetSeomaticQuery>({ document: GetSeomaticDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'GetSeomatic', 'query', variables);
+    },
+    GetTopicEntry(variables?: GetTopicEntryQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<GetTopicEntryQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetTopicEntryQuery>({ document: GetTopicEntryDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'GetTopicEntry', 'query', variables);
+    },
+    GetWorkEntries(variables?: GetWorkEntriesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<GetWorkEntriesQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetWorkEntriesQuery>({ document: GetWorkEntriesDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'GetWorkEntries', 'query', variables);
+    },
+    GetWorkListPage(variables?: GetWorkListPageQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<GetWorkListPageQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetWorkListPageQuery>({ document: GetWorkListPageDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'GetWorkListPage', 'query', variables);
     }
   };
 }

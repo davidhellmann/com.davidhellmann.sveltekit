@@ -1,7 +1,7 @@
 export const prerender = true;
 import type { PageServerLoad, EntryGenerator, RouteParams } from "./$types";
 import { redirect } from "@sveltejs/kit";
-import { GetEntriesDocument, type GetEntriesQueryVariables, type Page_BlogListFragment } from "$graphql/graphql";
+import { GetBlogListPageDocument, type GetBlogListPageQueryVariables, type Page_BlogListFragment } from "$graphql/graphql";
 import { getGqlData } from "$graphql/graphql-client";
 import { getBlogArray, getBlogCount } from "$lib/data/blog";
 
@@ -45,11 +45,7 @@ export const load: PageServerLoad = async ({ params }) => {
   }
 
   // blogEntry (Page-Metadata) muss separat geholt werden - anderer Type
-  const { entries: blogEntry } = (await getGqlData<GetEntriesQueryVariables>(GetEntriesDocument, {
-    section: ["pages"],
-    type: "page_blogList",
-    limit: 1
-  })) as { entries?: Page_BlogListFragment[] };
+  const { entries: blogEntry } = (await getGqlData<GetBlogListPageQueryVariables>(GetBlogListPageDocument, {})) as { entries?: Page_BlogListFragment[] };
 
   return {
     blogEntry: blogEntry,
