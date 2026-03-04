@@ -1,14 +1,14 @@
 <script lang="ts">
   import type { PageProps } from "./$types";
   import { getFirstEntry } from "$utils/getFirstEntry";
-  import type { Page_workSingleFragment } from "$graphql/graphql";
+  import type { Page_WorkSingleFragment } from "$graphql/graphql";
   import Seo from "$components/seo/Seo.svelte";
   import LightboxWork from "$components/modals/LightboxWork.svelte";
   import HeroWork from "$components/heros/Work.svelte";
   import PrevNext from "$components/navigation/PrevNext.svelte";
 
   let { data }: PageProps = $props();
-  const entry = $derived(getFirstEntry(data.entries) as Page_workSingleFragment);
+  const entry = $derived(getFirstEntry(data.entries) as Page_WorkSingleFragment);
 </script>
 
 {#if entry?.seomatic}
