@@ -1,8 +1,8 @@
 export const prerender = true;
 import type { PageServerLoad, EntryGenerator, RouteParams } from "./$types";
 import {
-  GetEntriesDocument,
-  type GetEntriesQueryVariables,
+  GetPageByUriDocument,
+  type GetPageByUriQueryVariables,
   GetPrerenderDataDocument,
   type GetPrerenderDataQueryVariables,
   type Page_ContentBuilderFragment
@@ -25,9 +25,8 @@ export const entries: EntryGenerator = async () => {
 };
 
 export const load: PageServerLoad = async ({ params }) => {
-  const { entries } = (await getGqlData<GetEntriesQueryVariables>(GetEntriesDocument, {
-    section: ["pages"],
-    uri: params?.uri
+  const { entries } = (await getGqlData<GetPageByUriQueryVariables>(GetPageByUriDocument, {
+    uri: [params?.uri]
   })) as { entries?: Page_ContentBuilderFragment[] };
 
   return {

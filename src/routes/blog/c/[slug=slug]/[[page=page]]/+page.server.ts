@@ -2,8 +2,10 @@ export const prerender = true;
 import type { PageServerLoad, EntryGenerator, RouteParams } from "./$types";
 import { redirect } from "@sveltejs/kit";
 import {
-  GetEntriesDocument,
-  type GetEntriesQueryVariables,
+  GetBlogEntriesDocument,
+  type GetBlogEntriesQueryVariables,
+  GetCategoryEntryDocument,
+  type GetCategoryEntryQueryVariables,
   GetPrerenderDataDocument,
   type GetPrerenderDataQueryVariables,
   type GetPrerenderDataQuery,
@@ -71,8 +73,7 @@ export const load: PageServerLoad = async ({ params, url }) => {
   const page = params.page ? parseInt(params.page) : 1;
   const offset = (page - 1) * limit || 0;
 
-  const { entries, entryCount } = (await getGqlData<GetEntriesQueryVariables>(GetEntriesDocument, {
-    section: ["blog"],
+  const { entries, entryCount } = (await getGqlData<GetBlogEntriesQueryVariables>(GetBlogEntriesDocument, {
     relatedToEntries: [
       {
         section: ["categories"],
@@ -85,10 +86,8 @@ export const load: PageServerLoad = async ({ params, url }) => {
 
   const totalPages = getTotalPages(entryCount, limit);
 
-  const { entries: categoryEntry } = (await getGqlData<GetEntriesQueryVariables>(GetEntriesDocument, {
-    section: ["categories"],
-    slug: params?.slug,
-    limit: 1
+  const { entries: categoryEntry } = (await getGqlData<GetCategoryEntryQueryVariables>(GetCategoryEntryDocument, {
+    slug: [params?.slug]
   })) as { entries?: Page_CategoryFragment[] };
 
   // Redirect /slug/1 to /slug
