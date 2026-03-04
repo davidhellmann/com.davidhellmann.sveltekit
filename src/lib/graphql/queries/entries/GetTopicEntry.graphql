@@ -1,0 +1,14 @@
+query GetTopicEntry(
+  $site: [String] = ["davidhellmann_en"]
+  $slug: [String]
+  $limit: Int = 1
+) {
+  entries(
+    site: $site,
+    section: ["topics"],
+    slug: $slug,
+    limit: $limit
+  ) {
+    ...page_topic
+  }
+}

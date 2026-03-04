@@ -1,0 +1,13 @@
+query GetPhotosListPage(
+  $site: [String] = ["davidhellmann_en"]
+  $limit: Int = 1
+) {
+  entries(
+    site: $site,
+    section: ["pages"],
+    type: ["page_photosList"],
+    limit: $limit
+  ) {
+    ...page_photosList
+  }
+}
