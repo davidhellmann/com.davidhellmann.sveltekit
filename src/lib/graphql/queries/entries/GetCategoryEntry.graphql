@@ -1,11 +1,12 @@
 query GetCategoryEntry(
   $site: [String] = ["davidhellmann_en"]
+  $section: [String]! = ["categories"]
   $slug: [String]
   $limit: Int = 1
 ) {
   entries(
     site: $site,
-    section: ["categories"],
+    section: $section,
     slug: $slug,
     limit: $limit
   ) {

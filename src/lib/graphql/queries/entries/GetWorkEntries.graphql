@@ -1,12 +1,13 @@
 query GetWorkEntries(
   $site: [String] = ["davidhellmann_en"]
+  $section: [String]! = ["work"]
   $limit: Int = 100
   $offset: Int = 0
   $orderBy: String = "postDate DESC"
 ) {
   entries(
     site: $site,
-    section: ["work"],
+    section: $section,
     limit: $limit,
     offset: $offset,
     orderBy: $orderBy
@@ -15,6 +16,6 @@ query GetWorkEntries(
   }
   entryCount(
     site: $site,
-    section: ["work"]
+    section: $section
   )
 }

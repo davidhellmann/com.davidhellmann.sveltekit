@@ -1,5 +1,6 @@
 query GetBlogEntries(
   $site: [String] = ["davidhellmann_en"]
+  $section: [String]! = ["blog"]
   $limit: Int = 100
   $offset: Int = 0
   $orderBy: String = "postDate DESC"
@@ -7,7 +8,7 @@ query GetBlogEntries(
 ) {
   entries(
     site: $site,
-    section: ["blog"],
+    section: $section,
     limit: $limit,
     offset: $offset,
     orderBy: $orderBy,
@@ -17,7 +18,7 @@ query GetBlogEntries(
   }
   entryCount(
     site: $site,
-    section: ["blog"],
+    section: $section,
     relatedToEntries: $relatedToEntries
   )
 }

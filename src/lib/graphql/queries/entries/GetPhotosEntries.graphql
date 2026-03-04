@@ -1,12 +1,13 @@
 query GetPhotosEntries(
   $site: [String] = ["davidhellmann_en"]
+  $section: [String]! = ["photos"]
   $limit: Int = 100
   $offset: Int = 0
   $orderBy: String = "postDate DESC"
 ) {
   entries(
     site: $site,
-    section: ["photos"],
+    section: $section,
     limit: $limit,
     offset: $offset,
     orderBy: $orderBy
@@ -15,6 +16,6 @@ query GetPhotosEntries(
   }
   entryCount(
     site: $site,
-    section: ["photos"]
+    section: $section
   )
 }
