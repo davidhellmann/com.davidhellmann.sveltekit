@@ -19,6 +19,7 @@ export async function getEntriesCache<T extends EntryWithSlug>(
   const promise = (async () => {
     const allEntries: T[] = [];
     let offset = 0;
+    const totalStart = performance.now();
 
     console.log(`[${cacheKey} Cache] Fetching in batches of ${BATCH_SIZE} with concurrency ${CONCURRENCY}...`);
 
@@ -26,24 +27,29 @@ export async function getEntriesCache<T extends EntryWithSlug>(
       const batchOffsets = Array.from({ length: CONCURRENCY }, (_, i) => offset + i * BATCH_SIZE);
 
       const results = await Promise.all(
-        batchOffsets.map((batchOffset) =>
-          getGqlData(queryDocument, {
+        batchOffsets.map(async (batchOffset) => {
+          const start = performance.now();
+          const data = (await getGqlData(queryDocument, {
             limit: BATCH_SIZE,
             offset: batchOffset
-          }).then((data) => (data as { entries?: T[] }).entries ?? [])
-        )
+          })) as { entries?: T[] };
+          const duration = performance.now() - start;
+          return { entries: data.entries ?? [], duration };
+        })
       );
 
       let done = false;
       for (let i = 0; i < results.length; i++) {
-        const entries = results[i];
+        const { entries, duration } = results[i];
         if (!entries.length) {
           done = true;
           break;
         }
         allEntries.push(...entries);
         const batchNum = Math.floor(batchOffsets[i] / BATCH_SIZE) + 1;
-        console.log(`[${cacheKey} Cache] Batch ${batchNum}: ${entries.length} (total: ${allEntries.length})`);
+        const ms = Math.round(duration);
+        const time = ms >= 1000 ? `${(ms / 1000).toFixed(2)}s` : `${ms}ms`;
+        console.log(`[${cacheKey} Cache] Batch ${batchNum}: ${entries.length} (total: ${allEntries.length}) [${time}]`);
         if (entries.length < BATCH_SIZE) {
           done = true;
           break;
@@ -56,7 +62,9 @@ export async function getEntriesCache<T extends EntryWithSlug>(
 
     const cache = new Map(allEntries.map((e) => [e.slug!, e]));
     caches.set(cacheKey, cache);
-    console.log(`[${cacheKey} Cache] Loaded ${cache.size} entries`);
+    const totalMs = Math.round(performance.now() - totalStart);
+    const totalTime = totalMs >= 1000 ? `${(totalMs / 1000).toFixed(2)}s` : `${totalMs}ms`;
+    console.log(`[${cacheKey} Cache] Loaded ${cache.size} entries [${totalTime}]`);
     return cache;
   })();
 
