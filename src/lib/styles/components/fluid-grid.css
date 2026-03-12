@@ -54,7 +54,11 @@
   }
 
   .span-popout {
-    grid-column: popout;
+    grid-column: content;
+
+    @media (min-width: theme(--breakpoint-md)) {
+      grid-column: popout;
+    }
   }
 
   .span-content {
