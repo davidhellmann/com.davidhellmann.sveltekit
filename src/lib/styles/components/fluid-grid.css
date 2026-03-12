@@ -56,7 +56,7 @@
   .span-popout {
     grid-column: content;
 
-    @media (min-width: theme(--breakpoint-md)) {
+    @media (min-width: theme(--breakpoint-sm)) {
       grid-column: popout;
     }
   }
