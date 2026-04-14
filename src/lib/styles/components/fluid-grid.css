@@ -1,13 +1,24 @@
 @layer base {
   :root {
-    --col-min-padding: --spacing(2);
-    --col-max-padding: --spacing(12);
-    --content-min-width: 320px;
-    --content-max-width: var(--breakpoint-2xl);
-    --col-fluidscale: calc(
-      var(--col-min-padding) + (var(--col-max-padding) - var(--col-min-padding)) * (100vw - var(--content-min-width)) /
-        (var(--content-max-width) - var(--content-min-width))
-    );
+    /* Fluid scaling config — tune these four numbers.
+       Unitless values keep the slope math Firefox-safe. */
+    --fluid-pad-min: 8; /* px at vw-min */
+    --fluid-pad-max: 48; /* px at vw-max */
+    --fluid-vw-min: 320; /* px */
+    --fluid-vw-max: 1536; /* px — keep in sync with --content-max-width (96rem) */
+
+    /* Typed outputs used by the grid. */
+    --col-min-padding: calc(var(--fluid-pad-min) * 1px);
+    --col-max-padding: calc(var(--fluid-pad-max) * 1px);
+    --content-min-width: calc(var(--fluid-vw-min) * 1px);
+    --content-max-width: var(--breakpoint-2xl); /* only used inside min(), no arithmetic */
+
+    /* Linear form y = m·100vw + b — avoids length/length division.
+       Slope is unitless; intercept is typed with *1px at the end. */
+    --fluid-slope: calc((var(--fluid-pad-max) - var(--fluid-pad-min)) / (var(--fluid-vw-max) - var(--fluid-vw-min)));
+    --fluid-intercept: calc((var(--fluid-pad-min) - var(--fluid-slope) * var(--fluid-vw-min)) * 1px);
+    --col-fluidscale: calc(var(--fluid-slope) * 100vw + var(--fluid-intercept));
+
     --col-gap: clamp(var(--col-min-padding), var(--col-fluidscale), var(--col-max-padding));
     --spacing-fluid: var(--col-gap);
     --popout: 0;
@@ -23,10 +34,7 @@
     );
     --col-width: calc(
       (
-          min(
-              calc(100% - var(--padding-left) - var(--padding-right) - 2 * var(--col-gap)),
-              var(--content-max-width) /* calc(var(--content-max-width) - var(--col-gap)) */
-            ) -
+          min(calc(100% - var(--padding-left) - var(--padding-right) - 2 * var(--col-gap)), var(--content-max-width)) -
             11 * var(--col-gap)
         ) /
         12
@@ -45,7 +53,7 @@
       [col-3] var(--col-width) [col-4] var(--col-width) [col-5] var(--col-width)
       [col-6] var(--col-width) [col-7] var(--col-width) [col-8] var(--col-width)
       [col-9] var(--col-width) [col-10] var(--col-width) [col-11] var(--col-width)
-      [col-12] var(--col-width) [content-end] var(--popout)
+      [col-12] var(--col-width) [content-end col-12-end] var(--popout)
       [popout-end] var(--side-width) [full-end];
   }
 

@@ -11370,14 +11370,14 @@ export const Entry_PrevFragmentDoc = gql`
     ...entry_data
   }
 }
-    `;
+    ${Entry_DataFragmentDoc}`;
 export const Entry_NextFragmentDoc = gql`
     fragment entry_next on EntryInterface {
   next(section: $section, orderBy: "postDate desc") {
     ...entry_data
   }
 }
-    `;
+    ${Entry_DataFragmentDoc}`;
 export const Asset_DataFragmentDoc = gql`
     fragment asset_data on AssetInterface {
   id
@@ -11408,7 +11408,8 @@ export const Author_DataFragmentDoc = gql`
     }
   }
 }
-    `;
+    ${Asset_DataFragmentDoc}
+${Asset_TransformsFragmentDoc}`;
 export const Hyper_DataFragmentDoc = gql`
     fragment hyper_data on HyperLinkInterface {
   __typename
@@ -11479,7 +11480,7 @@ export const Asset_CustomFieldsFragmentDoc = gql`
     }
   }
 }
-    `;
+    ${Hyper_DataFragmentDoc}`;
 export const Page_CompanyFragmentDoc = gql`
     fragment page_company on page_company_Entry {
   ...entry_data
@@ -11502,7 +11503,16 @@ export const Page_CompanyFragmentDoc = gql`
     ...hyper_data
   }
 }
-    `;
+    ${Entry_DataFragmentDoc}
+${Entry_DatesFragmentDoc}
+${Entry_SeoFragmentDoc}
+${Entry_PrevFragmentDoc}
+${Entry_NextFragmentDoc}
+${Author_DataFragmentDoc}
+${Asset_DataFragmentDoc}
+${Asset_TransformsFragmentDoc}
+${Asset_CustomFieldsFragmentDoc}
+${Hyper_DataFragmentDoc}`;
 export const Block_AwardFragmentDoc = gql`
     fragment block_award on block_award_Entry {
   ...entry_data
@@ -11520,12 +11530,17 @@ export const Block_AwardFragmentDoc = gql`
     ...hyper_data
   }
 }
-    `;
+    ${Entry_DataFragmentDoc}
+${Page_CompanyFragmentDoc}
+${Asset_DataFragmentDoc}
+${Asset_TransformsFragmentDoc}
+${Asset_CustomFieldsFragmentDoc}
+${Hyper_DataFragmentDoc}`;
 export const Matrix_AwardsFragmentDoc = gql`
     fragment matrix_awards on awards_MatrixField {
   ...block_award
 }
-    `;
+    ${Block_AwardFragmentDoc}`;
 export const Block_CurriculumVitaeFragmentDoc = gql`
     fragment block_curriculumVitae on block_curriculumVitae_Entry {
   ...entry_data
@@ -11538,12 +11553,13 @@ export const Block_CurriculumVitaeFragmentDoc = gql`
   dateStart @formatDateTime(format: "short")
   dateEnd @formatDateTime(format: "short")
 }
-    `;
+    ${Entry_DataFragmentDoc}
+${Page_CompanyFragmentDoc}`;
 export const Matrix_CurriculumVitaeFragmentDoc = gql`
     fragment matrix_curriculumVitae on curriculumVitae_MatrixField {
   ...block_curriculumVitae
 }
-    `;
+    ${Block_CurriculumVitaeFragmentDoc}`;
 export const Page_AboutFragmentDoc = gql`
     fragment page_about on page_about_Entry {
   ...entry_data
@@ -11595,7 +11611,17 @@ export const Page_AboutFragmentDoc = gql`
     ...matrix_curriculumVitae
   }
 }
-    `;
+    ${Entry_DataFragmentDoc}
+${Entry_DatesFragmentDoc}
+${Entry_SeoFragmentDoc}
+${Entry_PrevFragmentDoc}
+${Entry_NextFragmentDoc}
+${Author_DataFragmentDoc}
+${Asset_DataFragmentDoc}
+${Asset_TransformsFragmentDoc}
+${Asset_CustomFieldsFragmentDoc}
+${Matrix_AwardsFragmentDoc}
+${Matrix_CurriculumVitaeFragmentDoc}`;
 export const Page_BlogListFragmentDoc = gql`
     fragment page_blogList on page_blogList_Entry {
   ...entry_data
@@ -11613,13 +11639,21 @@ export const Page_BlogListFragmentDoc = gql`
     ...asset_customFields
   }
 }
-    `;
+    ${Entry_DataFragmentDoc}
+${Entry_DatesFragmentDoc}
+${Entry_SeoFragmentDoc}
+${Entry_PrevFragmentDoc}
+${Entry_NextFragmentDoc}
+${Author_DataFragmentDoc}
+${Asset_DataFragmentDoc}
+${Asset_TransformsFragmentDoc}
+${Asset_CustomFieldsFragmentDoc}`;
 export const Block_TextFragmentDoc = gql`
     fragment block_text on block_text_Entry {
   ...entry_data
   richText
 }
-    `;
+    ${Entry_DataFragmentDoc}`;
 export const Block_CodeFragmentDoc = gql`
     fragment block_code on block_code_Entry {
   ...entry_data
@@ -11631,7 +11665,7 @@ export const Block_CodeFragmentDoc = gql`
   codeSnippetDescription
   collapsed
 }
-    `;
+    ${Entry_DataFragmentDoc}`;
 export const Block_ImageFragmentDoc = gql`
     fragment block_image on block_image_Entry {
   ...entry_data
@@ -11644,7 +11678,10 @@ export const Block_ImageFragmentDoc = gql`
   showCaption
   imageWidth
 }
-    `;
+    ${Entry_DataFragmentDoc}
+${Asset_DataFragmentDoc}
+${Asset_TransformsFragmentDoc}
+${Asset_CustomFieldsFragmentDoc}`;
 export const Block_ImagesFragmentDoc = gql`
     fragment block_images on block_images_Entry {
   ...entry_data
@@ -11657,7 +11694,10 @@ export const Block_ImagesFragmentDoc = gql`
   showCaption
   imagesViewMode
 }
-    `;
+    ${Entry_DataFragmentDoc}
+${Asset_DataFragmentDoc}
+${Asset_TransformsFragmentDoc}
+${Asset_CustomFieldsFragmentDoc}`;
 export const Block_CtaFragmentDoc = gql`
     fragment block_cta on block_cta_Entry {
   ...entry_data
@@ -11667,7 +11707,8 @@ export const Block_CtaFragmentDoc = gql`
     ...hyper_data
   }
 }
-    `;
+    ${Entry_DataFragmentDoc}
+${Hyper_DataFragmentDoc}`;
 export const Block_QuoteFragmentDoc = gql`
     fragment block_quote on block_quote_Entry {
   ...entry_data
@@ -11677,7 +11718,8 @@ export const Block_QuoteFragmentDoc = gql`
     ...hyper_data
   }
 }
-    `;
+    ${Entry_DataFragmentDoc}
+${Hyper_DataFragmentDoc}`;
 export const Matrix_ContentBuilderFragmentDoc = gql`
     fragment matrix_contentBuilder on contentBuilder_MatrixField {
   ...block_text
@@ -11687,7 +11729,12 @@ export const Matrix_ContentBuilderFragmentDoc = gql`
   ...block_cta
   ...block_quote
 }
-    `;
+    ${Block_TextFragmentDoc}
+${Block_CodeFragmentDoc}
+${Block_ImageFragmentDoc}
+${Block_ImagesFragmentDoc}
+${Block_CtaFragmentDoc}
+${Block_QuoteFragmentDoc}`;
 export const Page_BlogSingleFragmentDoc = gql`
     fragment page_blogSingle on page_blogSingle_Entry {
   ...entry_data
@@ -11714,7 +11761,16 @@ export const Page_BlogSingleFragmentDoc = gql`
     ...entry_data
   }
 }
-    `;
+    ${Entry_DataFragmentDoc}
+${Entry_DatesFragmentDoc}
+${Entry_SeoFragmentDoc}
+${Entry_PrevFragmentDoc}
+${Entry_NextFragmentDoc}
+${Author_DataFragmentDoc}
+${Asset_DataFragmentDoc}
+${Asset_TransformsFragmentDoc}
+${Asset_CustomFieldsFragmentDoc}
+${Matrix_ContentBuilderFragmentDoc}`;
 export const Page_CategoryFragmentDoc = gql`
     fragment page_category on page_category_Entry {
   ...entry_data
@@ -11725,7 +11781,12 @@ export const Page_CategoryFragmentDoc = gql`
   ...author_data
   description
 }
-    `;
+    ${Entry_DataFragmentDoc}
+${Entry_DatesFragmentDoc}
+${Entry_SeoFragmentDoc}
+${Entry_PrevFragmentDoc}
+${Entry_NextFragmentDoc}
+${Author_DataFragmentDoc}`;
 export const Page_ContentBuilderFragmentDoc = gql`
     fragment page_contentBuilder on page_contentBuilder_Entry {
   ...entry_data
@@ -11743,7 +11804,15 @@ export const Page_ContentBuilderFragmentDoc = gql`
     ...asset_customFields
   }
 }
-    `;
+    ${Entry_DataFragmentDoc}
+${Entry_DatesFragmentDoc}
+${Entry_SeoFragmentDoc}
+${Entry_PrevFragmentDoc}
+${Entry_NextFragmentDoc}
+${Author_DataFragmentDoc}
+${Asset_DataFragmentDoc}
+${Asset_TransformsFragmentDoc}
+${Asset_CustomFieldsFragmentDoc}`;
 export const Page_HomeFragmentDoc = gql`
     fragment page_home on page_home_Entry {
   ...entry_data
@@ -11766,7 +11835,15 @@ export const Page_HomeFragmentDoc = gql`
     ...asset_customFields
   }
 }
-    `;
+    ${Entry_DataFragmentDoc}
+${Entry_DatesFragmentDoc}
+${Entry_SeoFragmentDoc}
+${Entry_PrevFragmentDoc}
+${Entry_NextFragmentDoc}
+${Author_DataFragmentDoc}
+${Asset_DataFragmentDoc}
+${Asset_TransformsFragmentDoc}
+${Asset_CustomFieldsFragmentDoc}`;
 export const Page_PhotosListFragmentDoc = gql`
     fragment page_photosList on page_photosList_Entry {
   ...entry_data
@@ -11784,7 +11861,15 @@ export const Page_PhotosListFragmentDoc = gql`
     ...asset_customFields
   }
 }
-    `;
+    ${Entry_DataFragmentDoc}
+${Entry_DatesFragmentDoc}
+${Entry_SeoFragmentDoc}
+${Entry_PrevFragmentDoc}
+${Entry_NextFragmentDoc}
+${Author_DataFragmentDoc}
+${Asset_DataFragmentDoc}
+${Asset_TransformsFragmentDoc}
+${Asset_CustomFieldsFragmentDoc}`;
 export const Page_PhotosSingleFragmentDoc = gql`
     fragment page_photosSingle on page_photosSingle_Entry {
   ...entry_data
@@ -11812,7 +11897,15 @@ export const Page_PhotosSingleFragmentDoc = gql`
     ...asset_customFields
   }
 }
-    `;
+    ${Entry_DataFragmentDoc}
+${Entry_DatesFragmentDoc}
+${Entry_SeoFragmentDoc}
+${Entry_PrevFragmentDoc}
+${Entry_NextFragmentDoc}
+${Author_DataFragmentDoc}
+${Asset_DataFragmentDoc}
+${Asset_TransformsFragmentDoc}
+${Asset_CustomFieldsFragmentDoc}`;
 export const Page_TopicFragmentDoc = gql`
     fragment page_topic on page_topic_Entry {
   ...entry_data
@@ -11823,7 +11916,12 @@ export const Page_TopicFragmentDoc = gql`
   ...author_data
   description
 }
-    `;
+    ${Entry_DataFragmentDoc}
+${Entry_DatesFragmentDoc}
+${Entry_SeoFragmentDoc}
+${Entry_PrevFragmentDoc}
+${Entry_NextFragmentDoc}
+${Author_DataFragmentDoc}`;
 export const Page_WorkListFragmentDoc = gql`
     fragment page_workList on page_workList_Entry {
   ...entry_data
@@ -11841,13 +11939,22 @@ export const Page_WorkListFragmentDoc = gql`
     ...asset_customFields
   }
 }
-    `;
+    ${Entry_DataFragmentDoc}
+${Entry_DatesFragmentDoc}
+${Entry_SeoFragmentDoc}
+${Entry_PrevFragmentDoc}
+${Entry_NextFragmentDoc}
+${Author_DataFragmentDoc}
+${Asset_DataFragmentDoc}
+${Asset_TransformsFragmentDoc}
+${Asset_CustomFieldsFragmentDoc}`;
 export const Matrix_ContentBuilderWorkFragmentDoc = gql`
     fragment matrix_contentBuilderWork on contentBuilderWork_MatrixField {
   ...block_image
   ...block_images
 }
-    `;
+    ${Block_ImageFragmentDoc}
+${Block_ImagesFragmentDoc}`;
 export const Page_WorkAreaFragmentDoc = gql`
     fragment page_workArea on page_workArea_Entry {
   ...entry_data
@@ -11857,7 +11964,12 @@ export const Page_WorkAreaFragmentDoc = gql`
   ...entry_next
   ...author_data
 }
-    `;
+    ${Entry_DataFragmentDoc}
+${Entry_DatesFragmentDoc}
+${Entry_SeoFragmentDoc}
+${Entry_PrevFragmentDoc}
+${Entry_NextFragmentDoc}
+${Author_DataFragmentDoc}`;
 export const Page_WorkTypeFragmentDoc = gql`
     fragment page_workType on page_workType_Entry {
   ...entry_data
@@ -11867,7 +11979,12 @@ export const Page_WorkTypeFragmentDoc = gql`
   ...entry_next
   ...author_data
 }
-    `;
+    ${Entry_DataFragmentDoc}
+${Entry_DatesFragmentDoc}
+${Entry_SeoFragmentDoc}
+${Entry_PrevFragmentDoc}
+${Entry_NextFragmentDoc}
+${Author_DataFragmentDoc}`;
 export const Page_WorkSingleFragmentDoc = gql`
     fragment page_workSingle on page_workSingle_Entry {
   ...entry_data
@@ -11913,15 +12030,7 @@ export const Page_WorkSingleFragmentDoc = gql`
     ...page_company
   }
 }
-    `;
-export const GetAboutEntryDocument = gql`
-    query GetAboutEntry($site: [String] = ["davidhellmann_en"], $section: [String]! = ["pages"], $slug: [String] = ["about"], $limit: Int = 1) {
-  entries(site: $site, section: $section, slug: $slug, limit: $limit) {
-    ...page_about
-  }
-}
-    ${Page_AboutFragmentDoc}
-${Entry_DataFragmentDoc}
+    ${Entry_DataFragmentDoc}
 ${Entry_DatesFragmentDoc}
 ${Entry_SeoFragmentDoc}
 ${Entry_PrevFragmentDoc}
@@ -11930,12 +12039,18 @@ ${Author_DataFragmentDoc}
 ${Asset_DataFragmentDoc}
 ${Asset_TransformsFragmentDoc}
 ${Asset_CustomFieldsFragmentDoc}
+${Matrix_ContentBuilderWorkFragmentDoc}
 ${Hyper_DataFragmentDoc}
-${Matrix_AwardsFragmentDoc}
-${Block_AwardFragmentDoc}
-${Page_CompanyFragmentDoc}
-${Matrix_CurriculumVitaeFragmentDoc}
-${Block_CurriculumVitaeFragmentDoc}`;
+${Page_WorkAreaFragmentDoc}
+${Page_WorkTypeFragmentDoc}
+${Page_CompanyFragmentDoc}`;
+export const GetAboutEntryDocument = gql`
+    query GetAboutEntry($site: [String] = ["davidhellmann_en"], $section: [String]! = ["pages"], $slug: [String] = ["about"], $limit: Int = 1) {
+  entries(site: $site, section: $section, slug: $slug, limit: $limit) {
+    ...page_about
+  }
+}
+    ${Page_AboutFragmentDoc}`;
 export const GetBlogEntriesDocument = gql`
     query GetBlogEntries($site: [String] = ["davidhellmann_en"], $section: [String]! = ["blog"], $limit: Int = 100, $offset: Int = 0, $orderBy: String = "postDate DESC", $relatedToEntries: [EntryRelationCriteriaInput]) {
   entries(
@@ -11950,73 +12065,28 @@ export const GetBlogEntriesDocument = gql`
   }
   entryCount(site: $site, section: $section, relatedToEntries: $relatedToEntries)
 }
-    ${Page_BlogSingleFragmentDoc}
-${Entry_DataFragmentDoc}
-${Entry_DatesFragmentDoc}
-${Entry_SeoFragmentDoc}
-${Entry_PrevFragmentDoc}
-${Entry_NextFragmentDoc}
-${Author_DataFragmentDoc}
-${Asset_DataFragmentDoc}
-${Asset_TransformsFragmentDoc}
-${Asset_CustomFieldsFragmentDoc}
-${Hyper_DataFragmentDoc}
-${Matrix_ContentBuilderFragmentDoc}
-${Block_TextFragmentDoc}
-${Block_CodeFragmentDoc}
-${Block_ImageFragmentDoc}
-${Block_ImagesFragmentDoc}
-${Block_CtaFragmentDoc}
-${Block_QuoteFragmentDoc}`;
+    ${Page_BlogSingleFragmentDoc}`;
 export const GetBlogListPageDocument = gql`
     query GetBlogListPage($site: [String] = ["davidhellmann_en"], $section: [String]! = ["pages"], $limit: Int = 1) {
   entries(site: $site, section: $section, type: ["page_blogList"], limit: $limit) {
     ...page_blogList
   }
 }
-    ${Page_BlogListFragmentDoc}
-${Entry_DataFragmentDoc}
-${Entry_DatesFragmentDoc}
-${Entry_SeoFragmentDoc}
-${Entry_PrevFragmentDoc}
-${Entry_NextFragmentDoc}
-${Author_DataFragmentDoc}
-${Asset_DataFragmentDoc}
-${Asset_TransformsFragmentDoc}
-${Asset_CustomFieldsFragmentDoc}
-${Hyper_DataFragmentDoc}`;
+    ${Page_BlogListFragmentDoc}`;
 export const GetCategoryEntryDocument = gql`
     query GetCategoryEntry($site: [String] = ["davidhellmann_en"], $section: [String]! = ["categories"], $slug: [String], $limit: Int = 1) {
   entries(site: $site, section: $section, slug: $slug, limit: $limit) {
     ...page_category
   }
 }
-    ${Page_CategoryFragmentDoc}
-${Entry_DataFragmentDoc}
-${Entry_DatesFragmentDoc}
-${Entry_SeoFragmentDoc}
-${Entry_PrevFragmentDoc}
-${Entry_NextFragmentDoc}
-${Author_DataFragmentDoc}
-${Asset_DataFragmentDoc}
-${Asset_TransformsFragmentDoc}`;
+    ${Page_CategoryFragmentDoc}`;
 export const GetHomeEntryDocument = gql`
     query GetHomeEntry($site: [String] = ["davidhellmann_en"], $section: [String]! = ["home"], $limit: Int = 1) {
   entries(site: $site, section: $section, limit: $limit) {
     ...page_home
   }
 }
-    ${Page_HomeFragmentDoc}
-${Entry_DataFragmentDoc}
-${Entry_DatesFragmentDoc}
-${Entry_SeoFragmentDoc}
-${Entry_PrevFragmentDoc}
-${Entry_NextFragmentDoc}
-${Author_DataFragmentDoc}
-${Asset_DataFragmentDoc}
-${Asset_TransformsFragmentDoc}
-${Asset_CustomFieldsFragmentDoc}
-${Hyper_DataFragmentDoc}`;
+    ${Page_HomeFragmentDoc}`;
 export const GetPageByUriDocument = gql`
     query GetPageByUri($site: [String] = ["davidhellmann_en"], $section: [String]! = ["pages"], $uri: [String], $limit: Int = 1) {
   entries(site: $site, section: $section, uri: $uri, limit: $limit) {
@@ -12027,16 +12097,6 @@ export const GetPageByUriDocument = gql`
   }
 }
     ${Page_ContentBuilderFragmentDoc}
-${Entry_DataFragmentDoc}
-${Entry_DatesFragmentDoc}
-${Entry_SeoFragmentDoc}
-${Entry_PrevFragmentDoc}
-${Entry_NextFragmentDoc}
-${Author_DataFragmentDoc}
-${Asset_DataFragmentDoc}
-${Asset_TransformsFragmentDoc}
-${Asset_CustomFieldsFragmentDoc}
-${Hyper_DataFragmentDoc}
 ${Page_CompanyFragmentDoc}
 ${Page_WorkAreaFragmentDoc}
 ${Page_WorkTypeFragmentDoc}`;
@@ -12053,17 +12113,7 @@ export const GetPhotosEntriesDocument = gql`
   }
   entryCount(site: $site, section: $section)
 }
-    ${Page_PhotosSingleFragmentDoc}
-${Entry_DataFragmentDoc}
-${Entry_DatesFragmentDoc}
-${Entry_SeoFragmentDoc}
-${Entry_PrevFragmentDoc}
-${Entry_NextFragmentDoc}
-${Author_DataFragmentDoc}
-${Asset_DataFragmentDoc}
-${Asset_TransformsFragmentDoc}
-${Asset_CustomFieldsFragmentDoc}
-${Hyper_DataFragmentDoc}`;
+    ${Page_PhotosSingleFragmentDoc}`;
 export const GetPhotosListPageDocument = gql`
     query GetPhotosListPage($site: [String] = ["davidhellmann_en"], $section: [String]! = ["pages"], $limit: Int = 1) {
   entries(
@@ -12075,17 +12125,7 @@ export const GetPhotosListPageDocument = gql`
     ...page_photosList
   }
 }
-    ${Page_PhotosListFragmentDoc}
-${Entry_DataFragmentDoc}
-${Entry_DatesFragmentDoc}
-${Entry_SeoFragmentDoc}
-${Entry_PrevFragmentDoc}
-${Entry_NextFragmentDoc}
-${Author_DataFragmentDoc}
-${Asset_DataFragmentDoc}
-${Asset_TransformsFragmentDoc}
-${Asset_CustomFieldsFragmentDoc}
-${Hyper_DataFragmentDoc}`;
+    ${Page_PhotosListFragmentDoc}`;
 export const GetPrerenderDataDocument = gql`
     query GetPrerenderData($site: [String] = ["davidhellmann_en"], $section: [String]! = ["blog"], $type: [String], $limit: Int = -1, $offset: Int = 0, $relatedToEntries: [EntryRelationCriteriaInput]) {
   entries(
@@ -12134,15 +12174,7 @@ export const GetTopicEntryDocument = gql`
     ...page_topic
   }
 }
-    ${Page_TopicFragmentDoc}
-${Entry_DataFragmentDoc}
-${Entry_DatesFragmentDoc}
-${Entry_SeoFragmentDoc}
-${Entry_PrevFragmentDoc}
-${Entry_NextFragmentDoc}
-${Author_DataFragmentDoc}
-${Asset_DataFragmentDoc}
-${Asset_TransformsFragmentDoc}`;
+    ${Page_TopicFragmentDoc}`;
 export const GetWorkEntriesDocument = gql`
     query GetWorkEntries($site: [String] = ["davidhellmann_en"], $section: [String]! = ["work"], $limit: Int = 100, $offset: Int = 0, $orderBy: String = "postDate DESC") {
   entries(
@@ -12156,40 +12188,14 @@ export const GetWorkEntriesDocument = gql`
   }
   entryCount(site: $site, section: $section)
 }
-    ${Page_WorkSingleFragmentDoc}
-${Entry_DataFragmentDoc}
-${Entry_DatesFragmentDoc}
-${Entry_SeoFragmentDoc}
-${Entry_PrevFragmentDoc}
-${Entry_NextFragmentDoc}
-${Author_DataFragmentDoc}
-${Asset_DataFragmentDoc}
-${Asset_TransformsFragmentDoc}
-${Asset_CustomFieldsFragmentDoc}
-${Hyper_DataFragmentDoc}
-${Matrix_ContentBuilderWorkFragmentDoc}
-${Block_ImageFragmentDoc}
-${Block_ImagesFragmentDoc}
-${Page_WorkAreaFragmentDoc}
-${Page_WorkTypeFragmentDoc}
-${Page_CompanyFragmentDoc}`;
+    ${Page_WorkSingleFragmentDoc}`;
 export const GetWorkListPageDocument = gql`
     query GetWorkListPage($site: [String] = ["davidhellmann_en"], $section: [String]! = ["pages"], $limit: Int = 1) {
   entries(site: $site, section: $section, type: ["page_workList"], limit: $limit) {
     ...page_workList
   }
 }
-    ${Page_WorkListFragmentDoc}
-${Entry_DataFragmentDoc}
-${Entry_DatesFragmentDoc}
-${Entry_SeoFragmentDoc}
-${Entry_PrevFragmentDoc}
-${Entry_NextFragmentDoc}
-${Author_DataFragmentDoc}
-${Asset_DataFragmentDoc}
-${Asset_TransformsFragmentDoc}
-${Asset_CustomFieldsFragmentDoc}
-${Hyper_DataFragmentDoc}`;
+    ${Page_WorkListFragmentDoc}`;
 
 export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string, variables?: any) => Promise<T>;
 

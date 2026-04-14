@@ -1,0 +1,114 @@
+@layer base {
+  :root {
+    --yo-spacing: --spacing(2);
+    --content-max-width: var(--breakpoint-lg);
+    --popout: 0;
+    --padding-left: calc(env(safe-area-inset-left, 0rem) + var(--yo-spacing));
+    --padding-right: calc(env(safe-area-inset-right, 0rem) + var(--yo-spacing));
+    --col-width: calc(
+      (
+          min(
+              calc(100% - var(--padding-left) - var(--padding-right) - 2 * var(--yo-spacing)),
+              var(--content-max-width)
+            ) -
+            11 * var(--yo-spacing)
+        ) /
+        12
+    );
+    --side-width: minmax(0, 1fr);
+    --yo-spacing-fluid: var(--yo-spacing);
+  }
+}
+
+@media (min-width: theme(--breakpoint-xs)) {
+  :root {
+    --yo-spacing: --spacing(4);
+  }
+}
+
+@media (min-width: theme(--breakpoint-md)) {
+  :root {
+    --yo-spacing: --spacing(8);
+  }
+}
+
+@media (min-width: theme(--breakpoint-lg)) {
+  :root {
+    --yo-spacing: --spacing(12);
+  }
+}
+
+@layer components {
+  .fluid-grid {
+    display: grid;
+    column-gap: var(--yo-spacing);
+    grid-template-columns:
+      [full-start] var(--side-width) [popout-start] var(--popout)
+      [content-start col-1] var(--col-width) [col-2] var(--col-width)
+      [col-3] var(--col-width) [col-4] var(--col-width) [col-5] var(--col-width)
+      [col-6] var(--col-width) [col-7] var(--col-width) [col-8] var(--col-width)
+      [col-9] var(--col-width) [col-10] var(--col-width) [col-11] var(--col-width)
+      [col-12] var(--col-width) [content-end col-12-end] var(--popout)
+      [popout-end] var(--side-width) [full-end];
+  }
+
+  .span-full {
+    grid-column: full;
+  }
+
+  .span-popout {
+    grid-column: content;
+
+    @media (min-width: theme(--breakpoint-sm)) {
+      grid-column: popout;
+    }
+  }
+
+  .span-content {
+    grid-column: content;
+  }
+
+  .span-sm {
+    grid-column: content;
+
+    @media (min-width: theme(--breakpoint-md)) {
+      grid-column: col-4 / span 6;
+    }
+
+    @media (min-width: theme(--breakpoint-lg)) {
+      grid-column: col-5 / span 4;
+    }
+  }
+
+  .span-md {
+    grid-column: content;
+
+    @media (min-width: theme(--breakpoint-md)) {
+      grid-column: col-3 / span 8;
+    }
+
+    @media (min-width: theme(--breakpoint-lg)) {
+      grid-column: col-4 / span 6;
+    }
+  }
+
+  .span-lg {
+    grid-column: content;
+
+    @media (min-width: theme(--breakpoint-md)) {
+      grid-column: col-2 / span 10;
+    }
+
+    @media (min-width: theme(--breakpoint-lg)) {
+      grid-column: col-3 / span 8;
+    }
+  }
+
+  .span-xl {
+    grid-column: content;
+
+    @media (min-width: theme(--breakpoint-lg)) {
+      grid-column: col-2 / span 10;
+    }
+  }
+}
