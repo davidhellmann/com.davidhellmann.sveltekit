@@ -81,11 +81,56 @@ Site läuft via `adapter-static` hinter Cloudflare. Das heißt:
 
 ## Tasks-Checkliste
 
-- [ ] A: Content-Signal in robots.txt
-- [ ] B: Markdown-Endpunkt für Blog-Einträge
-- [ ] C: Link-Header (RFC 8288) auf Homepage
-- [ ] D: llms.txt (optional)
+- [x] A: Content-Signal in robots.txt → als Seomatic-Snippet bereitgestellt (in PR-Beschreibung / Chat)
+- [x] B: Markdown-Endpunkt für Blog-Einträge → `/blog/<slug>/llms.md`
+- [x] C: Link-Header (RFC 8288) → `docs/nginx-link-headers.conf` zum Pasten in Forge
+- [x] D: `llms.txt` Index → prerendered Route aus Caches
 
 ## Review
 
-_Wird nach Umsetzung gefüllt._
+### Geänderte / neue Dateien
+
+| Datei | Zweck |
+|---|---|
+| `src/routes/llms.txt/+server.ts` | NEU — prerendered llms.txt Index (llmstxt.org Format), aufgebaut aus `getBlogArray()` + `getWorkArray()` Caches |
+| `src/routes/blog/[slug=slug]/llms.md/+server.ts` | NEU — pro Blog-Eintrag eine Markdown-Variante mit YAML-Frontmatter |
+| `src/lib/utils/htmlToMarkdown.ts` | NEU — kleiner HTML→MD Converter für `richText` Felder, basiert auf `node-html-parser` (bereits dependency) |
+| `src/lib/utils/blocksToMarkdown.ts` | NEU — ContentBuilder-Block-Renderer (text/code/quote/image/images/cta/award/cv) |
+| `docs/nginx-link-headers.conf` | NEU — Nginx-Snippet für Forge mit `Link:` Headern (RFC 8288) und korrektem `text/markdown` Content-Type für `.md` |
+
+### Außerhalb des Repos zu erledigen
+
+- **robots.txt** in Seomatic (Craft) ergänzen → siehe Chat-Snippet. Wichtigste Zeile: `Content-Signal: search=yes, ai-input=yes, ai-train=no`
+- **Nginx-Config** in Forge: Inhalt von `docs/nginx-link-headers.conf` einfügen
+
+### Was bewusst NICHT gemacht wurde
+
+- Keine Markdown-Endpunkte für Work / About / Photos — Pilot ist Blog. Wenn das Pattern passt, in Folge-Commit kopieren (gleiche Struktur, andere Daten-Funktion).
+- Kein Echtzeit-Content-Negotiation (`Accept: text/markdown` → MD-Variante). isitagentready prüft das, aber mit `adapter-static` ist das nicht möglich. Workaround: Markdown unter eigener URL (`/<page>/llms.md`) plus `Link: rel="alternate"` Header — was wir machen.
+- Kein neues Package — alle Konvertierungen mit bestehendem `node-html-parser`.
+
+### Erwarteter Effekt auf isitagentready Score
+
+| Check | Vorher | Nachher (erwartet) |
+|---|---|---|
+| robots.txt | ✅ | ✅ |
+| sitemap.xml | ✅ | ✅ |
+| Link headers (RFC 8288) | ❌ | ✅ (nach Nginx-Config) |
+| Markdown for Agents | ❌ | ⚠ teilweise — `.md` URLs vorhanden + `Link: rel="alternate"`, aber kein echtes `Accept`-Negotiation |
+| AI bot rules | ✅ | ✅ |
+| Content Signals | ❌ | ✅ (nach Seomatic-Update) |
+
+Score-Schätzung: 25 → ~70-85.
+
+### Test-Schritte (lokal)
+
+```bash
+pnpm install
+pnpm build
+# erwartet: keine Errors, build/blog/<slug>/llms.md existiert für jeden Eintrag,
+# build/llms.txt existiert
+```
+
+Stichproben:
+- `build/llms.txt` sollte mit `# David Hellmann` starten und Blog-/Work-Listen enthalten
+- `build/blog/<irgendein-slug>/llms.md` sollte YAML-Frontmatter + Markdown-Body haben
