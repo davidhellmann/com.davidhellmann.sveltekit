@@ -88,15 +88,28 @@ Site läuft via `adapter-static` hinter Cloudflare. Das heißt:
 
 ## Review
 
+### Architektur-Entscheidung
+
+Statt Mirror-Struktur (`/blog/<slug>/llms.md`, `/work/<slug>/llms.md`, …) wurde auf eine **flache AI-Route** umgebaut: `/ai/<section>/<slug>.md`. Gründe:
+
+- Eine einzige Route (`[...uri].md` catch-all) deckt alle Seiten ab — nested URIs out-of-the-box.
+- Discoverability läuft nicht über URL-Muster, sondern über `<link rel="alternate">` im HTML-Head plus `/llms.txt` als Site-Index → Bots finden alles ohne dass `/ai/` die HTML-Struktur spiegeln muss.
+- HTML→MD Konvertierung entfällt: `richText` wird roh embedded (Markdown erlaubt das nativ, LLMs verstehen HTML). Spart einen Parser und dessen Edge-Cases.
+- Only 3 entryTypes (`blog`, `work`, `about`) bekommen MD — Photos / Listen / Pagination / Kategorien ergeben für LLMs keinen Mehrwert.
+
 ### Geänderte / neue Dateien
 
 | Datei | Zweck |
 |---|---|
-| `src/routes/llms.txt/+server.ts` | NEU — prerendered llms.txt Index (llmstxt.org Format), aufgebaut aus `getBlogArray()` + `getWorkArray()` Caches |
-| `src/routes/blog/[slug=slug]/llms.md/+server.ts` | NEU — pro Blog-Eintrag eine Markdown-Variante mit YAML-Frontmatter |
-| `src/lib/utils/htmlToMarkdown.ts` | NEU — kleiner HTML→MD Converter für `richText` Felder, basiert auf `node-html-parser` (bereits dependency) |
-| `src/lib/utils/blocksToMarkdown.ts` | NEU — ContentBuilder-Block-Renderer (text/code/quote/image/images/cta/award/cv) |
-| `docs/nginx-link-headers.conf` | NEU — Nginx-Snippet für Forge mit `Link:` Headern (RFC 8288) und korrektem `text/markdown` Content-Type für `.md` |
+| `src/routes/ai/[...uri].md/+server.ts` | NEU — catch-all Route, switcht auf entryType |
+| `src/lib/ai/helpers.ts` | NEU — Frontmatter, imageMd, htmlBlock, linkMd, renderBlocks (ContentBuilder-Blocks) |
+| `src/lib/ai/blog.ts` | NEU — renderBlog(entry) |
+| `src/lib/ai/work.ts` | NEU — renderWork(entry), inkl. Projekt-Meta (client, agency, type, areas) |
+| `src/lib/ai/about.ts` | NEU — renderAbout(entry), inkl. Awards + CV Listen |
+| `src/lib/data/about.ts` | NEU — getAboutEntry() mit simplem Cache |
+| `src/lib/components/seo/Seo.svelte` | UPDATE — `<link rel="alternate" type="text/markdown">` auto-derived aus `page.url.pathname` für blog/work/about |
+| `src/routes/llms.txt/+server.ts` | NEU — Index auf `/ai/...md` URLs |
+| `docs/nginx-link-headers.conf` | NEU — nur `.md` MIME-Type (text/markdown), `Link:`-Header optional dokumentiert |
 
 ### Außerhalb des Repos zu erledigen
 

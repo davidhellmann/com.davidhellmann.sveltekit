@@ -3,47 +3,46 @@ export const prerender = true;
 import type { RequestHandler } from "./$types";
 import { getBlogArray } from "$lib/data/blog";
 import { getWorkArray } from "$lib/data/work";
+import { SITE_URL } from "$lib/ai/helpers";
 
-const SITE_URL = "https://sveltekit.davidhellmann.com";
-
-type LlmsEntry = {
+type Entry = {
   slug?: string | null;
   title?: string | null;
   customTitle?: string | null;
-  uri?: string | null;
   descriptionPlain?: string | null;
 };
 
-const line = (e: LlmsEntry, prefix: string) => {
+const line = (e: Entry, section: "blog" | "work") => {
   const title = e.customTitle?.trim() || e.title?.trim() || e.slug || "Untitled";
-  const path = e.uri ? `/${e.uri}` : `${prefix}/${e.slug}`;
+  const url = `${SITE_URL}/ai/${section}/${e.slug}.md`;
   const desc = e.descriptionPlain?.trim().replace(/\s+/g, " ");
-  return desc ? `- [${title}](${SITE_URL}${path}): ${desc}` : `- [${title}](${SITE_URL}${path})`;
+  return desc ? `- [${title}](${url}): ${desc}` : `- [${title}](${url})`;
 };
 
 export const GET: RequestHandler = async () => {
   const [blog, work] = await Promise.all([
-    getBlogArray() as Promise<LlmsEntry[]>,
-    getWorkArray() as Promise<LlmsEntry[]>
+    getBlogArray() as Promise<Entry[]>,
+    getWorkArray() as Promise<Entry[]>
   ]);
 
   const body = [
     "# David Hellmann",
     "",
-    "> Personal website of David Hellmann — designer, developer, photographer based in Germany. Blog posts on design and engineering, selected work, and photo galleries.",
+    "> Personal website of David Hellmann — designer, developer, photographer based in Germany. Blog posts on design and engineering, selected work, and an about page with CV and awards.",
+    "",
+    "Markdown versions of all content live under `/ai/<section>/<slug>.md`.",
+    "",
+    "## About",
+    "",
+    `- [About David Hellmann](${SITE_URL}/ai/about.md): CV, awards and biography.`,
     "",
     "## Blog",
     "",
-    ...blog.map((e) => line(e, "/blog")),
+    ...blog.map((e) => line(e, "blog")),
     "",
     "## Work",
     "",
-    ...work.map((e) => line(e, "/work")),
-    "",
-    "## Pages",
-    "",
-    `- [About](${SITE_URL}/about): About David Hellmann.`,
-    `- [Photos](${SITE_URL}/photos): Photo galleries.`,
+    ...work.map((e) => line(e, "work")),
     "",
     "## Optional",
     "",
