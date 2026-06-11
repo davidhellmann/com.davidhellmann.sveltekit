@@ -14,7 +14,8 @@
     variants: {
       theme: {
         default: {
-          slotList: "text-accent-purple-100 ring-white/50 bg-accent-purple-500/50 ring-1"
+          slotList:
+            "text-accent-purple-100 ring-white/50 bg-accent-purple-500/50 ring-1 shadow-[0_20px_80px] shadow-neutral-900/30"
         },
         photos: {
           slotList: "bg-white/50 text-black ring-1 ring-black/5 shadow-md"

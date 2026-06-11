@@ -16,6 +16,8 @@
           from-transparent
           to-neutral-900/10
           backdrop-blur-lg
+          shadow-[0_40px_80px]
+          shadow-neutral-900/10
         `
       }
     },
