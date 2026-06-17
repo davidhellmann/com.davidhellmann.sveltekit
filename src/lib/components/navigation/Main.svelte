@@ -32,59 +32,42 @@
   const { compName = "NavigationMain", className, theme = "default" }: NavigationMainProps = $props();
   const { slotNav, slotList, slotLink, slotIcon } = tvNavigationMain();
 
+  const navigationItems = [
+    { href: "/", label: "home.", icon: "home-modern-outline" },
+    { href: "/work", label: "work.", icon: "rectangle-group-outline" },
+    { href: "/blog", label: "blog.", icon: "document-text-outline" },
+    { href: "/photos", label: "photos.", icon: "photo-outline" },
+    { href: "/about", label: "about.", icon: "identification-outline" }
+  ] as const;
+
+  const matchesPath = (pathname: string, matcher: string) => {
+    if (matcher === "/") {
+      return pathname === matcher;
+    }
+
+    return pathname.startsWith(matcher);
+  };
+
   const isCurrentPage = (matcher: string | string[]) => {
     const pathname = page.url.pathname;
+    const matches = Array.isArray(matcher)
+      ? matcher.some((prefix) => prefix.length > 1 && pathname.startsWith(prefix))
+      : matchesPath(pathname, matcher);
 
-    if (Array.isArray(matcher)) {
-      return matcher.some((prefix) => pathname.startsWith(prefix) && prefix.length > 1) ? "page" : undefined;
-    }
-
-    if (matcher === "/") {
-      return pathname === matcher ? "page" : undefined;
-    }
-
-    return pathname.startsWith(matcher) ? "page" : undefined;
+    return matches ? "page" : undefined;
   };
 </script>
 
-<nav class={`${slotNav({ theme, className })}`} data-comp={compName}>
-  <ul class={`${slotList({ theme })}`}>
-    <li data-waypoint-target class="is-zoomInDown">
-      <a class={`${slotLink({ theme })}`} aria-current={isCurrentPage("/")} href="/">
-        <IconSprite className={slotIcon()} size={20} icon="home-modern-outline" />
-        <span class="inline-block whitespace-pre">home.</span>
-      </a>
-    </li>
-    <li data-waypoint-target class="is-zoomInDown">
-      <a class={slotLink({ theme })} aria-current={isCurrentPage("/work")} href="/work">
-        <IconSprite className={slotIcon()} size={20} icon="rectangle-group-outline" />
-        <span class="inline-block whitespace-pre">work.</span>
-      </a>
-    </li>
-    <li data-waypoint-target class="is-zoomInDown">
-      <a class={slotLink({ theme })} aria-current={isCurrentPage("/blog")} href="/blog">
-        <IconSprite className={slotIcon()} size={20} icon="document-text-outline" />
-        <span class="inline-block whitespace-pre">blog.</span>
-      </a>
-    </li>
-    <!-- <li data-waypoint-target class="is-zoomInDown">
-      <a class={slotLink({ theme })} aria-current={isCurrentPage("/projects")} href="/projects">
-        <IconSprite className={slotIcon()} size={20} icon="rectangle-stack-outline" />
-        <span class="inline-block whitespace-pre">projects.</span>
-      </a>
-    </li> -->
-    <li data-waypoint-target class="is-zoomInDown">
-      <a class={slotLink({ theme })} aria-current={isCurrentPage("/photos")} href="/photos">
-        <IconSprite className={slotIcon()} size={20} icon="photo-outline" />
-        <span class="inline-block whitespace-pre">photos.</span>
-      </a>
-    </li>
-    <li data-waypoint-target class="is-zoomInDown">
-      <a class={slotLink({ theme })} aria-current={isCurrentPage("/about")} href="/about">
-        <IconSprite className={slotIcon()} size={20} icon="identification-outline" />
-        <span class="inline-block whitespace-pre">about.</span>
-      </a>
-    </li>
+<nav class={slotNav({ theme, className })} data-comp={compName}>
+  <ul class={slotList({ theme })}>
+    {#each navigationItems as item (item.href)}
+      <li data-waypoint-target class="is-zoomInDown">
+        <a class={slotLink({ theme })} aria-current={isCurrentPage(item.href)} href={item.href}>
+          <IconSprite className={slotIcon()} size={20} icon={item.icon} />
+          <span class="inline-block whitespace-pre">{item.label}</span>
+        </a>
+      </li>
+    {/each}
   </ul>
 </nav>
 

@@ -2,7 +2,6 @@
   import { tv, type VariantProps } from "$utils/classNames";
   import IconSprite from "$components/media/IconSprite.svelte";
   import type { Entry_DataFragment } from "$graphql/graphql";
-  import CV from "$components/cards/CV.svelte";
 
   const tvPrevNext = tv({
     slots: {
@@ -18,16 +17,16 @@
       theme: {
         default: {
           slotNav: "bg-neutral-100 shadow-neutral-400",
-          slotLink: "hover:text-black  hover:bg-neutral-50",
+          slotLink: "hover:text-black hover:bg-neutral-50",
           slotIcon: "text-white bg-black group-hover:bg-accent-purple-700 transition"
         },
         photos: {
-          slotLink: "hover:text-black  hover:bg-neutral-50",
+          slotLink: "hover:text-black hover:bg-neutral-50",
           slotIcon: "text-white bg-black group-hover:bg-[red] transition"
         },
         work: {
           slotNav: "bg-neutral-800 shadow-black border-neutral-700 divide-neutral-700",
-          slotLink: " hover:bg-neutral-700",
+          slotLink: "hover:bg-neutral-700",
           slotIcon: "text-white bg-black group-hover:bg-white group-hover:text-neutral-950 transition"
         }
       }
@@ -54,8 +53,8 @@
 
   const { slotNav, slotLink, slotIcon, slotText, slotLabel, slotTitle } = tvPrevNext({ theme });
 
-  const transformTitle = (title?: string) => {
-    return title?.split(" (")?.[0] ?? title;
+  const getShortTitle = (title?: string) => {
+    return title?.split(" (")[0];
   };
 </script>
 
@@ -65,17 +64,17 @@
       <IconSprite icon="arrow-left-outline" size={20} className={slotIcon()} />
       <span class={slotText()}>
         <span class={slotLabel()}>Previous</span>
-        <span class={slotTitle()}>{transformTitle(prev?.title)}</span>
+        <span class={slotTitle()}>{getShortTitle(prev.title)}</span>
       </span>
     </a>
   {/if}
 
   {#if next}
-    <a href="/{next.uri}" class="{`${slotLink()} ${!prev ? 'w-full md:w-full' : ''}`} flex-row-reverse">
+    <a href="/{next.uri}" class={`${slotLink()} ${!prev ? "w-full md:w-full" : ""} flex-row-reverse`}>
       <IconSprite icon="arrow-right-outline" size={20} className={slotIcon()} />
-      <span class="{slotText()} text-end">
+      <span class={`${slotText()} text-end`}>
         <span class={slotLabel()}>Next</span>
-        <span class={slotTitle()}>{transformTitle(next?.title)}</span>
+        <span class={slotTitle()}>{getShortTitle(next.title)}</span>
       </span>
     </a>
   {/if}
