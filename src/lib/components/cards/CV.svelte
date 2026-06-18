@@ -25,8 +25,8 @@
     compName?: string;
     className?: string;
     position: string;
-    dateStart: string;
-    dateEnd?: string;
+    dateStart: unknown;
+    dateEnd?: unknown;
     currentPosition: boolean;
     company?: string;
     companyUrl?: string;

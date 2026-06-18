@@ -1,19 +1,12 @@
 export const prerender = true;
 import type { PageServerLoad, EntryGenerator, RouteParams } from "./$types";
-import {
-  GetPageByUriDocument,
-  type GetPageByUriQueryVariables,
-  GetPrerenderDataDocument,
-  type GetPrerenderDataQueryVariables,
-  type Page_ContentBuilderFragment
-} from "$graphql/graphql";
-import { getGqlData } from "$graphql/graphql-client";
+import { getPageByUriEntries, getPrerenderData } from "$graphql/cms-content";
 
 export const entries: EntryGenerator = async () => {
-  const { entries } = (await getGqlData<GetPrerenderDataQueryVariables>(GetPrerenderDataDocument, {
+  const { entries } = await getPrerenderData({
     section: ["pages"],
     limit: 999
-  })) as { entries?: Page_ContentBuilderFragment[] };
+  });
 
   return entries?.map((entry) => {
     if (entry) {
@@ -25,9 +18,7 @@ export const entries: EntryGenerator = async () => {
 };
 
 export const load: PageServerLoad = async ({ params }) => {
-  const { entries } = (await getGqlData<GetPageByUriQueryVariables>(GetPageByUriDocument, {
-    uri: [params?.uri]
-  })) as { entries?: Page_ContentBuilderFragment[] };
+  const entries = await getPageByUriEntries(params?.uri);
 
   return {
     entries: entries

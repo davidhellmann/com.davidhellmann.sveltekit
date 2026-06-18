@@ -1,58 +1,50 @@
 export const prerender = true;
 import type { PageServerLoad, EntryGenerator, RouteParams } from "./$types";
 import { redirect } from "@sveltejs/kit";
-import { GetPhotosListPageDocument, type GetPhotosListPageQueryVariables, type Page_PhotosListFragment } from "$graphql/graphql";
-import { getGqlData } from "$graphql/graphql-client";
+import { getPhotosListPageEntries } from "$graphql/cms-content";
 import { getPhotosArray, getPhotosCount } from "$lib/data/photos";
+import {
+  getArchiveWindow,
+  getCanonicalFirstPageRedirect,
+  getOutOfRangeRedirect,
+  getPagedArchiveRoutes,
+  getTotalPages,
+  parseArchivePage
+} from "$lib/routes/archive";
 
 const limit = 24;
-const getTotalPages = (entryCount: number, limit: number): number => {
-  return Math.ceil(entryCount / limit);
-};
 
 export const entries: EntryGenerator = async () => {
   const entryCount = await getPhotosCount();
-  const routes: RouteParams[] = [];
   const totalPages = getTotalPages(entryCount, limit);
-
-  for (let i = 1; i <= totalPages; i++) {
-    if (i === 1) {
-      routes.push({ page: undefined });
-      routes.push({ page: "1" });
-    } else {
-      routes.push({ page: i.toString() });
-    }
-  }
-
-  return routes;
+  return getPagedArchiveRoutes<RouteParams>(totalPages);
 };
 
 export const load: PageServerLoad = async ({ params }) => {
-  const page = params.page ? parseInt(params.page) : 1;
-  const offset = (page - 1) * limit || 0;
+  const page = parseArchivePage(params.page);
+  const canonicalRedirect = getCanonicalFirstPageRedirect(page, params.page, "/photos");
 
-  if (page === 1 && params.page === "1") {
-    redirect(301, "/photos");
+  if (canonicalRedirect) {
+    redirect(301, canonicalRedirect);
   }
 
   // Aus Cache (Build) oder direkt fetchen (Dev)
   const allPhotos = await getPhotosArray();
-  const entries = allPhotos.slice(offset, offset + limit);
-  const entryCount = allPhotos.length;
-  const totalPages = getTotalPages(entryCount, limit);
+  const archive = getArchiveWindow(allPhotos, page, limit);
+  const outOfRangeRedirect = getOutOfRangeRedirect(page, archive.totalPages, "/photos");
 
-  if (entries.length === 0) {
-    redirect(307, `/photos/${totalPages}`);
+  if (outOfRangeRedirect) {
+    redirect(307, outOfRangeRedirect);
   }
 
   // photosEntry (Page-Metadata) muss separat geholt werden - anderer Type
-  const { entries: photosEntry } = (await getGqlData<GetPhotosListPageQueryVariables>(GetPhotosListPageDocument, {})) as { entries?: Page_PhotosListFragment[] };
+  const photosEntry = await getPhotosListPageEntries();
 
   return {
     photosEntry: photosEntry,
-    entries: entries,
-    entryCount: entryCount,
-    totalPages: totalPages,
-    page: page
+    entries: archive.entries,
+    entryCount: archive.entryCount,
+    totalPages: archive.totalPages,
+    page: archive.page
   };
 };

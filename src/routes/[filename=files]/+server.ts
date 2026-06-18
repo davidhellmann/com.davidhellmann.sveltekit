@@ -1,14 +1,13 @@
 export const prerender = true;
 import type { RequestHandler } from "./$types";
-import { GetSeomaticDocument, type GetSeomaticQuery, type GetSeomaticQueryVariables } from "$graphql/graphql";
-import { getGqlData } from "$graphql/graphql-client";
+import { getSeomaticData } from "$graphql/cms-content";
 
 export const GET: RequestHandler = async ({ params }) => {
   const { filename } = params;
-  const { seomatic } = (await getGqlData<GetSeomaticQueryVariables>(GetSeomaticDocument, {
+  const { seomatic } = await getSeomaticData({
     site: "davidhellmann_com",
     uri: "__home__"
-  })) as GetSeomaticQuery;
+  });
 
   if (seomatic && filename) {
     const templates = [
@@ -37,10 +36,10 @@ export const GET: RequestHandler = async ({ params }) => {
 };
 
 export const entries = async () => {
-  const { seomatic } = (await getGqlData<GetSeomaticQueryVariables>(GetSeomaticDocument, {
+  const { seomatic } = await getSeomaticData({
     site: "davidhellmann_com",
     uri: "__home__"
-  })) as GetSeomaticQuery;
+  });
 
   if (!seomatic) return [];
 
