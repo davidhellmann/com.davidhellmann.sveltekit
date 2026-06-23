@@ -86,7 +86,13 @@
               <li class={`is-zoomInUp ${slotListItem()}`} data-waypoint-target>
                 <a class={slotListItemLink()} href={entry?.url}>
                   <div class={slotText()}>
-                    <span class={slotCount()}>{entry?.images?.length}</span>
+                    <div class="flex gap-4 items-center">
+                      <span class={slotCount()}>{entry?.images?.length}</span>
+
+                      {#if entry?.postDate}
+                        <Time className="text-xs -mt-2" timestamp={entry?.postDate} />
+                      {/if}
+                    </div>
                     <Headline
                       className="font-mono text-base font-medium leading-tight"
                       text={transformTitle(entry?.title)}
@@ -100,10 +106,6 @@
                               <li>{camera}</li>
                             {/each}
                           </ul>
-                        {/if}
-
-                        {#if entry?.postDate}
-                          <Time timestamp={entry?.postDate} />
                         {/if}
                       </div>
                     {/if}
