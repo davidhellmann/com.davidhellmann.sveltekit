@@ -1,10 +1,13 @@
 import { getEntriesCache, getEntry, getEntriesArray, getEntriesCount } from "./entries-cache";
-import { GetBlogEntriesDocument, type Page_BlogSingleFragment } from "$graphql/graphql";
+import { getBlogEntriesData } from "$graphql/cms-content";
+import type { Page_BlogSingleFragment } from "$graphql/graphql";
 
-export const getBlogEntries = () =>
-	getEntriesCache<Page_BlogSingleFragment>("blog", GetBlogEntriesDocument);
-export const getBlogEntry = (slug: string) =>
-	getEntry<Page_BlogSingleFragment>("blog", GetBlogEntriesDocument, slug);
-export const getBlogArray = () =>
-	getEntriesArray<Page_BlogSingleFragment>("blog", GetBlogEntriesDocument);
-export const getBlogCount = () => getEntriesCount("blog", GetBlogEntriesDocument);
+const blogCollection = {
+  cacheKey: "blog",
+  fetchPage: getBlogEntriesData
+};
+
+export const getBlogEntries = () => getEntriesCache<Page_BlogSingleFragment>(blogCollection);
+export const getBlogEntry = (slug: string) => getEntry<Page_BlogSingleFragment>(blogCollection, slug);
+export const getBlogArray = () => getEntriesArray<Page_BlogSingleFragment>(blogCollection);
+export const getBlogCount = () => getEntriesCount(blogCollection);

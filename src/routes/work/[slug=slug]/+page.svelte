@@ -3,9 +3,9 @@
   import { getFirstEntry } from "$utils/getFirstEntry";
   import type { Page_WorkSingleFragment } from "$graphql/graphql";
   import Seo from "$components/seo/Seo.svelte";
-  import LightboxWork from "$components/modals/LightboxWork.svelte";
   import HeroWork from "$components/heros/Work.svelte";
   import PrevNext from "$components/navigation/PrevNext.svelte";
+  import WorkMedia from "$components/sections/WorkMedia.svelte";
 
   let { data }: PageProps = $props();
   const entry = $derived(getFirstEntry(data.entries) as Page_WorkSingleFragment);
@@ -25,11 +25,7 @@
   colors={entry?.colors}
 /> -->
 
-{#if entry?.images}
-  <div class="span-content lg:span-popout @container">
-    <LightboxWork images={entry?.images} ratio={"aspect-auto"} />
-  </div>
-{/if}
+<WorkMedia {entry} />
 
 <PrevNext prev={entry?.prev} next={entry?.next} theme="work" className="span-content" />
 

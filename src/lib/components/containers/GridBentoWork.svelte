@@ -9,6 +9,7 @@
   import Category from "$components/text/Category.svelte";
   import Time from "svelte-time";
   import { useWaypoint } from "$lib/actions/action.waypoint";
+  import { toDateTimeString } from "$utils/date";
 
   type Entry = Page_WorkSingleFragment;
 
@@ -86,30 +87,29 @@
       {@const workType = entry?.workType?.[0]}
       {@const client = entry?.client?.[0]}
       {@const agency = entry?.agency?.[0]}
+      {@const postDate = toDateTimeString(entry?.postDate)}
 
       {#if entry?.title && entry?.url}
+        <!-- eslint-disable svelte/no-navigation-without-resolve -->
         <a
-          href={entry?.url}
+          href={entry.url}
           class={`${slotCard({ theme })} ${cardClasses[i % cardClasses.length]()} is-zoomInUp`}
           data-waypoint-target
         >
           <div class={slotContent()}>
             {#if workType && "title" in workType && workType.title}
-              <Category className={"mb-3"} variant="work" title={workType.title} />
+              <Category className="mb-3" variant="work" title={workType.title} />
             {/if}
-            <Headline preset={"h4"} text={entry?.title} className="font-sans font-medium" />
-            {#if entry?.descriptionPlain}
-              <!--            <PlainText text={entry?.descriptionPlain} className={"line-clamp-2 text-sm font-sans max-w-prose"} />-->
-            {/if}
+            <Headline preset="h4" text={entry?.title} className="font-sans font-medium" />
 
             <div class="font-mono text-xs flex flex-col">
-              {#if entry?.postDate}
+              {#if postDate}
                 <span>
                   <span class="text-neutral-400">Y.</span>
                   <Time
                     format="YYYY"
                     class="font-medium uppercase tracking-wider text-neutral-600"
-                    timestamp={entry?.postDate}
+                    timestamp={postDate}
                   />
                 </span>
               {/if}
@@ -142,6 +142,7 @@
             iconPosition="right"
           />
         </a>
+        <!-- eslint-enable svelte/no-navigation-without-resolve -->
       {/if}
     {/each}
   </div>

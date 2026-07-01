@@ -1,12 +1,16 @@
 <script module lang="ts">
-  export type Asset = Asset_DataFragment & Asset_TransformsFragment & Asset_CustomFieldsFragment;
+  import type { Asset_CustomFieldsFragment, Asset_DataFragment, Asset_TransformsFragment } from "$graphql/graphql";
+
+  export type Asset = Asset_DataFragment &
+    Partial<Asset_TransformsFragment> &
+    Partial<Asset_CustomFieldsFragment> & {
+      __typename?: string;
+    };
 </script>
 
 <script lang="ts">
   import { useUnlazy } from "$lib/actions/action.unlazy";
   import { tv, type VariantProps } from "$utils/classNames";
-  import type { Asset_CustomFieldsFragment, Asset_DataFragment, Asset_TransformsFragment } from "$graphql/graphql";
-  import type { ComponentProps } from "svelte";
 
   type ObjectFit = "cover" | "contain" | "fill" | "none" | "scale-down";
 

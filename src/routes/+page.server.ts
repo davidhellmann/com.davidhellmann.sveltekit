@@ -1,7 +1,6 @@
 export const prerender = true;
 import type { PageServerLoad } from "./$types";
-import { GetHomeEntryDocument, type Page_HomeFragment, type GetHomeEntryQueryVariables } from "$graphql/graphql";
-import { getGqlData } from "$graphql/graphql-client";
+import { getHomeEntries } from "$graphql/cms-content";
 import { getBlogArray } from "$lib/data/blog";
 import { getWorkArray } from "$lib/data/work";
 import { getPhotosArray } from "$lib/data/photos";
@@ -10,7 +9,7 @@ import { getPhotosArray } from "$lib/data/photos";
 const shuffle = <T>(array: T[]): T[] => [...array].sort(() => Math.random() - 0.5);
 
 export const load: PageServerLoad = async () => {
-  const { entries } = (await getGqlData<GetHomeEntryQueryVariables>(GetHomeEntryDocument, {})) as { entries?: Page_HomeFragment[] };
+  const entries = await getHomeEntries();
 
   const blogEntries = (await getBlogArray()).slice(0, 3);
   const workEntries = shuffle(await getWorkArray()).slice(0, 4);

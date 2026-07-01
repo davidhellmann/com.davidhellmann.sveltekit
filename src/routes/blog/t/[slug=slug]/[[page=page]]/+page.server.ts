@@ -1,30 +1,23 @@
 export const prerender = true;
 import type { PageServerLoad, EntryGenerator, RouteParams } from "./$types";
 import { redirect } from "@sveltejs/kit";
+import { getBlogEntriesData, getPrerenderData, getTopicEntries } from "$graphql/cms-content";
 import {
-  GetBlogEntriesDocument,
-  type GetBlogEntriesQueryVariables,
-  GetTopicEntryDocument,
-  type GetTopicEntryQueryVariables,
-  GetPrerenderDataDocument,
-  type GetPrerenderDataQueryVariables,
-  type GetPrerenderDataQuery,
-  type Page_BlogSingleFragment,
-  type Page_TopicFragment
-} from "$graphql/graphql";
-import { getGqlData } from "$graphql/graphql-client";
+  getCanonicalFirstPageRedirect,
+  getOutOfRangeRedirect,
+  getPagedArchiveRoutes,
+  getTotalPages,
+  parseArchivePage
+} from "$lib/routes/archive";
 
 const limit = 48;
-const getTotalPages = (entryCount: number, limit: number): number => {
-  return Math.ceil(entryCount / limit);
-};
 
 export const entries: EntryGenerator = async () => {
   // Get all topics first
-  const { entries: topics } = (await getGqlData<GetPrerenderDataQueryVariables>(GetPrerenderDataDocument, {
+  const { entries: topics } = await getPrerenderData({
     section: ["topics"],
     limit: 999
-  })) as GetPrerenderDataQuery;
+  });
 
   const routes: RouteParams[] = [];
 
@@ -33,7 +26,7 @@ export const entries: EntryGenerator = async () => {
     if (!category?.slug) continue;
 
     // Get count of blog entries for this category
-    const { entryCount } = (await getGqlData<GetPrerenderDataQueryVariables>(GetPrerenderDataDocument, {
+    const { entryCount } = await getPrerenderData({
       section: ["blog"],
       relatedToEntries: [
         {
@@ -41,39 +34,21 @@ export const entries: EntryGenerator = async () => {
           slug: [category.slug]
         }
       ]
-    })) as GetPrerenderDataQuery;
+    });
 
     const totalPages = getTotalPages(entryCount, limit);
 
-    // Generate routes for each page of this topic
-    for (let i = 1; i <= totalPages; i++) {
-      // Generate both /slug and /slug/1 for page 1
-      if (i === 1) {
-        routes.push({
-          slug: category.slug,
-          page: undefined
-        });
-        routes.push({
-          slug: category.slug,
-          page: "1"
-        });
-      } else {
-        routes.push({
-          slug: category.slug,
-          page: i.toString()
-        });
-      }
-    }
+    routes.push(...getPagedArchiveRoutes<RouteParams>(totalPages, { slug: category.slug }));
   }
 
   return routes;
 };
 
 export const load: PageServerLoad = async ({ params }) => {
-  const page = params.page ? parseInt(params.page) : 1;
+  const page = parseArchivePage(params.page);
   const offset = (page - 1) * limit || 0;
 
-  const { entries, entryCount } = (await getGqlData<GetBlogEntriesQueryVariables>(GetBlogEntriesDocument, {
+  const { entries, entryCount } = await getBlogEntriesData({
     relatedToEntries: [
       {
         section: ["topics"],
@@ -82,21 +57,22 @@ export const load: PageServerLoad = async ({ params }) => {
     ],
     limit: limit,
     offset: offset
-  })) as { entries?: Page_BlogSingleFragment[]; entryCount: number };
+  });
 
   const totalPages = getTotalPages(entryCount, limit);
 
-  const { entries: topicEntry } = (await getGqlData<GetTopicEntryQueryVariables>(GetTopicEntryDocument, {
-    slug: [params?.slug]
-  })) as { entries?: Page_TopicFragment[] };
+  const topicEntry = await getTopicEntries(params?.slug);
+  const canonicalPath = topicEntry?.[0]?.uri ? `/${topicEntry[0].uri}` : undefined;
+  const canonicalRedirect = getCanonicalFirstPageRedirect(page, params.page, canonicalPath);
+  const outOfRangeRedirect = getOutOfRangeRedirect(page, totalPages, canonicalPath);
 
   // Redirect /slug/1 to /slug
-  if (page === 1 && params.page === "1" && topicEntry?.[0]?.uri) {
-    redirect(301, `/${topicEntry[0].uri}`);
+  if (canonicalRedirect) {
+    redirect(301, canonicalRedirect);
   }
 
-  if (entries?.length === 0) {
-    redirect(307, `/${topicEntry?.[0]?.uri}/${totalPages}`);
+  if (outOfRangeRedirect) {
+    redirect(307, outOfRangeRedirect);
   }
 
   return {

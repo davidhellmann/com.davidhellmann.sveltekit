@@ -5,29 +5,29 @@
 
   const tvPagination = tv({
     slots: {
-      slotNav: "flex justify-center  text-sm",
+      slotNav: "flex justify-center text-sm",
       slotList: "flex rounded-md",
       slotListItem: "",
-      slotLink: "flex  h-full items-center transition",
+      slotLink: "flex h-full items-center transition",
       slotSpacer: "flex",
       slotCurrent: "flex"
     },
     variants: {
       theme: {
         default: {
-          slotList: "bg-neutral-100 shadow-neutral-400  shadow-xs",
+          slotList: "bg-neutral-100 shadow-neutral-400 shadow-xs",
           slotListItem: "[&:not(:last-child)]:border-e-1 [&:not(:last-child)]:border-e-neutral-200",
           slotLink: "hover:bg-neutral-50 px-4 pt-3 pb-2",
-          slotSpacer: " px-4 pt-3 pb-2  text-neutral-400",
+          slotSpacer: "px-4 pt-3 pb-2 text-neutral-400",
           slotCurrent:
             "px-4 relative pt-3 pb-2 after:size-2 after:bg-accent-purple-400 after:rounded-full after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:translate-y-4"
         },
         photos: {
           slotList: "bg-white gap-1",
           slotListItem: "",
-          slotLink: "hover:bg-neutral-100  rounded-full size-10 justify-center",
-          slotSpacer: "text-neutral-400  border-b-0  rounded-full",
-          slotCurrent: "bg-[red] text-white  rounded-full size-10 justify-center items-center"
+          slotLink: "hover:bg-neutral-100 rounded-full size-10 justify-center",
+          slotSpacer: "text-neutral-400 border-b-0 rounded-full",
+          slotCurrent: "bg-[red] text-white rounded-full size-10 justify-center items-center"
         }
       },
       yPosition: {
@@ -73,7 +73,7 @@
 
   const {
     compName = "Pagination",
-    className,
+    className = "",
     totalPages,
     currentPage = 1,
     iconPrev = "arrow-left-outline",
@@ -85,10 +85,13 @@
     theme = "default"
   }: PaginationProps = $props();
 
-  const getRange = (start: number, end: number): number[] => {
-    return Array.from({ length: end - start + 1 }, (_, i) => start + i);
+  const getPageRange = (start: number, end: number): number[] => {
+    return Array.from({ length: end - start + 1 }, (_, index) => start + index);
   };
-  const range = $derived(getRange(Math.max(1, currentPage - 2), Math.min(totalPages, currentPage + 2)));
+
+  const pageHref = (pageNumber: number) => `${uri}/${pageNumber}`;
+  const allPages = $derived(getPageRange(1, totalPages));
+  const visiblePages = $derived(getPageRange(Math.max(1, currentPage - 2), Math.min(totalPages, currentPage + 2)));
 
   const { slotNav, slotList, slotListItem, slotLink, slotCurrent, slotSpacer } = tvPagination({
     xPosition,
@@ -101,69 +104,65 @@
   <ul class={slotList()}>
     {#if currentPage > 1}
       <li class={slotListItem()}>
-        <a class={slotLink()} href="{uri}/{currentPage - 1}">
+        <a class={slotLink()} href={pageHref(currentPage - 1)}>
           <IconSprite icon={iconPrev} />
         </a>
       </li>
     {/if}
 
     {#if simple}
-      <li class={`${slotListItem()}`}>
+      <li class={slotListItem()}>
         <span class={`${slotCurrent()} border-transparent after:hidden`}>{currentPage} / {totalPages}</span>
       </li>
-    {/if}
-
-    {#if !simple}
-      {#if totalPages <= 6}
-        {#each { length: totalPages } as _, index (index)}
-          <li class={slotListItem()}>
-            {#if index + 1 === currentPage}
-              <span class={slotCurrent()}>{index + 1}</span>
-            {:else}
-              <a class={slotLink()} href="{uri}/{index + 1}">{index + 1}</a>
-            {/if}
-          </li>
-        {/each}
-      {:else}
-        {#if range[0] !== 1}
-          <li class={`${slotListItem()} hidden sm:block`}>
-            <a class={slotLink()} href={uri}>1</a>
-          </li>
-          {#if range[0] > 2}
-            <li class={`${slotListItem()} hidden sm:block`}>
-              <span class={slotSpacer()}>…</span>
-            </li>
+    {:else if totalPages <= 6}
+      {#each allPages as pageNumber (pageNumber)}
+        <li class={slotListItem()}>
+          {#if pageNumber === currentPage}
+            <span class={slotCurrent()}>{pageNumber}</span>
+          {:else}
+            <a class={slotLink()} href={pageHref(pageNumber)}>{pageNumber}</a>
           {/if}
-        {/if}
-
-        {#each range as i (i)}
-          <li class={`${slotListItem()} hidden sm:block`}>
-            {#if i === currentPage}
-              <span class={slotCurrent()}>{i}</span>
-            {:else}
-              <a class={slotLink()} href="{uri}/{i}">{i}</a>
-            {/if}
-          </li>
-        {/each}
-
-        <li class={`${slotListItem()} sm:hidden`}>
-          <span class={`${slotCurrent()} border-transparent`}>{currentPage} / {totalPages}</span>
         </li>
-
-        {#if range[range.length - 1] < totalPages - 2}
+      {/each}
+    {:else}
+      {#if visiblePages[0] !== 1}
+        <li class={`${slotListItem()} hidden sm:block`}>
+          <a class={slotLink()} href={uri}>1</a>
+        </li>
+        {#if visiblePages[0] > 2}
           <li class={`${slotListItem()} hidden sm:block`}>
             <span class={slotSpacer()}>…</span>
           </li>
-          <li class={`${slotListItem()} hidden sm:block`}>
-            <a class={slotLink()} href="{uri}/{totalPages}">{totalPages}</a>
-          </li>
         {/if}
+      {/if}
+
+      {#each visiblePages as pageNumber (pageNumber)}
+        <li class={`${slotListItem()} hidden sm:block`}>
+          {#if pageNumber === currentPage}
+            <span class={slotCurrent()}>{pageNumber}</span>
+          {:else}
+            <a class={slotLink()} href={pageHref(pageNumber)}>{pageNumber}</a>
+          {/if}
+        </li>
+      {/each}
+
+      <li class={`${slotListItem()} sm:hidden`}>
+        <span class={`${slotCurrent()} border-transparent`}>{currentPage} / {totalPages}</span>
+      </li>
+
+      {#if visiblePages[visiblePages.length - 1] < totalPages - 2}
+        <li class={`${slotListItem()} hidden sm:block`}>
+          <span class={slotSpacer()}>…</span>
+        </li>
+        <li class={`${slotListItem()} hidden sm:block`}>
+          <a class={slotLink()} href={pageHref(totalPages)}>{totalPages}</a>
+        </li>
       {/if}
     {/if}
 
     {#if currentPage < totalPages}
       <li class={slotListItem()}>
-        <a class={slotLink()} href="{uri}/{currentPage + 1}">
+        <a class={slotLink()} href={pageHref(currentPage + 1)}>
           <IconSprite icon={iconNext} />
         </a>
       </li>

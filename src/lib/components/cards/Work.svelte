@@ -29,7 +29,7 @@
     className?: string;
     headline: string;
     url: string;
-    postDate: string;
+    postDate: unknown;
     description?: string;
   } & VariantProps<typeof tvCardWork>;
 
