@@ -1,33 +1,30 @@
 import { GraphQLClient } from "graphql-request";
 import type { RequestDocument } from "graphql-request";
-import { GQL_API_URL, GQL_API_TOKEN } from '$env/static/private';
+import { getSdk } from "$graphql/graphql";
+import { GQL_API_URL, GQL_API_TOKEN } from "$env/static/private";
 
 type IHeaders = {
   Authorization: string;
   [key: string]: string;
 };
 
-type IPreviewTokens = {
+export type PreviewTokens = {
   token?: string;
   xCraftPreview?: string;
   xCraftLivePreview?: string;
 };
 
-export const cmsClient = (tokens: IPreviewTokens = {}) => {
+export const cmsClient = (tokens: PreviewTokens = {}) => {
   const GQL_URL = GQL_API_URL ?? "";
 
   const headers: IHeaders = {
-    Authorization: `Bearer ${GQL_API_TOKEN}`,
+    Authorization: `Bearer ${GQL_API_TOKEN}`
   };
 
   let API_URL = GQL_URL;
 
   if (tokens && tokens?.token) {
-    const {
-      token,
-      xCraftPreview: xCraftPreview,
-      xCraftLivePreview: xCraftLivePreview,
-    } = tokens;
+    const { token, xCraftPreview: xCraftPreview, xCraftLivePreview: xCraftLivePreview } = tokens;
 
     if (xCraftPreview) {
       headers["x-craft-preview"] = xCraftPreview;
@@ -41,14 +38,14 @@ export const cmsClient = (tokens: IPreviewTokens = {}) => {
   }
 
   return new GraphQLClient(API_URL, {
-    headers,
+    headers
   });
 };
 
 export const getGqlData = async <T>(
   query: RequestDocument,
   variables: T,
-  tokens?: IPreviewTokens,
+  tokens?: PreviewTokens
 ) => {
   const client = cmsClient(tokens ?? {});
 
@@ -59,3 +56,5 @@ export const getGqlData = async <T>(
     throw error;
   }
 };
+
+export const cmsSdk = (tokens: PreviewTokens = {}) => getSdk(cmsClient(tokens));
