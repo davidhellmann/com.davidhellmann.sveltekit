@@ -1,4 +1,5 @@
 import type { Page_BlogSingleFragment } from "$graphql/graphql";
+import { toDateTimeString } from "$lib/utils/date";
 import { SITE_URL, frontmatter, imageMd, renderBlocks, join } from "./helpers";
 
 export const renderBlog = (entry: Page_BlogSingleFragment): string => {
@@ -10,7 +11,7 @@ export const renderBlog = (entry: Page_BlogSingleFragment): string => {
   const fm = frontmatter({
     title,
     description,
-    date: entry.postDate,
+    date: toDateTimeString(entry.postDate),
     category,
     topics,
     canonical: `${SITE_URL}/blog/${entry.slug}`,

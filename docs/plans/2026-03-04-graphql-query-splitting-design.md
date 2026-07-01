@@ -20,19 +20,19 @@ Replace `GetEntries.graphql` with 11 targeted queries, each including only the f
 
 ### Queries to Create
 
-| File | Query Name | Section | Fragments | Used By |
-|------|-----------|---------|-----------|---------|
-| `GetHome.graphql` | `GetHomeEntry` | home | page_home | `/` route |
-| `GetAbout.graphql` | `GetAboutEntry` | pages (slug:"about") | page_about | `/about` route |
-| `GetPageByUri.graphql` | `GetPageByUri` | pages (uri:X) | contentBuilder, company, workArea, workType | `/[uri=uri]/` route |
-| `GetBlogEntries.graphql` | `GetBlogEntries` | blog | page_blogSingle + entryCount | Cache + `/blog/c/` + `/blog/t/` |
-| `GetBlogListPage.graphql` | `GetBlogListPage` | pages (type:"page_blogList") | page_blogList | `/blog/` route |
-| `GetCategoryEntry.graphql` | `GetCategoryEntry` | categories | page_category | `/blog/c/[slug]` route |
-| `GetTopicEntry.graphql` | `GetTopicEntry` | topics | page_topic | `/blog/t/[slug]` route |
-| `GetPhotosEntries.graphql` | `GetPhotosEntries` | photos | page_photosSingle + entryCount | Cache |
-| `GetPhotosListPage.graphql` | `GetPhotosListPage` | pages (type:"page_photosList") | page_photosList | `/photos/` route |
-| `GetWorkEntries.graphql` | `GetWorkEntries` | work | page_workSingle + entryCount | Cache |
-| `GetWorkListPage.graphql` | `GetWorkListPage` | pages (type:"page_workList") | page_workList | `/work/` route |
+| File                        | Query Name          | Section                        | Fragments                                   | Used By                         |
+| --------------------------- | ------------------- | ------------------------------ | ------------------------------------------- | ------------------------------- |
+| `GetHome.graphql`           | `GetHomeEntry`      | home                           | page_home                                   | `/` route                       |
+| `GetAbout.graphql`          | `GetAboutEntry`     | pages (slug:"about")           | page_about                                  | `/about` route                  |
+| `GetPageByUri.graphql`      | `GetPageByUri`      | pages (uri:X)                  | contentBuilder, company, workArea, workType | `/[uri=uri]/` route             |
+| `GetBlogEntries.graphql`    | `GetBlogEntries`    | blog                           | page_blogSingle + entryCount                | Cache + `/blog/c/` + `/blog/t/` |
+| `GetBlogListPage.graphql`   | `GetBlogListPage`   | pages (type:"page_blogList")   | page_blogList                               | `/blog/` route                  |
+| `GetCategoryEntry.graphql`  | `GetCategoryEntry`  | categories                     | page_category                               | `/blog/c/[slug]` route          |
+| `GetTopicEntry.graphql`     | `GetTopicEntry`     | topics                         | page_topic                                  | `/blog/t/[slug]` route          |
+| `GetPhotosEntries.graphql`  | `GetPhotosEntries`  | photos                         | page_photosSingle + entryCount              | Cache                           |
+| `GetPhotosListPage.graphql` | `GetPhotosListPage` | pages (type:"page_photosList") | page_photosList                             | `/photos/` route                |
+| `GetWorkEntries.graphql`    | `GetWorkEntries`    | work                           | page_workSingle + entryCount                | Cache                           |
+| `GetWorkListPage.graphql`   | `GetWorkListPage`   | pages (type:"page_workList")   | page_workList                               | `/work/` route                  |
 
 ### Queries Unchanged
 
@@ -54,35 +54,36 @@ The generic `entries-cache.ts` currently uses `GetEntries` for all sections. It 
 ## TypeScript Typing Improvements
 
 **Before:**
+
 ```typescript
 // Manual casting required everywhere
-const { entries } = (await getGqlData<GetEntriesQueryVariables>(
-  GetEntriesDocument, { section: ["blog"], limit: 100 }
-)) as { entries?: Page_BlogSingleFragment[] };
+const { entries } = (await getGqlData<GetEntriesQueryVariables>(GetEntriesDocument, {
+  section: ["blog"],
+  limit: 100
+})) as { entries?: Page_BlogSingleFragment[] };
 ```
 
 **After:**
+
 ```typescript
 // Direct type from generated query — no casting
-const { entries } = await getGqlData<GetBlogEntriesQueryVariables>(
-  GetBlogEntriesDocument, { limit: 100 }
-);
+const { entries } = await getGqlData<GetBlogEntriesQueryVariables>(GetBlogEntriesDocument, { limit: 100 });
 // entries is already typed as Page_BlogSingleFragment[]
 ```
 
 ## Route Migration Map
 
-| Route File | Current Query | New Query |
-|-----------|--------------|-----------|
-| `/+page.server.ts` | GetEntries (section:home) | GetHomeEntry |
-| `/about/+page.server.ts` | GetEntries (section:pages, slug:about) | GetAboutEntry |
-| `/[uri=uri]/+page.server.ts` | GetEntries (section:pages, uri:X) | GetPageByUri |
-| `/blog/[[page]]/+page.server.ts` | GetEntries (type:page_blogList) | GetBlogListPage |
+| Route File                                | Current Query                          | New Query                         |
+| ----------------------------------------- | -------------------------------------- | --------------------------------- |
+| `/+page.server.ts`                        | GetEntries (section:home)              | GetHomeEntry                      |
+| `/about/+page.server.ts`                  | GetEntries (section:pages, slug:about) | GetAboutEntry                     |
+| `/[uri=uri]/+page.server.ts`              | GetEntries (section:pages, uri:X)      | GetPageByUri                      |
+| `/blog/[[page]]/+page.server.ts`          | GetEntries (type:page_blogList)        | GetBlogListPage                   |
 | `/blog/c/[slug]/[[page]]/+page.server.ts` | GetEntries (section:blog + categories) | GetBlogEntries + GetCategoryEntry |
-| `/blog/t/[slug]/[[page]]/+page.server.ts` | GetEntries (section:blog + topics) | GetBlogEntries + GetTopicEntry |
-| `/photos/[[page]]/+page.server.ts` | GetEntries (type:page_photosList) | GetPhotosListPage |
-| `/work/+page.server.ts` | GetEntries (type:page_workList) | GetWorkListPage |
-| `entries-cache.ts` | GetEntries (generic) | Specific queries per section |
+| `/blog/t/[slug]/[[page]]/+page.server.ts` | GetEntries (section:blog + topics)     | GetBlogEntries + GetTopicEntry    |
+| `/photos/[[page]]/+page.server.ts`        | GetEntries (type:page_photosList)      | GetPhotosListPage                 |
+| `/work/+page.server.ts`                   | GetEntries (type:page_workList)        | GetWorkListPage                   |
+| `entries-cache.ts`                        | GetEntries (generic)                   | Specific queries per section      |
 
 ## Fragments
 
@@ -91,6 +92,7 @@ All existing fragments stay unchanged. They are already well-organized by conten
 ## GetPageByUri Fragment Selection
 
 The catch-all `/[uri=uri]/` route needs a smaller set of fragments (4 instead of 14):
+
 - `page_contentBuilder` — generic content pages
 - `page_company` — company pages
 - `page_workArea` — work area taxonomy

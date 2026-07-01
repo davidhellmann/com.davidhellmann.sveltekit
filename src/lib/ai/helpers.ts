@@ -1,6 +1,7 @@
 export const SITE_URL = "https://sveltekit.davidhellmann.com";
+const YAML_ESCAPED_QUOTE = String.fromCharCode(92, 34);
 
-export const escapeYaml = (s: string) => `"${s.replace(/\\/g, "\\\\").replace(/"/g, '\\"')}"`;
+export const escapeYaml = (s: string) => `"${s.replace(/\\/g, "\\\\").replace(/"/g, YAML_ESCAPED_QUOTE)}"`;
 
 type FrontmatterInput = Record<string, string | number | string[] | null | undefined>;
 
@@ -69,64 +70,50 @@ export const mdResponse = (body: string) =>
     headers: { "Content-Type": "text/markdown; charset=utf-8" }
   });
 
-export const notFound = () =>
-  new Response("Not Found", { status: 404, headers: { "Content-Type": "text/plain" } });
+export const notFound = () => new Response("Not Found", { status: 404, headers: { "Content-Type": "text/plain" } });
 
 // --- ContentBuilder block renderer ---------------------------------------
 
 type Block = { __typename?: string; [key: string]: unknown };
+type BlockRenderer = (block: Block) => string;
+
+const blockRenderers: Record<string, BlockRenderer> = {
+  block_text_Entry: (block) => htmlBlock(block.richText as string | null),
+  block_code_Entry: (block) => {
+    const snippet = block.codeSnippet as { language?: string; value?: string } | null;
+    const lang = snippet?.language ?? "";
+    const value = (snippet?.value ?? "").replace(/\n+$/, "");
+    const name = block.codeSnippetName as string | null;
+    const desc = block.codeSnippetDescription as string | null;
+    return join([name ? `**${name}**` : null, desc, `\`\`\`${lang}\n${value}\n\`\`\``]);
+  },
+  block_quote_Entry: (block) => {
+    const quote = (block.quote as string | null)?.trim();
+    const source = (block.source as string | null)?.trim();
+    const link = linkMd(block.hyperLink as HyperLink | null);
+    if (!quote) return "";
+    const attribution = link || source;
+    return attribution ? `> ${quote}\n>\n> — ${attribution}` : `> ${quote}`;
+  },
+  block_image_Entry: (block) => {
+    const img = block.image as Asset[] | Asset | null;
+    return imageMd(Array.isArray(img) ? img[0] : img);
+  },
+  block_images_Entry: (block) => {
+    const images = (block.images as Asset[] | null) ?? [];
+    return images.map(imageMd).filter(Boolean).join("\n\n");
+  },
+  block_cta_Entry: (block) => {
+    const headline = (block.headline as string | null)?.trim();
+    const description = (block.description as string | null)?.trim();
+    const links = ((block.hyperLinks as HyperLink[] | null) ?? []).map(linkMd).filter(Boolean);
+    return join([headline ? `### ${headline}` : null, description, links.length ? links.join(" · ") : null]);
+  }
+};
 
 const renderBlock = (block: Block): string => {
-  switch (block.__typename) {
-    case "block_text_Entry":
-      return htmlBlock(block.richText as string | null);
-
-    case "block_code_Entry": {
-      const snippet = block.codeSnippet as { language?: string; value?: string } | null;
-      const lang = snippet?.language ?? "";
-      const value = (snippet?.value ?? "").replace(/\n+$/, "");
-      const name = block.codeSnippetName as string | null;
-      const desc = block.codeSnippetDescription as string | null;
-      return join([
-        name ? `**${name}**` : null,
-        desc,
-        `\`\`\`${lang}\n${value}\n\`\`\``
-      ]);
-    }
-
-    case "block_quote_Entry": {
-      const quote = (block.quote as string | null)?.trim();
-      const source = (block.source as string | null)?.trim();
-      const link = linkMd(block.hyperLink as HyperLink | null);
-      if (!quote) return "";
-      const attribution = link || source;
-      return attribution ? `> ${quote}\n>\n> — ${attribution}` : `> ${quote}`;
-    }
-
-    case "block_image_Entry": {
-      const img = block.image as Asset[] | Asset | null;
-      return imageMd(Array.isArray(img) ? img[0] : img);
-    }
-
-    case "block_images_Entry": {
-      const images = (block.images as Asset[] | null) ?? [];
-      return images.map(imageMd).filter(Boolean).join("\n\n");
-    }
-
-    case "block_cta_Entry": {
-      const headline = (block.headline as string | null)?.trim();
-      const description = (block.description as string | null)?.trim();
-      const links = ((block.hyperLinks as HyperLink[] | null) ?? []).map(linkMd).filter(Boolean);
-      return join([
-        headline ? `### ${headline}` : null,
-        description,
-        links.length ? links.join(" · ") : null
-      ]);
-    }
-
-    default:
-      return "";
-  }
+  const renderer = block.__typename ? blockRenderers[block.__typename] : undefined;
+  return renderer ? renderer(block) : "";
 };
 
 export const renderBlocks = (blocks: Block[] | null | undefined): string =>

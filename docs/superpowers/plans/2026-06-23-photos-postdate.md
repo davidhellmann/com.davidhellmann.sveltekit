@@ -25,10 +25,12 @@
 ### Task 1: Add Post Date Rendering to Photos Stack
 
 **Files:**
+
 - Create: `src/lib/components/stacks/Photos.test.ts`
 - Modify: `src/lib/components/stacks/Photos.svelte`
 
 **Interfaces:**
+
 - Consumes: `Time` component from `$components/text/Time.svelte`, accepting `timestamp?: unknown`.
 - Consumes: `entry.postDate` from the existing `Entry_DatesFragment` in the local `Entry` type.
 - Produces: Photos stack markup that includes `<Time timestamp={entry?.postDate} />` below camera metadata only when `entry?.postDate` exists.
@@ -74,18 +76,15 @@ Expected: FAIL. The failure should include at least one assertion showing the mi
 In `src/lib/components/stacks/Photos.svelte`, add this import after the existing `Headline` import:
 
 ```svelte
-  import Time from "$components/text/Time.svelte";
+import Time from "$components/text/Time.svelte";
 ```
 
 The import block should become:
 
 ```svelte
-  import Pagination from "$components/navigation/Pagination.svelte";
-  import CardPhotos from "$components/cards/Photos.svelte";
-  import Image from "$components/media/Image.svelte";
-  import Headline from "$components/text/Headline.svelte";
-  import Time from "$components/text/Time.svelte";
-  import { getExifData } from "$utils/getExifData";
+import Pagination from "$components/navigation/Pagination.svelte"; import CardPhotos from
+"$components/cards/Photos.svelte"; import Image from "$components/media/Image.svelte"; import Headline from
+"$components/text/Headline.svelte"; import Time from "$components/text/Time.svelte"; import {getExifData} from "$utils/getExifData";
 ```
 
 - [ ] **Step 4: Render the post date below the camera metadata**
@@ -93,37 +92,37 @@ The import block should become:
 In `src/lib/components/stacks/Photos.svelte`, replace this block:
 
 ```svelte
-                    {#if exifDataParsed.cameras || exifDataParsed.lenses}
-                      <div class="flex flex-col gap-2">
-                        {#if exifDataParsed.cameras}
-                          <ul class={slotGearList()}>
-                            {#each exifDataParsed.cameras as camera}
-                              <li>{camera}</li>
-                            {/each}
-                          </ul>
-                        {/if}
-                      </div>
-                    {/if}
+{#if exifDataParsed.cameras || exifDataParsed.lenses}
+  <div class="flex flex-col gap-2">
+    {#if exifDataParsed.cameras}
+      <ul class={slotGearList()}>
+        {#each exifDataParsed.cameras as camera}
+          <li>{camera}</li>
+        {/each}
+      </ul>
+    {/if}
+  </div>
+{/if}
 ```
 
 with this block:
 
 ```svelte
-                    {#if exifDataParsed.cameras || exifDataParsed.lenses || entry?.postDate}
-                      <div class="flex flex-col gap-2">
-                        {#if exifDataParsed.cameras}
-                          <ul class={slotGearList()}>
-                            {#each exifDataParsed.cameras as camera}
-                              <li>{camera}</li>
-                            {/each}
-                          </ul>
-                        {/if}
+{#if exifDataParsed.cameras || exifDataParsed.lenses || entry?.postDate}
+  <div class="flex flex-col gap-2">
+    {#if exifDataParsed.cameras}
+      <ul class={slotGearList()}>
+        {#each exifDataParsed.cameras as camera}
+          <li>{camera}</li>
+        {/each}
+      </ul>
+    {/if}
 
-                        {#if entry?.postDate}
-                          <Time timestamp={entry?.postDate} />
-                        {/if}
-                      </div>
-                    {/if}
+    {#if entry?.postDate}
+      <Time timestamp={entry?.postDate} />
+    {/if}
+  </div>
+{/if}
 ```
 
 - [ ] **Step 5: Run the focused test to verify it passes**

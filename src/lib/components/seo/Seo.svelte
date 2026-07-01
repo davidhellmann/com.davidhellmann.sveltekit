@@ -18,6 +18,8 @@
     if (path === "/about") return "/ai/about.md";
     return null;
   });
+
+  const jsonLdScript = (item: unknown) => `<script type="application/ld+json">${JSON.stringify(item)}<${"/script"}>`;
 </script>
 
 <svelte:head>
@@ -38,7 +40,8 @@
 
     {#if seomatic?.jsonLd}
       {#each seomatic.jsonLd as item (item)}
-        {@html `<script type="application/ld+json">${JSON.stringify(item)}</script>`}
+        <!-- eslint-disable-next-line svelte/no-at-html-tags -->
+        {@html jsonLdScript(item)}
       {/each}
     {/if}
   {/if}

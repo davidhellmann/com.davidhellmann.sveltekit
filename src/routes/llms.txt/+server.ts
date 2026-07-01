@@ -20,10 +20,7 @@ const line = (e: Entry, section: "blog" | "work") => {
 };
 
 export const GET: RequestHandler = async () => {
-  const [blog, work] = await Promise.all([
-    getBlogArray() as Promise<Entry[]>,
-    getWorkArray() as Promise<Entry[]>
-  ]);
+  const [blog, work] = await Promise.all([getBlogArray() as Promise<Entry[]>, getWorkArray() as Promise<Entry[]>]);
 
   const body = [
     "# David Hellmann",

@@ -1,4 +1,5 @@
 import type { Page_WorkSingleFragment } from "$graphql/graphql";
+import { toDateTimeString } from "$lib/utils/date";
 import { SITE_URL, frontmatter, imageMd, linkMd, renderBlocks, join } from "./helpers";
 
 export const renderWork = (entry: Page_WorkSingleFragment): string => {
@@ -13,7 +14,7 @@ export const renderWork = (entry: Page_WorkSingleFragment): string => {
   const fm = frontmatter({
     title,
     description,
-    date: entry.postDate,
+    date: toDateTimeString(entry.postDate),
     client,
     agency,
     workType,
