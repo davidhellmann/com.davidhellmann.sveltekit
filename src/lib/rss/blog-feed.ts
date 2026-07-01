@@ -105,6 +105,15 @@ function normalizeHtmlUrls(html: string): string {
 
   const root = parse(html);
 
+  root.querySelectorAll("*").forEach((element) => {
+    Object.keys(element.attributes).forEach((attribute) => {
+      const normalizedAttribute = attribute.toLowerCase();
+      if (normalizedAttribute === "style" || normalizedAttribute.startsWith("on")) {
+        element.removeAttribute(attribute);
+      }
+    });
+  });
+
   root.querySelectorAll("[href]").forEach((element) => {
     const href = toLinkUrl(element.getAttribute("href"));
     if (href) {

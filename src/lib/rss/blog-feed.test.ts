@@ -135,13 +135,14 @@ describe("content builder serialization", () => {
         __typename: "block_text_Entry",
         id: "text-1",
         richText:
-          '<p><a href="/about">About</a><img src="/uploads/image.jpg" alt="Image"><a href="javascript:alert(1)">Bad link</a><img src="javascript:alert(1)" alt="Bad image"></p>'
+          '<p class="intro" style="color:red"><a href="/about" onclick="alert(1)" data-track="about">About</a><img src="/uploads/image.jpg" alt="Image" onerror="alert(1)"><a href="javascript:alert(1)">Bad link</a><img src="javascript:alert(1)" alt="Bad image"></p>'
       },
       {
         __typename: "block_code_Entry",
         id: "code-1",
         codeSnippetName: "Example",
-        codeSnippetDescription: '<p><a href="/blog">Blog</a><img src="javascript:alert(1)" alt="Bad image"></p>',
+        codeSnippetDescription:
+          '<p onload="alert(1)"><a href="/blog">Blog</a><img src="javascript:alert(1)" alt="Bad image"></p>',
         codeSnippet: {
           language: "html",
           value: "<div>escaped</div>"
@@ -152,12 +153,13 @@ describe("content builder serialization", () => {
         id: "cta-1",
         headline: "Read more",
         description:
-          '<p><a href="/work">Work</a><img src="/uploads/cta.jpg" alt="CTA"><a href="javascript:alert(1)">Bad CTA</a></p>',
+          '<p><a href="/work" style="display:block">Work</a><img src="/uploads/cta.jpg" alt="CTA"><a href="javascript:alert(1)">Bad CTA</a></p>',
         hyperLinks: [{ url: "mailto:hello@example.com", text: "Email" }]
       }
     ]);
 
-    expect(html).toContain('<a href="https://davidhellmann.com/about">About</a>');
+    expect(html).toContain('<p class="intro">');
+    expect(html).toContain('<a href="https://davidhellmann.com/about" data-track="about">About</a>');
     expect(html).toContain('<img src="https://davidhellmann.com/uploads/image.jpg" alt="Image">');
     expect(html).toContain("<a>Bad link</a>");
     expect(html).toContain('<img alt="Bad image">');
@@ -166,6 +168,80 @@ describe("content builder serialization", () => {
     expect(html).toContain('<img src="https://davidhellmann.com/uploads/cta.jpg" alt="CTA">');
     expect(html).toContain('<a href="mailto:hello@example.com">Email</a>');
     expect(html).not.toContain("javascript:");
+    expect(html).not.toContain("onclick");
+    expect(html).not.toContain("onerror");
+    expect(html).not.toContain("onload");
+    expect(html).not.toContain("style=");
+  });
+
+  it("serializes image gallery blocks", () => {
+    const html = renderContentBuilder([
+      {
+        __typename: "block_images_Entry",
+        id: "images-1",
+        images: [
+          {
+            url: "/uploads/one.jpg",
+            alt: "First image",
+            width: 1200,
+            height: 800
+          },
+          {
+            url: "https://assets.example.com/two.jpg",
+            alt: "Second image",
+            width: 900,
+            height: 600
+          }
+        ]
+      }
+    ]);
+
+    expect(html).toContain('<img src="https://davidhellmann.com/uploads/one.jpg" alt="First image"');
+    expect(html).toContain('<img src="https://assets.example.com/two.jpg" alt="Second image"');
+    expect(html.match(/<figure>/g)).toHaveLength(2);
+  });
+
+  it("skips unknown and incomplete blocks", () => {
+    const html = renderContentBuilder([
+      null,
+      undefined,
+      {
+        __typename: "block_unknown_Entry",
+        id: "unknown-1",
+        richText: "<p>Unknown</p>"
+      },
+      {
+        __typename: "block_text_Entry",
+        id: "text-1"
+      },
+      {
+        __typename: "block_image_Entry",
+        id: "image-1",
+        image: []
+      },
+      {
+        __typename: "block_quote_Entry",
+        id: "quote-1",
+        quote: ""
+      },
+      {
+        __typename: "block_code_Entry",
+        id: "code-1",
+        codeSnippet: {
+          language: "html",
+          value: ""
+        }
+      },
+      {
+        __typename: "block_cta_Entry",
+        id: "cta-1",
+        headline: "",
+        description: "",
+        hyperLinks: []
+      }
+    ]);
+
+    expect(html).toBe("");
   });
 });
 
@@ -254,15 +330,18 @@ describe("blog RSS rendering", () => {
     const item = renderBlogRssItem({
       ...baseEntry,
       description:
-        '<p><a href="/about">About</a><img src="/uploads/summary.jpg" alt="Summary"><a href="javascript:alert(1)">Bad link</a><img src="javascript:alert(1)" alt="Bad image"></p>',
+        '<p style="color:red"><a href="/about" onclick="alert(1)" data-track="about">About</a><img src="/uploads/summary.jpg" alt="Summary" onerror="alert(1)"><a href="javascript:alert(1)">Bad link</a><img src="javascript:alert(1)" alt="Bad image"></p>',
       descriptionPlain: ""
     });
 
-    expect(item).toContain('<a href="https://davidhellmann.com/about">About</a>');
+    expect(item).toContain('<a href="https://davidhellmann.com/about" data-track="about">About</a>');
     expect(item).toContain('<img src="https://davidhellmann.com/uploads/summary.jpg" alt="Summary">');
     expect(item).toContain("<a>Bad link</a>");
     expect(item).toContain('<img alt="Bad image">');
     expect(item).not.toContain("javascript:");
+    expect(item).not.toContain("onclick");
+    expect(item).not.toContain("onerror");
+    expect(item).not.toContain("style=");
   });
 
   it("keeps embedded CDATA endings safe in full item content", () => {
