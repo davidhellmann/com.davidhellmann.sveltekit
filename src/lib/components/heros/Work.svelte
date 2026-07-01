@@ -3,6 +3,7 @@
   import Headline from "$components/text/Headline.svelte";
   import RichText from "$components/text/RichText.svelte";
   import Time from "svelte-time";
+  import { toDateTimeString } from "$utils/date";
 
   const tvHeroWork = tv({
     slots: {
@@ -24,7 +25,7 @@
     className?: string;
     headline?: string;
     description?: string;
-    postDate?: string;
+    postDate?: unknown;
     workType?: string;
     client?: string;
     agency?: string;
@@ -53,6 +54,8 @@
     slotColors,
     slotColorField
   } = tvHeroWork();
+
+  const formattedPostDate = $derived(toDateTimeString(postDate));
 </script>
 
 <header data-comp={compName} class={slotWrapper({ className })}>
@@ -63,10 +66,10 @@
         <span class={slotCategoryText()}>{workType}</span>
       </div>
     {/if}
-    {#if postDate}
+    {#if formattedPostDate}
       <div>
         <span class={slotCategory()}>Y.</span>
-        <Time format="YYYY" class={slotCategoryText()} timestamp={postDate} />
+        <Time format="YYYY" class={slotCategoryText()} timestamp={formattedPostDate} />
       </div>
     {/if}
     {#if client}
@@ -84,7 +87,7 @@
   </div>
   {#if colors && colors?.length > 0}
     <div class={slotColors()}>
-      {#each colors as color, i (color)}
+      {#each colors as color (color)}
         <div class={slotColorField()} style={`background-color: ${color?.color};`}></div>
       {/each}
     </div>

@@ -50,7 +50,7 @@
     headline: string;
     url: string;
     categoryTitle: string;
-    postDate: string;
+    postDate: unknown;
     descriptionPlain?: string;
   } & VariantProps<typeof tvCardBlog>;
 

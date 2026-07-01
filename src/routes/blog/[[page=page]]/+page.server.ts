@@ -1,57 +1,49 @@
 export const prerender = true;
 import type { PageServerLoad, EntryGenerator, RouteParams } from "./$types";
 import { redirect } from "@sveltejs/kit";
-import { GetBlogListPageDocument, type GetBlogListPageQueryVariables, type Page_BlogListFragment } from "$graphql/graphql";
-import { getGqlData } from "$graphql/graphql-client";
+import { getBlogListPageEntries } from "$graphql/cms-content";
 import { getBlogArray, getBlogCount } from "$lib/data/blog";
+import {
+  getArchiveWindow,
+  getCanonicalFirstPageRedirect,
+  getOutOfRangeRedirect,
+  getPagedArchiveRoutes,
+  getTotalPages,
+  parseArchivePage
+} from "$lib/routes/archive";
 
 const limit = 24;
-const getTotalPages = (entryCount: number, limit: number): number => {
-  return Math.ceil(entryCount / limit);
-};
 
 export const entries: EntryGenerator = async () => {
   const entryCount = await getBlogCount();
-  const routes: RouteParams[] = [];
   const totalPages = getTotalPages(entryCount, limit);
-
-  for (let i = 1; i <= totalPages; i++) {
-    if (i === 1) {
-      routes.push({ page: undefined });
-      routes.push({ page: "1" });
-    } else {
-      routes.push({ page: i.toString() });
-    }
-  }
-
-  return routes;
+  return getPagedArchiveRoutes<RouteParams>(totalPages);
 };
 
 export const load: PageServerLoad = async ({ params }) => {
-  const page = params.page ? parseInt(params.page) : 1;
-  const offset = (page - 1) * limit || 0;
+  const page = parseArchivePage(params.page);
+  const canonicalRedirect = getCanonicalFirstPageRedirect(page, params.page, "/blog");
 
-  if (page === 1 && params.page === "1") {
-    redirect(301, "/blog");
+  if (canonicalRedirect) {
+    redirect(301, canonicalRedirect);
   }
 
   const allBlog = await getBlogArray();
-  const entries = allBlog.slice(offset, offset + limit);
-  const entryCount = allBlog.length;
-  const totalPages = getTotalPages(entryCount, limit);
+  const archive = getArchiveWindow(allBlog, page, limit);
+  const outOfRangeRedirect = getOutOfRangeRedirect(page, archive.totalPages, "/blog");
 
-  if (entries.length === 0) {
-    redirect(307, `/blog/${totalPages}`);
+  if (outOfRangeRedirect) {
+    redirect(307, outOfRangeRedirect);
   }
 
   // blogEntry (Page-Metadata) muss separat geholt werden - anderer Type
-  const { entries: blogEntry } = (await getGqlData<GetBlogListPageQueryVariables>(GetBlogListPageDocument, {})) as { entries?: Page_BlogListFragment[] };
+  const blogEntry = await getBlogListPageEntries();
 
   return {
     blogEntry: blogEntry,
-    entries: entries,
-    entryCount: entryCount,
-    totalPages: totalPages,
-    page: page
+    entries: archive.entries,
+    entryCount: archive.entryCount,
+    totalPages: archive.totalPages,
+    page: archive.page
   };
 };

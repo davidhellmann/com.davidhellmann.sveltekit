@@ -10,6 +10,7 @@
   import CardPhotos from "$components/cards/Photos.svelte";
   import Image from "$components/media/Image.svelte";
   import Headline from "$components/text/Headline.svelte";
+  import Time from "$components/text/Time.svelte";
   import { getExifData } from "$utils/getExifData";
   import { type ComponentProps } from "svelte";
   import { useWaypoint } from "$lib/actions/action.waypoint";
@@ -85,13 +86,19 @@
               <li class={`is-zoomInUp ${slotListItem()}`} data-waypoint-target>
                 <a class={slotListItemLink()} href={entry?.url}>
                   <div class={slotText()}>
-                    <span class={slotCount()}>{entry?.images?.length}</span>
+                    <div class="flex gap-4 items-center">
+                      <span class={slotCount()}>{entry?.images?.length}</span>
+
+                      {#if entry?.postDate}
+                        <Time className="text-xs -mt-2" timestamp={entry?.postDate} />
+                      {/if}
+                    </div>
                     <Headline
                       className="font-mono text-base font-medium leading-tight"
                       text={transformTitle(entry?.title)}
                     />
 
-                    {#if exifDataParsed.cameras || exifDataParsed.lenses}
+                    {#if exifDataParsed.cameras || exifDataParsed.lenses || entry?.postDate}
                       <div class="flex flex-col gap-2">
                         {#if exifDataParsed.cameras}
                           <ul class={slotGearList()}>

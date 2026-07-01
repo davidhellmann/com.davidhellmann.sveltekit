@@ -1,7 +1,12 @@
-import { getGqlData } from "$graphql/graphql-client";
-import type { RequestDocument } from "graphql-request";
-
 type EntryWithSlug = { slug?: string | null; [key: string]: unknown };
+type FetchEntriesPage<T extends EntryWithSlug> = (variables: {
+  limit: number;
+  offset: number;
+}) => Promise<{ entries?: T[] }>;
+type EntriesCollection<T extends EntryWithSlug> = {
+  cacheKey: string;
+  fetchPage: FetchEntriesPage<T>;
+};
 
 const caches = new Map<string, Map<string, EntryWithSlug>>();
 const fetchPromises = new Map<string, Promise<Map<string, EntryWithSlug>>>();
@@ -10,9 +15,10 @@ const BATCH_SIZE = Number(import.meta.env.VITE_BATCH_SIZE) || 50;
 const CONCURRENCY = Number(import.meta.env.VITE_CONCURRENCY) || 10;
 
 export async function getEntriesCache<T extends EntryWithSlug>(
-  cacheKey: string,
-  queryDocument: RequestDocument
+  collection: EntriesCollection<T>
 ): Promise<Map<string, T>> {
+  const { cacheKey, fetchPage } = collection;
+
   if (caches.has(cacheKey)) return caches.get(cacheKey) as Map<string, T>;
   if (fetchPromises.has(cacheKey)) return fetchPromises.get(cacheKey) as Promise<Map<string, T>>;
 
@@ -29,10 +35,10 @@ export async function getEntriesCache<T extends EntryWithSlug>(
       const results = await Promise.all(
         batchOffsets.map(async (batchOffset) => {
           const start = performance.now();
-          const data = (await getGqlData(queryDocument, {
+          const data = await fetchPage({
             limit: BATCH_SIZE,
             offset: batchOffset
-          })) as { entries?: T[] };
+          });
           const duration = performance.now() - start;
           return { entries: data.entries ?? [], duration };
         })
@@ -60,7 +66,11 @@ export async function getEntriesCache<T extends EntryWithSlug>(
       offset += CONCURRENCY * BATCH_SIZE;
     }
 
-    const cache = new Map(allEntries.map((e) => [e.slug!, e]));
+    const cache = new Map(
+      allEntries
+        .filter((entry): entry is T & { slug: string } => Boolean(entry.slug))
+        .map((entry) => [entry.slug, entry])
+    );
     caches.set(cacheKey, cache);
     const totalMs = Math.round(performance.now() - totalStart);
     const totalTime = totalMs >= 1000 ? `${(totalMs / 1000).toFixed(2)}s` : `${totalMs}ms`;
@@ -73,23 +83,19 @@ export async function getEntriesCache<T extends EntryWithSlug>(
 }
 
 export async function getEntry<T extends EntryWithSlug>(
-  cacheKey: string,
-  queryDocument: RequestDocument,
+  collection: EntriesCollection<T>,
   slug: string
 ): Promise<T | undefined> {
-  const cache = await getEntriesCache<T>(cacheKey, queryDocument);
+  const cache = await getEntriesCache<T>(collection);
   return cache.get(slug);
 }
 
-export async function getEntriesArray<T extends EntryWithSlug>(
-  cacheKey: string,
-  queryDocument: RequestDocument
-): Promise<T[]> {
-  const cache = await getEntriesCache<T>(cacheKey, queryDocument);
+export async function getEntriesArray<T extends EntryWithSlug>(collection: EntriesCollection<T>): Promise<T[]> {
+  const cache = await getEntriesCache<T>(collection);
   return [...cache.values()];
 }
 
-export async function getEntriesCount(cacheKey: string, queryDocument: RequestDocument): Promise<number> {
-  const cache = await getEntriesCache(cacheKey, queryDocument);
+export async function getEntriesCount(collection: EntriesCollection<EntryWithSlug>): Promise<number> {
+  const cache = await getEntriesCache(collection);
   return cache.size;
 }
