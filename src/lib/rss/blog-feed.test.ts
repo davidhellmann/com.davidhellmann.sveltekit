@@ -59,6 +59,8 @@ describe("RSS XML helpers", () => {
     expect(toAbsoluteUrl("/blog/a-title")).toBe("https://davidhellmann.com/blog/a-title");
     expect(toAbsoluteUrl("blog/a-title")).toBe("https://davidhellmann.com/blog/a-title");
     expect(toAbsoluteUrl("https://example.com/post")).toBe("https://example.com/post");
+    expect(toAbsoluteUrl("   ")).toBeUndefined();
+    expect(toAbsoluteUrl("javascript:alert(1)")).toBeUndefined();
     expect(toAbsoluteUrl(null)).toBeUndefined();
   });
 
@@ -122,8 +124,47 @@ describe("content builder serialization", () => {
     expect(html).toContain("<p>Less but better</p>");
     expect(html).toContain('<cite><a href="https://example.com">Dieter Rams</a></cite>');
     expect(html).toContain("<h2>Example</h2>");
-    expect(html).toContain("<code>&lt;div&gt;escaped&lt;/div&gt;</code>");
+    expect(html).toContain('<code class="language-html">&lt;div&gt;escaped&lt;/div&gt;</code>');
     expect(html).toContain('<a href="https://davidhellmann.com/about">About</a>');
+  });
+
+  it("normalizes safe embedded URLs and removes unsafe embedded URL attributes", () => {
+    const html = renderContentBuilder([
+      {
+        __typename: "block_text_Entry",
+        id: "text-1",
+        richText:
+          '<p><a href="/about">About</a><img src="/uploads/image.jpg" alt="Image"><a href="javascript:alert(1)">Bad link</a><img src="javascript:alert(1)" alt="Bad image"></p>'
+      },
+      {
+        __typename: "block_code_Entry",
+        id: "code-1",
+        codeSnippetName: "Example",
+        codeSnippetDescription: '<p><a href="/blog">Blog</a><img src="javascript:alert(1)" alt="Bad image"></p>',
+        codeSnippet: {
+          language: "html",
+          value: "<div>escaped</div>"
+        }
+      },
+      {
+        __typename: "block_cta_Entry",
+        id: "cta-1",
+        headline: "Read more",
+        description:
+          '<p><a href="/work">Work</a><img src="/uploads/cta.jpg" alt="CTA"><a href="javascript:alert(1)">Bad CTA</a></p>',
+        hyperLinks: [{ url: "mailto:hello@example.com", text: "Email" }]
+      }
+    ]);
+
+    expect(html).toContain('<a href="https://davidhellmann.com/about">About</a>');
+    expect(html).toContain('<img src="https://davidhellmann.com/uploads/image.jpg" alt="Image">');
+    expect(html).toContain("<a>Bad link</a>");
+    expect(html).toContain('<img alt="Bad image">');
+    expect(html).toContain('<a href="https://davidhellmann.com/blog">Blog</a>');
+    expect(html).toContain('<a href="https://davidhellmann.com/work">Work</a>');
+    expect(html).toContain('<img src="https://davidhellmann.com/uploads/cta.jpg" alt="CTA">');
+    expect(html).toContain('<a href="mailto:hello@example.com">Email</a>');
+    expect(html).not.toContain("javascript:");
   });
 });
 
@@ -138,7 +179,7 @@ describe("blog RSS rendering", () => {
           richText: "<p>Full body</p>"
         }
       ]
-    });
+    } as unknown as BlogFeedEntry);
 
     expect(item).toContain("<title>A title &amp; more</title>");
     expect(item).toContain("<link>https://davidhellmann.com/blog/a-title</link>");
@@ -194,5 +235,47 @@ describe("blog RSS rendering", () => {
     expect(item).not.toContain("<pubDate>");
     expect(item).toContain("<author>David Hellmann</author>");
     expect(item).toContain("<description><![CDATA[Plain summary]]></description>");
+  });
+
+  it("falls back to the slug URL when entry URL fields are whitespace", () => {
+    const item = renderBlogRssItem({
+      ...baseEntry,
+      url: "   ",
+      uri: "   ",
+      slug: "fallback-slug"
+    });
+
+    expect(item).toContain("<link>https://davidhellmann.com/blog/fallback-slug</link>");
+    expect(item).toContain("<guid>https://davidhellmann.com/blog/fallback-slug</guid>");
+  });
+
+  it("normalizes embedded URLs in item descriptions and removes unsafe attributes", () => {
+    const item = renderBlogRssItem({
+      ...baseEntry,
+      description:
+        '<p><a href="/about">About</a><img src="/uploads/summary.jpg" alt="Summary"><a href="javascript:alert(1)">Bad link</a><img src="javascript:alert(1)" alt="Bad image"></p>',
+      descriptionPlain: ""
+    });
+
+    expect(item).toContain('<a href="https://davidhellmann.com/about">About</a>');
+    expect(item).toContain('<img src="https://davidhellmann.com/uploads/summary.jpg" alt="Summary">');
+    expect(item).toContain("<a>Bad link</a>");
+    expect(item).toContain('<img alt="Bad image">');
+    expect(item).not.toContain("javascript:");
+  });
+
+  it("keeps embedded CDATA endings safe in full item content", () => {
+    const item = renderBlogRssItem({
+      ...baseEntry,
+      contentBuilder: [
+        {
+          __typename: "block_text_Entry",
+          id: "text-1",
+          richText: "<p>before ]]> after</p>"
+        }
+      ]
+    } as unknown as BlogFeedEntry);
+
+    expect(item).toContain("<content:encoded><![CDATA[<p>before ]]]]><![CDATA[> after</p>]]></content:encoded>");
   });
 });

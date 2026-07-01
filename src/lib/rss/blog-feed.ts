@@ -1,10 +1,10 @@
 import type { Matrix_ContentBuilderFragment, Page_BlogSingleFragment } from "$graphql/graphql";
+import { parse } from "node-html-parser";
 
-type FeedContentBlock = Matrix_ContentBuilderFragment | Record<string, unknown> | null | undefined;
+export type BlogFeedEntry = Page_BlogSingleFragment;
 
-export type BlogFeedEntry = Omit<Page_BlogSingleFragment, "contentBuilder"> & {
-  contentBuilder?: readonly FeedContentBlock[] | null;
-};
+type FeedContentBlock = BlogFeedEntry["contentBuilder"][number] | Matrix_ContentBuilderFragment | null | undefined;
+type RenderableContentBlock = FeedContentBlock | Record<string, unknown>;
 
 type RssLink = {
   url?: string | null;
@@ -27,6 +27,8 @@ const FEED_URL = `${SITE_URL}/rss.xml`;
 const CHANNEL_TITLE = "David Hellmann - Digital Designer & Developer";
 const CHANNEL_DESCRIPTION =
   "David is a self-taught Digital Designer & Developer with over fifteen years work experience. Currently he is working @fredmansky";
+const URL_PROTOCOL_PATTERN = /^[a-z][a-z\d+.-]*:/i;
+const SITE_URL_OBJECT = new URL(SITE_URL);
 
 export function escapeXml(value: unknown): string {
   return String(value ?? "")
@@ -41,18 +43,32 @@ export function cdata(value: unknown): string {
   return `<![CDATA[${String(value ?? "").replaceAll("]]>", "]]]]><![CDATA[>")}]]>`;
 }
 
-export function toAbsoluteUrl(value: string | null | undefined): string | undefined {
+function toSafeUrl(value: string | null | undefined, allowedProtocols: readonly string[]): string | undefined {
   if (!value) return undefined;
 
+  const trimmedValue = value.trim();
+  if (!trimmedValue) return undefined;
+
   try {
-    const trimmedValue = value.trim();
-    const url = new URL(trimmedValue, `${SITE_URL}/`);
-    return url.origin === new URL(SITE_URL).origin || !/^[a-z][a-z\d+.-]*:/i.test(trimmedValue)
-      ? url.toString()
-      : trimmedValue;
+    const isAbsolute = URL_PROTOCOL_PATTERN.test(trimmedValue);
+    const url = isAbsolute ? new URL(trimmedValue) : new URL(trimmedValue, `${SITE_URL}/`);
+
+    if (!allowedProtocols.includes(url.protocol)) return undefined;
+
+    if (isAbsolute && url.origin !== SITE_URL_OBJECT.origin) return trimmedValue;
+
+    return url.toString();
   } catch {
     return undefined;
   }
+}
+
+export function toAbsoluteUrl(value: string | null | undefined): string | undefined {
+  return toSafeUrl(value, ["http:", "https:"]);
+}
+
+function toLinkUrl(value: string | null | undefined): string | undefined {
+  return toSafeUrl(value, ["http:", "https:", "mailto:"]);
 }
 
 export function toRssDate(value: unknown): string | undefined {
@@ -87,8 +103,34 @@ function getEntrySummary(entry: BlogFeedEntry): string {
   return entry.description?.trim() || entry.descriptionPlain?.trim() || "";
 }
 
+function normalizeHtmlUrls(html: string): string {
+  if (!html) return "";
+
+  const root = parse(html);
+
+  root.querySelectorAll("[href]").forEach((element) => {
+    const href = toLinkUrl(element.getAttribute("href"));
+    if (href) {
+      element.setAttribute("href", href);
+    } else {
+      element.removeAttribute("href");
+    }
+  });
+
+  root.querySelectorAll("[src]").forEach((element) => {
+    const src = toAbsoluteUrl(element.getAttribute("src"));
+    if (src) {
+      element.setAttribute("src", src);
+    } else {
+      element.removeAttribute("src");
+    }
+  });
+
+  return root.toString();
+}
+
 function getLinkUrl(link: RssLink | null | undefined): string | undefined {
-  return toAbsoluteUrl(link?.url || link?.linkUrl);
+  return toLinkUrl(link?.url || link?.linkUrl);
 }
 
 function getLinkText(link: RssLink | null | undefined): string {
@@ -119,12 +161,12 @@ function renderLinks(links: readonly (RssLink | null | undefined)[] | null | und
   return items.length ? `<ul>${items.join("")}</ul>` : "";
 }
 
-function renderBlock(block: Matrix_ContentBuilderFragment | Record<string, unknown> | null | undefined): string {
+function renderBlock(block: RenderableContentBlock): string {
   if (!block || typeof block !== "object" || !("__typename" in block)) return "";
 
   switch (block.__typename) {
     case "block_text_Entry":
-      return typeof block.richText === "string" ? block.richText : "";
+      return typeof block.richText === "string" ? normalizeHtmlUrls(block.richText) : "";
 
     case "block_image_Entry":
       return renderImage((block.image as FeedImage[] | undefined)?.[0]);
@@ -155,14 +197,17 @@ function renderBlock(block: Matrix_ContentBuilderFragment | Record<string, unkno
         typeof block.codeSnippetName === "string" && block.codeSnippetName.trim()
           ? `<h2>${escapeXml(block.codeSnippetName)}</h2>`
           : "";
-      const description = typeof block.codeSnippetDescription === "string" ? block.codeSnippetDescription : "";
-      return `${name}${description}<pre><code>${escapeXml(snippet.value)}</code></pre>`;
+      const description =
+        typeof block.codeSnippetDescription === "string" ? normalizeHtmlUrls(block.codeSnippetDescription) : "";
+      const language = snippet.language ? ` class="language-${escapeXml(snippet.language)}"` : "";
+
+      return `${name}${description}<pre><code${language}>${escapeXml(snippet.value)}</code></pre>`;
     }
 
     case "block_cta_Entry": {
       const headline =
         typeof block.headline === "string" && block.headline.trim() ? `<h2>${escapeXml(block.headline)}</h2>` : "";
-      const description = typeof block.description === "string" ? block.description : "";
+      const description = typeof block.description === "string" ? normalizeHtmlUrls(block.description) : "";
       const links = renderLinks(block.hyperLinks as RssLink[] | undefined);
 
       return `${headline}${description}${links}`;
@@ -173,7 +218,7 @@ function renderBlock(block: Matrix_ContentBuilderFragment | Record<string, unkno
   }
 }
 
-export function renderContentBuilder(blocks: readonly FeedContentBlock[] | null | undefined): string {
+export function renderContentBuilder(blocks: readonly RenderableContentBlock[] | null | undefined): string {
   return (blocks ?? [])
     .map((block) => renderBlock(block))
     .filter(Boolean)
@@ -184,7 +229,7 @@ export function renderBlogRssItem(entry: BlogFeedEntry): string {
   const title = escapeXml(getEntryTitle(entry));
   const url = getEntryUrl(entry);
   const pubDate = toRssDate(entry.postDate);
-  const summary = getEntrySummary(entry);
+  const summary = normalizeHtmlUrls(getEntrySummary(entry));
   const content = renderContentBuilder(entry.contentBuilder);
 
   return [
