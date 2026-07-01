@@ -28,7 +28,6 @@ const CHANNEL_TITLE = "David Hellmann - Digital Designer & Developer";
 const CHANNEL_DESCRIPTION =
   "David is a self-taught Digital Designer & Developer with over fifteen years work experience. Currently he is working @fredmansky";
 const URL_PROTOCOL_PATTERN = /^[a-z][a-z\d+.-]*:/i;
-const SITE_URL_OBJECT = new URL(SITE_URL);
 
 export function escapeXml(value: unknown): string {
   return String(value ?? "")
@@ -54,8 +53,6 @@ function toSafeUrl(value: string | null | undefined, allowedProtocols: readonly 
     const url = isAbsolute ? new URL(trimmedValue) : new URL(trimmedValue, `${SITE_URL}/`);
 
     if (!allowedProtocols.includes(url.protocol)) return undefined;
-
-    if (isAbsolute && url.origin !== SITE_URL_OBJECT.origin) return trimmedValue;
 
     return url.toString();
   } catch {

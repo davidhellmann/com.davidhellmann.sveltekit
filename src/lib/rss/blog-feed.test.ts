@@ -59,6 +59,7 @@ describe("RSS XML helpers", () => {
     expect(toAbsoluteUrl("/blog/a-title")).toBe("https://davidhellmann.com/blog/a-title");
     expect(toAbsoluteUrl("blog/a-title")).toBe("https://davidhellmann.com/blog/a-title");
     expect(toAbsoluteUrl("https://example.com/post")).toBe("https://example.com/post");
+    expect(toAbsoluteUrl("https://example.com/a b")).toBe("https://example.com/a%20b");
     expect(toAbsoluteUrl("   ")).toBeUndefined();
     expect(toAbsoluteUrl("javascript:alert(1)")).toBeUndefined();
     expect(toAbsoluteUrl(null)).toBeUndefined();
@@ -122,7 +123,7 @@ describe("content builder serialization", () => {
     expect(html).toContain('alt="An image &amp; caption"');
     expect(html).toContain("<blockquote>");
     expect(html).toContain("<p>Less but better</p>");
-    expect(html).toContain('<cite><a href="https://example.com">Dieter Rams</a></cite>');
+    expect(html).toContain('<cite><a href="https://example.com/">Dieter Rams</a></cite>');
     expect(html).toContain("<h2>Example</h2>");
     expect(html).toContain('<code class="language-html">&lt;div&gt;escaped&lt;/div&gt;</code>');
     expect(html).toContain('<a href="https://davidhellmann.com/about">About</a>');
