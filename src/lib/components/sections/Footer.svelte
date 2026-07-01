@@ -22,7 +22,7 @@
         "group inline-flex items-center gap-2 rounded-full border border-neutral-500/20 bg-neutral-950/10 px-4 py-2 font-mono text-xs font-semibold text-neutral-700 backdrop-blur-sm transition hover:-translate-y-0.5 hover:border-neutral-500/40 hover:bg-white/20 hover:text-neutral-950 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-purple-700 theme-dark:text-neutral-300 theme-dark:hover:text-white",
       slotLinkPlanned: "pointer-events-none border-dashed opacity-45 grayscale",
       slotIcon: "size-4 shrink-0",
-      slotInner: "span-full pointer-events-none absolute inset-x-0 bottom-0 z-0 is-zoomInUp overflow-clip",
+      slotInner: "span-full pointer-events-none inset-x-0 bottom-0 z-0 is-zoomInUp overflow-clip",
       slotBigText: "translate-y-1/4 scale-105 uppercase font-decorative font-extrabold text-transparent text-center"
     }
   });
