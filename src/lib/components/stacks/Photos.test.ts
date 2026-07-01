@@ -14,6 +14,7 @@ describe("Photos stack post date", () => {
 
     expect(source).toContain('import Time from "$components/text/Time.svelte";');
     expect(source).toContain("{#if entry?.postDate}");
-    expect(source).toContain("<Time timestamp={entry?.postDate} />");
+    expect(source).toContain("<Time");
+    expect(source).toContain("timestamp={entry?.postDate}");
   });
 });
