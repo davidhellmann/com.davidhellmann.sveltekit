@@ -1,5 +1,6 @@
 <script lang="ts">
   import { page } from "$app/state";
+  import { getMarkdownAlternate } from "$lib/ai/markdown-alternate";
   import { parseSEO, type ISEO, type IParseSEO } from "$lib/utils/parseSEO";
 
   interface Props {
@@ -10,13 +11,8 @@
   const seomatic: ISEO = parseSEO(seo);
 
   // Markdown alternate for LLM/agent consumers.
-  // Pages that also exist under /ai/<path>.md advertise the link in <head>.
-  const aiAlternate = $derived.by(() => {
-    const path = page.url.pathname.replace(/\/$/, "");
-    const m = path.match(/^\/(blog|work)\/([^/]+)$/);
-    if (m) return `/ai/${m[1]}/${m[2]}.md`;
-    if (path === "/about") return "/ai/about.md";
-    return null;
+  const markdownAlternate = $derived.by(() => {
+    return getMarkdownAlternate(page.url.pathname);
   });
 
   const jsonLdScript = (item: unknown) => `<script type="application/ld+json">${JSON.stringify(item)}<${"/script"}>`;
@@ -46,7 +42,7 @@
     {/if}
   {/if}
 
-  {#if aiAlternate}
-    <link rel="alternate" type="text/markdown" href={aiAlternate} />
+  {#if markdownAlternate}
+    <link rel="alternate" type="text/markdown" href={markdownAlternate} />
   {/if}
 </svelte:head>
