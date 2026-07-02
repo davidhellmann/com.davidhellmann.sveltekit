@@ -15,6 +15,7 @@
 ### Task 1: Create all 11 new GraphQL query files
 
 **Files:**
+
 - Create: `src/lib/graphql/queries/entries/GetHome.graphql`
 - Create: `src/lib/graphql/queries/entries/GetAbout.graphql`
 - Create: `src/lib/graphql/queries/entries/GetPageByUri.graphql`
@@ -30,15 +31,8 @@
 **Step 1: Create GetHome.graphql**
 
 ```graphql
-query GetHomeEntry(
-  $site: [String] = ["davidhellmann_en"]
-  $limit: Int = 1
-) {
-  entries(
-    site: $site,
-    section: ["home"],
-    limit: $limit
-  ) {
+query GetHomeEntry($site: [String] = ["davidhellmann_en"], $limit: Int = 1) {
+  entries(site: $site, section: ["home"], limit: $limit) {
     ...page_home
   }
 }
@@ -47,17 +41,8 @@ query GetHomeEntry(
 **Step 2: Create GetAbout.graphql**
 
 ```graphql
-query GetAboutEntry(
-  $site: [String] = ["davidhellmann_en"]
-  $slug: [String] = ["about"]
-  $limit: Int = 1
-) {
-  entries(
-    site: $site,
-    section: ["pages"],
-    slug: $slug,
-    limit: $limit
-  ) {
+query GetAboutEntry($site: [String] = ["davidhellmann_en"], $slug: [String] = ["about"], $limit: Int = 1) {
+  entries(site: $site, section: ["pages"], slug: $slug, limit: $limit) {
     ...page_about
   }
 }
@@ -66,17 +51,8 @@ query GetAboutEntry(
 **Step 3: Create GetPageByUri.graphql**
 
 ```graphql
-query GetPageByUri(
-  $site: [String] = ["davidhellmann_en"]
-  $uri: [String]
-  $limit: Int = 1
-) {
-  entries(
-    site: $site,
-    section: ["pages"],
-    uri: $uri,
-    limit: $limit
-  ) {
+query GetPageByUri($site: [String] = ["davidhellmann_en"], $uri: [String], $limit: Int = 1) {
+  entries(site: $site, section: ["pages"], uri: $uri, limit: $limit) {
     ...page_contentBuilder
     ...page_company
     ...page_workArea
@@ -96,36 +72,24 @@ query GetBlogEntries(
   $relatedToEntries: [EntryRelationCriteriaInput]
 ) {
   entries(
-    site: $site,
-    section: ["blog"],
-    limit: $limit,
-    offset: $offset,
-    orderBy: $orderBy,
+    site: $site
+    section: ["blog"]
+    limit: $limit
+    offset: $offset
+    orderBy: $orderBy
     relatedToEntries: $relatedToEntries
   ) {
     ...page_blogSingle
   }
-  entryCount(
-    site: $site,
-    section: ["blog"],
-    relatedToEntries: $relatedToEntries
-  )
+  entryCount(site: $site, section: ["blog"], relatedToEntries: $relatedToEntries)
 }
 ```
 
 **Step 5: Create GetBlogListPage.graphql**
 
 ```graphql
-query GetBlogListPage(
-  $site: [String] = ["davidhellmann_en"]
-  $limit: Int = 1
-) {
-  entries(
-    site: $site,
-    section: ["pages"],
-    type: ["page_blogList"],
-    limit: $limit
-  ) {
+query GetBlogListPage($site: [String] = ["davidhellmann_en"], $limit: Int = 1) {
+  entries(site: $site, section: ["pages"], type: ["page_blogList"], limit: $limit) {
     ...page_blogList
   }
 }
@@ -134,17 +98,8 @@ query GetBlogListPage(
 **Step 6: Create GetCategoryEntry.graphql**
 
 ```graphql
-query GetCategoryEntry(
-  $site: [String] = ["davidhellmann_en"]
-  $slug: [String]
-  $limit: Int = 1
-) {
-  entries(
-    site: $site,
-    section: ["categories"],
-    slug: $slug,
-    limit: $limit
-  ) {
+query GetCategoryEntry($site: [String] = ["davidhellmann_en"], $slug: [String], $limit: Int = 1) {
+  entries(site: $site, section: ["categories"], slug: $slug, limit: $limit) {
     ...page_category
   }
 }
@@ -153,17 +108,8 @@ query GetCategoryEntry(
 **Step 7: Create GetTopicEntry.graphql**
 
 ```graphql
-query GetTopicEntry(
-  $site: [String] = ["davidhellmann_en"]
-  $slug: [String]
-  $limit: Int = 1
-) {
-  entries(
-    site: $site,
-    section: ["topics"],
-    slug: $slug,
-    limit: $limit
-  ) {
+query GetTopicEntry($site: [String] = ["davidhellmann_en"], $slug: [String], $limit: Int = 1) {
+  entries(site: $site, section: ["topics"], slug: $slug, limit: $limit) {
     ...page_topic
   }
 }
@@ -178,35 +124,18 @@ query GetPhotosEntries(
   $offset: Int = 0
   $orderBy: String = "postDate DESC"
 ) {
-  entries(
-    site: $site,
-    section: ["photos"],
-    limit: $limit,
-    offset: $offset,
-    orderBy: $orderBy
-  ) {
+  entries(site: $site, section: ["photos"], limit: $limit, offset: $offset, orderBy: $orderBy) {
     ...page_photosSingle
   }
-  entryCount(
-    site: $site,
-    section: ["photos"]
-  )
+  entryCount(site: $site, section: ["photos"])
 }
 ```
 
 **Step 9: Create GetPhotosListPage.graphql**
 
 ```graphql
-query GetPhotosListPage(
-  $site: [String] = ["davidhellmann_en"]
-  $limit: Int = 1
-) {
-  entries(
-    site: $site,
-    section: ["pages"],
-    type: ["page_photosList"],
-    limit: $limit
-  ) {
+query GetPhotosListPage($site: [String] = ["davidhellmann_en"], $limit: Int = 1) {
+  entries(site: $site, section: ["pages"], type: ["page_photosList"], limit: $limit) {
     ...page_photosList
   }
 }
@@ -221,35 +150,18 @@ query GetWorkEntries(
   $offset: Int = 0
   $orderBy: String = "postDate DESC"
 ) {
-  entries(
-    site: $site,
-    section: ["work"],
-    limit: $limit,
-    offset: $offset,
-    orderBy: $orderBy
-  ) {
+  entries(site: $site, section: ["work"], limit: $limit, offset: $offset, orderBy: $orderBy) {
     ...page_workSingle
   }
-  entryCount(
-    site: $site,
-    section: ["work"]
-  )
+  entryCount(site: $site, section: ["work"])
 }
 ```
 
 **Step 11: Create GetWorkListPage.graphql**
 
 ```graphql
-query GetWorkListPage(
-  $site: [String] = ["davidhellmann_en"]
-  $limit: Int = 1
-) {
-  entries(
-    site: $site,
-    section: ["pages"],
-    type: ["page_workList"],
-    limit: $limit
-  ) {
+query GetWorkListPage($site: [String] = ["davidhellmann_en"], $limit: Int = 1) {
+  entries(site: $site, section: ["pages"], type: ["page_workList"], limit: $limit) {
     ...page_workList
   }
 }
@@ -275,6 +187,7 @@ Expected: Codegen completes successfully, `src/lib/graphql/graphql.ts` is update
 **Step 2: Verify new types exist**
 
 Check that `graphql.ts` now exports these types (search for them):
+
 - `GetHomeEntryDocument`, `GetHomeEntryQuery`, `GetHomeEntryQueryVariables`
 - `GetAboutEntryDocument`, `GetAboutEntryQuery`, `GetAboutEntryQueryVariables`
 - `GetPageByUriDocument`, `GetPageByUriQuery`, `GetPageByUriQueryVariables`
@@ -299,6 +212,7 @@ git commit -m "chore: regenerate GraphQL types with new targeted queries"
 ### Task 3: Update entries-cache.ts to accept query documents
 
 **Files:**
+
 - Modify: `src/lib/data/entries-cache.ts`
 
 **Step 1: Update entries-cache.ts**
@@ -337,7 +251,9 @@ export async function getEntriesCache<T extends EntryWithSlug>(
 
       if (!data.entries?.length) break;
       allEntries.push(...data.entries);
-      console.log(`[${cacheKey} Cache] Batch ${Math.floor(offset / BATCH_SIZE) + 1}: ${data.entries.length} (total: ${allEntries.length})`);
+      console.log(
+        `[${cacheKey} Cache] Batch ${Math.floor(offset / BATCH_SIZE) + 1}: ${data.entries.length} (total: ${allEntries.length})`
+      );
       if (data.entries.length < BATCH_SIZE) break;
       offset += BATCH_SIZE;
     }
@@ -369,16 +285,14 @@ export async function getEntriesArray<T extends EntryWithSlug>(
   return [...cache.values()];
 }
 
-export async function getEntriesCount(
-  cacheKey: string,
-  queryDocument: RequestDocument
-): Promise<number> {
+export async function getEntriesCount(cacheKey: string, queryDocument: RequestDocument): Promise<number> {
   const cache = await getEntriesCache(cacheKey, queryDocument);
   return cache.size;
 }
 ```
 
 Key changes:
+
 - Removed `GetEntriesDocument` import — no longer depends on the monolithic query
 - Added `queryDocument: RequestDocument` parameter to all functions
 - Renamed parameter `section` → `cacheKey` (more accurate since the query handles the section)
@@ -396,6 +310,7 @@ git commit -m "refactor: update entries-cache to accept query documents"
 ### Task 4: Update data layer files (blog.ts, work.ts, photos.ts)
 
 **Files:**
+
 - Modify: `src/lib/data/blog.ts`
 - Modify: `src/lib/data/work.ts`
 - Modify: `src/lib/data/photos.ts`
@@ -431,7 +346,8 @@ import { getEntriesCache, getEntry, getEntriesArray, getEntriesCount } from "./e
 import { GetPhotosEntriesDocument, type Page_PhotosSingleFragment } from "$graphql/graphql";
 
 export const getPhotosEntries = () => getEntriesCache<Page_PhotosSingleFragment>("photos", GetPhotosEntriesDocument);
-export const getPhotosEntry = (slug: string) => getEntry<Page_PhotosSingleFragment>("photos", GetPhotosEntriesDocument, slug);
+export const getPhotosEntry = (slug: string) =>
+  getEntry<Page_PhotosSingleFragment>("photos", GetPhotosEntriesDocument, slug);
 export const getPhotosArray = () => getEntriesArray<Page_PhotosSingleFragment>("photos", GetPhotosEntriesDocument);
 export const getPhotosCount = () => getEntriesCount("photos", GetPhotosEntriesDocument);
 ```
@@ -448,6 +364,7 @@ git commit -m "refactor: update data layer to use targeted query documents"
 ### Task 5: Migrate Home route
 
 **Files:**
+
 - Modify: `src/routes/+page.server.ts`
 
 **Step 1: Update imports and query call**
@@ -495,6 +412,7 @@ git commit -m "refactor: migrate home route to GetHomeEntry query"
 ### Task 6: Migrate About route
 
 **Files:**
+
 - Modify: `src/routes/about/+page.server.ts`
 
 **Step 1: Update imports and query call**
@@ -530,6 +448,7 @@ git commit -m "refactor: migrate about route to GetAboutEntry query"
 ### Task 7: Migrate [uri=uri] catch-all route
 
 **Files:**
+
 - Modify: `src/routes/[uri=uri]/+page.server.ts`
 
 **Step 1: Update imports and query call**
@@ -586,6 +505,7 @@ git commit -m "refactor: migrate catch-all route to GetPageByUri query"
 ### Task 8: Migrate Blog list route
 
 **Files:**
+
 - Modify: `src/routes/blog/[[page=page]]/+page.server.ts`
 
 **Step 1: Update imports and query call**
@@ -594,7 +514,11 @@ git commit -m "refactor: migrate catch-all route to GetPageByUri query"
 export const prerender = true;
 import type { PageServerLoad, EntryGenerator, RouteParams } from "./$types";
 import { redirect } from "@sveltejs/kit";
-import { GetBlogListPageDocument, type GetBlogListPageQueryVariables, type Page_BlogListFragment } from "$graphql/graphql";
+import {
+  GetBlogListPageDocument,
+  type GetBlogListPageQueryVariables,
+  type Page_BlogListFragment
+} from "$graphql/graphql";
 import { getGqlData } from "$graphql/graphql-client";
 import { getBlogArray, getBlogCount } from "$lib/data/blog";
 
@@ -665,6 +589,7 @@ git commit -m "refactor: migrate blog list route to GetBlogListPage query"
 ### Task 9: Migrate Blog-by-Category route
 
 **Files:**
+
 - Modify: `src/routes/blog/c/[slug=slug]/[[page=page]]/+page.server.ts`
 
 **Step 1: Update imports and query calls**
@@ -776,6 +701,7 @@ export const load: PageServerLoad = async ({ params, url }) => {
 ```
 
 Changes:
+
 - Blog entries: `GetEntriesDocument` → `GetBlogEntriesDocument`, removed `section: ["blog"]` from variables (hardcoded in query)
 - Category entry: `GetEntriesDocument` → `GetCategoryEntryDocument`, removed `section: ["categories"], limit: 1` from variables (hardcoded in query)
 - `entries` EntryGenerator still uses `GetPrerenderData` (unchanged)
@@ -792,6 +718,7 @@ git commit -m "refactor: migrate blog-by-category route to targeted queries"
 ### Task 10: Migrate Blog-by-Topic route
 
 **Files:**
+
 - Modify: `src/routes/blog/t/[slug=slug]/[[page=page]]/+page.server.ts`
 
 **Step 1: Update imports and query calls**
@@ -916,6 +843,7 @@ git commit -m "refactor: migrate blog-by-topic route to targeted queries"
 ### Task 11: Migrate Photos list route
 
 **Files:**
+
 - Modify: `src/routes/photos/[[page=page]]/+page.server.ts`
 
 **Step 1: Update imports and query call**
@@ -924,7 +852,11 @@ git commit -m "refactor: migrate blog-by-topic route to targeted queries"
 export const prerender = true;
 import type { PageServerLoad, EntryGenerator, RouteParams } from "./$types";
 import { redirect } from "@sveltejs/kit";
-import { GetPhotosListPageDocument, type GetPhotosListPageQueryVariables, type Page_PhotosListFragment } from "$graphql/graphql";
+import {
+  GetPhotosListPageDocument,
+  type GetPhotosListPageQueryVariables,
+  type Page_PhotosListFragment
+} from "$graphql/graphql";
 import { getGqlData } from "$graphql/graphql-client";
 import { getPhotosArray, getPhotosCount } from "$lib/data/photos";
 
@@ -967,7 +899,10 @@ export const load: PageServerLoad = async ({ params }) => {
     redirect(307, `/photos/${totalPages}`);
   }
 
-  const { entries: photosEntry } = (await getGqlData<GetPhotosListPageQueryVariables>(GetPhotosListPageDocument, {})) as {
+  const { entries: photosEntry } = (await getGqlData<GetPhotosListPageQueryVariables>(
+    GetPhotosListPageDocument,
+    {}
+  )) as {
     entries?: Page_PhotosListFragment[];
   };
 
@@ -995,6 +930,7 @@ git commit -m "refactor: migrate photos list route to GetPhotosListPage query"
 ### Task 12: Migrate Work list route
 
 **Files:**
+
 - Modify: `src/routes/work/+page.server.ts`
 
 **Step 1: Update imports and query call**
@@ -1002,7 +938,11 @@ git commit -m "refactor: migrate photos list route to GetPhotosListPage query"
 ```typescript
 export const prerender = true;
 import type { PageServerLoad } from "./$types";
-import { GetWorkListPageDocument, type GetWorkListPageQueryVariables, type Page_WorkListFragment } from "$graphql/graphql";
+import {
+  GetWorkListPageDocument,
+  type GetWorkListPageQueryVariables,
+  type Page_WorkListFragment
+} from "$graphql/graphql";
 import { getGqlData } from "$graphql/graphql-client";
 import { getWorkArray } from "$lib/data/work";
 
@@ -1036,6 +976,7 @@ git commit -m "refactor: migrate work list route to GetWorkListPage query"
 ### Task 13: Delete GetEntries.graphql and regenerate types
 
 **Files:**
+
 - Delete: `src/lib/graphql/queries/entries/GetEntries.graphql`
 
 **Step 1: Verify no remaining references to GetEntries**
@@ -1093,11 +1034,13 @@ git commit -m "chore: fix any remaining type or build issues"
 ## Routes that need NO changes (for reference)
 
 These routes don't use `GetEntries` and need no modification:
+
 - `src/routes/blog/[slug=slug]/+page.server.ts` — uses cache only (`getBlogEntry`)
 - `src/routes/photos/[slug=slug]/+page.server.ts` — uses cache only (`getPhotosEntry`)
 - `src/routes/work/[slug=slug]/+page.server.ts` — uses cache only (`getWorkEntry`)
 
 These routes still use `GetPrerenderData` (unchanged, stays as-is):
+
 - `src/routes/[uri=uri]/+page.server.ts` — for `entries` EntryGenerator
 - `src/routes/blog/c/[slug=slug]/[[page=page]]/+page.server.ts` — for `entries` EntryGenerator
 - `src/routes/blog/t/[slug=slug]/[[page=page]]/+page.server.ts` — for `entries` EntryGenerator
