@@ -66,6 +66,7 @@ describe("RSS XML helpers", () => {
     expect(toAbsoluteUrl("/blog/a-title")).toBe("https://davidhellmann.com/blog/a-title");
     expect(toAbsoluteUrl("blog/a-title")).toBe("https://davidhellmann.com/blog/a-title");
     expect(toAbsoluteUrl("https://example.com/post")).toBe("https://example.com/post");
+    expect(toAbsoluteUrl("http://localhost:5173/blog/local-post")).toBe("https://davidhellmann.com/blog/local-post");
     expect(toAbsoluteUrl("https://example.com/a b")).toBe("https://example.com/a%20b");
     expect(toAbsoluteUrl("   ")).toBeUndefined();
     expect(toAbsoluteUrl("javascript:alert(1)")).toBeUndefined();
@@ -142,7 +143,7 @@ describe("content builder serialization", () => {
         __typename: "block_text_Entry",
         id: "text-1",
         richText:
-          '<p class="intro" style="color:red"><a href="/about" onclick="alert(1)" data-track="about">About</a><img src="/uploads/image.jpg" alt="Image" onerror="alert(1)"><a href="javascript:alert(1)">Bad link</a><img src="javascript:alert(1)" alt="Bad image"></p>'
+          '<p class="intro" style="color:red"><a href="/about" onclick="alert(1)" data-track="about">About</a><a href="http://localhost:5173/blog/local-post">Local</a><img src="/uploads/image.jpg" alt="Image" onerror="alert(1)"><a href="javascript:alert(1)">Bad link</a><img src="javascript:alert(1)" alt="Bad image"></p>'
       },
       {
         __typename: "block_code_Entry",
@@ -167,6 +168,7 @@ describe("content builder serialization", () => {
 
     expect(html).toContain('<p class="intro">');
     expect(html).toContain('<a href="https://davidhellmann.com/about" data-track="about">About</a>');
+    expect(html).toContain('<a href="https://davidhellmann.com/blog/local-post">Local</a>');
     expect(html).toContain('<img src="https://davidhellmann.com/uploads/image.jpg" alt="Image">');
     expect(html).toContain("<a>Bad link</a>");
     expect(html).toContain('<img alt="Bad image">');
@@ -355,6 +357,18 @@ describe("blog RSS rendering", () => {
 
     expect(item).toContain("<link>https://davidhellmann.com/blog/fallback-slug</link>");
     expect(item).toContain("<guid>https://davidhellmann.com/blog/fallback-slug</guid>");
+  });
+
+  it("rewrites local entry URLs to the public site origin", () => {
+    const item = renderBlogRssItem({
+      ...baseEntry,
+      url: "http://localhost:5173/blog/local-post",
+      uri: "blog/local-post",
+      slug: "local-post"
+    });
+
+    expect(item).toContain("<link>https://davidhellmann.com/blog/local-post</link>");
+    expect(item).toContain("<guid>https://davidhellmann.com/blog/local-post</guid>");
   });
 
   it("normalizes embedded URLs in item descriptions and removes unsafe attributes", () => {

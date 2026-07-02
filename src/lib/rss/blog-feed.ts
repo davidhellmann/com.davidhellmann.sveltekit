@@ -28,6 +28,7 @@ const CHANNEL_TITLE = "David Hellmann - Digital Designer & Developer";
 const CHANNEL_DESCRIPTION =
   "David is a self-taught Digital Designer & Developer with over fifteen years work experience. Currently he is working @fredmansky";
 const URL_PROTOCOL_PATTERN = /^[a-z][a-z\d+.-]*:/i;
+const LOCAL_SITE_HOSTS = new Set(["localhost", "127.0.0.1", "[::1]", "davidhellmann.sveltekit.test"]);
 const INVALID_XML_CHARS = /[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g;
 const UNSAFE_HTML_ELEMENTS = [
   "script",
@@ -76,6 +77,10 @@ function toSafeUrl(value: string | null | undefined, allowedProtocols: readonly 
     const url = isAbsolute ? new URL(trimmedValue) : new URL(trimmedValue, `${SITE_URL}/`);
 
     if (!allowedProtocols.includes(url.protocol)) return undefined;
+
+    if (LOCAL_SITE_HOSTS.has(url.hostname)) {
+      return new URL(`${url.pathname}${url.search}${url.hash}`, `${SITE_URL}/`).toString();
+    }
 
     return url.toString();
   } catch {
