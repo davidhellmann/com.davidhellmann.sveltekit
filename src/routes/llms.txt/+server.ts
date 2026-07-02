@@ -14,7 +14,7 @@ type Entry = {
 
 const line = (e: Entry, section: "blog" | "work") => {
   const title = e.customTitle?.trim() || e.title?.trim() || e.slug || "Untitled";
-  const url = `${SITE_URL}/ai/${section}/${e.slug}.md`;
+  const url = `${SITE_URL}/${section}/${e.slug}.md`;
   const desc = e.descriptionPlain?.trim().replace(/\s+/g, " ");
   return desc ? `- [${title}](${url}): ${desc}` : `- [${title}](${url})`;
 };
@@ -28,11 +28,11 @@ export const GET: RequestHandler = async () => {
     "",
     "> Personal website of David Hellmann — designer, developer, photographer based in Germany. Blog posts on design and engineering, selected work, and an about page with CV and awards.",
     "",
-    "Markdown versions of the primary content live under `/ai/<section>/<slug>.md`. This file is intentionally curated for quick LLM context; the complete index is available at `/llms-full.txt`.",
+    "Markdown versions of the primary content live next to their canonical routes, for example `/about.md` and `/blog/<slug>.md`. This file is intentionally curated for quick LLM context; the complete index is available at `/llms-full.txt`.",
     "",
     "## About",
     "",
-    `- [About David Hellmann](${SITE_URL}/ai/about.md): CV, awards and biography.`,
+    `- [About David Hellmann](${SITE_URL}/about.md): CV, awards and biography.`,
     "",
     "## Recent Blog Posts",
     "",

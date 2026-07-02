@@ -14,7 +14,7 @@ type Entry = {
 
 const line = (e: Entry, section: "blog" | "work") => {
   const title = e.customTitle?.trim() || e.title?.trim() || e.slug || "Untitled";
-  const url = `${SITE_URL}/ai/${section}/${e.slug}.md`;
+  const url = `${SITE_URL}/${section}/${e.slug}.md`;
   const desc = e.descriptionPlain?.trim().replace(/\s+/g, " ");
   return desc ? `- [${title}](${url}): ${desc}` : `- [${title}](${url})`;
 };
@@ -29,7 +29,7 @@ export const GET: RequestHandler = async () => {
     "",
     "## About",
     "",
-    `- [About David Hellmann](${SITE_URL}/ai/about.md): CV, awards and biography.`,
+    `- [About David Hellmann](${SITE_URL}/about.md): CV, awards and biography.`,
     "",
     "## Blog",
     "",
