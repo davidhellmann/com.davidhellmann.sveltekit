@@ -32,7 +32,7 @@
     { label: "Instagram", href: "https://instagram.com/davidhellmann/", icon: "instagram" },
     { label: "Twitter", href: "https://twitter.com/davidhellmann/", icon: "twitter" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/davidhellmann/", icon: "linkedin" },
-    { label: "RSS", icon: "rss", planned: true }
+    { label: "RSS", href: "/rss.xml", icon: "rss" }
   ];
 
   type FooterProps = {
