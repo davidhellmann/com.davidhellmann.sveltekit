@@ -16,6 +16,7 @@ type RssLink = {
 
 type FeedImage = {
   url?: string | null;
+  srcset?: string | null;
   alt?: string | null;
   title?: string | null;
   width?: number | string | null;
@@ -29,6 +30,8 @@ const CHANNEL_DESCRIPTION =
   "David is a self-taught Digital Designer & Developer with over fifteen years work experience. Currently he is working @fredmansky";
 const URL_PROTOCOL_PATTERN = /^[a-z][a-z\d+.-]*:/i;
 const LOCAL_SITE_HOSTS = new Set(["localhost", "127.0.0.1", "[::1]", "davidhellmann.sveltekit.test"]);
+const LOCAL_ASSET_HOSTS = new Set(["content.davidhellmann.test"]);
+const STATIC_ASSET_URL = "https://static.davidhellmann.com";
 const INVALID_XML_CHARS = /[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g;
 const UNSAFE_HTML_ELEMENTS = [
   "script",
@@ -80,6 +83,10 @@ function toSafeUrl(value: string | null | undefined, allowedProtocols: readonly 
 
     if (LOCAL_SITE_HOSTS.has(url.hostname)) {
       return new URL(`${url.pathname}${url.search}${url.hash}`, `${SITE_URL}/`).toString();
+    }
+
+    if (LOCAL_ASSET_HOSTS.has(url.hostname) && url.pathname.startsWith("/transforms/imager/")) {
+      return new URL(`${url.pathname}${url.search}${url.hash}`, `${STATIC_ASSET_URL}/`).toString();
     }
 
     return url.toString();
@@ -175,8 +182,18 @@ function getLinkText(link: RssLink | null | undefined): string {
   return link?.text?.trim() || link?.linkText?.trim() || link?.title?.trim() || getLinkUrl(link) || "Link";
 }
 
+function getSrcsetUrl(srcset: string | null | undefined): string | undefined {
+  const candidates =
+    srcset
+      ?.split(",")
+      .map((candidate) => candidate.trim().split(/\s+/)[0])
+      .filter(Boolean) ?? [];
+
+  return toAbsoluteUrl(candidates.at(-1));
+}
+
 function renderImage(image: FeedImage | null | undefined): string {
-  const src = toAbsoluteUrl(image?.url);
+  const src = getSrcsetUrl(image?.srcset) || toAbsoluteUrl(image?.url);
   if (!src) return "";
 
   const alt = image?.alt || image?.title || "";

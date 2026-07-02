@@ -67,6 +67,11 @@ describe("RSS XML helpers", () => {
     expect(toAbsoluteUrl("blog/a-title")).toBe("https://davidhellmann.com/blog/a-title");
     expect(toAbsoluteUrl("https://example.com/post")).toBe("https://example.com/post");
     expect(toAbsoluteUrl("http://localhost:5173/blog/local-post")).toBe("https://davidhellmann.com/blog/local-post");
+    expect(
+      toAbsoluteUrl(
+        "http://content.davidhellmann.test/transforms/imager/images/blog/example/3845/example_W1800_hash.avif"
+      )
+    ).toBe("https://static.davidhellmann.com/transforms/imager/images/blog/example/3845/example_W1800_hash.avif");
     expect(toAbsoluteUrl("https://example.com/a b")).toBe("https://example.com/a%20b");
     expect(toAbsoluteUrl("   ")).toBeUndefined();
     expect(toAbsoluteUrl("javascript:alert(1)")).toBeUndefined();
@@ -221,6 +226,8 @@ describe("content builder serialization", () => {
           },
           {
             url: "https://assets.example.com/two.jpg",
+            srcset:
+              "http://content.davidhellmann.test/transforms/imager/images/blog/two-800.avif 800w, http://content.davidhellmann.test/transforms/imager/images/blog/two-1600.avif 1600w",
             alt: "Second image",
             width: 900,
             height: 600
@@ -230,7 +237,9 @@ describe("content builder serialization", () => {
     ]);
 
     expect(html).toContain('<img src="https://davidhellmann.com/uploads/one.jpg" alt="First image"');
-    expect(html).toContain('<img src="https://assets.example.com/two.jpg" alt="Second image"');
+    expect(html).toContain(
+      '<img src="https://static.davidhellmann.com/transforms/imager/images/blog/two-1600.avif" alt="Second image"'
+    );
     expect(html.match(/<figure>/g)).toHaveLength(2);
   });
 
