@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { page } from "$app/state";
   import { parseSEO, type ISEO, type IParseSEO } from "$lib/utils/parseSEO";
 
   interface Props {
@@ -7,6 +8,18 @@
 
   let { seo }: Props = $props();
   const seomatic: ISEO = parseSEO(seo);
+
+  // Markdown alternate for LLM/agent consumers.
+  // Pages that also exist under /ai/<path>.md advertise the link in <head>.
+  const aiAlternate = $derived.by(() => {
+    const path = page.url.pathname.replace(/\/$/, "");
+    const m = path.match(/^\/(blog|work)\/([^/]+)$/);
+    if (m) return `/ai/${m[1]}/${m[2]}.md`;
+    if (path === "/about") return "/ai/about.md";
+    return null;
+  });
+
+  const jsonLdScript = (item: unknown) => `<script type="application/ld+json">${JSON.stringify(item)}<${"/script"}>`;
 </script>
 
 <svelte:head>
@@ -27,8 +40,13 @@
 
     {#if seomatic?.jsonLd}
       {#each seomatic.jsonLd as item (item)}
-        {@html `<script type="application/ld+json">${JSON.stringify(item)}</script>`}
+        <!-- eslint-disable-next-line svelte/no-at-html-tags -->
+        {@html jsonLdScript(item)}
       {/each}
     {/if}
+  {/if}
+
+  {#if aiAlternate}
+    <link rel="alternate" type="text/markdown" href={aiAlternate} />
   {/if}
 </svelte:head>
