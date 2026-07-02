@@ -28,9 +28,32 @@ const CHANNEL_TITLE = "David Hellmann - Digital Designer & Developer";
 const CHANNEL_DESCRIPTION =
   "David is a self-taught Digital Designer & Developer with over fifteen years work experience. Currently he is working @fredmansky";
 const URL_PROTOCOL_PATTERN = /^[a-z][a-z\d+.-]*:/i;
+const INVALID_XML_CHARS = /[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g;
+const UNSAFE_HTML_ELEMENTS = [
+  "script",
+  "iframe",
+  "object",
+  "embed",
+  "form",
+  "input",
+  "button",
+  "textarea",
+  "select",
+  "option",
+  "svg",
+  "math",
+  "link",
+  "meta",
+  "style"
+];
+const UNSAFE_HTML_ATTRIBUTES = new Set(["action", "formaction", "srcdoc", "srcset", "style", "xlink:href"]);
+
+function sanitizeXmlText(value: unknown): string {
+  return String(value ?? "").replace(INVALID_XML_CHARS, "");
+}
 
 export function escapeXml(value: unknown): string {
-  return String(value ?? "")
+  return sanitizeXmlText(value)
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
@@ -39,7 +62,7 @@ export function escapeXml(value: unknown): string {
 }
 
 export function cdata(value: unknown): string {
-  return `<![CDATA[${String(value ?? "").replaceAll("]]>", "]]]]><![CDATA[>")}]]>`;
+  return `<![CDATA[${sanitizeXmlText(value).replaceAll("]]>", "]]]]><![CDATA[>")}]]>`;
 }
 
 function toSafeUrl(value: string | null | undefined, allowedProtocols: readonly string[]): string | undefined {
@@ -103,12 +126,16 @@ function getEntrySummary(entry: BlogFeedEntry): string {
 function normalizeHtmlUrls(html: string): string {
   if (!html) return "";
 
-  const root = parse(html);
+  const root = parse(sanitizeXmlText(html));
+
+  UNSAFE_HTML_ELEMENTS.forEach((tagName) => {
+    root.querySelectorAll(tagName).forEach((element) => element.remove());
+  });
 
   root.querySelectorAll("*").forEach((element) => {
     Object.keys(element.attributes).forEach((attribute) => {
       const normalizedAttribute = attribute.toLowerCase();
-      if (normalizedAttribute === "style" || normalizedAttribute.startsWith("on")) {
+      if (normalizedAttribute.startsWith("on") || UNSAFE_HTML_ATTRIBUTES.has(normalizedAttribute)) {
         element.removeAttribute(attribute);
       }
     });
@@ -132,7 +159,7 @@ function normalizeHtmlUrls(html: string): string {
     }
   });
 
-  return root.toString();
+  return sanitizeXmlText(root.toString());
 }
 
 function getLinkUrl(link: RssLink | null | undefined): string | undefined {

@@ -55,6 +55,13 @@ describe("RSS XML helpers", () => {
     expect(cdata("before ]]> after")).toBe("<![CDATA[before ]]]]><![CDATA[> after]]>");
   });
 
+  it("removes XML-invalid control characters but keeps valid XML whitespace", () => {
+    const invalidControlChars = "\u0000\u0008\u000B\u000C\u000E\u001F";
+
+    expect(escapeXml(`A${invalidControlChars}B\t\n\rC`)).toBe("AB\t\n\rC");
+    expect(cdata(`A${invalidControlChars}B\t\n\rC`)).toBe("<![CDATA[AB\t\n\rC]]>");
+  });
+
   it("converts relative URLs to absolute site URLs", () => {
     expect(toAbsoluteUrl("/blog/a-title")).toBe("https://davidhellmann.com/blog/a-title");
     expect(toAbsoluteUrl("blog/a-title")).toBe("https://davidhellmann.com/blog/a-title");
@@ -172,6 +179,30 @@ describe("content builder serialization", () => {
     expect(html).not.toContain("onerror");
     expect(html).not.toContain("onload");
     expect(html).not.toContain("style=");
+  });
+
+  it("removes unsafe embedded elements and URL-bearing attributes", () => {
+    const html = renderContentBuilder([
+      {
+        __typename: "block_text_Entry",
+        id: "text-unsafe",
+        richText:
+          '<p><script>alert(1)</script><iframe srcdoc="<p>bad</p>" src="/frame"></iframe><style>body{display:none}</style><form action="/submit"><button formaction="/send">Send</button></form><img src="/safe.jpg" srcset="/one.jpg 1x, /two.jpg 2x"><a xlink:href="/bad" href="/safe">Safe</a></p>'
+      }
+    ]);
+
+    expect(html).toContain('<img src="https://davidhellmann.com/safe.jpg">');
+    expect(html).toContain('<a href="https://davidhellmann.com/safe">Safe</a>');
+    expect(html).not.toContain("<script");
+    expect(html).not.toContain("<iframe");
+    expect(html).not.toContain("<style");
+    expect(html).not.toContain("<form");
+    expect(html).not.toContain("<button");
+    expect(html).not.toContain("srcdoc");
+    expect(html).not.toContain("srcset");
+    expect(html).not.toContain("action=");
+    expect(html).not.toContain("formaction");
+    expect(html).not.toContain("xlink:href");
   });
 
   it("serializes image gallery blocks", () => {
@@ -357,5 +388,31 @@ describe("blog RSS rendering", () => {
     } as unknown as BlogFeedEntry);
 
     expect(item).toContain("<content:encoded><![CDATA[<p>before ]]]]><![CDATA[> after</p>]]></content:encoded>");
+  });
+
+  it("removes XML-invalid control characters from rendered feeds", () => {
+    const invalidControlChars = "\u0000\u0008\u000B\u000C\u000E\u001F";
+    const feed = renderBlogRssFeed(
+      [
+        {
+          ...baseEntry,
+          title: `Title${invalidControlChars}`,
+          description: `<p>Summary${invalidControlChars}\t\n\r</p>`,
+          contentBuilder: [
+            {
+              __typename: "block_text_Entry",
+              id: "text-1",
+              richText: `<p>Body${invalidControlChars}\t\n\r</p>`
+            }
+          ]
+        } as unknown as BlogFeedEntry
+      ],
+      new Date("2026-07-01T12:00:00.000Z")
+    );
+
+    expect(feed).toContain("<title>Title</title>");
+    expect(feed).toContain("<![CDATA[<p>Summary\t\n\r</p>]]>");
+    expect(feed).toContain("<content:encoded><![CDATA[<p>Body\t\n\r</p>]]></content:encoded>");
+    expect(feed).not.toContain(invalidControlChars);
   });
 });
