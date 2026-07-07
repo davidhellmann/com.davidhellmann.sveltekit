@@ -45,7 +45,7 @@
       pluginAutoscroll={true}
       emblaOptions={{ ...emblaOptions }}
       autoScrollOptions={{ ...autoScrollOptions }}
-      className="span-full z-10 items-center pb-fluid opacity-90"
+      className="span-full z-10 items-center pb-fluid opacity-90 overflow-clip"
     >
       {#each images as image, i}
         {@const width = image?.width || 0}
