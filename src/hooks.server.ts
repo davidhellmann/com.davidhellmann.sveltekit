@@ -3,8 +3,11 @@ import { type Handle } from "@sveltejs/kit";
 
 const preloadFonts: Handle = async ({ event, resolve }) => {
   return resolve(event, {
-    preload: ({ type }) => {
-      return type === "font" || type === "js" || type === "css";
+    preload: ({ type, path }) => {
+      // Fontsource-CSS listet pro Schnitt woff2 + legacy woff. Nur woff2
+      // vorladen, sonst zieht SvelteKit die ungenutzte woff-Fallback mit.
+      if (type === "font") return path.endsWith(".woff2");
+      return type === "js" || type === "css";
     }
   });
 };
