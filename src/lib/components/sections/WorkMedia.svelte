@@ -17,11 +17,9 @@
 </script>
 
 {#if mediaGroups.length > 0}
-  <div data-comp={compName} class="span-full stack-12">
+  <div data-comp={compName} class="span-content lg:span-popout stack-12">
     {#each mediaGroups as group (group.images.map((image) => image.id).join("-"))}
-      <div class="span-content lg:span-popout @container">
-        <LightboxWork images={getImages(group)} ratio={group.ratio} />
-      </div>
+      <LightboxWork images={getImages(group)} ratio={group.ratio} />
     {/each}
   </div>
 {/if}

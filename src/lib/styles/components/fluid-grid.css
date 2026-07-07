@@ -56,56 +56,59 @@
       [col-12] var(--col-width) [content-end col-12-end] var(--popout)
       [popout-end] var(--side-width) [full-end];
   }
+}
 
-  .span-full {
-    grid-column: full;
+/* Defined as @utility (not @layer components) so Tailwind variants work,
+   e.g. `span-content lg:span-popout`. Bodies keep their built-in breakpoints
+   so existing unprefixed usage (`span-popout`, `span-md`, …) is unchanged. */
+@utility span-full {
+  grid-column: full;
+}
+
+@utility span-popout {
+  grid-column: content;
+
+  @media (min-width: theme(--breakpoint-sm)) {
+    grid-column: popout;
+  }
+}
+
+@utility span-content {
+  grid-column: content;
+}
+
+@utility span-md {
+  grid-column: content;
+
+  @media (min-width: theme(--breakpoint-md)) {
+    grid-column: col-3 / span 8;
   }
 
-  .span-popout {
-    grid-column: content;
+  @media (min-width: theme(--breakpoint-lg)) {
+    grid-column: col-4 / span 6;
+  }
+}
 
-    @media (min-width: theme(--breakpoint-sm)) {
-      grid-column: popout;
-    }
+@utility span-lg {
+  grid-column: content;
+
+  @media (min-width: theme(--breakpoint-md)) {
+    grid-column: col-2 / span 10;
   }
 
-  .span-content {
-    grid-column: content;
+  @media (min-width: theme(--breakpoint-lg)) {
+    grid-column: col-3 / span 8;
+  }
+}
+
+@utility span-xl {
+  grid-column: content;
+
+  @media (min-width: theme(--breakpoint-md)) {
+    grid-column: col-1 / span 12;
   }
 
-  .span-md {
-    grid-column: content;
-
-    @media (min-width: theme(--breakpoint-md)) {
-      grid-column: col-3 / span 8;
-    }
-
-    @media (min-width: theme(--breakpoint-lg)) {
-      grid-column: col-4 / span 6;
-    }
-  }
-
-  .span-lg {
-    grid-column: content;
-
-    @media (min-width: theme(--breakpoint-md)) {
-      grid-column: col-2 / span 10;
-    }
-
-    @media (min-width: theme(--breakpoint-lg)) {
-      grid-column: col-3 / span 8;
-    }
-  }
-
-  .span-xl {
-    grid-column: content;
-
-    @media (min-width: theme(--breakpoint-md)) {
-      grid-column: col-1 / span 12;
-    }
-
-    @media (min-width: theme(--breakpoint-lg)) {
-      grid-column: col-2 / span 10;
-    }
+  @media (min-width: theme(--breakpoint-lg)) {
+    grid-column: col-2 / span 10;
   }
 }
