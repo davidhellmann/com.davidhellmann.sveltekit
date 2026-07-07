@@ -9,7 +9,6 @@
 </script>
 
 <script lang="ts">
-  import { useUnlazy } from "$lib/actions/action.unlazy";
   import { tv, type VariantProps } from "$utils/classNames";
 
   type ObjectFit = "cover" | "contain" | "fill" | "none" | "scale-down";
@@ -37,6 +36,7 @@
     alt?: string;
     srcset?: string;
     src?: string;
+    sizes?: string;
     blurhash?: string;
     width?: number;
     height?: number;
@@ -55,6 +55,7 @@
     alt = "",
     focalPoint,
     src,
+    sizes,
     srcset,
     blurhash,
     width,
@@ -101,15 +102,12 @@
     class={tvImage({ animate, className })}
     {...attr}
     {alt}
-    src={srcset && blurhash ? blurhash : src}
-    srcSet={!lazy ? srcset : undefined}
-    data-src={lazy && !srcset ? src : null}
-    data-srcset={lazy && srcset ? srcset : null}
+    {src}
+    srcSet={srcset}
     loading={lazy ? "lazy" : "eager"}
-    data-sizes={lazy ? "auto" : "auto"}
+    fetchPriority={!lazy ? "high" : undefined}
+    sizes={sizes || (srcset && lazy ? "auto" : undefined)}
     {role}
-    data-lazy={lazy ? true : undefined}
-    use:useUnlazy={lazy}
   />
 {/snippet}
 
