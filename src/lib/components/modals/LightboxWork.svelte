@@ -1,7 +1,7 @@
 <script lang="ts">
   import Image from "$components/media/Image.svelte";
   import type { ComponentProps } from "svelte";
-  import { tv, type VariantProps } from "$utils/classNames";
+  import { cn, tv, type VariantProps } from "$utils/classNames";
   import Grid from "$components/containers/Grid.svelte";
   import { useLightbox } from "$lib/actions/action.lightbox";
   import "$styles/lightbox.css";
@@ -50,7 +50,7 @@
             <span class={`${slotBrowserDot()} bg-neutral-700 group-hover:bg-[green]`}></span>
           </span>
           <Image
-            className={`size-full ${getAspectRatio(image) ?? ratio}`}
+            className={cn("size-full", getAspectRatio(image) ?? ratio)}
             index={i}
             {image}
             focalPoint={[0.5, 0]}
