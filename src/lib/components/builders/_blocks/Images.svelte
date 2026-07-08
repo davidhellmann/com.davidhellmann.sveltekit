@@ -38,7 +38,7 @@
         {/each}
       </Grid>
     {:else if imagesViewMode === "gallery"}
-      <Lightbox {images} ratio={"aspect-landscape"} />
+      <Lightbox {images} ratio="aspect-landscape" />
     {:else if imagesViewMode === "grid-calculated"}
       <ImageGridCalculated {images} />
     {/if}
