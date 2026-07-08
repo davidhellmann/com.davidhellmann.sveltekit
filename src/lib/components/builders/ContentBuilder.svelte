@@ -8,6 +8,7 @@
   import { getContentBlockKey, isContentBlockType, type ContentBuilderBlock } from "./content-blocks";
   import type { ComponentProps } from "svelte";
   import type { Matrix_ContentBuilderFragment } from "$graphql/graphql";
+  import { cn } from "$utils/classNames";
 
   type ContentBuilder = {
     compName?: string;
@@ -29,7 +30,7 @@
 
 {#if blockTypes}
   <div class="span-full">
-    <div class={`fluid-grid stack-12 ${className}`} data-comp={compName}>
+    <div class={cn("fluid-grid stack-12", className)} data-comp={compName}>
       {#each blockTypes as blockType, index (getContentBlockKey(blockType, index))}
         {#if isContentBlockType(blockType, "block_text_Entry") && blockType?.richText}
           <RichText html={blockType.richText} />
