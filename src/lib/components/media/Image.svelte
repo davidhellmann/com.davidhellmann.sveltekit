@@ -84,6 +84,12 @@
     height,
     style: `object-fit: ${objectFit}; object-position: ${focalPointCoordinates.x * 100}% ${focalPointCoordinates.y * 100}%;`
   };
+
+  const getSizes = (sizes: string | undefined, srcset: string | undefined, lazy: boolean) => {
+    if (sizes) return sizes;
+    if (!srcset) return undefined;
+    return lazy ? "auto" : "100vw";
+  };
 </script>
 
 {#snippet noScriptTag()}
@@ -103,7 +109,7 @@
     srcSet={srcset}
     loading={lazy ? "lazy" : "eager"}
     fetchPriority={!lazy ? "high" : undefined}
-    sizes={sizes ?? (srcset ? (lazy ? "auto" : "100vw") : undefined)}
+    sizes={getSizes(sizes, srcset, lazy)}
     {role}
   />
 {/snippet}
