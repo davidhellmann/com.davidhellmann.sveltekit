@@ -30,7 +30,6 @@
     compName?: string;
     className?: string;
     image?: Asset;
-    /** Known first-viewport images opt into eager/high priority with lazy={false} and route-specific sizes. */
     lazy?: boolean;
     objectFit?: ObjectFit;
     focalPoint?: number[];
