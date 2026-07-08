@@ -28,7 +28,7 @@
   :global([data-comp="RichText"] :is(h2, h3, h4, h5, h6)) {
     font-weight: var(--font-weight-extrabold);
     padding-top: 2cap;
-    line-height: var(--line-height-tight);
+    line-height: var(--leading-tight);
   }
 
   :global([data-comp="RichText"] h2) {
