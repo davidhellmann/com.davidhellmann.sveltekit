@@ -2,7 +2,7 @@
   import Image from "$components/media/Image.svelte";
   import Exif from "$components/text/Exif.svelte";
   import type { ComponentProps } from "svelte";
-  import { tv, type VariantProps } from "$utils/classNames";
+  import { cn, tv, type VariantProps } from "$utils/classNames";
   import { useLightbox } from "$lib/actions/action.lightbox";
   import "$styles/lightbox.css";
 
@@ -45,7 +45,10 @@
       <li class={slotItem()}>
         <div class="rounded-xl overflow-hidden w-full">
           <Image
-            className={`w-full pointer-events-auto cursor-zoom-in group-hover:scale-105 transition-transform ${ratio}`}
+            className={cn(
+              "w-full pointer-events-auto cursor-zoom-in group-hover:scale-105 transition-transform",
+              ratio
+            )}
             noscript={false}
             {image}
             index={i}
