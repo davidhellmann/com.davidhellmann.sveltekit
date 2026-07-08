@@ -51,7 +51,6 @@ export const resolveWorkMediaGroups = (entry: WorkEntryMedia): WorkMediaGroup[] 
     return [
       {
         images: entry.images,
-        ratio: "aspect-auto"
       }
     ];
   }

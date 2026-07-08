@@ -48,7 +48,6 @@ describe("work media groups", () => {
     expect(groups).toEqual([
       {
         images: [image("fallback")],
-        ratio: "aspect-auto"
       }
     ]);
   });

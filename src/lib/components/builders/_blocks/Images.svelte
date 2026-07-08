@@ -13,7 +13,7 @@
     imagesViewMode?: string;
   };
 
-  const { compName = "BlockImages", images, ratio = "aspect-auto", imagesViewMode }: BlockImage = $props();
+  const { compName = "BlockImages", images, ratio, imagesViewMode }: BlockImage = $props();
 
   type Columns = 1 | 2 | 3 | 4 | 5 | 6;
 

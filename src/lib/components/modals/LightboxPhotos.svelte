@@ -22,13 +22,7 @@
     galleryId?: string;
   } & VariantProps<typeof tvLightboxPhotos>;
 
-  let {
-    compName = "LightboxPhotos",
-    className,
-    images,
-    ratio = "aspect-auto",
-    galleryId
-  }: LightboxPhotosProps = $props();
+  let { compName = "LightboxPhotos", className, images, ratio, galleryId }: LightboxPhotosProps = $props();
 
   const items = $derived(
     images.map((image) => ({
