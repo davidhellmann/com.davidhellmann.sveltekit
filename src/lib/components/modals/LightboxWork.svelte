@@ -41,7 +41,7 @@
 
 {#if images}
   <div data-comp={compName} class={slotWrapper({ className })} use:useLightbox={{ items: items, className: "is-dark" }}>
-    <Grid columns={"work-gallery"} gap={"fluid"}>
+    <Grid columns="work-gallery" gap="fluid">
       {#each images as image, i (image?.id)}
         <div class={slotCard()}>
           <span class={slotBrowser()}>
@@ -54,6 +54,8 @@
             index={i}
             {image}
             focalPoint={[0.5, 0]}
+            lazy={i > 0}
+            sizes="(min-width: 1024px) 50vw, 100vw"
             noscript={false}
           />
         </div>

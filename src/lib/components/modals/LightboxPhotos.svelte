@@ -22,7 +22,7 @@
     galleryId?: string;
   } & VariantProps<typeof tvLightboxPhotos>;
 
-  let { compName = "LightboxPhotos", className, images, ratio, galleryId }: LightboxPhotosProps = $props();
+  let { compName = "LightboxPhotos", className, images, ratio }: LightboxPhotosProps = $props();
 
   const items = $derived(
     images.map((image) => ({
@@ -52,6 +52,8 @@
             noscript={false}
             {image}
             index={i}
+            lazy={i > 0}
+            sizes="(min-width: 1280px) 25vw, (min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw"
           />
         </div>
         {#if image?.__typename === "images_Asset" && image?.exif}

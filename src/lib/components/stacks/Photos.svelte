@@ -7,12 +7,10 @@
   } from "$graphql/graphql";
   import { tv, type VariantProps } from "$utils/classNames";
   import Pagination from "$components/navigation/Pagination.svelte";
-  import CardPhotos from "$components/cards/Photos.svelte";
   import Image from "$components/media/Image.svelte";
   import Headline from "$components/text/Headline.svelte";
   import Time from "$components/text/Time.svelte";
   import { getExifData } from "$utils/getExifData";
-  import { type ComponentProps } from "svelte";
   import { useWaypoint } from "$lib/actions/action.waypoint";
 
   const tvStackPhotos = tv({
@@ -84,6 +82,7 @@
             {#if entry?.title && entry?.url && entry?.images}
               {@const exifDataParsed = getExifData(entry?.images)}
               <li class={`is-zoomInUp ${slotListItem()}`} data-waypoint-target>
+                <!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
                 <a class={slotListItemLink()} href={entry?.url}>
                   <div class={slotText()}>
                     <div class="flex gap-4 items-center">
@@ -102,7 +101,7 @@
                       <div class="flex flex-col gap-2">
                         {#if exifDataParsed.cameras}
                           <ul class={slotGearList()}>
-                            {#each exifDataParsed.cameras as camera}
+                            {#each exifDataParsed.cameras as camera (camera)}
                               <li>{camera}</li>
                             {/each}
                           </ul>
@@ -112,9 +111,14 @@
                   </div>
 
                   <div class={slotImages()}>
-                    {#each entry?.previewImages as image, i (image.id)}
+                    {#each entry?.previewImages as image, j (image.id)}
                       <div class="rounded-md grow overflow-hidden flex h-full">
-                        <Image className="hover:scale-105 transition-transform size-full aspect-instagram" {image} />
+                        <Image
+                          className="hover:scale-105 transition-transform size-full aspect-instagram"
+                          {image}
+                          lazy={!(i === 0 && j === 0)}
+                          sizes="(min-width: 1024px) 25vw, 100vw"
+                        />
                       </div>
                     {/each}
                   </div>

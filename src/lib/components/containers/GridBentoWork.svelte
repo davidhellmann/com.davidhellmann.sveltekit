@@ -74,6 +74,12 @@
     slotFakeLink
   } = tvGridBentoWork({ className });
   const cardClasses = [slotCard1, slotCard2, slotCard3, slotCard4];
+  const imageSizes = [
+    "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw",
+    "(min-width: 1024px) 66vw, (min-width: 640px) 50vw, 100vw",
+    "(min-width: 1024px) 66vw, (min-width: 640px) 50vw, 100vw",
+    "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+  ];
 
   let finalEntries = $state(entries);
   if (random && limit) {
@@ -128,8 +134,15 @@
             </div>
           </div>
           {#if entry?.image}
+            {@const layoutIndex = i % imageSizes.length}
             <div class={slotImageWrapper()}>
-              <Image className={slotImage()} image={entry?.image[0]} focalPoint={[0, 0]} />
+              <Image
+                className={slotImage()}
+                image={entry?.image[0]}
+                focalPoint={[0, 0]}
+                lazy={i > 1}
+                sizes={imageSizes[layoutIndex]}
+              />
             </div>
           {/if}
           <Link
