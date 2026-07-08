@@ -106,7 +106,7 @@
     srcSet={srcset}
     loading={lazy ? "lazy" : "eager"}
     fetchPriority={!lazy ? "high" : undefined}
-    sizes={sizes || (srcset && lazy ? "auto" : undefined)}
+    sizes={sizes || (srcset ? "100vw" : undefined)}
     {role}
   />
 {/snippet}
