@@ -14,7 +14,7 @@
   type ObjectFit = "cover" | "contain" | "fill" | "none" | "scale-down";
 
   const tvImage = tv({
-    base: "bg-primary-200 w-full aspect-landscape",
+    base: "bg-primary-200 w-full",
     variants: {
       animate: {
         unset: "",
