@@ -5,7 +5,7 @@ type WorkMediaSourceBlock = NonNullable<WorkEntryMedia>["contentBuilderWork"][nu
 
 export type WorkMediaGroup = {
   images: NonNullable<WorkEntryMedia>["images"];
-  ratio: string;
+  ratio?: string;
 };
 
 const isWorkImageBlock = (
@@ -50,7 +50,7 @@ export const resolveWorkMediaGroups = (entry: WorkEntryMedia): WorkMediaGroup[] 
   if (entry.images.length > 0) {
     return [
       {
-        images: entry.images,
+        images: entry.images
       }
     ];
   }
