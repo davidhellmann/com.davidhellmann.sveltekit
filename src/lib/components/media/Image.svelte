@@ -37,7 +37,6 @@
     srcset?: string;
     src?: string;
     sizes?: string;
-    blurhash?: string;
     width?: number;
     height?: number;
     noscript?: boolean;
@@ -57,7 +56,6 @@
     src,
     sizes,
     srcset,
-    blurhash,
     width,
     height,
     noscript = true,
@@ -78,7 +76,6 @@
   width = image?.width ?? width;
   height = image?.height ?? height;
   srcset = image?.srcset ?? srcset;
-  blurhash = image?.base64BlurHash ?? blurhash;
   alt = !decorative ? (image?.alt ?? image?.title ?? alt) : "";
   lazy = !src ? false : lazy;
 
@@ -106,7 +103,7 @@
     srcSet={srcset}
     loading={lazy ? "lazy" : "eager"}
     fetchPriority={!lazy ? "high" : undefined}
-    sizes={sizes || (srcset ? "100vw" : undefined)}
+    sizes={sizes ?? (srcset ? (lazy ? "auto" : "100vw") : undefined)}
     {role}
   />
 {/snippet}
