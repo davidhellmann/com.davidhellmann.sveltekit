@@ -75,10 +75,10 @@
   } = tvGridBentoWork({ className });
   const cardClasses = [slotCard1, slotCard2, slotCard3, slotCard4];
   const imageSizes = [
-    "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw",
-    "(min-width: 1024px) 66vw, (min-width: 640px) 50vw, 100vw",
-    "(min-width: 1024px) 66vw, (min-width: 640px) 50vw, 100vw",
-    "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+    "(min-width: 1024px) 23vw, (min-width: 640px) 35vw, 80vw",
+    "(min-width: 1024px) 50vw, (min-width: 640px) 35vw, 80vw",
+    "(min-width: 1024px) 50vw, (min-width: 640px) 35vw, 80vw",
+    "(min-width: 1024px) 23vw, (min-width: 640px) 35vw, 80vw"
   ];
 
   let finalEntries = $state(entries);

@@ -3,7 +3,6 @@
   import type { Page_WorkListFragment, Page_WorkSingleFragment } from "$graphql/graphql";
   import Seo from "$components/seo/Seo.svelte";
   import GridBentoWork from "$components/containers/GridBentoWork.svelte";
-  import type { ComponentProps } from "svelte";
   import { getFirstEntry } from "$utils/getFirstEntry";
   import { splitTextIntoDivs } from "$utils/splitTextIntoDivs";
   import { useWaypoint } from "$lib/actions/action.waypoint";
