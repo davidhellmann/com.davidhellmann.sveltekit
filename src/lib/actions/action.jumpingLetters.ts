@@ -1,4 +1,10 @@
 export const useJumpingLetters = (node: HTMLElement) => {
+  const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+  if (!canHover) {
+    return;
+  }
+
   const setupListeners = () => {
     const letterDivs = node.querySelectorAll("[data-letter-index]");
     letterDivs.forEach((div) => {
