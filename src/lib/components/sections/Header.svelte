@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { resolve } from "$app/paths";
   import { tv, type VariantProps } from "$utils/classNames";
   import NavigationMain from "$components/navigation/Main.svelte";
   import { useWaypoint } from "$lib/actions/action.waypoint";
@@ -29,8 +30,10 @@
 
 <header class={`${slotBase({ className })}`} data-comp={compName}>
   <div class={slotWrapper()} use:useWaypoint data-waypoint>
-    <h1 class={`${slotLogo()} ${scrollY > 100 ? "translate-y-2 md:-translate-y-10 scale-90" : ""}`}>
-      <a data-waypoint-target class={slotLogoLink()} href="/">
+    <h1
+      class={`${slotLogo()} ${scrollY > 100 ? "pointer-events-none -translate-y-4 scale-90 opacity-0 md:pointer-events-auto md:-translate-y-10 md:opacity-100" : ""}`}
+    >
+      <a data-waypoint-target class={slotLogoLink()} href={resolve("/")}>
         <img src={meHi} alt="" />
       </a>
     </h1>
