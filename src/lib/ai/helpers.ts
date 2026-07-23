@@ -1,4 +1,4 @@
-export const SITE_URL = "https://sveltekit.davidhellmann.com";
+export const SITE_URL = "https://davidhellmann.com";
 const YAML_ESCAPED_QUOTE = String.fromCharCode(92, 34);
 
 export const escapeYaml = (s: string) => `"${s.replace(/\\/g, "\\\\").replace(/"/g, YAML_ESCAPED_QUOTE)}"`;
