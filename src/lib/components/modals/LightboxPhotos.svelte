@@ -8,9 +8,9 @@
 
   const tvLightboxPhotos = tv({
     slots: {
-      slotRoot: "sm:columns-2 md:columns-3 xl:columns-4 gap-4 space-y-4 pointer-events-none",
+      slotRoot: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 pointer-events-none",
       slotItem:
-        "@container cursor-zoom-in flex-col flex flex-nowrap items-center group break-inside-avoid border border-neutral-200 bg-neutral-50 rounded-2xl p-3"
+        "@container cursor-zoom-in group"
     }
   });
 
@@ -43,21 +43,21 @@
   >
     {#each images as image, i (image?.id)}
       <li class={slotItem()}>
-        <div class="rounded-xl overflow-hidden w-full">
+        <div class="overflow-hidden w-full">
           <Image
             className={cn(
-              "w-full pointer-events-auto cursor-zoom-in group-hover:scale-105 transition-transform",
+              "w-full pointer-events-auto cursor-zoom-in aspect-instagram group-hover:scale-105 transition-transform",
               ratio
             )}
             noscript={false}
             {image}
             index={i}
             lazy={i > 0}
-            sizes="(min-width: 1280px) 25vw, (min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw"
+            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
           />
         </div>
         {#if image?.__typename === "images_Asset" && image?.exif}
-          <Exif className="w-full text-neutral-600 p-2 pt-3" spacing="compact" exif={image?.exif} />
+          <Exif className="w-full mt-2" showCamera={false} spacing="compact" exif={image?.exif} />
         {/if}
       </li>
     {/each}

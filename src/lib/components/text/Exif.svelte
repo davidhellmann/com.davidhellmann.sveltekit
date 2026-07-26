@@ -3,21 +3,19 @@
 
   const tvExif = tv({
     slots: {
-      slotRoot: "text-2xs @xs:text-xs font-mono flex flex-col @xs:flex-row justify-between",
+      slotRoot: "text-2xs @xs:text-xs font-mono flex flex-col justify-between",
       slotCamera: "",
-      slotSettings: ""
+      slotSettings: "grid grid-cols-2 border-l-1 border-t-1 *:border-b-1 *:border-r-1 *:px-2 *:py-1 border-neutral-200 *:border-neutral-200"
     },
     variants: {
       spacing: {
         default: {
           slotRoot: "gap-x-8",
           slotCamera: "flex gap-x-4",
-          slotSettings: "flex gap-x-8"
         },
         compact: {
           slotRoot: "gap-x-4",
           slotCamera: "flex gap-x-2",
-          slotSettings: "flex gap-x-4"
         }
       }
     }
@@ -43,10 +41,11 @@
     compName?: string;
     className?: string;
     exif?: string;
+    showCamera?: boolean;
     showSettings?: boolean;
   } & VariantProps<typeof tvExif>;
 
-  const { compName = "Exif", className, exif, spacing = "default", showSettings = true }: ExifProps = $props();
+  const { compName = "Exif", className, exif, spacing = "default", showCamera = true, showSettings = true }: ExifProps = $props();
   let exifParsed: Exif = $state(undefined);
 
   if (exif) {
@@ -58,16 +57,18 @@
 
 {#if exif}
   <div data-comp={compName} class={slotRoot({ spacing, className })}>
-    <div class={slotCamera({ spacing })}>
-      {#if exifParsed?.cameraMake && exifParsed.cameraModel && exifParsed.lensModel}
-        <span
-          >{#if exifParsed.lensModel.includes(exifParsed.cameraModel)}{exifParsed.cameraMake}
-          {/if}
-          {exifParsed.cameraModel}</span
-        >
-        <!-- {#if !exifParsed.lensModel.includes(exifParsed.cameraModel)}<span>{exifParsed.lensModel}</span>{/if} -->
-      {/if}
-    </div>
+    {#if showCamera}
+      <div class={slotCamera({ spacing })}>
+        {#if exifParsed?.cameraMake && exifParsed.cameraModel && exifParsed.lensModel}
+          <span
+            >{#if exifParsed.lensModel.includes(exifParsed.cameraModel)}{exifParsed.cameraMake}
+            {/if}
+            {exifParsed.cameraModel}</span
+          >
+          <!-- {#if !exifParsed.lensModel.includes(exifParsed.cameraModel)}<span>{exifParsed.lensModel}</span>{/if} -->
+        {/if}
+      </div>
+    {/if}
     {#if showSettings}
       <div class={slotSettings({ spacing })}>
         {#if exifParsed?.focalLength}

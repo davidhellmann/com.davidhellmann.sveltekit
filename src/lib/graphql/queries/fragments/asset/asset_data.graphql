@@ -1,4 +1,5 @@
 fragment asset_data on AssetInterface {
+  __typename
   id
   url
   width
