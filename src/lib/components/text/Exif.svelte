@@ -5,7 +5,7 @@
     slots: {
       slotRoot: "text-2xs @xs:text-xs font-mono flex flex-col justify-between",
       slotCamera: "",
-      slotSettings: "grid grid-cols-2 border-l-1 border-t-1 *:border-b-1 *:border-r-1 *:px-2 *:py-1 border-neutral-200 *:border-neutral-200"
+      slotSettings: "grid grid-cols-2 border-l-1 border-t-1 *:border-b-1 *:border-r-1 *:px-1.5 *:py-0.5 border-neutral-200 *:border-neutral-200"
     },
     variants: {
       spacing: {

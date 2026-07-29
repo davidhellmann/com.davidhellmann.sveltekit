@@ -8,9 +8,10 @@
 
   const tvLightboxPhotos = tv({
     slots: {
-      slotRoot: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 pointer-events-none",
+      slotRoot: "sm:columns-2 lg:columns-3 gap-8 space-y-8 pointer-events-none",
       slotItem:
-        "@container cursor-zoom-in group"
+      "@container relative cursor-zoom-in flex-col flex flex-nowrap items-center group break-inside-avoid",
+      slotExif: "absolute bottom-4 left-4 right-4 bg-white p-2 transition translate-y-12 opacity-0 group-hover:translate-y-0 group-hover:opacity-100"
     }
   });
 
@@ -32,7 +33,7 @@
     }))
   );
 
-  const { slotRoot, slotItem } = tvLightboxPhotos({ className });
+  const { slotRoot, slotItem, slotExif } = tvLightboxPhotos({ className });
 </script>
 
 {#if images}
@@ -46,7 +47,7 @@
         <div class="overflow-hidden w-full">
           <Image
             className={cn(
-              "w-full pointer-events-auto cursor-zoom-in aspect-instagram group-hover:scale-105 transition-transform",
+              "w-full pointer-events-auto cursor-zoom-in group-hover:scale-105 transition-transform",
               ratio
             )}
             noscript={false}
@@ -57,7 +58,7 @@
           />
         </div>
         {#if image?.__typename === "images_Asset" && image?.exif}
-          <Exif className="w-full mt-2" showCamera={false} spacing="compact" exif={image?.exif} />
+          <Exif className={slotExif()} showCamera={false} spacing="compact" exif={image?.exif} />
         {/if}
       </li>
     {/each}
