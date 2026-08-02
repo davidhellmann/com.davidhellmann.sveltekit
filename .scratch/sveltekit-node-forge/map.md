@@ -22,6 +22,7 @@ The map is complete when implementation can begin without further architectural 
 <!-- Decisions are added here only when their tickets are resolved. -->
 
 - [Specify the prerender and SSR boundary](issues/01-specify-rendering-boundary.md) — Use full runtime rendering for every route, remove all content `entries()` generators and the prerender crawler configuration, and let code deploys remain independent of CMS publishing.
+- [Specify the Node release and environment contract](issues/02-specify-release-and-environment-contract.md) — Build each immutable release in place with pinned Node and pnpm, pruned production dependencies, and a validated per-site runtime `.env`; staging and production deliberately share only the read-only Craft upstream credentials.
 
 ## Not yet specified
 
