@@ -2,16 +2,16 @@ fragment page_photosSingle on page_photosSingle_Entry {
   # Entry Data
   ...entry_data
   ...entry_dates
-  ...entry_seo
-  ...entry_prev
-  ...entry_next
+  ...entry_seo @include(if: $fullContent)
+  ...entry_prev @include(if: $fullContent)
+  ...entry_next @include(if: $fullContent)
 
   # Author Data
-  ...author_data
+  ...author_data @include(if: $fullContent)
 
-  description
-  descriptionPlain: description @stripTags
-  customTitle
+  description @include(if: $fullContent)
+  descriptionPlain: description @stripTags @include(if: $fullContent)
+  customTitle @include(if: $fullContent)
   image {
     ...asset_data
     ...asset_transforms

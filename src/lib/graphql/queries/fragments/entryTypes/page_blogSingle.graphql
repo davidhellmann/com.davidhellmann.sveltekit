@@ -2,22 +2,22 @@ fragment page_blogSingle on page_blogSingle_Entry {
   # Entry Data
   ...entry_data
   ...entry_dates
-  ...entry_seo
-  ...entry_prev
-  ...entry_next
+  ...entry_seo @include(if: $fullContent)
+  ...entry_prev @include(if: $fullContent)
+  ...entry_next @include(if: $fullContent)
 
   # Author Data
-  ...author_data
+  ...author_data @include(if: $fullContent)
 
-  description
+  description @include(if: $fullContent)
   descriptionPlain: description @stripTags
   customTitle
-  image {
+  image @include(if: $fullContent) {
     ...asset_data
     ...asset_transforms
     ...asset_customFields
   }
-  contentBuilder {
+  contentBuilder @include(if: $fullContent) {
     ...matrix_contentBuilder
   }
 

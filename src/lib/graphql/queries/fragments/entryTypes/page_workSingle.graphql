@@ -2,14 +2,14 @@ fragment page_workSingle on page_workSingle_Entry {
   # Entry Data
   ...entry_data
   ...entry_dates
-  ...entry_seo
-  ...entry_prev
-  ...entry_next
+  ...entry_seo @include(if: $fullContent)
+  ...entry_prev @include(if: $fullContent)
+  ...entry_next @include(if: $fullContent)
 
   # Author Data
-  ...author_data
+  ...author_data @include(if: $fullContent)
 
-  description
+  description @include(if: $fullContent)
   descriptionPlain: description @stripTags
   customTitle
   image {
@@ -17,23 +17,23 @@ fragment page_workSingle on page_workSingle_Entry {
     ...asset_transforms
     ...asset_customFields
   }
-  images {
+  images @include(if: $fullContent) {
     ...asset_data
     ...asset_transforms
     ...asset_customFields
   }
-  contentBuilderWork {
+  contentBuilderWork @include(if: $fullContent) {
     ...matrix_contentBuilderWork
   }
-  colors {
+  colors @include(if: $fullContent) {
     color
   }
-  clientWords
-  projectDescription
-  projectLink {
+  clientWords @include(if: $fullContent)
+  projectDescription @include(if: $fullContent)
+  projectLink @include(if: $fullContent) {
     ...hyper_data
   }
-  workAreas {
+  workAreas @include(if: $fullContent) {
     ...page_workArea
   }
   workType {

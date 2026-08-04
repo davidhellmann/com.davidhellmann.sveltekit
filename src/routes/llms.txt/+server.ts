@@ -18,8 +18,8 @@ const line = (e: Entry, section: "blog" | "work") => {
 
 export const GET: RequestHandler = async () => {
   const [blogData, workData] = await Promise.all([
-    getBlogEntriesData({ limit: 12 }),
-    getWorkEntriesData({ limit: -1 })
+    getBlogEntriesData({ limit: 12, fullContent: false }),
+    getWorkEntriesData({ limit: -1, fullContent: false })
   ]);
   const latestBlog = blogData.entries as Entry[];
   const work = workData.entries as Entry[];

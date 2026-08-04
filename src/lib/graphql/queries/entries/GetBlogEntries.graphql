@@ -6,6 +6,7 @@ query GetBlogEntries(
   $slug: [String]
   $orderBy: String = "postDate DESC"
   $relatedToEntries: [EntryRelationCriteriaInput]
+  $fullContent: Boolean! = true
 ) {
   entries(
     site: $site,

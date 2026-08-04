@@ -20,7 +20,7 @@ export const load: PageServerLoad = async ({ params }) => {
 
   const offset = (page - 1) * limit;
   const [{ entries, entryCount }, blogEntry] = await Promise.all([
-    getBlogEntriesData({ limit, offset }),
+    getBlogEntriesData({ limit, offset, fullContent: false }),
     getBlogListPageEntries()
   ]);
   const totalPages = getTotalPages(entryCount, limit);

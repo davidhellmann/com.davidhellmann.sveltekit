@@ -5,6 +5,7 @@ query GetPhotosEntries(
   $offset: Int = 0
   $slug: [String]
   $orderBy: String = "postDate DESC"
+  $fullContent: Boolean! = true
 ) {
   entries(
     site: $site,

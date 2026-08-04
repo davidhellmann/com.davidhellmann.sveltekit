@@ -23,7 +23,8 @@ export const load: PageServerLoad = async ({ params }) => {
         }
       ],
       limit,
-      offset
+      offset,
+      fullContent: false
     }),
     getCategoryEntries(params?.slug)
   ]);

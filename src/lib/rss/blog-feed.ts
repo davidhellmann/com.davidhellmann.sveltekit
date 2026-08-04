@@ -3,7 +3,7 @@ import { parse } from "node-html-parser";
 
 export type BlogFeedEntry = Page_BlogSingleFragment;
 
-type FeedContentBlock = BlogFeedEntry["contentBuilder"][number] | Matrix_ContentBuilderFragment | null | undefined;
+type FeedContentBlock = Matrix_ContentBuilderFragment | null | undefined;
 type RenderableContentBlock = FeedContentBlock | Record<string, unknown>;
 
 type RssLink = {
