@@ -1,15 +1,11 @@
-export const prerender = true;
 import type { PageServerLoad } from "./$types";
-import { getWorkListPageEntries } from "$graphql/cms-content";
-import { getWorkArray } from "$lib/data/work";
+import { getWorkEntriesData, getWorkListPageEntries } from "$graphql/cms-content";
 
 export const load: PageServerLoad = async () => {
-  const workEntries = await getWorkArray();
-
-  const workEntry = await getWorkListPageEntries();
+  const [workEntry, work] = await Promise.all([getWorkListPageEntries(), getWorkEntriesData({ limit: -1 })]);
 
   return {
-    workEntry: workEntry,
-    workEntries: workEntries
+    workEntry,
+    workEntries: work.entries
   };
 };

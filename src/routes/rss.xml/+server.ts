@@ -1,11 +1,9 @@
-export const prerender = true;
-
 import type { RequestHandler } from "./$types";
-import { getBlogArray } from "$lib/data/blog";
+import { getBlogEntriesData } from "$graphql/cms-content";
 import { renderBlogRssFeed } from "$lib/rss/blog-feed";
 import { createRssXmlResponse } from "$lib/rss/response";
 
 export const GET: RequestHandler = async () => {
-  const entries = await getBlogArray();
+  const { entries } = await getBlogEntriesData({ limit: 20 });
   return createRssXmlResponse(renderBlogRssFeed(entries));
 };

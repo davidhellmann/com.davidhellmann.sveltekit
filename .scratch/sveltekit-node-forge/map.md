@@ -26,7 +26,7 @@ The map is complete when implementation can begin without further architectural 
 - [Specify the Forge staging topology](issues/03-specify-staging-topology.md) — Run `stage.davidhellmann.com` as an independently protected Forge site on port 3001 with its own release tree, daemon, proxy, environment, and optional `stage`-branch workflow while mirroring production everywhere else.
 - [Design activation, healthcheck, and rollback](issues/04-design-deployment-lifecycle.md) — Prepare releases without touching the active process, activate atomically only before a seven-minute safety gate, verify a real SSR page, and automatically restore the persistent last-known-good predecessor on failure.
 - [Specify the Supervisor and Nginx runtime contract](issues/05-specify-runtime-and-proxy-contract.md) — Run one isolated Forge-managed Node process per site behind a non-caching Nginx reverse proxy, with fixed origins, graceful shutdown, proxy-level gzip, adapter-served assets, and an accepted brief restart window.
-- [Specify the request-time Craft data-access contract](issues/09-specify-runtime-data-access.md) — Replace unbounded process caches with direct detail and paginated list queries, bounded Home selections, and lightweight payloads for the few routes that intentionally aggregate complete indexes.
+- [Specify the request-time Craft data-access contract](issues/09-specify-runtime-data-access.md) — Replace unbounded process caches with direct, bounded uses of the three existing full content queries; accept their larger payloads in exchange for fewer GraphQL documents and less maintenance code.
 
 ## Not yet specified
 

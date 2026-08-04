@@ -1,8 +1,5 @@
-export const prerender = true;
-
 import type { RequestHandler } from "./$types";
-import { getBlogArray } from "$lib/data/blog";
-import { getWorkArray } from "$lib/data/work";
+import { getBlogEntriesData, getWorkEntriesData } from "$graphql/cms-content";
 import { SITE_URL } from "$lib/ai/helpers";
 
 type Entry = {
@@ -20,8 +17,12 @@ const line = (e: Entry, section: "blog" | "work") => {
 };
 
 export const GET: RequestHandler = async () => {
-  const [blog, work] = await Promise.all([getBlogArray() as Promise<Entry[]>, getWorkArray() as Promise<Entry[]>]);
-  const latestBlog = blog.slice(0, 12);
+  const [blogData, workData] = await Promise.all([
+    getBlogEntriesData({ limit: 12 }),
+    getWorkEntriesData({ limit: -1 })
+  ]);
+  const latestBlog = blogData.entries as Entry[];
+  const work = workData.entries as Entry[];
 
   const body = [
     "# David Hellmann",

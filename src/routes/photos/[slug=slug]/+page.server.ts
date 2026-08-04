@@ -1,15 +1,12 @@
-export const prerender = true;
-import type { PageServerLoad, EntryGenerator, RouteParams } from "./$types";
-import { getPhotosEntries, getPhotosEntry } from "$lib/data/photos";
-
-export const entries: EntryGenerator = async () => {
-  const cache = await getPhotosEntries();
-  return [...cache.keys()].map((slug) => ({ slug })) as RouteParams[];
-};
+import type { PageServerLoad } from "./$types";
+import { error } from "@sveltejs/kit";
+import { getPhotosEntriesData } from "$graphql/cms-content";
 
 export const load: PageServerLoad = async ({ params }) => {
-  const entry = await getPhotosEntry(params.slug!);
+  const { entries } = await getPhotosEntriesData({ slug: [params.slug!], limit: 1 });
+  const entry = entries[0];
+  if (!entry) error(404, "Photo gallery not found");
   return {
-    entries: entry ? [entry] : []
+    entries
   };
 };

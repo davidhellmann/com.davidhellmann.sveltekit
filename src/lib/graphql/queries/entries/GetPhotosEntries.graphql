@@ -3,6 +3,7 @@ query GetPhotosEntries(
   $section: [String]! = ["photos"]
   $limit: Int = 100
   $offset: Int = 0
+  $slug: [String]
   $orderBy: String = "postDate DESC"
 ) {
   entries(
@@ -10,6 +11,7 @@ query GetPhotosEntries(
     section: $section,
     limit: $limit,
     offset: $offset,
+    slug: $slug,
     orderBy: $orderBy
   ) {
     ...page_photosSingle
@@ -17,5 +19,6 @@ query GetPhotosEntries(
   entryCount(
     site: $site,
     section: $section
+    slug: $slug
   )
 }

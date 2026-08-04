@@ -1,7 +1,6 @@
 import {
   type GetBlogEntriesQueryVariables,
   type GetPhotosEntriesQueryVariables,
-  type GetPrerenderDataQueryVariables,
   type GetSeomaticQueryVariables,
   type GetWorkEntriesQueryVariables,
   type Page_BlogSingleFragment,
@@ -76,11 +75,6 @@ export const getCategoryEntries = async (slug: string | undefined, tokens?: Prev
 
 export const getTopicEntries = async (slug: string | undefined, tokens?: PreviewTokens) =>
   (await sdk(tokens).GetTopicEntry({ slug: [slug] })).entries;
-
-export const getPrerenderData = (
-  variables: GetPrerenderDataQueryVariables,
-  tokens?: PreviewTokens
-) => sdk(tokens).GetPrerenderData(variables);
 
 export const getSeomaticData = (
   variables: GetSeomaticQueryVariables,

@@ -14,7 +14,6 @@ const config: CodegenConfig = {
       }
     }
   ],
-  watch: true,
   documents: ["./src/lib/graphql/queries/**/*.graphql"],
   generates: {
     "./src/lib/graphql/graphql.ts": {

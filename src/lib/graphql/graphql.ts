@@ -1280,6 +1280,7 @@ export type GetBlogEntriesQueryVariables = Exact<{
   section?: Array<string | null | undefined> | string;
   limit?: number | null | undefined;
   offset?: number | null | undefined;
+  slug?: Array<string | null | undefined> | string | null | undefined;
   orderBy?: string | null | undefined;
   relatedToEntries?: Array<EntryRelationCriteriaInput | null | undefined> | EntryRelationCriteriaInput | null | undefined;
 }>;
@@ -2371,6 +2372,7 @@ export type GetPhotosEntriesQueryVariables = Exact<{
   section?: Array<string | null | undefined> | string;
   limit?: number | null | undefined;
   offset?: number | null | undefined;
+  slug?: Array<string | null | undefined> | string | null | undefined;
   orderBy?: string | null | undefined;
 }>;
 
@@ -2670,49 +2672,6 @@ export type GetPhotosListPageQuery = { entries: Array<
     | Record<PropertyKey, never>
   > };
 
-export type GetPrerenderDataQueryVariables = Exact<{
-  site?: Array<string | null | undefined> | string | null | undefined;
-  section?: Array<string | null | undefined> | string;
-  type?: Array<string | null | undefined> | string | null | undefined;
-  limit?: number | null | undefined;
-  offset?: number | null | undefined;
-  relatedToEntries?: Array<EntryRelationCriteriaInput | null | undefined> | EntryRelationCriteriaInput | null | undefined;
-}>;
-
-
-export type GetPrerenderDataQuery = { entryCount: number, entries: Array<
-    | { __typename: 'block_award_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'block_code_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'block_codepen_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'block_cta_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'block_curriculumVitae_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'block_image_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'block_images_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'block_links_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'block_quote_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'block_section_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'block_spacer_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'block_textImage_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'block_text_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'block_video_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'page_about_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'page_blogList_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'page_blogSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'page_category_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'page_company_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'page_contentBuilder_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'page_home_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'page_photosList_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'page_photosSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'page_projectList_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'page_projectSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'page_topic_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'page_workArea_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'page_workList_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-  > };
-
 export type GetSeomaticQueryVariables = Exact<{
   site?: string | null | undefined;
   uri?: string | null | undefined;
@@ -2807,6 +2766,7 @@ export type GetWorkEntriesQueryVariables = Exact<{
   section?: Array<string | null | undefined> | string;
   limit?: number | null | undefined;
   offset?: number | null | undefined;
+  slug?: Array<string | null | undefined> | string | null | undefined;
   orderBy?: string | null | undefined;
 }>;
 
@@ -11219,18 +11179,24 @@ export const GetAboutEntryDocument = gql`
 }
     ${Page_AboutFragmentDoc}`;
 export const GetBlogEntriesDocument = gql`
-    query GetBlogEntries($site: [String] = ["davidhellmann_en"], $section: [String]! = ["blog"], $limit: Int = 100, $offset: Int = 0, $orderBy: String = "postDate DESC", $relatedToEntries: [EntryRelationCriteriaInput]) {
+    query GetBlogEntries($site: [String] = ["davidhellmann_en"], $section: [String]! = ["blog"], $limit: Int = 100, $offset: Int = 0, $slug: [String], $orderBy: String = "postDate DESC", $relatedToEntries: [EntryRelationCriteriaInput]) {
   entries(
     site: $site
     section: $section
     limit: $limit
     offset: $offset
+    slug: $slug
     orderBy: $orderBy
     relatedToEntries: $relatedToEntries
   ) {
     ...page_blogSingle
   }
-  entryCount(site: $site, section: $section, relatedToEntries: $relatedToEntries)
+  entryCount(
+    site: $site
+    section: $section
+    slug: $slug
+    relatedToEntries: $relatedToEntries
+  )
 }
     ${Page_BlogSingleFragmentDoc}`;
 export const GetBlogListPageDocument = gql`
@@ -11268,17 +11234,18 @@ ${Page_CompanyFragmentDoc}
 ${Page_WorkAreaFragmentDoc}
 ${Page_WorkTypeFragmentDoc}`;
 export const GetPhotosEntriesDocument = gql`
-    query GetPhotosEntries($site: [String] = ["davidhellmann_en"], $section: [String]! = ["photos"], $limit: Int = 100, $offset: Int = 0, $orderBy: String = "postDate DESC") {
+    query GetPhotosEntries($site: [String] = ["davidhellmann_en"], $section: [String]! = ["photos"], $limit: Int = 100, $offset: Int = 0, $slug: [String], $orderBy: String = "postDate DESC") {
   entries(
     site: $site
     section: $section
     limit: $limit
     offset: $offset
+    slug: $slug
     orderBy: $orderBy
   ) {
     ...page_photosSingle
   }
-  entryCount(site: $site, section: $section)
+  entryCount(site: $site, section: $section, slug: $slug)
 }
     ${Page_PhotosSingleFragmentDoc}`;
 export const GetPhotosListPageDocument = gql`
@@ -11293,26 +11260,6 @@ export const GetPhotosListPageDocument = gql`
   }
 }
     ${Page_PhotosListFragmentDoc}`;
-export const GetPrerenderDataDocument = gql`
-    query GetPrerenderData($site: [String] = ["davidhellmann_en"], $section: [String]! = ["blog"], $type: [String], $limit: Int = -1, $offset: Int = 0, $relatedToEntries: [EntryRelationCriteriaInput]) {
-  entries(
-    site: $site
-    section: $section
-    type: $type
-    limit: $limit
-    offset: $offset
-    relatedToEntries: $relatedToEntries
-  ) {
-    ...entry_data
-  }
-  entryCount(
-    site: $site
-    section: $section
-    type: $type
-    relatedToEntries: $relatedToEntries
-  )
-}
-    ${Entry_DataFragmentDoc}`;
 export const GetSeomaticDocument = gql`
     query GetSeomatic($site: String = "davidhellmann_en", $uri: String, $asArray: Boolean = true) {
   seomatic(site: $site, uri: $uri, asArray: $asArray) {
@@ -11343,17 +11290,18 @@ export const GetTopicEntryDocument = gql`
 }
     ${Page_TopicFragmentDoc}`;
 export const GetWorkEntriesDocument = gql`
-    query GetWorkEntries($site: [String] = ["davidhellmann_en"], $section: [String]! = ["work"], $limit: Int = 100, $offset: Int = 0, $orderBy: String = "postDate DESC") {
+    query GetWorkEntries($site: [String] = ["davidhellmann_en"], $section: [String]! = ["work"], $limit: Int = 100, $offset: Int = 0, $slug: [String], $orderBy: String = "postDate DESC") {
   entries(
     site: $site
     section: $section
     limit: $limit
     offset: $offset
+    slug: $slug
     orderBy: $orderBy
   ) {
     ...page_workSingle
   }
-  entryCount(site: $site, section: $section)
+  entryCount(site: $site, section: $section, slug: $slug)
 }
     ${Page_WorkSingleFragmentDoc}`;
 export const GetWorkListPageDocument = gql`
@@ -11394,9 +11342,6 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     },
     GetPhotosListPage(variables?: GetPhotosListPageQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<GetPhotosListPageQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetPhotosListPageQuery>({ document: GetPhotosListPageDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'GetPhotosListPage', 'query', variables);
-    },
-    GetPrerenderData(variables?: GetPrerenderDataQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<GetPrerenderDataQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetPrerenderDataQuery>({ document: GetPrerenderDataDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'GetPrerenderData', 'query', variables);
     },
     GetSeomatic(variables?: GetSeomaticQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<GetSeomaticQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetSeomaticQuery>({ document: GetSeomaticDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'GetSeomatic', 'query', variables);

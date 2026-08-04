@@ -3,6 +3,7 @@ query GetWorkEntries(
   $section: [String]! = ["work"]
   $limit: Int = 100
   $offset: Int = 0
+  $slug: [String]
   $orderBy: String = "postDate DESC"
 ) {
   entries(
@@ -10,6 +11,7 @@ query GetWorkEntries(
     section: $section,
     limit: $limit,
     offset: $offset,
+    slug: $slug,
     orderBy: $orderBy
   ) {
     ...page_workSingle
@@ -17,5 +19,6 @@ query GetWorkEntries(
   entryCount(
     site: $site,
     section: $section
+    slug: $slug
   )
 }

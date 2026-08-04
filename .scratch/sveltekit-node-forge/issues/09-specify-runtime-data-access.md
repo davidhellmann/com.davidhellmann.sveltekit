@@ -61,3 +61,14 @@ The `/work` and `/llms-full.txt` complete reads and the bounded RSS read are del
 - A missing detail entry returns an actual `404`; it does not return an empty successful page.
 - Existing canonical first-page and out-of-range archive redirects remain.
 - A Craft transport or GraphQL error propagates as a visible server failure. Do not silently return an empty result or stale process data. Any future stale-on-error behavior belongs exclusively to the explicit Nginx cache decision.
+
+## Amendment — 2026-08-04
+
+During implementation, the user deliberately replaced the payload-shaping part of this answer with a simpler query contract:
+
+- Reuse the existing full `GetBlogEntries`, `GetPhotosEntries`, and `GetWorkEntries` operations for Home, archives, detail routes, RSS, and LLM endpoints.
+- Add only the variables needed for request-time access (`slug`, existing `limit`, and existing `offset`); do not add separate Card/List/Index operations or fragments.
+- The route limits, offsets, parallel loading, Home selection behavior, direct detail lookups, real 404s, removal of the process cache, and visible Craft failures remain unchanged.
+- The larger Craft responses and HTML serialization cost are explicitly accepted in exchange for fewer GraphQL documents and less query-maintenance code. Staging validation must measure the resulting cold and warm behavior before production cutover.
+
+This amendment supersedes the earlier “Query shapes” section and every lightweight-fragment requirement in the route table. It does not restore the removed process-local cache or full-collection fetches for paginated routes.

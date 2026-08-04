@@ -1,15 +1,12 @@
-export const prerender = true;
-import type { PageServerLoad, EntryGenerator, RouteParams } from "./$types";
-import { getBlogEntries, getBlogEntry } from "$lib/data/blog";
-
-export const entries: EntryGenerator = async () => {
-  const cache = await getBlogEntries();
-  return [...cache.keys()].map((slug) => ({ slug })) as RouteParams[];
-};
+import type { PageServerLoad } from "./$types";
+import { error } from "@sveltejs/kit";
+import { getBlogEntriesData } from "$graphql/cms-content";
 
 export const load: PageServerLoad = async ({ params }) => {
-  const entry = await getBlogEntry(params.slug!);
+  const { entries } = await getBlogEntriesData({ slug: [params.slug!], limit: 1 });
+  const entry = entries[0];
+  if (!entry) error(404, "Blog post not found");
   return {
-    entries: entry ? [entry] : []
+    entries
   };
 };
