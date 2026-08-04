@@ -3,6 +3,7 @@
 set -Eeuo pipefail
 
 readonly EXPECTED_NODE_MAJOR="22"
+readonly MINIMUM_NODE_MINOR="13"
 readonly EXPECTED_PNPM_VERSION="10.28.2"
 readonly MAX_RELEASES=5
 readonly PRE_ACTIVATION_LIMIT_SECONDS=420
@@ -108,8 +109,14 @@ validate_environment() {
 }
 
 validate_toolchain() {
-  [[ "$(node --print 'process.versions.node.split(".")[0]')" == "$EXPECTED_NODE_MAJOR" ]] \
-    || fail "Expected Node $EXPECTED_NODE_MAJOR.x, found $(node --version)"
+  local node_version
+  local node_major
+  local node_minor
+
+  node_version="$(node --print 'process.versions.node')"
+  IFS=. read -r node_major node_minor _ <<< "$node_version"
+  [[ "$node_major" == "$EXPECTED_NODE_MAJOR" && "$node_minor" -ge "$MINIMUM_NODE_MINOR" ]] \
+    || fail "Expected Node >=$EXPECTED_NODE_MAJOR.$MINIMUM_NODE_MINOR.0 <$((EXPECTED_NODE_MAJOR + 1)), found v$node_version"
   [[ "$(pnpm --version)" == "$EXPECTED_PNPM_VERSION" ]] \
     || fail "Expected pnpm $EXPECTED_PNPM_VERSION, found $(pnpm --version)"
 }
