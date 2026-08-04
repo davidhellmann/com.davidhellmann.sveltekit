@@ -24,6 +24,11 @@ describe("LLM discovery routes", () => {
     expect(existsSync(llmsFullRoutePath)).toBe(true);
   });
 
+  it("uses positive Craft-compatible collection limits", () => {
+    expect(readLlmsRoute()).not.toContain("limit: -1");
+    expect(readLlmsFullRoute()).not.toContain("limit: -1");
+  });
+
   it("links to markdown resources next to their canonical routes", () => {
     expect(readLlmsRoute()).toContain("/about.md");
     expect(readLlmsRoute()).toContain("${section}/${e.slug}.md");
