@@ -1,10 +1,5 @@
 <script lang="ts">
-  import type {
-    Entry_DataFragment,
-    Entry_DatesFragment,
-    Entry_SeoFragment,
-    Page_PhotosSingleFragment
-  } from "$graphql/graphql";
+  import type { Page_PhotosSingleFragment } from "$graphql/graphql";
   import { tv, type VariantProps } from "$utils/classNames";
   import Pagination from "$components/navigation/Pagination.svelte";
   import Image from "$components/media/Image.svelte";
@@ -28,12 +23,10 @@
     }
   });
 
-  type Entry = Entry_DataFragment & Page_PhotosSingleFragment & Entry_SeoFragment & Entry_DatesFragment;
-
   type StackPhotosProps = {
     compName?: string;
     className?: string;
-    entries: Entry[];
+    entries: Page_PhotosSingleFragment[];
     showPagination?: boolean;
     totalItems?: number;
     totalPages?: number;

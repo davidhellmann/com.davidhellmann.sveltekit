@@ -1,7 +1,7 @@
 import { GraphQLClient } from "graphql-request";
 import type { RequestDocument } from "graphql-request";
 import { getSdk } from "$graphql/graphql";
-import { GQL_API_URL, GQL_API_TOKEN } from "$env/static/private";
+import { env } from "$env/dynamic/private";
 
 type IHeaders = {
   Authorization: string;
@@ -15,10 +15,10 @@ export type PreviewTokens = {
 };
 
 export const cmsClient = (tokens: PreviewTokens = {}) => {
-  const GQL_URL = GQL_API_URL ?? "";
+  const GQL_URL = env.GQL_API_URL ?? "";
 
   const headers: IHeaders = {
-    Authorization: `Bearer ${GQL_API_TOKEN}`
+    Authorization: `Bearer ${env.GQL_API_TOKEN ?? ""}`
   };
 
   let API_URL = GQL_URL;

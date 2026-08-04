@@ -1,24 +1,23 @@
-export const prerender = true;
 import type { PageServerLoad } from "./$types";
-import { getHomeEntries } from "$graphql/cms-content";
-import { getBlogArray } from "$lib/data/blog";
-import { getWorkArray } from "$lib/data/work";
-import { getPhotosArray } from "$lib/data/photos";
+import { getBlogEntriesData, getHomeEntries, getPhotosEntriesData, getWorkEntriesData } from "$graphql/cms-content";
 
 // Shuffle array helper
 const shuffle = <T>(array: T[]): T[] => [...array].sort(() => Math.random() - 0.5);
 
 export const load: PageServerLoad = async () => {
-  const entries = await getHomeEntries();
+  const [entries, blog, work, photos] = await Promise.all([
+    getHomeEntries(),
+    getBlogEntriesData({ limit: 3, fullContent: false }),
+    getWorkEntriesData({ limit: 4, fullContent: false }),
+    getPhotosEntriesData({ limit: 20, fullContent: false })
+  ]);
 
-  const blogEntries = (await getBlogArray()).slice(0, 3);
-  const workEntries = shuffle(await getWorkArray()).slice(0, 4);
-  const photoEntries = shuffle(await getPhotosArray()).slice(0, 4);
+  const photoEntries = shuffle(photos.entries).slice(0, 4);
 
   return {
-    entries: entries,
-    blogEntries: blogEntries,
-    workEntries: workEntries,
-    photoEntries: photoEntries
+    entries,
+    blogEntries: blog.entries,
+    workEntries: work.entries,
+    photoEntries
   };
 };

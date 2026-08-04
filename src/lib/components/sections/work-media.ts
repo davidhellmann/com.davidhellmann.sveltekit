@@ -1,10 +1,11 @@
 import type { Page_WorkSingleFragment } from "$graphql/graphql";
 
 type WorkEntryMedia = Pick<Page_WorkSingleFragment, "contentBuilderWork" | "images"> | undefined;
-type WorkMediaSourceBlock = NonNullable<WorkEntryMedia>["contentBuilderWork"][number] | null | undefined;
+type WorkMediaSourceBlock = NonNullable<NonNullable<WorkEntryMedia>["contentBuilderWork"]>[number] | null | undefined;
+type WorkImages = NonNullable<NonNullable<WorkEntryMedia>["images"]>;
 
 export type WorkMediaGroup = {
-  images: NonNullable<WorkEntryMedia>["images"];
+  images: WorkImages;
   ratio?: string;
 };
 
@@ -21,7 +22,7 @@ const isWorkImagesBlock = (
 export const resolveWorkMediaGroups = (entry: WorkEntryMedia): WorkMediaGroup[] => {
   if (!entry) return [];
 
-  const builderGroups = entry.contentBuilderWork.flatMap((block): WorkMediaGroup[] => {
+  const builderGroups = (entry.contentBuilderWork ?? []).flatMap((block): WorkMediaGroup[] => {
     if (isWorkImageBlock(block) && block.image[0]) {
       return [
         {
@@ -47,7 +48,7 @@ export const resolveWorkMediaGroups = (entry: WorkEntryMedia): WorkMediaGroup[] 
     return builderGroups;
   }
 
-  if (entry.images.length > 0) {
+  if (entry.images?.length) {
     return [
       {
         images: entry.images
