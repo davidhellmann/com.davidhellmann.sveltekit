@@ -10,6 +10,7 @@
   import Time from "svelte-time";
   import { useWaypoint } from "$lib/actions/action.waypoint";
   import { toDateTimeString } from "$utils/date";
+  import type { ComponentProps } from "svelte";
 
   type Entry = Page_WorkSingleFragment;
 
@@ -50,6 +51,7 @@
     entries: Entry[];
     limit?: number;
     random?: boolean;
+    imageFetchPriority?: ComponentProps<typeof Image>["fetchPriority"];
   } & VariantProps<typeof tvGridBentoWork>;
 
   let {
@@ -58,6 +60,7 @@
     entries,
     limit,
     random = false,
+    imageFetchPriority = "auto",
     theme = "light"
   }: GridBentoWorkProps = $props();
 
@@ -140,6 +143,7 @@
                 className={slotImage()}
                 image={entry?.image[0]}
                 focalPoint={[0, 0]}
+                fetchPriority={imageFetchPriority}
                 sizes={imageSizes[layoutIndex]}
               />
             </div>

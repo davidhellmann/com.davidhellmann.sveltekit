@@ -14,3 +14,13 @@ describe("Header accessibility", () => {
     expect(homeLink).toContain('aria-label="Home"');
   });
 });
+
+describe("Header image stability", () => {
+  it("gives the logo image intrinsic dimensions", () => {
+    const logoImage = headerSource().match(/<img\b[^>]*src=\{meHi\}[^>]*>/s)?.[0];
+
+    expect(logoImage).toBeDefined();
+    expect(logoImage).toContain('width="240"');
+    expect(logoImage).toContain('height="240"');
+  });
+});

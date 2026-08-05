@@ -111,7 +111,7 @@
         <div class={cc.bigText} use:useFullWidthText><span>working</span></div>
       </div>
       <Headline className={cc.bigTextOverlay} text="work." />
-      <GridBentoWork className="span-content -mt-6 mb-24 z-10" entries={workEntries} />
+      <GridBentoWork className="span-content -mt-6 mb-24 z-10" entries={workEntries} imageFetchPriority="low" />
     </div>
   {/if}
 
@@ -124,7 +124,13 @@
       <div class={`${cc.cardGrid} ${cc.cardGridPhotos}`} use:useWaypoint data-waypoint>
         {#each photoEntries as entry (entry.id)}
           {#if entry?.title && entry?.url && entry?.image}
-            <CardPhotos className="is-zoomInUp" headline={entry.title} url={entry?.url} image={entry?.image[0]} />
+            <CardPhotos
+              className="is-zoomInUp"
+              headline={entry.title}
+              url={entry?.url}
+              image={entry?.image[0]}
+              fetchPriority="low"
+            />
           {/if}
         {/each}
       </div>

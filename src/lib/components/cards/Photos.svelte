@@ -23,9 +23,10 @@
     headline: string;
     url: string;
     image: ComponentProps<typeof Image>["image"];
+    fetchPriority?: ComponentProps<typeof Image>["fetchPriority"];
   } & VariantProps<typeof tvCardPhotos>;
 
-  let { compName = "CardPhotos", className, headline, url, image }: CardPhotosProps = $props();
+  let { compName = "CardPhotos", className, headline, url, image, fetchPriority = "auto" }: CardPhotosProps = $props();
   const _headline = $derived(headline?.split(" (")?.[0] ?? headline);
 
   const { slotBase, slotImage, slotContent, slotHeadline, slotExif } = tvCardPhotos({ className });
@@ -42,7 +43,12 @@
     {#if image}
       <Polaroid>
         <div class={slotImage({})}>
-          <Image {image} noscript={false} className="transition-all group-hover:scale-105 aspect-instagram" />
+          <Image
+            {image}
+            {fetchPriority}
+            noscript={false}
+            className="transition-all group-hover:scale-105 aspect-instagram"
+          />
         </div>
         <div class={slotContent()}>
           {#if image?.__typename === "images_Asset" && image?.exif}

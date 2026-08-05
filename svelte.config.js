@@ -14,7 +14,7 @@ const config = {
       out: "build",
       precompress: false
     }),
-    inlineStyleThreshold: 5000,
+    inlineStyleThreshold: 100000,
     alias: {
       $components: "src/lib/components",
       $graphql: "src/lib/graphql",
