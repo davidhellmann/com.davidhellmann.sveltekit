@@ -1,19 +1,14 @@
 import { sequence } from "@sveltejs/kit/hooks";
 import { type Handle } from "@sveltejs/kit";
 
-const criticalFontPaths = ["hinted-Geomanist-Ultra", "poppins-latin-700-normal", "bitter-latin-wght-normal"] as const;
-
-export const shouldPreloadAsset = (type: string, path: string) => {
-  if (type === "font") {
-    return path.endsWith(".woff2") && criticalFontPaths.some((fontPath) => path.includes(fontPath));
-  }
-
-  return type === "js" || type === "css";
-};
-
 const preloadFonts: Handle = async ({ event, resolve }) => {
   return resolve(event, {
-    preload: ({ type, path }) => shouldPreloadAsset(type, path)
+    preload: ({ type, path }) => {
+      // Fontsource-CSS listet pro Schnitt woff2 + legacy woff. Nur woff2
+      // vorladen, sonst zieht SvelteKit die ungenutzte woff-Fallback mit.
+      if (type === "font") return path.endsWith(".woff2");
+      return type === "js" || type === "css";
+    }
   });
 };
 
