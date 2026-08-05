@@ -20,7 +20,7 @@ export const load: PageServerLoad = async ({ params }) => {
 
   const offset = (page - 1) * limit;
   const [{ entries, entryCount }, photosEntry] = await Promise.all([
-    getPhotosEntriesData({ limit, offset, fullContent: false }),
+    getPhotosEntriesData({ limit, offset, fullContent: false, listContent: true }),
     getPhotosListPageEntries()
   ]);
   const totalPages = getTotalPages(entryCount, limit);

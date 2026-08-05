@@ -17,13 +17,20 @@ fragment page_photosSingle on page_photosSingle_Entry {
     ...asset_transforms
     ...asset_customFields
   }
-  images {
+  images @include(if: $fullContent) {
     ...asset_data
     ...asset_transforms
     ...asset_customFields
   }
 
-  previewImages: images (limit: 4, orderBy: "RAND()") {
+  archiveImages: images @include(if: $listContent) {
+    id
+    ... on images_Asset {
+      exif
+    }
+  }
+
+  previewImages: images (limit: 4, orderBy: "RAND()") @include(if: $listContent) {
     ...asset_data
     ...asset_transforms
     ...asset_customFields
