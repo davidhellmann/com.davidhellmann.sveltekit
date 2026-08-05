@@ -33,7 +33,7 @@
     <h1
       class={`${slotLogo()} ${scrollY > 100 ? "pointer-events-none -translate-y-4 scale-90 opacity-0 md:pointer-events-auto md:-translate-y-10 md:opacity-100" : ""}`}
     >
-      <a data-waypoint-target class={slotLogoLink()} href={resolve("/")}>
+      <a data-waypoint-target class={slotLogoLink()} href={resolve("/")} aria-label="Home">
         <img src={meHi} alt="" />
       </a>
     </h1>
