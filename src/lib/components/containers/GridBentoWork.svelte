@@ -140,7 +140,6 @@
                 className={slotImage()}
                 image={entry?.image[0]}
                 focalPoint={[0, 0]}
-                lazy={i > 1}
                 sizes={imageSizes[layoutIndex]}
               />
             </div>
