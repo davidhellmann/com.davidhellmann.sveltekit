@@ -28,7 +28,6 @@
   main::after {
     content: "";
     isolation: isolate;
-    backdrop-filter: blur(8px);
     background-color: rgba(231, 229, 228, 0.9);
     box-shadow:
       rgb(255, 255, 255) 0 0 0 0,

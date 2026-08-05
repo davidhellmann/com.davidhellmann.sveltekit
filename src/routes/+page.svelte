@@ -145,7 +145,6 @@
     content: "";
     isolation: isolate;
     background-color: var(--color-neutral-900);
-    backdrop-filter: blur(8px);
     box-shadow:
       rgba(255, 255, 255, 1) 0 0 0 0,
       rgba(255, 255, 255, 1) 0 0 0 1px,
