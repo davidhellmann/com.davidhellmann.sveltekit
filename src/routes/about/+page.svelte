@@ -34,7 +34,15 @@
 {/if}
 
 {#if entry?.heroImage}
-  <Image className={cc.heroImage} lazy={false} noscript={false} image={entry?.heroImage[0]} />
+  <Image
+    className={cc.heroImage}
+    lazy={false}
+    fetchPriority="high"
+    preload={true}
+    noscript={false}
+    image={entry?.heroImage[0]}
+    sizes="(min-width: 2000px) 1800px, (min-width: 1024px) calc(100vw - 4vw), 100vw"
+  />
 {/if}
 <div class="fluid-grid">
   <Glass preset="glass-home" className={cc.glass}>

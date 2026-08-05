@@ -112,6 +112,7 @@
                           className="hover:scale-105 transition-transform size-full aspect-instagram"
                           {image}
                           lazy={!(i === 0 && j === 0)}
+                          fetchPriority={i === 0 && j === 0 ? "high" : "auto"}
                           sizes="(min-width: 1024px) 25vw, 100vw"
                         />
                       </div>

@@ -9,9 +9,9 @@
   const tvLightboxPhotos = tv({
     slots: {
       slotRoot: "columns-2 lg:columns-3 gap-4 lg:gap-8 space-y-4 md:space-y-8 pointer-events-none",
-      slotItem:
-      "@container relative cursor-zoom-in flex-col flex flex-nowrap items-center group break-inside-avoid",
-      slotExif: "absolute bottom-4 left-4 right-4 bg-white p-2 transition translate-y-12 opacity-0 group-hover:translate-y-0 group-hover:opacity-100"
+      slotItem: "@container relative cursor-zoom-in flex-col flex flex-nowrap items-center group break-inside-avoid",
+      slotExif:
+        "absolute bottom-4 left-4 right-4 bg-white p-2 transition translate-y-12 opacity-0 group-hover:translate-y-0 group-hover:opacity-100"
     }
   });
 
@@ -54,6 +54,7 @@
             {image}
             index={i}
             lazy={i > 0}
+            fetchPriority={i === 0 ? "high" : "auto"}
             sizes="(min-width: 1024px) 33vw, 50vw"
           />
         </div>

@@ -55,6 +55,7 @@
             {image}
             focalPoint={[0.5, 0]}
             lazy={i > 0}
+            fetchPriority={i === 0 ? "high" : "auto"}
             sizes="(min-width: 1024px) 50vw, 100vw"
             noscript={false}
           />
