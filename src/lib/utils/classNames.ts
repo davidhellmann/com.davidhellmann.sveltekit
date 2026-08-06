@@ -1,6 +1,6 @@
 import { type ClassValue, clsx } from "clsx";
 import { createTailwindMerge, getDefaultConfig } from "tailwind-merge";
-import { createTV, type VariantProps, type TV, tv as tvBase } from "tailwind-variants";
+import { type VariantProps, type TV, tv as tvBase } from "tailwind-variants";
 
 const defaultConfig = getDefaultConfig();
 const customConfig = {
@@ -13,7 +13,8 @@ const customConfig = {
       "stack-space-inherit",
       "stack-space-collapse"
     ],
-    aspect: ["aspect-instagram", "aspect-landscape", "aspect-portrait"],
+    aspect: [
+      ...defaultConfig.classGroups.aspect,"aspect-instagram", "aspect-landscape", "aspect-portrait"],
     span: ["span-full", "span-popout", "span-content", "span-md", "span-lg", "span-xl"]
   },
   theme: {
@@ -35,10 +36,6 @@ const customTwMerge = createTailwindMerge(() => {
 const cn = (...inputs: ClassValue[]) => {
   return customTwMerge(clsx(inputs));
 };
-
-// const tv = createTV({
-//   twMergeConfig: customConfig
-// });
 
 const tv: TV = (options, config) =>
   tvBase(options, {

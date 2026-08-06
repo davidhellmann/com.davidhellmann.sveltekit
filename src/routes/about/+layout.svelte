@@ -29,7 +29,6 @@
       max-width: min(calc(100% - 4vw), 2000px);
     }
     isolation: isolate;
-    backdrop-filter: blur(var(--blur-sm));
     position: fixed;
     top: 0;
     height: 100dvh;

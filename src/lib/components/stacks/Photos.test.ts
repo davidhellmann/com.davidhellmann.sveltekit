@@ -18,3 +18,20 @@ describe("Photos stack post date", () => {
     expect(source).toMatch(/<Time[\s\S]*timestamp=\{entry\?\.postDate\}[\s\S]*\/>/);
   });
 });
+
+describe("Photos stack archive projection", () => {
+  it("uses lightweight archive metadata for the count and EXIF summary", () => {
+    const source = readPhotosComponent();
+
+    expect(source).toContain("entry?.archiveImages ?? []");
+    expect(source).toContain("getExifData(archiveImages)");
+    expect(source).toContain("{archiveImages.length}");
+  });
+
+  it("renders the dedicated preview image projection", () => {
+    const source = readPhotosComponent();
+
+    expect(source).toContain("entry?.previewImages ?? []");
+    expect(source).toContain("{#each previewImages as image, j (image.id)}");
+  });
+});
