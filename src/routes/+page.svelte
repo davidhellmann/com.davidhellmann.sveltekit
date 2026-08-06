@@ -54,6 +54,8 @@
     <Image
       className={cc.heroImage}
       lazy={false}
+      fetchPriority="high"
+      preload={true}
       noscript={false}
       image={entry?.heroImage[0]}
       sizes="(min-width: 2000px) 1800px, (min-width: 1024px) calc(100vw - 4vw), 100vw"
@@ -109,7 +111,7 @@
         <div class={cc.bigText} use:useFullWidthText><span>working</span></div>
       </div>
       <Headline className={cc.bigTextOverlay} text="work." />
-      <GridBentoWork className="span-content -mt-6 mb-24 z-10" entries={workEntries} limit={4} random={true} />
+      <GridBentoWork className="span-content -mt-6 mb-24 z-10" entries={workEntries} imageFetchPriority="low" />
     </div>
   {/if}
 
@@ -122,7 +124,13 @@
       <div class={`${cc.cardGrid} ${cc.cardGridPhotos}`} use:useWaypoint data-waypoint>
         {#each photoEntries as entry (entry.id)}
           {#if entry?.title && entry?.url && entry?.image}
-            <CardPhotos className="is-zoomInUp" headline={entry.title} url={entry?.url} image={entry?.image[0]} />
+            <CardPhotos
+              className="is-zoomInUp"
+              headline={entry.title}
+              url={entry?.url}
+              image={entry?.image[0]}
+              fetchPriority="low"
+            />
           {/if}
         {/each}
       </div>
@@ -143,7 +151,6 @@
     content: "";
     isolation: isolate;
     background-color: var(--color-neutral-900);
-    backdrop-filter: blur(8px);
     box-shadow:
       rgba(255, 255, 255, 1) 0 0 0 0,
       rgba(255, 255, 255, 1) 0 0 0 1px,

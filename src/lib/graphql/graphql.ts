@@ -612,9 +612,9 @@ export type GetAboutEntryQueryVariables = Exact<{
 
 export type GetAboutEntryQuery = { entries: Array<
     | { __typename: 'page_about_Entry', description: string, customTitle: string, aboutMeRichText: string, sliderHeadingI: string, sliderRichTextI: string, sliderHeadingII: string, sliderRichTextII: string, sliderHeadingIII: string, sliderRichTextIII: string, awardsRichText: string, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, descriptionPlain: string, postDate: unknown, postDateDay: unknown, postDateMonth: unknown, postDateYear: unknown, expireDate: unknown, postUpdateDate: unknown, timezone: unknown, image: Array<
-        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
             | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -646,11 +646,11 @@ export type GetAboutEntryQuery = { entries: Array<
             | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
           > }
-        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
       >, heroImage: Array<
-        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
             | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -682,11 +682,11 @@ export type GetAboutEntryQuery = { entries: Array<
             | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
           > }
-        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
       >, imageSliderI: Array<
-        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
             | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -718,11 +718,11 @@ export type GetAboutEntryQuery = { entries: Array<
             | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
           > }
-        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
       >, imageSliderII: Array<
-        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
             | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -754,11 +754,11 @@ export type GetAboutEntryQuery = { entries: Array<
             | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
           > }
-        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
       >, imageSliderIII: Array<
-        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
             | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -790,12 +790,12 @@ export type GetAboutEntryQuery = { entries: Array<
             | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
           > }
-        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
       >, awards: Array<{ __typename: 'block_award_Entry', award: string, date: unknown, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, company: Array<
           | { __typename: 'page_company_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, postDate: unknown, postDateDay: unknown, postDateMonth: unknown, postDateYear: unknown, expireDate: unknown, postUpdateDate: unknown, timezone: unknown, logoMonochrome: Array<
-              | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-              | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-              | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+              | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+              | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+              | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
                   | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
                   | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
                   | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -827,11 +827,11 @@ export type GetAboutEntryQuery = { entries: Array<
                   | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
                   | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
                 > }
-              | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+              | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
             >, logoColor: Array<
-              | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-              | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-              | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+              | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+              | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+              | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
                   | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
                   | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
                   | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -863,7 +863,7 @@ export type GetAboutEntryQuery = { entries: Array<
                   | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
                   | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
                 > }
-              | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+              | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
             >, hyperLink: Array<
               | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
               | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -958,16 +958,16 @@ export type GetAboutEntryQuery = { entries: Array<
               | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
               | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
             , authors: Array<{ id: string, fullName: string, photo:
-                | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-                | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-                | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-                | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+                | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+                | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+                | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+                | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
                }> }
           | Record<PropertyKey, never>
         >, image: Array<
-          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
               | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
               | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
               | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -999,7 +999,7 @@ export type GetAboutEntryQuery = { entries: Array<
               | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
               | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             > }
-          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
         >, hyperLink: Array<
           | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
           | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -1033,9 +1033,9 @@ export type GetAboutEntryQuery = { entries: Array<
           | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         > }>, curriculumVitae: Array<{ __typename: 'block_curriculumVitae_Entry', position: string, location: string, currentPosition: boolean, dateStart: unknown, dateEnd: unknown, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, company: Array<
           | { __typename: 'page_company_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, postDate: unknown, postDateDay: unknown, postDateMonth: unknown, postDateYear: unknown, expireDate: unknown, postUpdateDate: unknown, timezone: unknown, logoMonochrome: Array<
-              | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-              | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-              | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+              | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+              | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+              | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
                   | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
                   | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
                   | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -1067,11 +1067,11 @@ export type GetAboutEntryQuery = { entries: Array<
                   | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
                   | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
                 > }
-              | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+              | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
             >, logoColor: Array<
-              | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-              | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-              | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+              | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+              | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+              | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
                   | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
                   | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
                   | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -1103,7 +1103,7 @@ export type GetAboutEntryQuery = { entries: Array<
                   | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
                   | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
                 > }
-              | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+              | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
             >, hyperLink: Array<
               | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
               | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -1198,10 +1198,10 @@ export type GetAboutEntryQuery = { entries: Array<
               | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
               | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
             , authors: Array<{ id: string, fullName: string, photo:
-                | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-                | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-                | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-                | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+                | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+                | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+                | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+                | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
                }> }
           | Record<PropertyKey, never>
         > }>, seomatic: { metaTagContainer: string, metaLinkContainer: string, metaTitleContainer: string, metaJsonLdContainer: string }, prev:
@@ -1267,10 +1267,10 @@ export type GetAboutEntryQuery = { entries: Array<
         | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
       , authors: Array<{ id: string, fullName: string, photo:
-          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
          }> }
     | Record<PropertyKey, never>
   > };
@@ -1280,16 +1280,18 @@ export type GetBlogEntriesQueryVariables = Exact<{
   section?: Array<string | null | undefined> | string;
   limit?: number | null | undefined;
   offset?: number | null | undefined;
+  slug?: Array<string | null | undefined> | string | null | undefined;
   orderBy?: string | null | undefined;
   relatedToEntries?: Array<EntryRelationCriteriaInput | null | undefined> | EntryRelationCriteriaInput | null | undefined;
+  fullContent?: boolean;
 }>;
 
 
 export type GetBlogEntriesQuery = { entryCount: number, entries: Array<
-    | { __typename: 'page_blogSingle_Entry', description: string, customTitle: string, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, descriptionPlain: string, postDate: unknown, postDateDay: unknown, postDateMonth: unknown, postDateYear: unknown, expireDate: unknown, postUpdateDate: unknown, timezone: unknown, image: Array<
-        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+    | { __typename: 'page_blogSingle_Entry', description?: string, customTitle: string, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, descriptionPlain: string, postDate: unknown, postDateDay: unknown, postDateMonth: unknown, postDateYear: unknown, expireDate: unknown, postUpdateDate: unknown, timezone: unknown, image?: Array<
+        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
             | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -1321,8 +1323,8 @@ export type GetBlogEntriesQuery = { entryCount: number, entries: Array<
             | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
           > }
-        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      >, contentBuilder: Array<
+        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      >, contentBuilder?: Array<
         | { __typename: 'block_code_Entry', codeSnippetName: string, codeSnippetDescription: string, collapsed: boolean, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, codeSnippet: { language: string, value: string } }
         | { __typename: 'block_cta_Entry', headline: string, description: string, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, hyperLinks: Array<
             | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -1357,9 +1359,9 @@ export type GetBlogEntriesQuery = { entryCount: number, entries: Array<
             | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
           > }
         | { __typename: 'block_image_Entry', imageRatio: string, showCaption: boolean, imageWidth: string, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, image: Array<
-            | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-            | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-            | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+            | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+            | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+            | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
                 | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
                 | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
                 | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -1391,12 +1393,12 @@ export type GetBlogEntriesQuery = { entryCount: number, entries: Array<
                 | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
                 | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
               > }
-            | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+            | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
           > }
         | { __typename: 'block_images_Entry', imageRatio: string, showCaption: boolean, imagesViewMode: string, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, images: Array<
-            | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-            | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-            | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+            | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+            | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+            | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
                 | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
                 | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
                 | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -1428,7 +1430,7 @@ export type GetBlogEntriesQuery = { entryCount: number, entries: Array<
                 | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
                 | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
               > }
-            | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+            | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
           > }
         | { __typename: 'block_quote_Entry', quote: string, source: string, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, hyperLink: Array<
             | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -1526,7 +1528,7 @@ export type GetBlogEntriesQuery = { entryCount: number, entries: Array<
         | { __typename: 'page_workList_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-      >, seomatic: { metaTagContainer: string, metaLinkContainer: string, metaTitleContainer: string, metaJsonLdContainer: string }, prev:
+      >, seomatic?: { metaTagContainer: string, metaLinkContainer: string, metaTitleContainer: string, metaJsonLdContainer: string }, prev?:
         | { __typename: 'block_award_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'block_code_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'block_codepen_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
@@ -1557,7 +1559,7 @@ export type GetBlogEntriesQuery = { entryCount: number, entries: Array<
         | { __typename: 'page_workList_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-      , next:
+      , next?:
         | { __typename: 'block_award_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'block_code_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'block_codepen_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
@@ -1588,11 +1590,11 @@ export type GetBlogEntriesQuery = { entryCount: number, entries: Array<
         | { __typename: 'page_workList_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-      , authors: Array<{ id: string, fullName: string, photo:
-          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+      , authors?: Array<{ id: string, fullName: string, photo:
+          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
          }> }
     | Record<PropertyKey, never>
   > };
@@ -1606,9 +1608,9 @@ export type GetBlogListPageQueryVariables = Exact<{
 
 export type GetBlogListPageQuery = { entries: Array<
     | { __typename: 'page_blogList_Entry', description: string, customTitle: string, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, descriptionPlain: string, postDate: unknown, postDateDay: unknown, postDateMonth: unknown, postDateYear: unknown, expireDate: unknown, postUpdateDate: unknown, timezone: unknown, image: Array<
-        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
             | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -1640,7 +1642,7 @@ export type GetBlogListPageQuery = { entries: Array<
             | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
           > }
-        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
       >, seomatic: { metaTagContainer: string, metaLinkContainer: string, metaTitleContainer: string, metaJsonLdContainer: string }, prev:
         | { __typename: 'block_award_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'block_code_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
@@ -1704,10 +1706,10 @@ export type GetBlogListPageQuery = { entries: Array<
         | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
       , authors: Array<{ id: string, fullName: string, photo:
-          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
          }> }
     | Record<PropertyKey, never>
   > };
@@ -1784,10 +1786,10 @@ export type GetCategoryEntryQuery = { entries: Array<
         | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
       , authors: Array<{ id: string, fullName: string, photo:
-          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
          }> }
     | Record<PropertyKey, never>
   > };
@@ -1801,9 +1803,9 @@ export type GetHomeEntryQueryVariables = Exact<{
 
 export type GetHomeEntryQuery = { entries: Array<
     | { __typename: 'page_home_Entry', description: string, customTitle: string, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, descriptionPlain: string, postDate: unknown, postDateDay: unknown, postDateMonth: unknown, postDateYear: unknown, expireDate: unknown, postUpdateDate: unknown, timezone: unknown, image: Array<
-        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
             | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -1835,11 +1837,11 @@ export type GetHomeEntryQuery = { entries: Array<
             | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
           > }
-        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
       >, heroImage: Array<
-        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
             | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -1871,7 +1873,7 @@ export type GetHomeEntryQuery = { entries: Array<
             | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
           > }
-        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
       >, seomatic: { metaTagContainer: string, metaLinkContainer: string, metaTitleContainer: string, metaJsonLdContainer: string }, prev:
         | { __typename: 'block_award_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'block_code_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
@@ -1935,10 +1937,10 @@ export type GetHomeEntryQuery = { entries: Array<
         | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
       , authors: Array<{ id: string, fullName: string, photo:
-          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
          }> }
     | Record<PropertyKey, never>
   > };
@@ -1953,9 +1955,9 @@ export type GetPageByUriQueryVariables = Exact<{
 
 export type GetPageByUriQuery = { entries: Array<
     | { __typename: 'page_company_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, postDate: unknown, postDateDay: unknown, postDateMonth: unknown, postDateYear: unknown, expireDate: unknown, postUpdateDate: unknown, timezone: unknown, logoMonochrome: Array<
-        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
             | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -1987,11 +1989,11 @@ export type GetPageByUriQuery = { entries: Array<
             | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
           > }
-        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
       >, logoColor: Array<
-        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
             | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -2023,7 +2025,7 @@ export type GetPageByUriQuery = { entries: Array<
             | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
           > }
-        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
       >, hyperLink: Array<
         | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -2118,15 +2120,15 @@ export type GetPageByUriQuery = { entries: Array<
         | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
       , authors: Array<{ id: string, fullName: string, photo:
-          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
          }> }
     | { __typename: 'page_contentBuilder_Entry', description: string, customTitle: string, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, descriptionPlain: string, postDate: unknown, postDateDay: unknown, postDateMonth: unknown, postDateYear: unknown, expireDate: unknown, postUpdateDate: unknown, timezone: unknown, image: Array<
-        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
             | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -2158,7 +2160,7 @@ export type GetPageByUriQuery = { entries: Array<
             | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
           > }
-        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
       >, seomatic: { metaTagContainer: string, metaLinkContainer: string, metaTitleContainer: string, metaJsonLdContainer: string }, prev:
         | { __typename: 'block_award_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'block_code_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
@@ -2222,10 +2224,10 @@ export type GetPageByUriQuery = { entries: Array<
         | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
       , authors: Array<{ id: string, fullName: string, photo:
-          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
          }> }
     | { __typename: 'page_workArea_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, postDate: unknown, postDateDay: unknown, postDateMonth: unknown, postDateYear: unknown, expireDate: unknown, postUpdateDate: unknown, timezone: unknown, seomatic: { metaTagContainer: string, metaLinkContainer: string, metaTitleContainer: string, metaJsonLdContainer: string }, prev:
         | { __typename: 'block_award_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
@@ -2290,10 +2292,10 @@ export type GetPageByUriQuery = { entries: Array<
         | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
       , authors: Array<{ id: string, fullName: string, photo:
-          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
          }> }
     | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, postDate: unknown, postDateDay: unknown, postDateMonth: unknown, postDateYear: unknown, expireDate: unknown, postUpdateDate: unknown, timezone: unknown, seomatic: { metaTagContainer: string, metaLinkContainer: string, metaTitleContainer: string, metaJsonLdContainer: string }, prev:
         | { __typename: 'block_award_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
@@ -2358,10 +2360,10 @@ export type GetPageByUriQuery = { entries: Array<
         | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
       , authors: Array<{ id: string, fullName: string, photo:
-          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
          }> }
     | Record<PropertyKey, never>
   > };
@@ -2371,15 +2373,18 @@ export type GetPhotosEntriesQueryVariables = Exact<{
   section?: Array<string | null | undefined> | string;
   limit?: number | null | undefined;
   offset?: number | null | undefined;
+  slug?: Array<string | null | undefined> | string | null | undefined;
   orderBy?: string | null | undefined;
+  fullContent?: boolean;
+  listContent?: boolean;
 }>;
 
 
 export type GetPhotosEntriesQuery = { entryCount: number, entries: Array<
-    | { __typename: 'page_photosSingle_Entry', description: string, customTitle: string, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, descriptionPlain: string, postDate: unknown, postDateDay: unknown, postDateMonth: unknown, postDateYear: unknown, expireDate: unknown, postUpdateDate: unknown, timezone: unknown, image: Array<
-        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+    | { __typename: 'page_photosSingle_Entry', description?: string, customTitle?: string, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, descriptionPlain?: string, postDate: unknown, postDateDay: unknown, postDateMonth: unknown, postDateYear: unknown, expireDate: unknown, postUpdateDate: unknown, timezone: unknown, image: Array<
+        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
             | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -2411,11 +2416,11 @@ export type GetPhotosEntriesQuery = { entryCount: number, entries: Array<
             | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
           > }
-        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      >, images: Array<
-        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      >, images?: Array<
+        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
             | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -2447,11 +2452,16 @@ export type GetPhotosEntriesQuery = { entryCount: number, entries: Array<
             | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
           > }
-        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      >, previewImages: Array<
-        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      >, archiveImages?: Array<
+        | { id: string }
+        | { id: string }
+        | { exif: string, id: string }
+        | { id: string }
+      >, previewImages?: Array<
+        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
             | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -2483,8 +2493,8 @@ export type GetPhotosEntriesQuery = { entryCount: number, entries: Array<
             | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
           > }
-        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      >, seomatic: { metaTagContainer: string, metaLinkContainer: string, metaTitleContainer: string, metaJsonLdContainer: string }, prev:
+        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      >, seomatic?: { metaTagContainer: string, metaLinkContainer: string, metaTitleContainer: string, metaJsonLdContainer: string }, prev?:
         | { __typename: 'block_award_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'block_code_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'block_codepen_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
@@ -2515,7 +2525,7 @@ export type GetPhotosEntriesQuery = { entryCount: number, entries: Array<
         | { __typename: 'page_workList_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-      , next:
+      , next?:
         | { __typename: 'block_award_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'block_code_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'block_codepen_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
@@ -2546,11 +2556,11 @@ export type GetPhotosEntriesQuery = { entryCount: number, entries: Array<
         | { __typename: 'page_workList_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-      , authors: Array<{ id: string, fullName: string, photo:
-          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+      , authors?: Array<{ id: string, fullName: string, photo:
+          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
          }> }
     | Record<PropertyKey, never>
   > };
@@ -2564,9 +2574,9 @@ export type GetPhotosListPageQueryVariables = Exact<{
 
 export type GetPhotosListPageQuery = { entries: Array<
     | { __typename: 'page_photosList_Entry', description: string, customTitle: string, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, descriptionPlain: string, postDate: unknown, postDateDay: unknown, postDateMonth: unknown, postDateYear: unknown, expireDate: unknown, postUpdateDate: unknown, timezone: unknown, image: Array<
-        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
             | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -2598,7 +2608,7 @@ export type GetPhotosListPageQuery = { entries: Array<
             | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
           > }
-        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
       >, seomatic: { metaTagContainer: string, metaLinkContainer: string, metaTitleContainer: string, metaJsonLdContainer: string }, prev:
         | { __typename: 'block_award_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'block_code_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
@@ -2662,55 +2672,12 @@ export type GetPhotosListPageQuery = { entries: Array<
         | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
       , authors: Array<{ id: string, fullName: string, photo:
-          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
          }> }
     | Record<PropertyKey, never>
-  > };
-
-export type GetPrerenderDataQueryVariables = Exact<{
-  site?: Array<string | null | undefined> | string | null | undefined;
-  section?: Array<string | null | undefined> | string;
-  type?: Array<string | null | undefined> | string | null | undefined;
-  limit?: number | null | undefined;
-  offset?: number | null | undefined;
-  relatedToEntries?: Array<EntryRelationCriteriaInput | null | undefined> | EntryRelationCriteriaInput | null | undefined;
-}>;
-
-
-export type GetPrerenderDataQuery = { entryCount: number, entries: Array<
-    | { __typename: 'block_award_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'block_code_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'block_codepen_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'block_cta_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'block_curriculumVitae_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'block_image_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'block_images_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'block_links_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'block_quote_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'block_section_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'block_spacer_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'block_textImage_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'block_text_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'block_video_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'page_about_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'page_blogList_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'page_blogSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'page_category_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'page_company_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'page_contentBuilder_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'page_home_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'page_photosList_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'page_photosSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'page_projectList_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'page_projectSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'page_topic_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'page_workArea_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'page_workList_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-    | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
   > };
 
 export type GetSeomaticQueryVariables = Exact<{
@@ -2794,10 +2761,10 @@ export type GetTopicEntryQuery = { entries: Array<
         | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
       , authors: Array<{ id: string, fullName: string, photo:
-          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
          }> }
     | Record<PropertyKey, never>
   > };
@@ -2807,15 +2774,17 @@ export type GetWorkEntriesQueryVariables = Exact<{
   section?: Array<string | null | undefined> | string;
   limit?: number | null | undefined;
   offset?: number | null | undefined;
+  slug?: Array<string | null | undefined> | string | null | undefined;
   orderBy?: string | null | undefined;
+  fullContent?: boolean;
 }>;
 
 
 export type GetWorkEntriesQuery = { entryCount: number, entries: Array<
-    | { __typename: 'page_workSingle_Entry', description: string, customTitle: string, clientWords: string, projectDescription: string, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, descriptionPlain: string, postDate: unknown, postDateDay: unknown, postDateMonth: unknown, postDateYear: unknown, expireDate: unknown, postUpdateDate: unknown, timezone: unknown, image: Array<
-        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+    | { __typename: 'page_workSingle_Entry', description?: string, customTitle: string, clientWords?: string, projectDescription?: string, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, descriptionPlain: string, postDate: unknown, postDateDay: unknown, postDateMonth: unknown, postDateYear: unknown, expireDate: unknown, postUpdateDate: unknown, timezone: unknown, image: Array<
+        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
             | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -2847,11 +2816,11 @@ export type GetWorkEntriesQuery = { entryCount: number, entries: Array<
             | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
           > }
-        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      >, images: Array<
-        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      >, images?: Array<
+        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
             | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -2883,12 +2852,12 @@ export type GetWorkEntriesQuery = { entryCount: number, entries: Array<
             | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
           > }
-        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      >, contentBuilderWork: Array<
+        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      >, contentBuilderWork?: Array<
         | { __typename: 'block_image_Entry', imageRatio: string, showCaption: boolean, imageWidth: string, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, image: Array<
-            | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-            | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-            | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+            | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+            | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+            | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
                 | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
                 | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
                 | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -2920,12 +2889,12 @@ export type GetWorkEntriesQuery = { entryCount: number, entries: Array<
                 | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
                 | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
               > }
-            | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+            | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
           > }
         | { __typename: 'block_images_Entry', imageRatio: string, showCaption: boolean, imagesViewMode: string, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, images: Array<
-            | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-            | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-            | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+            | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+            | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+            | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
                 | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
                 | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
                 | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -2957,9 +2926,9 @@ export type GetWorkEntriesQuery = { entryCount: number, entries: Array<
                 | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
                 | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
               > }
-            | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+            | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
           > }
-      >, colors: Array<{ color: string }>, projectLink: Array<
+      >, colors?: Array<{ color: string }>, projectLink?: Array<
         | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -2990,7 +2959,7 @@ export type GetWorkEntriesQuery = { entryCount: number, entries: Array<
         | { __typename: 'projectLink_Site_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
-      >, workAreas: Array<
+      >, workAreas?: Array<
         | { __typename: 'page_workArea_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, postDate: unknown, postDateDay: unknown, postDateMonth: unknown, postDateYear: unknown, expireDate: unknown, postUpdateDate: unknown, timezone: unknown, seomatic: { metaTagContainer: string, metaLinkContainer: string, metaTitleContainer: string, metaJsonLdContainer: string }, prev:
             | { __typename: 'block_award_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
             | { __typename: 'block_code_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
@@ -3054,10 +3023,10 @@ export type GetWorkEntriesQuery = { entryCount: number, entries: Array<
             | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
             | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
           , authors: Array<{ id: string, fullName: string, photo:
-              | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-              | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-              | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-              | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+              | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+              | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+              | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+              | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
              }> }
         | Record<PropertyKey, never>
       >, workType: Array<
@@ -3124,17 +3093,17 @@ export type GetWorkEntriesQuery = { entryCount: number, entries: Array<
             | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
             | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
           , authors: Array<{ id: string, fullName: string, photo:
-              | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-              | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-              | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-              | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+              | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+              | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+              | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+              | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
              }> }
         | Record<PropertyKey, never>
       >, agency: Array<
         | { __typename: 'page_company_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, postDate: unknown, postDateDay: unknown, postDateMonth: unknown, postDateYear: unknown, expireDate: unknown, postUpdateDate: unknown, timezone: unknown, logoMonochrome: Array<
-            | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-            | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-            | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+            | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+            | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+            | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
                 | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
                 | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
                 | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -3166,11 +3135,11 @@ export type GetWorkEntriesQuery = { entryCount: number, entries: Array<
                 | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
                 | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
               > }
-            | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+            | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
           >, logoColor: Array<
-            | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-            | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-            | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+            | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+            | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+            | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
                 | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
                 | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
                 | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -3202,7 +3171,7 @@ export type GetWorkEntriesQuery = { entryCount: number, entries: Array<
                 | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
                 | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
               > }
-            | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+            | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
           >, hyperLink: Array<
             | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -3297,17 +3266,17 @@ export type GetWorkEntriesQuery = { entryCount: number, entries: Array<
             | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
             | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
           , authors: Array<{ id: string, fullName: string, photo:
-              | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-              | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-              | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-              | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+              | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+              | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+              | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+              | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
              }> }
         | Record<PropertyKey, never>
       >, client: Array<
         | { __typename: 'page_company_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, postDate: unknown, postDateDay: unknown, postDateMonth: unknown, postDateYear: unknown, expireDate: unknown, postUpdateDate: unknown, timezone: unknown, logoMonochrome: Array<
-            | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-            | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-            | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+            | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+            | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+            | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
                 | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
                 | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
                 | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -3339,11 +3308,11 @@ export type GetWorkEntriesQuery = { entryCount: number, entries: Array<
                 | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
                 | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
               > }
-            | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+            | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
           >, logoColor: Array<
-            | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-            | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-            | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+            | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+            | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+            | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
                 | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
                 | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
                 | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -3375,7 +3344,7 @@ export type GetWorkEntriesQuery = { entryCount: number, entries: Array<
                 | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
                 | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
               > }
-            | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+            | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
           >, hyperLink: Array<
             | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -3470,13 +3439,13 @@ export type GetWorkEntriesQuery = { entryCount: number, entries: Array<
             | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
             | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
           , authors: Array<{ id: string, fullName: string, photo:
-              | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-              | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-              | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-              | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+              | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+              | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+              | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+              | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
              }> }
         | Record<PropertyKey, never>
-      >, seomatic: { metaTagContainer: string, metaLinkContainer: string, metaTitleContainer: string, metaJsonLdContainer: string }, prev:
+      >, seomatic?: { metaTagContainer: string, metaLinkContainer: string, metaTitleContainer: string, metaJsonLdContainer: string }, prev?:
         | { __typename: 'block_award_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'block_code_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'block_codepen_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
@@ -3507,7 +3476,7 @@ export type GetWorkEntriesQuery = { entryCount: number, entries: Array<
         | { __typename: 'page_workList_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-      , next:
+      , next?:
         | { __typename: 'block_award_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'block_code_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'block_codepen_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
@@ -3538,11 +3507,11 @@ export type GetWorkEntriesQuery = { entryCount: number, entries: Array<
         | { __typename: 'page_workList_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-      , authors: Array<{ id: string, fullName: string, photo:
-          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+      , authors?: Array<{ id: string, fullName: string, photo:
+          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
          }> }
     | Record<PropertyKey, never>
   > };
@@ -3556,9 +3525,9 @@ export type GetWorkListPageQueryVariables = Exact<{
 
 export type GetWorkListPageQuery = { entries: Array<
     | { __typename: 'page_workList_Entry', description: string, customTitle: string, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, descriptionPlain: string, postDate: unknown, postDateDay: unknown, postDateMonth: unknown, postDateYear: unknown, expireDate: unknown, postUpdateDate: unknown, timezone: unknown, image: Array<
-        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
             | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -3590,7 +3559,7 @@ export type GetWorkListPageQuery = { entries: Array<
             | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
           > }
-        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
       >, seomatic: { metaTagContainer: string, metaLinkContainer: string, metaTitleContainer: string, metaJsonLdContainer: string }, prev:
         | { __typename: 'block_award_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'block_code_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
@@ -3654,10 +3623,10 @@ export type GetWorkListPageQuery = { entries: Array<
         | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
       , authors: Array<{ id: string, fullName: string, photo:
-          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
          }> }
     | Record<PropertyKey, never>
   > };
@@ -3710,13 +3679,13 @@ export type Asset_DataFragment =
   | Asset_Data_Users_Asset_Fragment
 ;
 
-type Asset_Transforms_Files_Asset_Fragment = { base64BlurHash: string, srcset: string };
+type Asset_Transforms_Files_Asset_Fragment = { srcset: string };
 
-type Asset_Transforms_ImagesBwg_Asset_Fragment = { base64BlurHash: string, srcset: string };
+type Asset_Transforms_ImagesBwg_Asset_Fragment = { srcset: string };
 
-type Asset_Transforms_Images_Asset_Fragment = { base64BlurHash: string, srcset: string };
+type Asset_Transforms_Images_Asset_Fragment = { srcset: string };
 
-type Asset_Transforms_Users_Asset_Fragment = { base64BlurHash: string, srcset: string };
+type Asset_Transforms_Users_Asset_Fragment = { srcset: string };
 
 export type Asset_TransformsFragment =
   | Asset_Transforms_Files_Asset_Fragment
@@ -3726,213 +3695,213 @@ export type Asset_TransformsFragment =
 ;
 
 type Author_Data_Block_Award_Entry_Fragment = { authors: Array<{ id: string, fullName: string, photo:
-      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
      }> };
 
 type Author_Data_Block_Code_Entry_Fragment = { authors: Array<{ id: string, fullName: string, photo:
-      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
      }> };
 
 type Author_Data_Block_Codepen_Entry_Fragment = { authors: Array<{ id: string, fullName: string, photo:
-      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
      }> };
 
 type Author_Data_Block_Cta_Entry_Fragment = { authors: Array<{ id: string, fullName: string, photo:
-      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
      }> };
 
 type Author_Data_Block_CurriculumVitae_Entry_Fragment = { authors: Array<{ id: string, fullName: string, photo:
-      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
      }> };
 
 type Author_Data_Block_Image_Entry_Fragment = { authors: Array<{ id: string, fullName: string, photo:
-      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
      }> };
 
 type Author_Data_Block_Images_Entry_Fragment = { authors: Array<{ id: string, fullName: string, photo:
-      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
      }> };
 
 type Author_Data_Block_Links_Entry_Fragment = { authors: Array<{ id: string, fullName: string, photo:
-      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
      }> };
 
 type Author_Data_Block_Quote_Entry_Fragment = { authors: Array<{ id: string, fullName: string, photo:
-      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
      }> };
 
 type Author_Data_Block_Section_Entry_Fragment = { authors: Array<{ id: string, fullName: string, photo:
-      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
      }> };
 
 type Author_Data_Block_Spacer_Entry_Fragment = { authors: Array<{ id: string, fullName: string, photo:
-      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
      }> };
 
 type Author_Data_Block_TextImage_Entry_Fragment = { authors: Array<{ id: string, fullName: string, photo:
-      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
      }> };
 
 type Author_Data_Block_Text_Entry_Fragment = { authors: Array<{ id: string, fullName: string, photo:
-      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
      }> };
 
 type Author_Data_Block_Video_Entry_Fragment = { authors: Array<{ id: string, fullName: string, photo:
-      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
      }> };
 
 type Author_Data_Page_About_Entry_Fragment = { authors: Array<{ id: string, fullName: string, photo:
-      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
      }> };
 
 type Author_Data_Page_BlogList_Entry_Fragment = { authors: Array<{ id: string, fullName: string, photo:
-      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
      }> };
 
 type Author_Data_Page_BlogSingle_Entry_Fragment = { authors: Array<{ id: string, fullName: string, photo:
-      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
      }> };
 
 type Author_Data_Page_Category_Entry_Fragment = { authors: Array<{ id: string, fullName: string, photo:
-      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
      }> };
 
 type Author_Data_Page_Company_Entry_Fragment = { authors: Array<{ id: string, fullName: string, photo:
-      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
      }> };
 
 type Author_Data_Page_ContentBuilder_Entry_Fragment = { authors: Array<{ id: string, fullName: string, photo:
-      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
      }> };
 
 type Author_Data_Page_Home_Entry_Fragment = { authors: Array<{ id: string, fullName: string, photo:
-      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
      }> };
 
 type Author_Data_Page_PhotosList_Entry_Fragment = { authors: Array<{ id: string, fullName: string, photo:
-      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
      }> };
 
 type Author_Data_Page_PhotosSingle_Entry_Fragment = { authors: Array<{ id: string, fullName: string, photo:
-      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
      }> };
 
 type Author_Data_Page_ProjectList_Entry_Fragment = { authors: Array<{ id: string, fullName: string, photo:
-      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
      }> };
 
 type Author_Data_Page_ProjectSingle_Entry_Fragment = { authors: Array<{ id: string, fullName: string, photo:
-      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
      }> };
 
 type Author_Data_Page_Topic_Entry_Fragment = { authors: Array<{ id: string, fullName: string, photo:
-      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
      }> };
 
 type Author_Data_Page_WorkArea_Entry_Fragment = { authors: Array<{ id: string, fullName: string, photo:
-      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
      }> };
 
 type Author_Data_Page_WorkList_Entry_Fragment = { authors: Array<{ id: string, fullName: string, photo:
-      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
      }> };
 
 type Author_Data_Page_WorkSingle_Entry_Fragment = { authors: Array<{ id: string, fullName: string, photo:
-      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
      }> };
 
 type Author_Data_Page_WorkType_Entry_Fragment = { authors: Array<{ id: string, fullName: string, photo:
-      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
      }> };
 
 export type Author_DataFragment =
@@ -3970,9 +3939,9 @@ export type Author_DataFragment =
 
 export type Block_AwardFragment = { __typename: 'block_award_Entry', award: string, date: unknown, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, company: Array<
     | { __typename: 'page_company_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, postDate: unknown, postDateDay: unknown, postDateMonth: unknown, postDateYear: unknown, expireDate: unknown, postUpdateDate: unknown, timezone: unknown, logoMonochrome: Array<
-        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
             | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -4004,11 +3973,11 @@ export type Block_AwardFragment = { __typename: 'block_award_Entry', award: stri
             | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
           > }
-        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
       >, logoColor: Array<
-        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
             | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -4040,7 +4009,7 @@ export type Block_AwardFragment = { __typename: 'block_award_Entry', award: stri
             | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
           > }
-        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
       >, hyperLink: Array<
         | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -4135,16 +4104,16 @@ export type Block_AwardFragment = { __typename: 'block_award_Entry', award: stri
         | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
       , authors: Array<{ id: string, fullName: string, photo:
-          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
          }> }
     | Record<PropertyKey, never>
   >, image: Array<
-    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
         | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -4176,7 +4145,7 @@ export type Block_AwardFragment = { __typename: 'block_award_Entry', award: stri
         | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
       > }
-    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
   >, hyperLink: Array<
     | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
     | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -4247,9 +4216,9 @@ export type Block_CtaFragment = { __typename: 'block_cta_Entry', headline: strin
 
 export type Block_CurriculumVitaeFragment = { __typename: 'block_curriculumVitae_Entry', position: string, location: string, currentPosition: boolean, dateStart: unknown, dateEnd: unknown, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, company: Array<
     | { __typename: 'page_company_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, postDate: unknown, postDateDay: unknown, postDateMonth: unknown, postDateYear: unknown, expireDate: unknown, postUpdateDate: unknown, timezone: unknown, logoMonochrome: Array<
-        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
             | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -4281,11 +4250,11 @@ export type Block_CurriculumVitaeFragment = { __typename: 'block_curriculumVitae
             | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
           > }
-        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
       >, logoColor: Array<
-        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
             | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -4317,7 +4286,7 @@ export type Block_CurriculumVitaeFragment = { __typename: 'block_curriculumVitae
             | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
           > }
-        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
       >, hyperLink: Array<
         | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -4412,18 +4381,18 @@ export type Block_CurriculumVitaeFragment = { __typename: 'block_curriculumVitae
         | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
       , authors: Array<{ id: string, fullName: string, photo:
-          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
          }> }
     | Record<PropertyKey, never>
   > };
 
 export type Block_ImageFragment = { __typename: 'block_image_Entry', imageRatio: string, showCaption: boolean, imageWidth: string, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, image: Array<
-    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
         | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -4455,13 +4424,13 @@ export type Block_ImageFragment = { __typename: 'block_image_Entry', imageRatio:
         | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
       > }
-    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
   > };
 
 export type Block_ImagesFragment = { __typename: 'block_images_Entry', imageRatio: string, showCaption: boolean, imagesViewMode: string, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, images: Array<
-    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
         | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -4493,7 +4462,7 @@ export type Block_ImagesFragment = { __typename: 'block_images_Entry', imageRati
         | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
       > }
-    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
   > };
 
 export type Block_QuoteFragment = { __typename: 'block_quote_Entry', quote: string, source: string, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, hyperLink: Array<
@@ -6857,9 +6826,9 @@ export type Entry_SeoFragment =
 ;
 
 export type Page_AboutFragment = { __typename: 'page_about_Entry', description: string, customTitle: string, aboutMeRichText: string, sliderHeadingI: string, sliderRichTextI: string, sliderHeadingII: string, sliderRichTextII: string, sliderHeadingIII: string, sliderRichTextIII: string, awardsRichText: string, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, descriptionPlain: string, postDate: unknown, postDateDay: unknown, postDateMonth: unknown, postDateYear: unknown, expireDate: unknown, postUpdateDate: unknown, timezone: unknown, image: Array<
-    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
         | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -6891,11 +6860,11 @@ export type Page_AboutFragment = { __typename: 'page_about_Entry', description: 
         | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
       > }
-    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
   >, heroImage: Array<
-    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
         | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -6927,11 +6896,11 @@ export type Page_AboutFragment = { __typename: 'page_about_Entry', description: 
         | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
       > }
-    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
   >, imageSliderI: Array<
-    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
         | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -6963,11 +6932,11 @@ export type Page_AboutFragment = { __typename: 'page_about_Entry', description: 
         | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
       > }
-    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
   >, imageSliderII: Array<
-    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
         | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -6999,11 +6968,11 @@ export type Page_AboutFragment = { __typename: 'page_about_Entry', description: 
         | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
       > }
-    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
   >, imageSliderIII: Array<
-    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
         | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -7035,12 +7004,12 @@ export type Page_AboutFragment = { __typename: 'page_about_Entry', description: 
         | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
       > }
-    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
   >, awards: Array<{ __typename: 'block_award_Entry', award: string, date: unknown, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, company: Array<
       | { __typename: 'page_company_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, postDate: unknown, postDateDay: unknown, postDateMonth: unknown, postDateYear: unknown, expireDate: unknown, postUpdateDate: unknown, timezone: unknown, logoMonochrome: Array<
-          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
               | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
               | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
               | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -7072,11 +7041,11 @@ export type Page_AboutFragment = { __typename: 'page_about_Entry', description: 
               | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
               | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             > }
-          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
         >, logoColor: Array<
-          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
               | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
               | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
               | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -7108,7 +7077,7 @@ export type Page_AboutFragment = { __typename: 'page_about_Entry', description: 
               | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
               | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             > }
-          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
         >, hyperLink: Array<
           | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
           | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -7203,16 +7172,16 @@ export type Page_AboutFragment = { __typename: 'page_about_Entry', description: 
           | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
           | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         , authors: Array<{ id: string, fullName: string, photo:
-            | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-            | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-            | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-            | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+            | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+            | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+            | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+            | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
            }> }
       | Record<PropertyKey, never>
     >, image: Array<
-      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
           | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
           | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
           | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -7244,7 +7213,7 @@ export type Page_AboutFragment = { __typename: 'page_about_Entry', description: 
           | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
           | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         > }
-      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
     >, hyperLink: Array<
       | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
       | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -7278,9 +7247,9 @@ export type Page_AboutFragment = { __typename: 'page_about_Entry', description: 
       | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
     > }>, curriculumVitae: Array<{ __typename: 'block_curriculumVitae_Entry', position: string, location: string, currentPosition: boolean, dateStart: unknown, dateEnd: unknown, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, company: Array<
       | { __typename: 'page_company_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, postDate: unknown, postDateDay: unknown, postDateMonth: unknown, postDateYear: unknown, expireDate: unknown, postUpdateDate: unknown, timezone: unknown, logoMonochrome: Array<
-          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
               | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
               | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
               | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -7312,11 +7281,11 @@ export type Page_AboutFragment = { __typename: 'page_about_Entry', description: 
               | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
               | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             > }
-          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
         >, logoColor: Array<
-          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
               | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
               | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
               | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -7348,7 +7317,7 @@ export type Page_AboutFragment = { __typename: 'page_about_Entry', description: 
               | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
               | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             > }
-          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
         >, hyperLink: Array<
           | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
           | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -7443,10 +7412,10 @@ export type Page_AboutFragment = { __typename: 'page_about_Entry', description: 
           | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
           | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         , authors: Array<{ id: string, fullName: string, photo:
-            | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-            | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-            | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-            | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+            | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+            | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+            | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+            | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
            }> }
       | Record<PropertyKey, never>
     > }>, seomatic: { metaTagContainer: string, metaLinkContainer: string, metaTitleContainer: string, metaJsonLdContainer: string }, prev:
@@ -7512,16 +7481,16 @@ export type Page_AboutFragment = { __typename: 'page_about_Entry', description: 
     | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
     | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
   , authors: Array<{ id: string, fullName: string, photo:
-      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
      }> };
 
 export type Page_BlogListFragment = { __typename: 'page_blogList_Entry', description: string, customTitle: string, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, descriptionPlain: string, postDate: unknown, postDateDay: unknown, postDateMonth: unknown, postDateYear: unknown, expireDate: unknown, postUpdateDate: unknown, timezone: unknown, image: Array<
-    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
         | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -7553,7 +7522,7 @@ export type Page_BlogListFragment = { __typename: 'page_blogList_Entry', descrip
         | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
       > }
-    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
   >, seomatic: { metaTagContainer: string, metaLinkContainer: string, metaTitleContainer: string, metaJsonLdContainer: string }, prev:
     | { __typename: 'block_award_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
     | { __typename: 'block_code_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
@@ -7617,16 +7586,16 @@ export type Page_BlogListFragment = { __typename: 'page_blogList_Entry', descrip
     | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
     | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
   , authors: Array<{ id: string, fullName: string, photo:
-      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
      }> };
 
-export type Page_BlogSingleFragment = { __typename: 'page_blogSingle_Entry', description: string, customTitle: string, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, descriptionPlain: string, postDate: unknown, postDateDay: unknown, postDateMonth: unknown, postDateYear: unknown, expireDate: unknown, postUpdateDate: unknown, timezone: unknown, image: Array<
-    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+export type Page_BlogSingleFragment = { __typename: 'page_blogSingle_Entry', description?: string, customTitle: string, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, descriptionPlain: string, postDate: unknown, postDateDay: unknown, postDateMonth: unknown, postDateYear: unknown, expireDate: unknown, postUpdateDate: unknown, timezone: unknown, image?: Array<
+    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
         | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -7658,8 +7627,8 @@ export type Page_BlogSingleFragment = { __typename: 'page_blogSingle_Entry', des
         | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
       > }
-    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-  >, contentBuilder: Array<
+    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+  >, contentBuilder?: Array<
     | { __typename: 'block_code_Entry', codeSnippetName: string, codeSnippetDescription: string, collapsed: boolean, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, codeSnippet: { language: string, value: string } }
     | { __typename: 'block_cta_Entry', headline: string, description: string, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, hyperLinks: Array<
         | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -7694,9 +7663,9 @@ export type Page_BlogSingleFragment = { __typename: 'page_blogSingle_Entry', des
         | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
       > }
     | { __typename: 'block_image_Entry', imageRatio: string, showCaption: boolean, imageWidth: string, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, image: Array<
-        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
             | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -7728,12 +7697,12 @@ export type Page_BlogSingleFragment = { __typename: 'page_blogSingle_Entry', des
             | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
           > }
-        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
       > }
     | { __typename: 'block_images_Entry', imageRatio: string, showCaption: boolean, imagesViewMode: string, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, images: Array<
-        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
             | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -7765,7 +7734,7 @@ export type Page_BlogSingleFragment = { __typename: 'page_blogSingle_Entry', des
             | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
           > }
-        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
       > }
     | { __typename: 'block_quote_Entry', quote: string, source: string, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, hyperLink: Array<
         | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -7863,7 +7832,7 @@ export type Page_BlogSingleFragment = { __typename: 'page_blogSingle_Entry', des
     | { __typename: 'page_workList_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
     | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
     | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-  >, seomatic: { metaTagContainer: string, metaLinkContainer: string, metaTitleContainer: string, metaJsonLdContainer: string }, prev:
+  > } & { seomatic?: { metaTagContainer: string, metaLinkContainer: string, metaTitleContainer: string, metaJsonLdContainer: string } } & { prev?:
     | { __typename: 'block_award_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
     | { __typename: 'block_code_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
     | { __typename: 'block_codepen_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
@@ -7894,7 +7863,7 @@ export type Page_BlogSingleFragment = { __typename: 'page_blogSingle_Entry', des
     | { __typename: 'page_workList_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
     | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
     | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-  , next:
+   } & { next?:
     | { __typename: 'block_award_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
     | { __typename: 'block_code_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
     | { __typename: 'block_codepen_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
@@ -7925,11 +7894,11 @@ export type Page_BlogSingleFragment = { __typename: 'page_blogSingle_Entry', des
     | { __typename: 'page_workList_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
     | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
     | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-  , authors: Array<{ id: string, fullName: string, photo:
-      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+   } & { authors?: Array<{ id: string, fullName: string, photo:
+      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
      }> };
 
 export type Page_CategoryFragment = { __typename: 'page_category_Entry', description: string, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, postDate: unknown, postDateDay: unknown, postDateMonth: unknown, postDateYear: unknown, expireDate: unknown, postUpdateDate: unknown, timezone: unknown, seomatic: { metaTagContainer: string, metaLinkContainer: string, metaTitleContainer: string, metaJsonLdContainer: string }, prev:
@@ -7995,16 +7964,16 @@ export type Page_CategoryFragment = { __typename: 'page_category_Entry', descrip
     | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
     | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
   , authors: Array<{ id: string, fullName: string, photo:
-      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
      }> };
 
 export type Page_CompanyFragment = { __typename: 'page_company_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, postDate: unknown, postDateDay: unknown, postDateMonth: unknown, postDateYear: unknown, expireDate: unknown, postUpdateDate: unknown, timezone: unknown, logoMonochrome: Array<
-    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
         | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -8036,11 +8005,11 @@ export type Page_CompanyFragment = { __typename: 'page_company_Entry', id: strin
         | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
       > }
-    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
   >, logoColor: Array<
-    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
         | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -8072,7 +8041,7 @@ export type Page_CompanyFragment = { __typename: 'page_company_Entry', id: strin
         | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
       > }
-    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
   >, hyperLink: Array<
     | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
     | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -8167,16 +8136,16 @@ export type Page_CompanyFragment = { __typename: 'page_company_Entry', id: strin
     | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
     | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
   , authors: Array<{ id: string, fullName: string, photo:
-      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
      }> };
 
 export type Page_ContentBuilderFragment = { __typename: 'page_contentBuilder_Entry', description: string, customTitle: string, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, descriptionPlain: string, postDate: unknown, postDateDay: unknown, postDateMonth: unknown, postDateYear: unknown, expireDate: unknown, postUpdateDate: unknown, timezone: unknown, image: Array<
-    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
         | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -8208,7 +8177,7 @@ export type Page_ContentBuilderFragment = { __typename: 'page_contentBuilder_Ent
         | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
       > }
-    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
   >, seomatic: { metaTagContainer: string, metaLinkContainer: string, metaTitleContainer: string, metaJsonLdContainer: string }, prev:
     | { __typename: 'block_award_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
     | { __typename: 'block_code_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
@@ -8272,16 +8241,16 @@ export type Page_ContentBuilderFragment = { __typename: 'page_contentBuilder_Ent
     | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
     | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
   , authors: Array<{ id: string, fullName: string, photo:
-      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
      }> };
 
 export type Page_HomeFragment = { __typename: 'page_home_Entry', description: string, customTitle: string, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, descriptionPlain: string, postDate: unknown, postDateDay: unknown, postDateMonth: unknown, postDateYear: unknown, expireDate: unknown, postUpdateDate: unknown, timezone: unknown, image: Array<
-    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
         | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -8313,11 +8282,11 @@ export type Page_HomeFragment = { __typename: 'page_home_Entry', description: st
         | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
       > }
-    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
   >, heroImage: Array<
-    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
         | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -8349,7 +8318,7 @@ export type Page_HomeFragment = { __typename: 'page_home_Entry', description: st
         | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
       > }
-    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
   >, seomatic: { metaTagContainer: string, metaLinkContainer: string, metaTitleContainer: string, metaJsonLdContainer: string }, prev:
     | { __typename: 'block_award_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
     | { __typename: 'block_code_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
@@ -8413,16 +8382,16 @@ export type Page_HomeFragment = { __typename: 'page_home_Entry', description: st
     | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
     | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
   , authors: Array<{ id: string, fullName: string, photo:
-      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
      }> };
 
 export type Page_PhotosListFragment = { __typename: 'page_photosList_Entry', description: string, customTitle: string, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, descriptionPlain: string, postDate: unknown, postDateDay: unknown, postDateMonth: unknown, postDateYear: unknown, expireDate: unknown, postUpdateDate: unknown, timezone: unknown, image: Array<
-    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
         | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -8454,7 +8423,7 @@ export type Page_PhotosListFragment = { __typename: 'page_photosList_Entry', des
         | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
       > }
-    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
   >, seomatic: { metaTagContainer: string, metaLinkContainer: string, metaTitleContainer: string, metaJsonLdContainer: string }, prev:
     | { __typename: 'block_award_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
     | { __typename: 'block_code_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
@@ -8518,16 +8487,16 @@ export type Page_PhotosListFragment = { __typename: 'page_photosList_Entry', des
     | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
     | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
   , authors: Array<{ id: string, fullName: string, photo:
-      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
      }> };
 
-export type Page_PhotosSingleFragment = { __typename: 'page_photosSingle_Entry', description: string, customTitle: string, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, descriptionPlain: string, postDate: unknown, postDateDay: unknown, postDateMonth: unknown, postDateYear: unknown, expireDate: unknown, postUpdateDate: unknown, timezone: unknown, image: Array<
-    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+export type Page_PhotosSingleFragment = { __typename: 'page_photosSingle_Entry', description?: string, customTitle?: string, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, descriptionPlain?: string, postDate: unknown, postDateDay: unknown, postDateMonth: unknown, postDateYear: unknown, expireDate: unknown, postUpdateDate: unknown, timezone: unknown, image: Array<
+    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
         | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -8559,11 +8528,11 @@ export type Page_PhotosSingleFragment = { __typename: 'page_photosSingle_Entry',
         | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
       > }
-    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-  >, images: Array<
-    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+  >, images?: Array<
+    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
         | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -8595,11 +8564,16 @@ export type Page_PhotosSingleFragment = { __typename: 'page_photosSingle_Entry',
         | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
       > }
-    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-  >, previewImages: Array<
-    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+  >, archiveImages?: Array<
+    | { id: string }
+    | { id: string }
+    | { exif: string, id: string }
+    | { id: string }
+  >, previewImages?: Array<
+    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
         | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -8631,8 +8605,8 @@ export type Page_PhotosSingleFragment = { __typename: 'page_photosSingle_Entry',
         | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
       > }
-    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-  >, seomatic: { metaTagContainer: string, metaLinkContainer: string, metaTitleContainer: string, metaJsonLdContainer: string }, prev:
+    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+  > } & { seomatic?: { metaTagContainer: string, metaLinkContainer: string, metaTitleContainer: string, metaJsonLdContainer: string } } & { prev?:
     | { __typename: 'block_award_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
     | { __typename: 'block_code_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
     | { __typename: 'block_codepen_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
@@ -8663,7 +8637,7 @@ export type Page_PhotosSingleFragment = { __typename: 'page_photosSingle_Entry',
     | { __typename: 'page_workList_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
     | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
     | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-  , next:
+   } & { next?:
     | { __typename: 'block_award_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
     | { __typename: 'block_code_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
     | { __typename: 'block_codepen_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
@@ -8694,11 +8668,11 @@ export type Page_PhotosSingleFragment = { __typename: 'page_photosSingle_Entry',
     | { __typename: 'page_workList_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
     | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
     | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-  , authors: Array<{ id: string, fullName: string, photo:
-      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+   } & { authors?: Array<{ id: string, fullName: string, photo:
+      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
      }> };
 
 export type Page_TopicFragment = { __typename: 'page_topic_Entry', description: string, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, postDate: unknown, postDateDay: unknown, postDateMonth: unknown, postDateYear: unknown, expireDate: unknown, postUpdateDate: unknown, timezone: unknown, seomatic: { metaTagContainer: string, metaLinkContainer: string, metaTitleContainer: string, metaJsonLdContainer: string }, prev:
@@ -8764,10 +8738,10 @@ export type Page_TopicFragment = { __typename: 'page_topic_Entry', description: 
     | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
     | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
   , authors: Array<{ id: string, fullName: string, photo:
-      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
      }> };
 
 export type Page_WorkAreaFragment = { __typename: 'page_workArea_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, postDate: unknown, postDateDay: unknown, postDateMonth: unknown, postDateYear: unknown, expireDate: unknown, postUpdateDate: unknown, timezone: unknown, seomatic: { metaTagContainer: string, metaLinkContainer: string, metaTitleContainer: string, metaJsonLdContainer: string }, prev:
@@ -8833,16 +8807,16 @@ export type Page_WorkAreaFragment = { __typename: 'page_workArea_Entry', id: str
     | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
     | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
   , authors: Array<{ id: string, fullName: string, photo:
-      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
      }> };
 
 export type Page_WorkListFragment = { __typename: 'page_workList_Entry', description: string, customTitle: string, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, descriptionPlain: string, postDate: unknown, postDateDay: unknown, postDateMonth: unknown, postDateYear: unknown, expireDate: unknown, postUpdateDate: unknown, timezone: unknown, image: Array<
-    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
         | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -8874,7 +8848,7 @@ export type Page_WorkListFragment = { __typename: 'page_workList_Entry', descrip
         | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
       > }
-    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
   >, seomatic: { metaTagContainer: string, metaLinkContainer: string, metaTitleContainer: string, metaJsonLdContainer: string }, prev:
     | { __typename: 'block_award_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
     | { __typename: 'block_code_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
@@ -8938,16 +8912,16 @@ export type Page_WorkListFragment = { __typename: 'page_workList_Entry', descrip
     | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
     | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
   , authors: Array<{ id: string, fullName: string, photo:
-      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
      }> };
 
-export type Page_WorkSingleFragment = { __typename: 'page_workSingle_Entry', description: string, customTitle: string, clientWords: string, projectDescription: string, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, descriptionPlain: string, postDate: unknown, postDateDay: unknown, postDateMonth: unknown, postDateYear: unknown, expireDate: unknown, postUpdateDate: unknown, timezone: unknown, image: Array<
-    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+export type Page_WorkSingleFragment = { __typename: 'page_workSingle_Entry', description?: string, customTitle: string, clientWords?: string, projectDescription?: string, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, descriptionPlain: string, postDate: unknown, postDateDay: unknown, postDateMonth: unknown, postDateYear: unknown, expireDate: unknown, postUpdateDate: unknown, timezone: unknown, image: Array<
+    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
         | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -8979,11 +8953,11 @@ export type Page_WorkSingleFragment = { __typename: 'page_workSingle_Entry', des
         | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
       > }
-    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-  >, images: Array<
-    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+  >, images?: Array<
+    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
         | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -9015,12 +8989,12 @@ export type Page_WorkSingleFragment = { __typename: 'page_workSingle_Entry', des
         | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
       > }
-    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-  >, contentBuilderWork: Array<
+    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+  >, contentBuilderWork?: Array<
     | { __typename: 'block_image_Entry', imageRatio: string, showCaption: boolean, imageWidth: string, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, image: Array<
-        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
             | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -9052,12 +9026,12 @@ export type Page_WorkSingleFragment = { __typename: 'page_workSingle_Entry', des
             | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
           > }
-        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
       > }
     | { __typename: 'block_images_Entry', imageRatio: string, showCaption: boolean, imagesViewMode: string, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, images: Array<
-        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
             | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -9089,9 +9063,9 @@ export type Page_WorkSingleFragment = { __typename: 'page_workSingle_Entry', des
             | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
           > }
-        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
       > }
-  >, colors: Array<{ color: string }>, projectLink: Array<
+  >, colors?: Array<{ color: string }>, projectLink?: Array<
     | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
     | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
     | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -9122,7 +9096,7 @@ export type Page_WorkSingleFragment = { __typename: 'page_workSingle_Entry', des
     | { __typename: 'projectLink_Site_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
     | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
     | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
-  >, workAreas: Array<
+  >, workAreas?: Array<
     | { __typename: 'page_workArea_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, postDate: unknown, postDateDay: unknown, postDateMonth: unknown, postDateYear: unknown, expireDate: unknown, postUpdateDate: unknown, timezone: unknown, seomatic: { metaTagContainer: string, metaLinkContainer: string, metaTitleContainer: string, metaJsonLdContainer: string }, prev:
         | { __typename: 'block_award_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'block_code_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
@@ -9186,10 +9160,10 @@ export type Page_WorkSingleFragment = { __typename: 'page_workSingle_Entry', des
         | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
       , authors: Array<{ id: string, fullName: string, photo:
-          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
          }> }
     | Record<PropertyKey, never>
   >, workType: Array<
@@ -9256,17 +9230,17 @@ export type Page_WorkSingleFragment = { __typename: 'page_workSingle_Entry', des
         | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
       , authors: Array<{ id: string, fullName: string, photo:
-          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
          }> }
     | Record<PropertyKey, never>
   >, agency: Array<
     | { __typename: 'page_company_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, postDate: unknown, postDateDay: unknown, postDateMonth: unknown, postDateYear: unknown, expireDate: unknown, postUpdateDate: unknown, timezone: unknown, logoMonochrome: Array<
-        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
             | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -9298,11 +9272,11 @@ export type Page_WorkSingleFragment = { __typename: 'page_workSingle_Entry', des
             | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
           > }
-        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
       >, logoColor: Array<
-        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
             | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -9334,7 +9308,7 @@ export type Page_WorkSingleFragment = { __typename: 'page_workSingle_Entry', des
             | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
           > }
-        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
       >, hyperLink: Array<
         | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -9429,17 +9403,17 @@ export type Page_WorkSingleFragment = { __typename: 'page_workSingle_Entry', des
         | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
       , authors: Array<{ id: string, fullName: string, photo:
-          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
          }> }
     | Record<PropertyKey, never>
   >, client: Array<
     | { __typename: 'page_company_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, postDate: unknown, postDateDay: unknown, postDateMonth: unknown, postDateYear: unknown, expireDate: unknown, postUpdateDate: unknown, timezone: unknown, logoMonochrome: Array<
-        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
             | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -9471,11 +9445,11 @@ export type Page_WorkSingleFragment = { __typename: 'page_workSingle_Entry', des
             | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
           > }
-        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
       >, logoColor: Array<
-        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
             | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -9507,7 +9481,7 @@ export type Page_WorkSingleFragment = { __typename: 'page_workSingle_Entry', des
             | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
           > }
-        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
       >, hyperLink: Array<
         | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -9602,13 +9576,13 @@ export type Page_WorkSingleFragment = { __typename: 'page_workSingle_Entry', des
         | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
       , authors: Array<{ id: string, fullName: string, photo:
-          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
          }> }
     | Record<PropertyKey, never>
-  >, seomatic: { metaTagContainer: string, metaLinkContainer: string, metaTitleContainer: string, metaJsonLdContainer: string }, prev:
+  > } & { seomatic?: { metaTagContainer: string, metaLinkContainer: string, metaTitleContainer: string, metaJsonLdContainer: string } } & { prev?:
     | { __typename: 'block_award_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
     | { __typename: 'block_code_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
     | { __typename: 'block_codepen_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
@@ -9639,7 +9613,7 @@ export type Page_WorkSingleFragment = { __typename: 'page_workSingle_Entry', des
     | { __typename: 'page_workList_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
     | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
     | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-  , next:
+   } & { next?:
     | { __typename: 'block_award_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
     | { __typename: 'block_code_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
     | { __typename: 'block_codepen_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
@@ -9670,11 +9644,11 @@ export type Page_WorkSingleFragment = { __typename: 'page_workSingle_Entry', des
     | { __typename: 'page_workList_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
     | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
     | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
-  , authors: Array<{ id: string, fullName: string, photo:
-      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+   } & { authors?: Array<{ id: string, fullName: string, photo:
+      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
      }> };
 
 export type Page_WorkTypeFragment = { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, postDate: unknown, postDateDay: unknown, postDateMonth: unknown, postDateYear: unknown, expireDate: unknown, postUpdateDate: unknown, timezone: unknown, seomatic: { metaTagContainer: string, metaLinkContainer: string, metaTitleContainer: string, metaJsonLdContainer: string }, prev:
@@ -9740,10 +9714,10 @@ export type Page_WorkTypeFragment = { __typename: 'page_workType_Entry', id: str
     | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
     | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
   , authors: Array<{ id: string, fullName: string, photo:
-      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+      | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+      | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
      }> };
 
 type Hyper_Data_HyperLink_Asset_LinkType_Fragment = { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string };
@@ -9841,9 +9815,9 @@ export type Hyper_DataFragment =
 
 export type Matrix_AwardsFragment = { __typename: 'block_award_Entry', award: string, date: unknown, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, company: Array<
     | { __typename: 'page_company_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, postDate: unknown, postDateDay: unknown, postDateMonth: unknown, postDateYear: unknown, expireDate: unknown, postUpdateDate: unknown, timezone: unknown, logoMonochrome: Array<
-        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
             | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -9875,11 +9849,11 @@ export type Matrix_AwardsFragment = { __typename: 'block_award_Entry', award: st
             | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
           > }
-        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
       >, logoColor: Array<
-        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
             | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -9911,7 +9885,7 @@ export type Matrix_AwardsFragment = { __typename: 'block_award_Entry', award: st
             | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
           > }
-        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
       >, hyperLink: Array<
         | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -10006,16 +9980,16 @@ export type Matrix_AwardsFragment = { __typename: 'block_award_Entry', award: st
         | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
       , authors: Array<{ id: string, fullName: string, photo:
-          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
          }> }
     | Record<PropertyKey, never>
   >, image: Array<
-    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
         | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -10047,7 +10021,7 @@ export type Matrix_AwardsFragment = { __typename: 'block_award_Entry', award: st
         | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
       > }
-    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
   >, hyperLink: Array<
     | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
     | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -10117,9 +10091,9 @@ type Matrix_ContentBuilder_Block_Cta_Entry_Fragment = { __typename: 'block_cta_E
   > };
 
 type Matrix_ContentBuilder_Block_Image_Entry_Fragment = { __typename: 'block_image_Entry', imageRatio: string, showCaption: boolean, imageWidth: string, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, image: Array<
-    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
         | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -10151,13 +10125,13 @@ type Matrix_ContentBuilder_Block_Image_Entry_Fragment = { __typename: 'block_ima
         | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
       > }
-    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
   > };
 
 type Matrix_ContentBuilder_Block_Images_Entry_Fragment = { __typename: 'block_images_Entry', imageRatio: string, showCaption: boolean, imagesViewMode: string, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, images: Array<
-    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
         | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -10189,7 +10163,7 @@ type Matrix_ContentBuilder_Block_Images_Entry_Fragment = { __typename: 'block_im
         | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
       > }
-    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
   > };
 
 type Matrix_ContentBuilder_Block_Quote_Entry_Fragment = { __typename: 'block_quote_Entry', quote: string, source: string, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, hyperLink: Array<
@@ -10237,9 +10211,9 @@ export type Matrix_ContentBuilderFragment =
 ;
 
 type Matrix_ContentBuilderWork_Block_Image_Entry_Fragment = { __typename: 'block_image_Entry', imageRatio: string, showCaption: boolean, imageWidth: string, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, image: Array<
-    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
         | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -10271,13 +10245,13 @@ type Matrix_ContentBuilderWork_Block_Image_Entry_Fragment = { __typename: 'block
         | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
       > }
-    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
   > };
 
 type Matrix_ContentBuilderWork_Block_Images_Entry_Fragment = { __typename: 'block_images_Entry', imageRatio: string, showCaption: boolean, imagesViewMode: string, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, images: Array<
-    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+    | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+    | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
         | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -10309,7 +10283,7 @@ type Matrix_ContentBuilderWork_Block_Images_Entry_Fragment = { __typename: 'bloc
         | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
       > }
-    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+    | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
   > };
 
 export type Matrix_ContentBuilderWorkFragment =
@@ -10319,9 +10293,9 @@ export type Matrix_ContentBuilderWorkFragment =
 
 export type Matrix_CurriculumVitaeFragment = { __typename: 'block_curriculumVitae_Entry', position: string, location: string, currentPosition: boolean, dateStart: unknown, dateEnd: unknown, id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, company: Array<
     | { __typename: 'page_company_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number, postDate: unknown, postDateDay: unknown, postDateMonth: unknown, postDateYear: unknown, expireDate: unknown, postUpdateDate: unknown, timezone: unknown, logoMonochrome: Array<
-        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
             | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -10353,11 +10327,11 @@ export type Matrix_CurriculumVitaeFragment = { __typename: 'block_curriculumVita
             | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
           > }
-        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
       >, logoColor: Array<
-        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, base64BlurHash: string, srcset: string, hyperLink: Array<
+        | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+        | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, exif: string, customTitle: string, caption: string, source: string, svgCode: string, srcset: string, hyperLink: Array<
             | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'hyperLink_Custom_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -10389,7 +10363,7 @@ export type Matrix_CurriculumVitaeFragment = { __typename: 'block_curriculumVita
             | { __typename: 'projectLink_Url_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
             | { __typename: 'projectLink_User_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
           > }
-        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+        | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
       >, hyperLink: Array<
         | { __typename: 'hyperLink_Asset_LinkType', linkStyle: string, ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
         | { __typename: 'hyperLink_Category_LinkType', ariaLabel: string, classes: string, isElement: boolean, isEmpty: boolean, link: string, linkText: string, linkUrl: string, linkValue: string, newWindow: boolean, target: string, text: string, title: string, type: string, url: string, urlPrefix: string, urlSuffix: string, linkUri: string }
@@ -10484,10 +10458,10 @@ export type Matrix_CurriculumVitaeFragment = { __typename: 'block_curriculumVita
         | { __typename: 'page_workSingle_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
         | { __typename: 'page_workType_Entry', id: string, uid: string, title: string, slug: string, uri: string, url: string, canonicalId: number, language: string, sectionHandle: string, typeHandle: string, siteHandle: string, siteId: number }
       , authors: Array<{ id: string, fullName: string, photo:
-          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
-          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, base64BlurHash: string, srcset: string }
+          | { __typename: 'files_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'imagesBwg_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'images_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
+          | { __typename: 'users_Asset', id: string, url: string, width: number, height: number, title: string, alt: string, filename: string, focalPoint: Array<number>, svgCode: string, srcset: string }
          }> }
     | Record<PropertyKey, never>
   > };
@@ -10560,7 +10534,6 @@ export const Asset_DataFragmentDoc = gql`
     `;
 export const Asset_TransformsFragmentDoc = gql`
     fragment asset_transforms on AssetInterface {
-  base64BlurHash: url @assetToBlurHash
   srcset: url @imagerSrcset(handle: "autoAvif")
 }
     `;
@@ -10906,19 +10879,19 @@ export const Page_BlogSingleFragmentDoc = gql`
     fragment page_blogSingle on page_blogSingle_Entry {
   ...entry_data
   ...entry_dates
-  ...entry_seo
-  ...entry_prev
-  ...entry_next
-  ...author_data
-  description
+  ...entry_seo @include(if: $fullContent)
+  ...entry_prev @include(if: $fullContent)
+  ...entry_next @include(if: $fullContent)
+  ...author_data @include(if: $fullContent)
+  description @include(if: $fullContent)
   descriptionPlain: description @stripTags
   customTitle
-  image {
+  image @include(if: $fullContent) {
     ...asset_data
     ...asset_transforms
     ...asset_customFields
   }
-  contentBuilder {
+  contentBuilder @include(if: $fullContent) {
     ...matrix_contentBuilder
   }
   category {
@@ -11041,24 +11014,30 @@ export const Page_PhotosSingleFragmentDoc = gql`
     fragment page_photosSingle on page_photosSingle_Entry {
   ...entry_data
   ...entry_dates
-  ...entry_seo
-  ...entry_prev
-  ...entry_next
-  ...author_data
-  description
-  descriptionPlain: description @stripTags
-  customTitle
+  ...entry_seo @include(if: $fullContent)
+  ...entry_prev @include(if: $fullContent)
+  ...entry_next @include(if: $fullContent)
+  ...author_data @include(if: $fullContent)
+  description @include(if: $fullContent)
+  descriptionPlain: description @stripTags @include(if: $fullContent)
+  customTitle @include(if: $fullContent)
   image {
     ...asset_data
     ...asset_transforms
     ...asset_customFields
   }
-  images {
+  images @include(if: $fullContent) {
     ...asset_data
     ...asset_transforms
     ...asset_customFields
   }
-  previewImages: images(limit: 4, orderBy: "RAND()") {
+  archiveImages: images @include(if: $listContent) {
+    id
+    ... on images_Asset {
+      exif
+    }
+  }
+  previewImages: images(limit: 4, orderBy: "RAND()") @include(if: $listContent) {
     ...asset_data
     ...asset_transforms
     ...asset_customFields
@@ -11156,11 +11135,11 @@ export const Page_WorkSingleFragmentDoc = gql`
     fragment page_workSingle on page_workSingle_Entry {
   ...entry_data
   ...entry_dates
-  ...entry_seo
-  ...entry_prev
-  ...entry_next
-  ...author_data
-  description
+  ...entry_seo @include(if: $fullContent)
+  ...entry_prev @include(if: $fullContent)
+  ...entry_next @include(if: $fullContent)
+  ...author_data @include(if: $fullContent)
+  description @include(if: $fullContent)
   descriptionPlain: description @stripTags
   customTitle
   image {
@@ -11168,23 +11147,23 @@ export const Page_WorkSingleFragmentDoc = gql`
     ...asset_transforms
     ...asset_customFields
   }
-  images {
+  images @include(if: $fullContent) {
     ...asset_data
     ...asset_transforms
     ...asset_customFields
   }
-  contentBuilderWork {
+  contentBuilderWork @include(if: $fullContent) {
     ...matrix_contentBuilderWork
   }
-  colors {
+  colors @include(if: $fullContent) {
     color
   }
-  clientWords
-  projectDescription
-  projectLink {
+  clientWords @include(if: $fullContent)
+  projectDescription @include(if: $fullContent)
+  projectLink @include(if: $fullContent) {
     ...hyper_data
   }
-  workAreas {
+  workAreas @include(if: $fullContent) {
     ...page_workArea
   }
   workType {
@@ -11219,18 +11198,24 @@ export const GetAboutEntryDocument = gql`
 }
     ${Page_AboutFragmentDoc}`;
 export const GetBlogEntriesDocument = gql`
-    query GetBlogEntries($site: [String] = ["davidhellmann_en"], $section: [String]! = ["blog"], $limit: Int = 100, $offset: Int = 0, $orderBy: String = "postDate DESC", $relatedToEntries: [EntryRelationCriteriaInput]) {
+    query GetBlogEntries($site: [String] = ["davidhellmann_en"], $section: [String]! = ["blog"], $limit: Int = 100, $offset: Int = 0, $slug: [String], $orderBy: String = "postDate DESC", $relatedToEntries: [EntryRelationCriteriaInput], $fullContent: Boolean! = true) {
   entries(
     site: $site
     section: $section
     limit: $limit
     offset: $offset
+    slug: $slug
     orderBy: $orderBy
     relatedToEntries: $relatedToEntries
   ) {
     ...page_blogSingle
   }
-  entryCount(site: $site, section: $section, relatedToEntries: $relatedToEntries)
+  entryCount(
+    site: $site
+    section: $section
+    slug: $slug
+    relatedToEntries: $relatedToEntries
+  )
 }
     ${Page_BlogSingleFragmentDoc}`;
 export const GetBlogListPageDocument = gql`
@@ -11268,17 +11253,18 @@ ${Page_CompanyFragmentDoc}
 ${Page_WorkAreaFragmentDoc}
 ${Page_WorkTypeFragmentDoc}`;
 export const GetPhotosEntriesDocument = gql`
-    query GetPhotosEntries($site: [String] = ["davidhellmann_en"], $section: [String]! = ["photos"], $limit: Int = 100, $offset: Int = 0, $orderBy: String = "postDate DESC") {
+    query GetPhotosEntries($site: [String] = ["davidhellmann_en"], $section: [String]! = ["photos"], $limit: Int = 100, $offset: Int = 0, $slug: [String], $orderBy: String = "postDate DESC", $fullContent: Boolean! = true, $listContent: Boolean! = false) {
   entries(
     site: $site
     section: $section
     limit: $limit
     offset: $offset
+    slug: $slug
     orderBy: $orderBy
   ) {
     ...page_photosSingle
   }
-  entryCount(site: $site, section: $section)
+  entryCount(site: $site, section: $section, slug: $slug)
 }
     ${Page_PhotosSingleFragmentDoc}`;
 export const GetPhotosListPageDocument = gql`
@@ -11293,26 +11279,6 @@ export const GetPhotosListPageDocument = gql`
   }
 }
     ${Page_PhotosListFragmentDoc}`;
-export const GetPrerenderDataDocument = gql`
-    query GetPrerenderData($site: [String] = ["davidhellmann_en"], $section: [String]! = ["blog"], $type: [String], $limit: Int = -1, $offset: Int = 0, $relatedToEntries: [EntryRelationCriteriaInput]) {
-  entries(
-    site: $site
-    section: $section
-    type: $type
-    limit: $limit
-    offset: $offset
-    relatedToEntries: $relatedToEntries
-  ) {
-    ...entry_data
-  }
-  entryCount(
-    site: $site
-    section: $section
-    type: $type
-    relatedToEntries: $relatedToEntries
-  )
-}
-    ${Entry_DataFragmentDoc}`;
 export const GetSeomaticDocument = gql`
     query GetSeomatic($site: String = "davidhellmann_en", $uri: String, $asArray: Boolean = true) {
   seomatic(site: $site, uri: $uri, asArray: $asArray) {
@@ -11343,17 +11309,18 @@ export const GetTopicEntryDocument = gql`
 }
     ${Page_TopicFragmentDoc}`;
 export const GetWorkEntriesDocument = gql`
-    query GetWorkEntries($site: [String] = ["davidhellmann_en"], $section: [String]! = ["work"], $limit: Int = 100, $offset: Int = 0, $orderBy: String = "postDate DESC") {
+    query GetWorkEntries($site: [String] = ["davidhellmann_en"], $section: [String]! = ["work"], $limit: Int = 100, $offset: Int = 0, $slug: [String], $orderBy: String = "postDate DESC", $fullContent: Boolean! = true) {
   entries(
     site: $site
     section: $section
     limit: $limit
     offset: $offset
+    slug: $slug
     orderBy: $orderBy
   ) {
     ...page_workSingle
   }
-  entryCount(site: $site, section: $section)
+  entryCount(site: $site, section: $section, slug: $slug)
 }
     ${Page_WorkSingleFragmentDoc}`;
 export const GetWorkListPageDocument = gql`
@@ -11394,9 +11361,6 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     },
     GetPhotosListPage(variables?: GetPhotosListPageQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<GetPhotosListPageQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetPhotosListPageQuery>({ document: GetPhotosListPageDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'GetPhotosListPage', 'query', variables);
-    },
-    GetPrerenderData(variables?: GetPrerenderDataQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<GetPrerenderDataQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetPrerenderDataQuery>({ document: GetPrerenderDataDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'GetPrerenderData', 'query', variables);
     },
     GetSeomatic(variables?: GetSeomaticQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<GetSeomaticQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetSeomaticQuery>({ document: GetSeomaticDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'GetSeomatic', 'query', variables);

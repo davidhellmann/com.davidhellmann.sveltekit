@@ -12,6 +12,7 @@
   import { tv, type VariantProps } from "$utils/classNames";
 
   type ObjectFit = "cover" | "contain" | "fill" | "none" | "scale-down";
+  type FetchPriority = "auto" | "high" | "low";
 
   const tvImage = tv({
     base: "bg-primary-200 w-full",
@@ -31,6 +32,8 @@
     className?: string;
     image?: Asset;
     lazy?: boolean;
+    fetchPriority?: FetchPriority;
+    preload?: boolean;
     objectFit?: ObjectFit;
     focalPoint?: number[];
     alt?: string;
@@ -49,6 +52,8 @@
     className,
     image = undefined,
     lazy = true,
+    fetchPriority = "auto",
+    preload = false,
     objectFit = "cover",
     animate,
     alt = "",
@@ -90,7 +95,22 @@
     if (!srcset) return undefined;
     return lazy ? "auto" : "100vw";
   };
+
+  const resolvedSizes = getSizes(sizes, srcset, lazy);
 </script>
+
+<svelte:head>
+  {#if preload && src}
+    <link
+      rel="preload"
+      as="image"
+      href={src}
+      imagesrcset={srcset}
+      imagesizes={resolvedSizes}
+      fetchpriority={fetchPriority}
+    />
+  {/if}
+</svelte:head>
 
 {#snippet noScriptTag()}
   <noscript>
@@ -108,8 +128,8 @@
     {src}
     srcSet={srcset}
     loading={lazy ? "lazy" : "eager"}
-    fetchPriority={!lazy ? "high" : undefined}
-    sizes={getSizes(sizes, srcset, lazy)}
+    fetchpriority={fetchPriority}
+    sizes={resolvedSizes}
     {role}
   />
 {/snippet}

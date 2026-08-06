@@ -1,10 +1,5 @@
 <script lang="ts">
-  import type {
-    Entry_DataFragment,
-    Entry_DatesFragment,
-    Entry_SeoFragment,
-    Page_PhotosSingleFragment
-  } from "$graphql/graphql";
+  import type { Page_PhotosSingleFragment } from "$graphql/graphql";
   import { tv, type VariantProps } from "$utils/classNames";
   import Pagination from "$components/navigation/Pagination.svelte";
   import Image from "$components/media/Image.svelte";
@@ -28,12 +23,10 @@
     }
   });
 
-  type Entry = Entry_DataFragment & Page_PhotosSingleFragment & Entry_SeoFragment & Entry_DatesFragment;
-
   type StackPhotosProps = {
     compName?: string;
     className?: string;
-    entries: Entry[];
+    entries: Page_PhotosSingleFragment[];
     showPagination?: boolean;
     totalItems?: number;
     totalPages?: number;
@@ -79,14 +72,16 @@
       <ul class={slotList()} use:useWaypoint data-waypoint>
         {#each entries as entry, i (entry.id)}
           {#if entry?.__typename === "page_photosSingle_Entry"}
-            {#if entry?.title && entry?.url && entry?.images}
-              {@const exifDataParsed = getExifData(entry?.images)}
+            {@const archiveImages = entry?.archiveImages ?? []}
+            {@const previewImages = entry?.previewImages ?? []}
+            {#if entry?.title && entry?.url}
+              {@const exifDataParsed = getExifData(archiveImages)}
               <li class={`is-zoomInUp ${slotListItem()}`} data-waypoint-target>
                 <!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
                 <a class={slotListItemLink()} href={entry?.url}>
                   <div class={slotText()}>
                     <div class="flex gap-4 items-center">
-                      <span class={slotCount()}>{entry?.images?.length}</span>
+                      <span class={slotCount()}>{archiveImages.length}</span>
 
                       {#if entry?.postDate}
                         <Time className="text-xs -mt-2" timestamp={entry?.postDate} />
@@ -111,13 +106,14 @@
                   </div>
 
                   <div class={slotImages()}>
-                    {#each entry?.previewImages as image, j (image.id)}
+                    {#each previewImages as image, j (image.id)}
                       <div class="rounded-md min-w-0 flex-1 overflow-hidden flex h-full">
                         <Image
                           className="hover:scale-105 transition-transform size-full aspect-instagram"
                           {image}
-                          lazy={!(i === 0 && j === 0)}
-                          sizes="(min-width: 1024px) 25vw, 100vw"
+                          lazy={!(i === 0)}
+                          fetchPriority={i === 0 ? "high" : "low"}
+                          sizes="(min-width: 1280px) 150px, (min-width: 1024px) 120px, 25vw"
                         />
                       </div>
                     {/each}

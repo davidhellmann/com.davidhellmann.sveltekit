@@ -1,5 +1,3 @@
-export const prerender = true;
-
 import type { RequestHandler } from "./$types";
 import { getAboutEntry } from "$lib/data/about";
 import { renderAbout } from "$lib/ai/about";

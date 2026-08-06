@@ -3,14 +3,17 @@ query GetBlogEntries(
   $section: [String]! = ["blog"]
   $limit: Int = 100
   $offset: Int = 0
+  $slug: [String]
   $orderBy: String = "postDate DESC"
   $relatedToEntries: [EntryRelationCriteriaInput]
+  $fullContent: Boolean! = true
 ) {
   entries(
     site: $site,
     section: $section,
     limit: $limit,
     offset: $offset,
+    slug: $slug,
     orderBy: $orderBy,
     relatedToEntries: $relatedToEntries
   ) {
@@ -19,6 +22,7 @@ query GetBlogEntries(
   entryCount(
     site: $site,
     section: $section,
+    slug: $slug,
     relatedToEntries: $relatedToEntries
   )
 }

@@ -1,9 +1,6 @@
-export const prerender = true;
-
 import type { RequestHandler } from "./$types";
 import { SITE_URL } from "$lib/ai/helpers";
-import { getBlogArray } from "$lib/data/blog";
-import { getWorkArray } from "$lib/data/work";
+import { getBlogEntriesData, getWorkEntriesData } from "$graphql/cms-content";
 
 type Entry = {
   slug?: string | null;
@@ -20,7 +17,12 @@ const line = (e: Entry, section: "blog" | "work") => {
 };
 
 export const GET: RequestHandler = async () => {
-  const [blog, work] = await Promise.all([getBlogArray() as Promise<Entry[]>, getWorkArray() as Promise<Entry[]>]);
+  const [blogData, workData] = await Promise.all([
+    getBlogEntriesData({ limit: 1000, fullContent: false }),
+    getWorkEntriesData({ limit: 1000, fullContent: false })
+  ]);
+  const blog = blogData.entries as Entry[];
+  const work = workData.entries as Entry[];
 
   const body = [
     "# David Hellmann Full LLM Index",
