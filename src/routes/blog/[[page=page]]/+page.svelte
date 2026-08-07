@@ -4,9 +4,7 @@
   import RichText from "$components/text/RichText.svelte";
   import Seo from "$components/seo/Seo.svelte";
   import { getFirstEntry } from "$utils/getFirstEntry";
-  import { splitTextIntoDivs } from "$utils/splitTextIntoDivs";
-  import { useWaypoint } from "$lib/actions/action.waypoint";
-  import { useJumpingLetters } from "$lib/actions/action.jumpingLetters";
+  import { useSplitText } from "$lib/actions/action.splitText";
 
   import { type Page_BlogSingleFragment, type Page_BlogListFragment } from "$graphql/graphql";
 
@@ -18,12 +16,10 @@
   let page = $derived(data.page);
 
   const cc = {
-    heading: "span-content text-neon-pink is-zoomInDown text-7xl font-decorative font-extrabold flex flex-wrap",
+    heading: "span-content text-neon-pink text-7xl font-decorative font-extrabold",
     text: "span-content xl:col-start-[col-3] xl:col-end-[col-10] text-2xl is-zoomInDown [&_*_strong]:decoration-wavy [&_*_strong]:underline [&_*_strong]:decoration-4 [&_*_strong]:decoration-accent-purple-400",
     list: "span-popout z-10 @container"
   };
-
-  let letters = $derived(splitTextIntoDivs(blogEntry?.customTitle, "is-blurInLeftDown", "$"));
 </script>
 
 {#if blogEntry?.seomatic}
@@ -33,19 +29,23 @@
 {#key page}
   {#if page === 1}
     {#if blogEntry?.customTitle}
-      <div class={cc.heading} use:useWaypoint data-waypoint use:useJumpingLetters>
-        <!-- eslint-disable-next-line -->
-        {@html letters}
-      </div>
+      <h1 class={cc.heading} use:useSplitText={{ direction: "fromTop" }}>
+        {#each blogEntry.customTitle.split("$") as line, index (`${line}-${index}`)}
+          {#if index > 0}<br />{/if}
+          {line}
+        {/each}
+      </h1>
     {/if}
     {#if blogEntry.description}
       <RichText className={cc.text} html={blogEntry.description} data-waypoint-target />
     {/if}
   {:else}
-    <div class="span-content text-neon-pink flex font-decorative text-7xl font-extrabold" use:useWaypoint data-waypoint>
-      <!-- eslint-disable-next-line -->
-      {@html splitTextIntoDivs(`Page ${page.toString()}`, "is-blurInLeftDown")}
-    </div>
+    <h1
+      class="span-content text-neon-pink font-decorative text-7xl font-extrabold"
+      use:useSplitText={{ direction: "fromTop" }}
+    >
+      Page {page.toString()}
+    </h1>
   {/if}
 {/key}
 <StackBlog {entries} showPagination={true} totalItems={entryCount} {totalPages} {page} className={cc.list} />

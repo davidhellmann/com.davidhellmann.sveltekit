@@ -47,6 +47,9 @@ importers:
       graphql-tag:
         specifier: ^2.12.7
         version: 2.12.7(graphql@16.12.0)
+      gsap:
+        specifier: ^3.15.0
+        version: 3.15.0
       lightgallery:
         specifier: 2.9.0
         version: 2.9.0
@@ -2539,6 +2542,9 @@ packages:
   graphql@16.12.0:
     resolution: {integrity: sha512-DKKrynuQRne0PNpEbzuEdHlYOMksHSUI8Zc9Unei5gTsMNA2/vMpoMz/yKba50pejK56qj98qM0SjYxAKi13gQ==}
     engines: {node: ^12.22.0 || ^14.16.0 || ^16.0.0 || >=17.0.0}
+
+  gsap@3.15.0:
+    resolution: {integrity: sha512-dMW4CWBTUK1AEEDeZc1g4xpPGIrSf9fJF960qbTZmN/QwZIWY5wgliS6JWl9/25fpTGJrMRtSjGtOmPnfjZB+A==}
 
   hasown@2.0.4:
     resolution: {integrity: sha512-T2UbfbBEF32wiepXIsMlTW9+dDYC6wMh/t/vYA4tuOMKqWz/n3vr1NFSxQiyP+zk2mXsoMA/i/7qV6LKut1t1A==}
@@ -6376,6 +6382,8 @@ snapshots:
       ws: 8.21.1
 
   graphql@16.12.0: {}
+
+  gsap@3.15.0: {}
 
   hasown@2.0.4:
     dependencies:
