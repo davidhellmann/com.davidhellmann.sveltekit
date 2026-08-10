@@ -7,13 +7,20 @@ type SplitTextDirection = "fromTop" | "fromBottom";
 
 type SplitTextOptions = {
   direction?: SplitTextDirection;
+  jumpingLetters?: boolean;
 };
 
-export function useSplitText(node: HTMLElement, { direction = "fromBottom" }: SplitTextOptions = {}) {
+export function useSplitText(
+  node: HTMLElement,
+  { direction = "fromBottom", jumpingLetters = true }: SplitTextOptions = {}
+) {
   let timeline: gsap.core.Timeline | undefined;
   let split: SplitText | undefined;
   let observer: IntersectionObserver | undefined;
+  let removeJumpListeners: (() => void) | undefined;
   let destroyed = false;
+
+  const canJump = jumpingLetters && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
   const restore = () => {
     if (split?.isSplit) split.revert();
@@ -38,6 +45,21 @@ export function useSplitText(node: HTMLElement, { direction = "fromBottom" }: Sp
     const directionMultiplier = direction === "fromTop" ? -1 : 1;
     const linesInAnimationOrder = direction === "fromTop" ? [...lines].reverse() : lines;
     const charactersInAnimationOrder = direction === "fromTop" ? [...charactersByLine].reverse() : charactersByLine;
+    const jumpTargets: HTMLElement[] = [];
+
+    if (canJump) {
+      characters.forEach((character) => {
+        const target = document.createElement("span");
+
+        Object.assign(target.style, {
+          display: "block",
+          transformOrigin: "50% 100%"
+        });
+        target.textContent = character.textContent;
+        character.replaceChildren(target);
+        jumpTargets.push(target);
+      });
+    }
 
     gsap.set(split.words, { display: "inline-flex", whiteSpace: "nowrap" });
     gsap.set(split.chars, { display: "inline-block" });
@@ -77,6 +99,29 @@ export function useSplitText(node: HTMLElement, { direction = "fromBottom" }: Sp
           clearProps: "boxSizing,height,marginBottom,overflow,paddingBottom,paddingTop,position,top"
         });
         gsap.set(node, { clearProps: "height,opacity" });
+
+        if (canJump) {
+          const listeners = characters.map((character, index) => {
+            const target = jumpTargets[index];
+            const startJump = () => {
+              if (target.classList.contains("animate-letter")) return;
+
+              target.classList.add("animate-letter");
+            };
+            const finishJump = () => target.classList.remove("animate-letter");
+
+            character.addEventListener("pointerenter", startJump);
+            target.addEventListener("animationend", finishJump);
+
+            return () => {
+              character.removeEventListener("pointerenter", startJump);
+              target.removeEventListener("animationend", finishJump);
+              target.classList.remove("animate-letter");
+            };
+          });
+
+          removeJumpListeners = () => listeners.forEach((removeListener) => removeListener());
+        }
       }
     });
 
@@ -147,6 +192,7 @@ export function useSplitText(node: HTMLElement, { direction = "fromBottom" }: Sp
       destroyed = true;
       observer?.disconnect();
       timeline?.kill();
+      removeJumpListeners?.();
       restore();
     }
   };
