@@ -93,7 +93,12 @@
     </div>
   {/if}
   {#if headline}
-    <Headline text={headline} tag="h1" className={slotHeadline()} />
+    <Headline
+      text={headline}
+      tag="h1"
+      className={slotHeadline()}
+      splitText={{ direction: "fromBottom", jumpingLetters: false }}
+    />
   {/if}
   {#if description}
     <RichText className={slotDescription()} html={description} />

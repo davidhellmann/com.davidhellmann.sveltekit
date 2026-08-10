@@ -35,7 +35,12 @@
           >{imageCount}</span
         >
       {/if}
-      <Headline text={_headline} tag="h1" className={slotHeadline()} />
+      <Headline
+        text={_headline}
+        tag="h1"
+        className={slotHeadline()}
+        splitText={{ direction: "fromBottom", jumpingLetters: false }}
+      />
       <div class="flex gap-8 mt-2">
         {#if exif?.cameras}
           <span class={slotGearList()}>{exif?.cameras.join(", ")}</span>

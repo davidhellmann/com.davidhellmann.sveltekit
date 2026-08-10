@@ -48,7 +48,12 @@
         {backButton?.title}
       </a>
     {/if}
-    <Headline text={headline} tag="h1" className={slotHeadline()} />
+    <Headline
+      text={headline}
+      tag="h1"
+      className={slotHeadline()}
+      splitText={{ direction: "fromBottom", jumpingLetters: false }}
+    />
     {#if (category && category.length > 0) || (topics && topics.length > 0)}
       <div class={slotMeta()}>
         {#if category && category.length > 0}
