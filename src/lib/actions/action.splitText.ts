@@ -5,7 +5,7 @@ gsap.registerPlugin(SplitText);
 
 type SplitTextDirection = "fromTop" | "fromBottom";
 
-type SplitTextOptions = {
+export type SplitTextOptions = {
   direction?: SplitTextDirection;
   jumpingLetters?: boolean;
 };

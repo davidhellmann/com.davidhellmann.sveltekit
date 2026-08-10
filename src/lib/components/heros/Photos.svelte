@@ -2,6 +2,7 @@
   import { tv, type VariantProps } from "$utils/classNames";
   import Headline from "$components/text/Headline.svelte";
   import IconSprite from "$components/media/IconSprite.svelte";
+  import { useSplitText } from "$lib/actions/action.splitText";
 
   const tvHeroPhotos = tv({
     slots: {
@@ -35,7 +36,13 @@
           >{imageCount}</span
         >
       {/if}
-      <Headline text={_headline} tag="h1" className={slotHeadline()} />
+      <Headline
+        text={_headline}
+        tag="h1"
+        className={slotHeadline()}
+        splitTextAction={useSplitText}
+        splitText={{ direction: "fromBottom", jumpingLetters: false }}
+      />
       <div class="flex gap-8 mt-2">
         {#if exif?.cameras}
           <span class={slotGearList()}>{exif?.cameras.join(", ")}</span>
