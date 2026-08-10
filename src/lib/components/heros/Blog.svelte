@@ -2,6 +2,7 @@
   import { tv, type VariantProps } from "$utils/classNames";
   import Headline from "$components/text/Headline.svelte";
   import IconSprite from "$components/media/IconSprite.svelte";
+  import { useSplitText } from "$lib/actions/action.splitText";
 
   const tvHeroBlog = tv({
     slots: {
@@ -52,6 +53,7 @@
       text={headline}
       tag="h1"
       className={slotHeadline()}
+      splitTextAction={useSplitText}
       splitText={{ direction: "fromBottom", jumpingLetters: false }}
     />
     {#if (category && category.length > 0) || (topics && topics.length > 0)}

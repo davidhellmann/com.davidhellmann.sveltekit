@@ -1,6 +1,7 @@
 <script lang="ts">
+  import type { Action } from "svelte/action";
   import { tv, type VariantProps } from "$utils/classNames";
-  import { useSplitText, type SplitTextOptions } from "$lib/actions/action.splitText";
+  import type { SplitTextOptions } from "$lib/actions/action.splitText";
 
   const tvHeadline = tv({
     base: "text-balance ",
@@ -27,12 +28,16 @@
   });
 
   type HeadlineTags = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  type SplitTextAction = Action<HTMLElement, SplitTextOptions | undefined>;
+
+  const noAction: SplitTextAction = () => {};
 
   type HeadlineProps = {
     compName?: string;
     tag?: HeadlineTags;
     text?: string;
     className?: string;
+    splitTextAction?: SplitTextAction;
     splitText?: SplitTextOptions;
   } & VariantProps<typeof tvHeadline>;
 
@@ -43,25 +48,20 @@
     preset,
     family,
     className,
+    splitTextAction = noAction,
     splitText,
     ...rest
   }: HeadlineProps = $props();
 </script>
 
 {#if text}
-  {#if splitText}
-    <svelte:element
-      this={tag}
-      data-comp={compName}
-      class={tvHeadline({ preset, family, className })}
-      use:useSplitText={splitText}
-      {...rest}
-    >
-      {text}
-    </svelte:element>
-  {:else}
-    <svelte:element this={tag} data-comp={compName} class={tvHeadline({ preset, family, className })} {...rest}>
-      {text}
-    </svelte:element>
-  {/if}
+  <svelte:element
+    this={tag}
+    data-comp={compName}
+    class={tvHeadline({ preset, family, className })}
+    use:splitTextAction={splitText}
+    {...rest}
+  >
+    {text}
+  </svelte:element>
 {/if}

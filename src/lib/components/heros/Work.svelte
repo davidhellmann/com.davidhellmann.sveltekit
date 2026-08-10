@@ -4,6 +4,7 @@
   import RichText from "$components/text/RichText.svelte";
   import Time from "svelte-time";
   import { toDateTimeString } from "$utils/date";
+  import { useSplitText } from "$lib/actions/action.splitText";
 
   const tvHeroWork = tv({
     slots: {
@@ -97,6 +98,7 @@
       text={headline}
       tag="h1"
       className={slotHeadline()}
+      splitTextAction={useSplitText}
       splitText={{ direction: "fromBottom", jumpingLetters: false }}
     />
   {/if}
