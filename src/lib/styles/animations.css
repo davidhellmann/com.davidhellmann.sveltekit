@@ -83,9 +83,9 @@
     @apply opacity-100 translate-x-0 translate-y-0 scale-100;
   }
 
-  /*[data-waypoint-target].is-blurInLeftDown {
+  [data-waypoint-target].is-blurInLeftDown {
     @apply opacity-0 transform-gpu translate-x-12 -translate-y-[10vw] scale-75;
-  }*/
+  }
 
   @media (width < theme(--breakpoint-sm)) {
     main [data-waypoint-target].is-blurInLeftDown {
