@@ -1,13 +1,10 @@
 <script lang="ts">
   import type { PageProps } from "./$types";
   import StackPhotos from "$components/stacks/Photos.svelte";
-  import Headline from "$components/text/Headline.svelte";
   import RichText from "$components/text/RichText.svelte";
   import Seo from "$components/seo/Seo.svelte";
   import { getFirstEntry } from "$utils/getFirstEntry";
-  import { splitTextIntoDivs } from "$utils/splitTextIntoDivs";
-  import { useWaypoint } from "$lib/actions/action.waypoint";
-  import { useJumpingLetters } from "$lib/actions/action.jumpingLetters";
+  import { useSplitText } from "$lib/actions/action.splitText";
 
   import { type Page_PhotosSingleFragment, type Page_PhotosListFragment } from "$graphql/graphql";
 
@@ -20,13 +17,10 @@
   let page = $derived(data.page);
 
   const cc = {
-    heading: "span-content text-black is-zoomInDown text-7xl font-decorative font-extrabold flex flex-wrap",
+    heading: "span-content text-black text-7xl font-decorative font-extrabold",
     text: "span-content xl:col-start-[col-3] xl:col-end-[col-10] text-2xl is-zoomInDown [&*strong]:decoration-wavy [&*strong]:underline [&*strong]:decoration-4 [&*strong]:decoration-accent-purple-400",
     list: "span-content z-10 @container"
   };
-
-  // split string and map each letter into a div
-  let letters = $derived(splitTextIntoDivs(photosEntry?.customTitle ?? "", "is-blurInLeftDown", "$"));
 </script>
 
 {#if photosEntry?.seomatic}
@@ -37,19 +31,23 @@
   {#key page}
     {#if page === 1}
       {#if photosEntry?.customTitle}
-        <div class={cc.heading} use:useWaypoint data-waypoint use:useJumpingLetters>
-          <!-- eslint-disable-next-line -->
-          {@html letters}
-        </div>
+        <h1 class={cc.heading} use:useSplitText={{ direction: "fromTop" }}>
+          {#each photosEntry.customTitle.split("$") as line, index (`${line}-${index}`)}
+            {#if index > 0}<br />{/if}
+            {line}
+          {/each}
+        </h1>
       {/if}
       {#if photosEntry.description}
         <RichText className={cc.text} html={photosEntry.description} data-waypoint-target />
       {/if}
     {:else}
-      <div class="span-content text-black flex font-decorative text-7xl font-extrabold" use:useWaypoint data-waypoint>
-        <!-- eslint-disable-next-line -->
-        {@html splitTextIntoDivs(`Page ${page.toString()}`, "is-blurInLeftDown")}
-      </div>
+      <h1
+        class="span-content text-black font-decorative text-7xl font-extrabold"
+        use:useSplitText={{ direction: "fromTop" }}
+      >
+        Page {page.toString()}
+      </h1>
     {/if}
   {/key}
   <StackPhotos {entries} showPagination={true} totalItems={entryCount} {totalPages} {page} className={cc.list} />

@@ -14,9 +14,8 @@
   import Glass from "$components/decorative/Glass.svelte";
   import GridBentoWork from "$components/containers/GridBentoWork.svelte";
   import { useFullWidthText } from "$lib/actions/action.fullWidthText";
+  import { useSplitText } from "$lib/actions/action.splitText";
   import { useWaypoint } from "$lib/actions/action.waypoint";
-  import { useJumpingLetters } from "$lib/actions/action.jumpingLetters";
-  import { splitTextIntoDivs } from "$utils/splitTextIntoDivs";
   import type { ComponentProps } from "svelte";
   import CardBlog from "$components/cards/Blog.svelte";
   import CardPhotos from "$components/cards/Photos.svelte";
@@ -31,7 +30,7 @@
     main: "w-full lg:max-w-[min(calc(100%-4vw),2000px)] mx-auto relative z-10 stack-24 pt-40 lg:pt-80 overflow-auto",
     heroImage: "absolute inset-x-0 top-0 z-10",
     heroHeadline:
-      "font-decorative text-7xl font-extrabold !leading-[0.85] [font-size:min(12vw,13.5rem)] text-neon-green -translate-y-[1.75cap] -mb-[1.25cap] flex flex-wrap [br]:w-full",
+      "font-decorative text-7xl font-extrabold !leading-[0.85] [font-size:min(12vw,13.5rem)] text-neon-green -translate-y-[1.75cap] -mb-[1.25cap]",
     heroRichText: "is-fadeInUp span-content lg:col-start-2 lg:col-end-10 text-white text-3xl max-w-prose",
     glass: "span-popout px-fluid relative z-20  mt-[16vw] pb-32",
     bigTextWrapper: "span-full px-4 -mt-48 z-20 pointer-events-none ",
@@ -41,8 +40,6 @@
     cardGrid: "span-content grid gap-8 lg:gap-fluid -mt-6 mb-24 z-10",
     cardGridPhotos: "grid-cols-2 lg:grid-cols-4 lg:gap-8 items-center"
   };
-
-  let letters = $derived(splitTextIntoDivs(entry?.customTitle, "is-blurInLeftDown", "$"));
 </script>
 
 {#if entry?.seomatic}
@@ -65,10 +62,12 @@
   <div class="fluid-grid">
     <Glass preset="glass-home" className={cc.glass}>
       {#if entry?.customTitle}
-        <div class={cc.heroHeadline} use:useWaypoint data-waypoint use:useJumpingLetters>
-          <!-- eslint-disable-next-line -->
-          {@html letters}
-        </div>
+        <h1 class={cc.heroHeadline} use:useSplitText={{ direction: "fromTop" }}>
+          {#each entry.customTitle.split("$") as line, index (`${line}-${index}`)}
+            {#if index > 0}<br />{/if}
+            {line}
+          {/each}
+        </h1>
       {/if}
 
       {#if entry?.description}
