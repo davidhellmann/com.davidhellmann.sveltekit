@@ -35,7 +35,11 @@ export function useSplitText(
     split = SplitText.create(node, {
       type: "lines,words,chars",
       tag: "span",
-      aria: "auto"
+      aria: "auto",
+      wordDelimiter: {
+        delimiter: /(?<=\s)|(?=\s)|(?<=[-\u00ad])/u,
+        replaceWith: ""
+      }
     });
 
     const lines = split.lines as HTMLElement[];
