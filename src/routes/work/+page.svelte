@@ -20,7 +20,7 @@
 {/if}
 
 {#if workEntry?.customTitle}
-  <h1 class={cc.heading} use:useSplitText={{ direction: "fromTop" }}>
+  <h1 data-split-text hidden class={cc.heading} use:useSplitText={{ direction: "fromTop" }}>
     {#each workEntry.customTitle.split("$") as line, index (`${line}-${index}`)}
       {#if index > 0}<br />{/if}
       {line}
