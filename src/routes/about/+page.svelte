@@ -44,7 +44,7 @@
 <div class="fluid-grid">
   <Glass preset="glass-home" className={cc.glass}>
     {#if entry?.customTitle}
-      <h1 class={cc.heroHeadline} use:useSplitText={{ direction: "fromTop" }}>
+      <h1 data-split-text hidden class={cc.heroHeadline} use:useSplitText={{ direction: "fromTop" }}>
         {#each entry.customTitle.split("$") as line, index (`${line}-${index}`)}
           {#if index > 0}<br />{/if}
           {line}

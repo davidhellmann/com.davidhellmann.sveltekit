@@ -20,6 +20,7 @@ const mocks = vi.hoisted(() => {
   });
 
   return {
+    set: vi.fn(),
     splitTextCreate,
     timeline: vi.fn(() => ({
       fromTo: vi.fn(),
@@ -32,7 +33,7 @@ const mocks = vi.hoisted(() => {
 vi.mock("gsap", () => ({
   gsap: {
     registerPlugin: vi.fn(),
-    set: vi.fn(),
+    set: mocks.set,
     timeline: mocks.timeline,
     utils: { random: vi.fn(() => 1) }
   }
@@ -47,7 +48,9 @@ import { useSplitText } from "./action.splitText";
 type TestNode = {
   childNodes: Array<{ nodeType: number; textContent: string }>;
   getBoundingClientRect: () => { height: number };
+  hidden: boolean;
   normalize: () => void;
+  removeAttribute: (name: string) => void;
 };
 
 class TestIntersectionObserver {
@@ -72,6 +75,7 @@ class TestIntersectionObserver {
 describe("useSplitText", () => {
   beforeEach(() => {
     mocks.splitTextCreate.mockClear();
+    mocks.set.mockClear();
     mocks.timeline.mockClear();
     TestIntersectionObserver.current = undefined;
 
@@ -95,8 +99,12 @@ describe("useSplitText", () => {
         { nodeType: 3, textContent: "" }
       ],
       getBoundingClientRect: () => ({ height: 120 }),
+      hidden: true,
       normalize() {
         this.childNodes = this.childNodes.filter((child) => child.nodeType !== 3 || child.textContent !== "");
+      },
+      removeAttribute(name) {
+        if (name === "hidden") this.hidden = false;
       }
     };
 
@@ -105,5 +113,41 @@ describe("useSplitText", () => {
 
     expect(() => TestIntersectionObserver.current?.trigger()).not.toThrow();
     expect(mocks.splitTextCreate).toHaveBeenCalledOnce();
+  });
+
+  it("makes the server-hidden heading transparent before revealing its layout", () => {
+    const removeAttribute = vi.fn();
+    const node: TestNode = {
+      childNodes: [{ nodeType: 3, textContent: "Frontier AI." }],
+      getBoundingClientRect: () => ({ height: 120 }),
+      hidden: true,
+      normalize() {},
+      removeAttribute
+    };
+
+    useSplitText(node as unknown as HTMLElement);
+
+    expect(mocks.set).toHaveBeenCalledWith(node, { opacity: 0 });
+    expect(removeAttribute).toHaveBeenCalledWith("hidden");
+    expect(mocks.set.mock.invocationCallOrder[0]).toBeLessThan(removeAttribute.mock.invocationCallOrder[0]);
+  });
+
+  it("reveals the server-hidden heading immediately when reduced motion is preferred", () => {
+    vi.stubGlobal("window", {
+      matchMedia: (query: string) => ({ matches: query.includes("prefers-reduced-motion") })
+    });
+    const removeAttribute = vi.fn();
+    const node: TestNode = {
+      childNodes: [{ nodeType: 3, textContent: "Frontier AI." }],
+      getBoundingClientRect: () => ({ height: 120 }),
+      hidden: true,
+      normalize() {},
+      removeAttribute
+    };
+
+    useSplitText(node as unknown as HTMLElement);
+
+    expect(removeAttribute).toHaveBeenCalledWith("hidden");
+    expect(mocks.set).not.toHaveBeenCalledWith(node, { opacity: 0 });
   });
 });

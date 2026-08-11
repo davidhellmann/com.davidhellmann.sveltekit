@@ -52,12 +52,16 @@
     splitText,
     ...rest
   }: HeadlineProps = $props();
+
+  let hasSplitText = $derived(splitTextAction !== noAction);
 </script>
 
 {#if text}
   <svelte:element
     this={tag}
     data-comp={compName}
+    data-split-text={hasSplitText ? "" : undefined}
+    hidden={hasSplitText}
     class={tvHeadline({ preset, family, className })}
     use:splitTextAction={splitText}
     {...rest}

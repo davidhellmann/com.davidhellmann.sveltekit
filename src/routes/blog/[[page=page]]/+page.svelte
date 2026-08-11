@@ -29,7 +29,7 @@
 {#key page}
   {#if page === 1}
     {#if blogEntry?.customTitle}
-      <h1 class={cc.heading} use:useSplitText={{ direction: "fromTop" }}>
+      <h1 data-split-text hidden class={cc.heading} use:useSplitText={{ direction: "fromTop" }}>
         {#each blogEntry.customTitle.split("$") as line, index (`${line}-${index}`)}
           {#if index > 0}<br />{/if}
           {line}
@@ -41,6 +41,8 @@
     {/if}
   {:else}
     <h1
+      data-split-text
+      hidden
       class="span-content text-neon-pink font-decorative text-7xl font-extrabold"
       use:useSplitText={{ direction: "fromTop" }}
     >
