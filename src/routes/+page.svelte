@@ -1,12 +1,5 @@
 <script lang="ts">
   import type { PageProps } from "./$types";
-  import { getFirstEntry } from "$utils/getFirstEntry";
-  import type {
-    Page_WorkSingleFragment,
-    Page_HomeFragment,
-    Page_PhotosSingleFragment,
-    Page_BlogSingleFragment
-  } from "$graphql/graphql";
   import Seo from "$components/seo/Seo.svelte";
   import Headline from "$components/text/Headline.svelte";
   import RichText from "$components/text/RichText.svelte";
@@ -21,10 +14,10 @@
   import CardPhotos from "$components/cards/Photos.svelte";
 
   let { data }: PageProps = $props();
-  let entry = getFirstEntry(data.entries) as Page_HomeFragment;
-  let blogEntries = data?.blogEntries as Page_BlogSingleFragment[];
-  let workEntries = data?.workEntries as Page_WorkSingleFragment[];
-  let photoEntries = data?.photoEntries as Page_PhotosSingleFragment[];
+  let entry = $derived(data.entry);
+  let blogEntries = $derived(data.blogEntries);
+  let workEntries = $derived(data.workEntries);
+  let photoEntries = $derived(data.photoEntries);
 
   const cc = {
     main: "w-full lg:max-w-[min(calc(100%-4vw),2000px)] mx-auto relative z-10 stack-24 pt-40 lg:pt-80 overflow-auto",

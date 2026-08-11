@@ -1,12 +1,12 @@
 <script lang="ts">
   import type { ComponentProps } from "svelte";
-  import type { Page_WorkSingleFragment } from "$graphql/graphql";
+  import type { WorkEntry } from "$lib/types/content";
   import LightboxWork from "$components/modals/LightboxWork.svelte";
   import { resolveWorkMediaGroups, type WorkMediaGroup } from "./work-media";
 
   type WorkMediaProps = {
     compName?: string;
-    entry?: Page_WorkSingleFragment;
+    entry?: WorkEntry;
   };
 
   const { compName = "WorkMedia", entry }: WorkMediaProps = $props();

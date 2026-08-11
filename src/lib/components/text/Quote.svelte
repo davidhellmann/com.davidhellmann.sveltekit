@@ -1,7 +1,7 @@
 <script lang="ts">
   import { tv, type VariantProps } from "$utils/classNames";
   import Link from "$components/text/Link.svelte";
-  import type { Hyper_DataFragment } from "$graphql/graphql";
+  import type { Hyperlink } from "$lib/types/content";
   import type { ComponentProps } from "svelte";
 
   const tvQuote = tv({
@@ -22,7 +22,7 @@
     className?: string;
     quote: string;
     source?: string;
-    link?: Hyper_DataFragment | undefined;
+    link?: Hyperlink | undefined;
   } & VariantProps<typeof tvQuote>;
 
   const { compName = "Quote", className, quote, source, link }: QuoteProps = $props();

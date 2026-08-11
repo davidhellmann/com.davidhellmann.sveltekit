@@ -1,7 +1,5 @@
 <script lang="ts">
   import type { PageProps } from "./$types";
-  import { getFirstEntry } from "$utils/getFirstEntry";
-  import type { Page_PhotosSingleFragment } from "$graphql/graphql";
   import Seo from "$components/seo/Seo.svelte";
   import HeroPhotos from "$components/heros/Photos.svelte";
   import LightboxPhotos from "$components/modals/LightboxPhotos.svelte";
@@ -10,7 +8,7 @@
 
   let { data }: PageProps = $props();
 
-  const entry = $derived(getFirstEntry(data.entries) as Page_PhotosSingleFragment);
+  const entry = $derived(data.entry);
   const exifDataParsed = $derived(entry?.images ? getExifData(entry.images) : undefined);
 </script>
 

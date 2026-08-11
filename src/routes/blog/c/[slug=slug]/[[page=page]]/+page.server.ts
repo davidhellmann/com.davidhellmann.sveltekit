@@ -1,6 +1,6 @@
 import type { PageServerLoad } from "./$types";
 import { error, redirect } from "@sveltejs/kit";
-import { getBlogEntriesData, getCategoryEntries } from "$graphql/cms-content";
+import { getBlogCategory, getBlogPosts } from "$graphql/cms-content";
 import {
   getCanonicalFirstPageRedirect,
   getOutOfRangeRedirect,
@@ -15,7 +15,7 @@ export const load: PageServerLoad = async ({ params }) => {
   const offset = (page - 1) * limit || 0;
 
   const [{ entries, entryCount }, categoryEntry] = await Promise.all([
-    getBlogEntriesData({
+    getBlogPosts({
       relatedToEntries: [
         {
           section: ["categories"],
@@ -26,14 +26,14 @@ export const load: PageServerLoad = async ({ params }) => {
       offset,
       fullContent: false
     }),
-    getCategoryEntries(params?.slug)
+    getBlogCategory(params.slug)
   ]);
 
-  if (!categoryEntry.length) error(404, "Blog category not found");
+  if (!categoryEntry) error(404, "Blog category not found");
 
   const totalPages = getTotalPages(entryCount, limit);
 
-  const canonicalPath = categoryEntry?.[0]?.uri ? `/${categoryEntry[0].uri}` : undefined;
+  const canonicalPath = categoryEntry.uri ? `/${categoryEntry.uri}` : undefined;
   const canonicalRedirect = getCanonicalFirstPageRedirect(page, params.page, canonicalPath);
   const outOfRangeRedirect = getOutOfRangeRedirect(page, totalPages, canonicalPath);
 

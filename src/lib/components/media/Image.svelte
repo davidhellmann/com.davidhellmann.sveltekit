@@ -1,11 +1,7 @@
 <script module lang="ts">
-  import type { Asset_CustomFieldsFragment, Asset_DataFragment, Asset_TransformsFragment } from "$graphql/graphql";
+  import type { ImageAsset } from "$lib/types/content";
 
-  export type Asset = Asset_DataFragment &
-    Partial<Asset_TransformsFragment> &
-    Partial<Asset_CustomFieldsFragment> & {
-      __typename?: string;
-    };
+  export type Asset = ImageAsset;
 </script>
 
 <script lang="ts">

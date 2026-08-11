@@ -1,9 +1,9 @@
-import type { Matrix_ContentBuilderFragment, Page_BlogSingleFragment } from "$graphql/graphql";
+import type { BlogEntry, ContentBlock } from "$lib/types/content";
 import { parse } from "node-html-parser";
 
-export type BlogFeedEntry = Page_BlogSingleFragment;
+export type BlogFeedEntry = BlogEntry;
 
-type FeedContentBlock = Matrix_ContentBuilderFragment | null | undefined;
+type FeedContentBlock = ContentBlock | null | undefined;
 type RenderableContentBlock = FeedContentBlock | Record<string, unknown>;
 
 type RssLink = {

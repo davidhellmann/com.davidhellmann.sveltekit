@@ -1,6 +1,6 @@
-import type { Page_WorkSingleFragment } from "$graphql/graphql";
+import type { WorkEntry } from "$lib/types/content";
 
-type WorkEntryMedia = Pick<Page_WorkSingleFragment, "contentBuilderWork" | "images"> | undefined;
+type WorkEntryMedia = Pick<WorkEntry, "contentBuilderWork" | "images"> | undefined;
 type WorkMediaSourceBlock = NonNullable<NonNullable<WorkEntryMedia>["contentBuilderWork"]>[number] | null | undefined;
 type WorkImages = NonNullable<NonNullable<WorkEntryMedia>["images"]>;
 

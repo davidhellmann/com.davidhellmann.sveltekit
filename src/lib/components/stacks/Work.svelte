@@ -1,10 +1,5 @@
 <script lang="ts">
-  import type {
-    Entry_DataFragment,
-    Entry_DatesFragment,
-    Entry_SeoFragment,
-    Page_BlogSingleFragment
-  } from "$graphql/graphql";
+  import type { BlogEntry, ContentDates, ContentLink, ContentSeo } from "$lib/types/content";
   import { tv, type VariantProps } from "$utils/classNames";
   import Pagination from "$components/navigation/Pagination.svelte";
   import CardBlog from "$components/cards/Blog.svelte";
@@ -17,7 +12,7 @@
     }
   });
 
-  type Entry = Entry_DataFragment & Page_BlogSingleFragment & Entry_SeoFragment & Entry_DatesFragment;
+  type Entry = ContentLink & BlogEntry & ContentSeo & ContentDates;
 
   type StackWorkProps = {
     compName?: string;

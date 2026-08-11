@@ -1,4 +1,4 @@
-import type { Page_AboutFragment } from "$graphql/graphql";
+import type { AboutEntry } from "$lib/types/content";
 import { SITE_URL, frontmatter, htmlBlock, join, linkMd } from "./helpers";
 
 type Award = {
@@ -19,7 +19,7 @@ type CvEntry = {
   company?: { title?: string | null }[] | null;
 };
 
-export const renderAbout = (entry: Page_AboutFragment): string => {
+export const renderAbout = (entry: AboutEntry): string => {
   const title = entry.customTitle?.trim() || entry.title?.trim() || "About";
   const description = entry.descriptionPlain?.trim();
 

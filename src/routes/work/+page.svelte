@@ -1,14 +1,12 @@
 <script lang="ts">
   import type { PageProps } from "./$types";
-  import type { Page_WorkListFragment, Page_WorkSingleFragment } from "$graphql/graphql";
   import Seo from "$components/seo/Seo.svelte";
   import GridBentoWork from "$components/containers/GridBentoWork.svelte";
-  import { getFirstEntry } from "$utils/getFirstEntry";
   import { useSplitText } from "$lib/actions/action.splitText";
 
   let { data }: PageProps = $props();
-  let workEntry = getFirstEntry(data.workEntry) as Page_WorkListFragment;
-  let workEntries = data?.workEntries as Page_WorkSingleFragment[];
+  let workEntry = $derived(data.workEntry);
+  let workEntries = $derived(data.workEntries);
 
   const cc = {
     heading: "span-content text-neon-pink text-7xl font-decorative font-extrabold",
