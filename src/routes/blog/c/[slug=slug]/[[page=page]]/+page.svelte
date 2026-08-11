@@ -3,18 +3,15 @@
   import StackBlog from "$components/stacks/Blog.svelte";
   import RichText from "$components/text/RichText.svelte";
   import Seo from "$components/seo/Seo.svelte";
-  import { getFirstEntry } from "$utils/getFirstEntry";
   import { splitTextIntoDivs } from "$utils/splitTextIntoDivs";
   import { useWaypoint } from "$lib/actions/action.waypoint";
   import { useJumpingLetters } from "$lib/actions/action.jumpingLetters";
 
-  import { type Page_BlogSingleFragment, type Page_CategoryFragment } from "$graphql/graphql";
-
   let { data }: PageProps = $props();
   const entryCount = data.entryCount ?? 1;
   const totalPages = data.totalPages ?? 1;
-  let categoryEntry = $derived(getFirstEntry(data.categoryEntry) as Page_CategoryFragment);
-  let entries = $derived(data.entries as Page_BlogSingleFragment[]);
+  let categoryEntry = $derived(data.categoryEntry);
+  let entries = $derived(data.entries);
   let page = $derived(data.page);
 
   const cc = {

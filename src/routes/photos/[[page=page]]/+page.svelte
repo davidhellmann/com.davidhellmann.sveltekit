@@ -3,17 +3,14 @@
   import StackPhotos from "$components/stacks/Photos.svelte";
   import RichText from "$components/text/RichText.svelte";
   import Seo from "$components/seo/Seo.svelte";
-  import { getFirstEntry } from "$utils/getFirstEntry";
   import { useSplitText } from "$lib/actions/action.splitText";
-
-  import { type Page_PhotosSingleFragment, type Page_PhotosListFragment } from "$graphql/graphql";
 
   let { data }: PageProps = $props();
 
   const entryCount = data.entryCount ?? 1;
   const totalPages = data.totalPages ?? 1;
-  let photosEntry = $derived(getFirstEntry(data.photosEntry) as Page_PhotosListFragment);
-  let entries = $derived(data.entries) as Page_PhotosSingleFragment[];
+  let photosEntry = $derived(data.photosEntry);
+  let entries = $derived(data.entries);
   let page = $derived(data.page);
 
   const cc = {

@@ -3,16 +3,13 @@
   import StackBlog from "$components/stacks/Blog.svelte";
   import RichText from "$components/text/RichText.svelte";
   import Seo from "$components/seo/Seo.svelte";
-  import { getFirstEntry } from "$utils/getFirstEntry";
   import { useSplitText } from "$lib/actions/action.splitText";
-
-  import { type Page_BlogSingleFragment, type Page_BlogListFragment } from "$graphql/graphql";
 
   let { data }: PageProps = $props();
   const entryCount = data.entryCount ?? 1;
   const totalPages = data.totalPages ?? 1;
-  let blogEntry = $derived(getFirstEntry(data.blogEntry) as Page_BlogListFragment);
-  let entries = $derived(data.entries as Page_BlogSingleFragment[]);
+  let blogEntry = $derived(data.blogEntry);
+  let entries = $derived(data.entries);
   let page = $derived(data.page);
 
   const cc = {
@@ -36,7 +33,7 @@
         {/each}
       </h1>
     {/if}
-    {#if blogEntry.description}
+    {#if blogEntry?.description}
       <RichText className={cc.text} html={blogEntry.description} data-waypoint-target />
     {/if}
   {:else}

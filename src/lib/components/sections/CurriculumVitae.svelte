@@ -1,6 +1,6 @@
 <script lang="ts">
   import { tv, type VariantProps } from "$utils/classNames";
-  import type { Matrix_CurriculumVitaeFragment } from "$graphql/graphql";
+  import type { CurriculumVitaeEntry } from "$lib/types/content";
   import CardCV from "$components/cards/CV.svelte";
 
   const tvCurriculumVitae = tv({
@@ -10,7 +10,7 @@
   type CurriculumVitaeProps = {
     compName?: string;
     className?: string;
-    items: Matrix_CurriculumVitaeFragment[];
+    items: CurriculumVitaeEntry[];
   } & VariantProps<typeof tvCurriculumVitae>;
 
   let { compName = "CurriculumVitae", className, items, ...rest }: CurriculumVitaeProps = $props();

@@ -1,12 +1,12 @@
 <script lang="ts">
-  import type { Hyper_DataFragment } from "$lib/graphql/graphql";
+  import type { Hyperlink } from "$lib/types/content";
   import Quote from "$components/text/Quote.svelte";
 
   type BlockQuote = {
     compName?: string;
     quote: string;
     source?: string;
-    link?: Hyper_DataFragment | undefined;
+    link?: Hyperlink | undefined;
   };
 
   const { compName = "BlockQuote", quote, source, link }: BlockQuote = $props();

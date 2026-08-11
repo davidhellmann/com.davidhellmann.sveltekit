@@ -1,7 +1,7 @@
 <script lang="ts">
   import { tv, type VariantProps } from "$utils/classNames";
   import IconSprite from "$components/media/IconSprite.svelte";
-  import type { Entry_DataFragment } from "$graphql/graphql";
+  import type { ContentLink } from "$lib/types/content";
 
   const tvPrevNext = tv({
     slots: {
@@ -37,8 +37,8 @@
   });
 
   type PrevNextProps = {
-    prev?: Entry_DataFragment;
-    next?: Entry_DataFragment;
+    prev?: ContentLink;
+    next?: ContentLink;
     compName?: string;
     className?: string;
   } & VariantProps<typeof tvPrevNext>;

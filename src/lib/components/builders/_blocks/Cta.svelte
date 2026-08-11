@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Hyper_DataFragment } from "$lib/graphql/graphql";
+  import type { Hyperlink } from "$lib/types/content";
   import CtaWrapper from "$components/blocks/CtaWrapper.svelte";
   import Headline from "$components/text/Headline.svelte";
   import RichText from "$components/text/RichText.svelte";
@@ -13,7 +13,7 @@
     headline?: string;
     description?: string;
     icon?: HeroiconsIcons;
-    links: Hyper_DataFragment[];
+    links: Hyperlink[];
   };
 
   const { compName = "BlockCta", headline, description, icon = "face-smile-outline", links }: BlockCta = $props();

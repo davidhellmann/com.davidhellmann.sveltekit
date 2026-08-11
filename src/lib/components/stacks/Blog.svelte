@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Page_BlogSingleFragment } from "$graphql/graphql";
+  import type { BlogEntry } from "$lib/types/content";
   import { tv, type VariantProps } from "$utils/classNames";
   import Pagination from "$components/navigation/Pagination.svelte";
   import CardBlog from "$components/cards/Blog.svelte";
@@ -16,7 +16,7 @@
   type StackBlogProps = {
     compName?: string;
     className?: string;
-    entries: Page_BlogSingleFragment[];
+    entries: BlogEntry[];
     showPagination?: boolean;
     paginationUri?: string;
     totalItems?: number;

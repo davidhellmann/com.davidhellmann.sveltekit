@@ -7,7 +7,7 @@
   import Cta from "$components/builders/_blocks/Cta.svelte";
   import { getContentBlockKey, isContentBlockType, type ContentBuilderBlock } from "./content-blocks";
   import type { ComponentProps } from "svelte";
-  import type { Matrix_ContentBuilderFragment } from "$graphql/graphql";
+  import type { ContentBlock } from "$lib/types/content";
   import { cn } from "$utils/classNames";
 
   type ContentBuilder = {
@@ -16,8 +16,8 @@
     className?: string;
   };
 
-  type ImageBlock = Extract<Matrix_ContentBuilderFragment, { __typename: "block_image_Entry" }>;
-  type ImagesBlock = Extract<Matrix_ContentBuilderFragment, { __typename: "block_images_Entry" }>;
+  type ImageBlock = Extract<ContentBlock, { __typename: "block_image_Entry" }>;
+  type ImagesBlock = Extract<ContentBlock, { __typename: "block_images_Entry" }>;
 
   const { compName = "ContentBuilder", blockTypes, className }: ContentBuilder = $props();
 

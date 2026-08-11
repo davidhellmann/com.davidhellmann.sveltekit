@@ -2,81 +2,63 @@ import {
   type GetBlogEntriesQueryVariables,
   type GetPhotosEntriesQueryVariables,
   type GetSeomaticQueryVariables,
-  type GetWorkEntriesQueryVariables,
-  type Page_BlogSingleFragment,
-  type Page_PhotosSingleFragment,
-  type Page_WorkSingleFragment
+  type GetWorkEntriesQueryVariables
 } from "$graphql/graphql";
 import { cmsSdk, type PreviewTokens } from "$graphql/graphql-client";
+import { getEntriesOfType, getEntryOfType } from "$graphql/entry-type";
 
 const sdk = (tokens?: PreviewTokens) => cmsSdk(tokens ?? {});
 
-export const getHomeEntries = async (tokens?: PreviewTokens) =>
-  (await sdk(tokens).GetHomeEntry({})).entries;
+export const getHome = async (tokens?: PreviewTokens) =>
+  getEntryOfType((await sdk(tokens).GetHomeEntry({})).entries, "page_home_Entry");
 
-export const getAboutEntries = async (tokens?: PreviewTokens) =>
-  (await sdk(tokens).GetAboutEntry({})).entries;
+export const getAbout = async (tokens?: PreviewTokens) =>
+  getEntryOfType((await sdk(tokens).GetAboutEntry({})).entries, "page_about_Entry");
 
-export const getPageByUriEntries = async (uri: string | undefined, tokens?: PreviewTokens) =>
-  (await sdk(tokens).GetPageByUri({ uri: [uri] })).entries;
+export const getPageByUri = async (uri: string, tokens?: PreviewTokens) =>
+  getEntryOfType((await sdk(tokens).GetPageByUri({ uri: [uri] })).entries, "page_contentBuilder_Entry");
 
-export const getBlogListPageEntries = async (tokens?: PreviewTokens) =>
-  (await sdk(tokens).GetBlogListPage({})).entries;
+export const getBlogList = async (tokens?: PreviewTokens) =>
+  getEntryOfType((await sdk(tokens).GetBlogListPage({})).entries, "page_blogList_Entry");
 
-export const getPhotosListPageEntries = async (tokens?: PreviewTokens) =>
-  (await sdk(tokens).GetPhotosListPage({})).entries;
+export const getPhotosList = async (tokens?: PreviewTokens) =>
+  getEntryOfType((await sdk(tokens).GetPhotosListPage({})).entries, "page_photosList_Entry");
 
-export const getWorkListPageEntries = async (tokens?: PreviewTokens) =>
-  (await sdk(tokens).GetWorkListPage({})).entries;
+export const getWorkList = async (tokens?: PreviewTokens) =>
+  getEntryOfType((await sdk(tokens).GetWorkListPage({})).entries, "page_workList_Entry");
 
-const isEntryType = <TEntry extends { __typename: string }>(
-  entry: Record<PropertyKey, never> | TEntry,
-  typename: TEntry["__typename"]
-): entry is TEntry => "__typename" in entry && entry.__typename === typename;
-
-export const getBlogEntriesData = async (
-  variables: GetBlogEntriesQueryVariables,
-  tokens?: PreviewTokens
-) => {
+export const getBlogPosts = async (variables: GetBlogEntriesQueryVariables, tokens?: PreviewTokens) => {
   const data = await sdk(tokens).GetBlogEntries(variables);
 
   return {
     ...data,
-    entries: data.entries.filter((entry) => isEntryType<Page_BlogSingleFragment>(entry, "page_blogSingle_Entry"))
+    entries: getEntriesOfType(data.entries, "page_blogSingle_Entry")
   };
 };
 
-export const getPhotosEntriesData = async (
-  variables: GetPhotosEntriesQueryVariables,
-  tokens?: PreviewTokens
-) => {
+export const getPhotoGalleries = async (variables: GetPhotosEntriesQueryVariables, tokens?: PreviewTokens) => {
   const data = await sdk(tokens).GetPhotosEntries(variables);
 
   return {
     ...data,
-    entries: data.entries.filter((entry) => isEntryType<Page_PhotosSingleFragment>(entry, "page_photosSingle_Entry"))
+    entries: getEntriesOfType(data.entries, "page_photosSingle_Entry")
   };
 };
 
-export const getWorkEntriesData = async (
-  variables: GetWorkEntriesQueryVariables,
-  tokens?: PreviewTokens
-) => {
+export const getWorkProjects = async (variables: GetWorkEntriesQueryVariables, tokens?: PreviewTokens) => {
   const data = await sdk(tokens).GetWorkEntries(variables);
 
   return {
     ...data,
-    entries: data.entries.filter((entry) => isEntryType<Page_WorkSingleFragment>(entry, "page_workSingle_Entry"))
+    entries: getEntriesOfType(data.entries, "page_workSingle_Entry")
   };
 };
 
-export const getCategoryEntries = async (slug: string | undefined, tokens?: PreviewTokens) =>
-  (await sdk(tokens).GetCategoryEntry({ slug: [slug] })).entries;
+export const getBlogCategory = async (slug: string, tokens?: PreviewTokens) =>
+  getEntryOfType((await sdk(tokens).GetCategoryEntry({ slug: [slug] })).entries, "page_category_Entry");
 
-export const getTopicEntries = async (slug: string | undefined, tokens?: PreviewTokens) =>
-  (await sdk(tokens).GetTopicEntry({ slug: [slug] })).entries;
+export const getBlogTopic = async (slug: string, tokens?: PreviewTokens) =>
+  getEntryOfType((await sdk(tokens).GetTopicEntry({ slug: [slug] })).entries, "page_topic_Entry");
 
-export const getSeomaticData = (
-  variables: GetSeomaticQueryVariables,
-  tokens?: PreviewTokens
-) => sdk(tokens).GetSeomatic(variables);
+export const getSeomaticData = (variables: GetSeomaticQueryVariables, tokens?: PreviewTokens) =>
+  sdk(tokens).GetSeomatic(variables);

@@ -1,6 +1,6 @@
 import type { PageServerLoad } from "./$types";
 import { error, redirect } from "@sveltejs/kit";
-import { getBlogEntriesData, getTopicEntries } from "$graphql/cms-content";
+import { getBlogPosts, getBlogTopic } from "$graphql/cms-content";
 import {
   getCanonicalFirstPageRedirect,
   getOutOfRangeRedirect,
@@ -15,7 +15,7 @@ export const load: PageServerLoad = async ({ params }) => {
   const offset = (page - 1) * limit || 0;
 
   const [{ entries, entryCount }, topicEntry] = await Promise.all([
-    getBlogEntriesData({
+    getBlogPosts({
       relatedToEntries: [
         {
           section: ["topics"],
@@ -26,14 +26,14 @@ export const load: PageServerLoad = async ({ params }) => {
       offset,
       fullContent: false
     }),
-    getTopicEntries(params?.slug)
+    getBlogTopic(params.slug)
   ]);
 
-  if (!topicEntry.length) error(404, "Blog topic not found");
+  if (!topicEntry) error(404, "Blog topic not found");
 
   const totalPages = getTotalPages(entryCount, limit);
 
-  const canonicalPath = topicEntry?.[0]?.uri ? `/${topicEntry[0].uri}` : undefined;
+  const canonicalPath = topicEntry.uri ? `/${topicEntry.uri}` : undefined;
   const canonicalRedirect = getCanonicalFirstPageRedirect(page, params.page, canonicalPath);
   const outOfRangeRedirect = getOutOfRangeRedirect(page, totalPages, canonicalPath);
 

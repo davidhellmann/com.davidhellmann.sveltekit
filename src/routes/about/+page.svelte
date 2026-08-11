@@ -1,7 +1,5 @@
 <script lang="ts">
   import type { PageProps } from "./$types";
-  import { getFirstEntry } from "$utils/getFirstEntry";
-  import { type Page_AboutFragment } from "$graphql/graphql";
   import Seo from "$components/seo/Seo.svelte";
   import RichText from "$components/text/RichText.svelte";
   import Headline from "$components/text/Headline.svelte";
@@ -13,7 +11,7 @@
   import { useWaypoint } from "$lib/actions/action.waypoint";
 
   let { data }: PageProps = $props();
-  let entry = getFirstEntry(data.entries) as Page_AboutFragment;
+  let entry = $derived(data.entry);
 
   const cc = {
     heroImage: "absolute inset-x-0 top-0 z-10",

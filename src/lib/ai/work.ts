@@ -1,8 +1,8 @@
-import type { Page_WorkSingleFragment } from "$graphql/graphql";
+import type { WorkEntry } from "$lib/types/content";
 import { toDateTimeString } from "$lib/utils/date";
 import { SITE_URL, frontmatter, imageMd, linkMd, renderBlocks, join } from "./helpers";
 
-export const renderWork = (entry: Page_WorkSingleFragment): string => {
+export const renderWork = (entry: WorkEntry): string => {
   const title = entry.customTitle?.trim() || entry.title?.trim() || "Untitled";
   const description = entry.descriptionPlain?.trim();
   const client = entry.client?.[0]?.title ?? null;

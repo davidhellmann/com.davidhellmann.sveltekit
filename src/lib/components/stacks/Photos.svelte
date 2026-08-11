@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Page_PhotosSingleFragment } from "$graphql/graphql";
+  import type { PhotosEntry } from "$lib/types/content";
   import { tv, type VariantProps } from "$utils/classNames";
   import Pagination from "$components/navigation/Pagination.svelte";
   import Image from "$components/media/Image.svelte";
@@ -26,7 +26,7 @@
   type StackPhotosProps = {
     compName?: string;
     className?: string;
-    entries: Page_PhotosSingleFragment[];
+    entries: PhotosEntry[];
     showPagination?: boolean;
     totalItems?: number;
     totalPages?: number;
