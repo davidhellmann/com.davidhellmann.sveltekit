@@ -30,6 +30,10 @@ export function useSplitText(
   const play = () => {
     if (destroyed) return;
 
+    // Svelte can leave empty text nodes after client-side navigation. SplitText's
+    // custom word delimiter assumes every text node contains at least one word.
+    node.normalize();
+
     const naturalHeight = node.getBoundingClientRect().height;
 
     split = SplitText.create(node, {
