@@ -1,0 +1,35 @@
+{
+  "$schema": "https://t3.codes/schema/t3.json",
+  "scripts": [
+    {
+      "name": "Setup Worktree",
+      "command": "for file in .env .env.local .env.development.local; do if [ -f \"$T3CODE_PROJECT_ROOT/$file\" ]; then ln -sfn \"$T3CODE_PROJECT_ROOT/$file\" \"$file\"; fi; done && pnpm install --frozen-lockfile",
+      "icon": "configure",
+      "runOnWorktreeCreate": true
+    },
+    {
+      "name": "Dev",
+      "command": "pnpm dev",
+      "icon": "play",
+      "runOnWorktreeCreate": false
+    },
+    {
+      "name": "Check",
+      "command": "pnpm check",
+      "icon": "lint",
+      "runOnWorktreeCreate": false
+    },
+    {
+      "name": "Test",
+      "command": "pnpm test",
+      "icon": "test",
+      "runOnWorktreeCreate": false
+    },
+    {
+      "name": "Build",
+      "command": "pnpm build",
+      "icon": "build",
+      "runOnWorktreeCreate": false
+    }
+  ]
+}
