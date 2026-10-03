@@ -1,145 +1,56 @@
-# AGENTS.md
+# Agent guidance
 
-This file provides guidance to Codex when working with code in this repository.
+## Working agreements
 
-## Working Process
+- Keep changes focused; share a short plan before non-trivial work.
+- Preserve unrelated working-tree changes. Ask before destructive operations; do not push or deploy without approval.
+- Never inspect or expose secrets, credential files, or `.env` contents.
+- Use the user's active skills (currently AI Hero). Do not impose another workflow or add repo-local skills or agents unless requested.
+- Report what changed, what was verified, and what remains unverified.
 
-- Follow the active Codex or Superpowers workflow when one applies.
-- For non-trivial changes, share a short plan before editing.
-- Keep changes simple, local, and low-impact.
-- Explain relevant changes and verification clearly.
-- Do not add broad refactors unless explicitly requested.
+## Commands
 
-## Development Commands
+Use pnpm; `package.json` pins the package-manager version and supported Node version.
 
-### Core Development
+- `pnpm dev` — SvelteKit sync, GraphQL codegen watcher, and Vite dev server at `http://davidhellmann.sveltekit.test:5173`.
+- `pnpm check` — Svelte and TypeScript checks.
+- `pnpm test --run` — run Vitest once (plain `pnpm test` watches).
+- `pnpm build` — production Node-server build in `build/`.
+- `pnpm preview` — preview the production build locally.
+- `pnpm lint` — repository-wide Prettier and ESLint checks.
+- `pnpm codegen` — regenerate GraphQL types and SDK; requires configured CMS access.
+- `pnpm icons:add` — add icons via Sly.
 
-- `npm run dev` - Start the local dev server and GraphQL codegen watcher
-- `npm run build` - Build the static production output
-- `npm run preview` - Preview the production build locally
-- `npm run check` - Run Svelte and TypeScript checks
-- `npm run test` - Run Vitest tests
-- `npm run lint` - Run Prettier and ESLint checks
-- `npm run format` - Format files with Prettier
+Run checks appropriate to the change. For application changes, run typecheck and tests; also build when changing imports, assets, routing, or build configuration. Avoid repository-wide formatting for a focused change.
 
-### GraphQL & Code Generation
+## Current architecture
 
-- `npm run codegen` - Generate GraphQL types and operations
-- GraphQL schema and operations generate TypeScript types in `src/lib/graphql/graphql.ts`
-- Uses `GQL_API_URL` and `GQL_API_TOKEN` for the CMS connection
+- SvelteKit 3, Svelte 5, TypeScript, Tailwind CSS 4; CMS-backed portfolio, blog, and photography site.
+- `vite.config.ts` contains SvelteKit configuration, the Node adapter, Tailwind, SVG sprite generation, and Vitest configuration. There is no separate `svelte.config.js`.
+- `src/params.ts` defines route parameters with `defineParams`.
+- `src/routes/` contains pages and server loads, plus RSS and Markdown/text endpoints.
+- `src/lib/graphql/cms-content.ts` provides CMS data access; `graphql-client.ts` configures the client. Keep private CMS access server-side.
+- GraphQL operations and fragments live in `src/lib/graphql/queries/`. `src/lib/graphql/graphql.ts` is generated: change source operations and regenerate rather than editing it manually.
+- `src/lib/components/` is grouped by purpose: `builders`, `cards`, `stacks`, `heros`, `containers`, `sections`, `modals`, and shared primitives.
+- `builders/ContentBuilder.svelte` and `builders/content-blocks.ts` handle general CMS content blocks; work media and about-page matrices have dedicated components.
+- `src/lib/actions/` contains DOM interactions and animations. Keep browser-only work out of server rendering.
 
-### Icons & Assets
+## Imports and assets
 
-- `npm run icons:add` - Add new icons using Sly CLI
-- Icons are processed into SVG sprites via `vite-svg-sprite-wrapper`
+- Use the existing `#lib/*` package subpath imports, e.g. `#lib/components/text/Headline.svelte` or `#lib/utils/date.js`.
+- Include `.js` for TypeScript module imports through `#lib/*`; use `import type` for type-only dependencies.
+- Do not reintroduce `$lib`, `$components`, `$graphql`, `$styles`, `$images`, `$utils`, or deprecated SvelteKit `alias` configuration.
+- In CSS `url(...)`, use relative paths to local assets so Vite resolves and fingerprints them.
+- SVG sprites and `src/lib/types/heroicons-icons.d.ts` are generated; change source icons, not generated output.
 
-### Custom Scripts
+## Task-specific documentation
 
-- `npm run a` - Run all scopes script
-- `npm run f` - Run focus scopes script
+Read only what is relevant to the task:
 
-## Architecture Overview
+- UI and styling: [DESIGN.md](DESIGN.md).
+- AI Hero issue tracker: issues and PRDs live as local Markdown in `.scratch/<feature-slug>/`; external PRs are not a triage surface. See [docs/agents/issue-tracker.md](docs/agents/issue-tracker.md) for tracker operations.
+- AI Hero triage: use the default five-role vocabulary mapped in [docs/agents/triage-labels.md](docs/agents/triage-labels.md).
+- AI Hero domain docs: this repo uses a single-context layout. See [docs/agents/domain.md](docs/agents/domain.md) when doing domain-modeling work.
+- Deployment: [docs/forge-node-deployment.md](docs/forge-node-deployment.md); verify historical instructions against the current configuration before use.
 
-### GraphQL & CMS Integration
-
-This is a headless CMS-driven SvelteKit site with typed GraphQL integration:
-
-- Queries and fragments live in `src/lib/graphql/queries/`
-- Generated TypeScript output lives in `src/lib/graphql/graphql.ts`
-- GraphQL client setup lives in `src/lib/graphql/graphql-client.ts`
-- Preview tokens are handled in server route loads where needed
-- Content blocks are rendered through `ContentBuilder.svelte` and `BlockTypes.svelte`
-
-### Component Architecture
-
-Components are organized by purpose in `src/lib/components/` with custom aliases:
-
-- `$components` - Svelte components organized by function
-- `$graphql` - GraphQL client, queries, and generated types
-- `$utils` - Utility functions
-- `$styles` - CSS and styling
-- `$images` - Static images
-
-**Key component categories:**
-
-- `builders/` - CMS content block rendering
-- `actions/` - Custom Svelte actions
-- `cards/`, `stacks/`, `heros/` - Reusable content presentation components
-- `containers/` - Grid, slider, and layout components
-- `modals/` - Lightbox implementations
-
-### Styling System
-
-- **Tailwind CSS 4.x** with custom utilities
-- **Fluid responsive grid** system with 12-column layout
-- **Custom CSS properties** for theming and spacing
-- **Stack utilities** for vertical spacing
-- Uses `clsx`, `tailwind-merge`, and `tailwind-variants` via `src/lib/utils/classNames.ts`
-
-### Static Site Generation
-
-- Uses `@sveltejs/adapter-static` for full static export
-- Dynamic route generation comes from CMS content
-- Custom param matchers live in `src/params/` (`uri`, `slug`, `page`, `files`)
-- Prerendering is manually controlled with crawling disabled
-
-### Custom Actions
-
-The project includes several custom Svelte actions:
-
-- `useWaypoint` - Intersection Observer animations with stagger support
-- `useLightbox` - Image gallery with LightGallery integration
-- `useShiki` - Syntax highlighting with Synthwave 84 theme
-- `useJumpingLetters` - Interactive text animations
-- `useUnlazy` - Lazy loading for images
-
-### Development Server
-
-- Local development at `davidhellmann.sveltekit.test:5173`
-- Concurrent GraphQL codegen watching during development
-- SVG sprite generation with type generation
-
-## Content Structure
-
-### Route Patterns
-
-- `/` - Home page
-- `/[uri=uri]/` - Dynamic CMS pages
-- `/blog/[[page=page]]/` - Blog with pagination
-- `/blog/[slug=slug]/` - Individual blog posts
-- `/blog/c/[slug=slug]/[[page=page]]/` - Blog category listing with pagination
-- `/blog/t/[slug=slug]/[[page=page]]/` - Blog topic listing with pagination
-- `/work/` - Work portfolio
-- `/work/[slug=slug]/` - Individual work entries
-- `/photos/[[page=page]]/` - Photo gallery with pagination
-- `/photos/[slug=slug]/` - Individual photo entries
-- `/about/` - About page
-- `/[filename=files]/` - Static file responses handled by a route server
-
-### Content Types
-
-The CMS supports various content types with typed GraphQL fragments:
-
-- Blog entries with rich text and code blocks
-- Blog categories and topics
-- Work portfolio items with image galleries
-- Photo galleries with EXIF data
-- About page with CV and awards sections
-
-### Block System
-
-General page content is built using the `contentBuilder` matrix:
-
-- `block_text` - Rich text content
-- `block_code` - Syntax-highlighted code blocks
-- `block_image` - Single images with captions
-- `block_images` - Image galleries
-- `block_quote` - Styled quotes
-- `block_cta` - Call-to-action blocks
-
-All blocks are dynamically rendered through the `ContentBuilder.svelte` component.
-
-About-specific matrix content uses dedicated fragments and components:
-
-- `block_curriculumVitae` - CV entries rendered by `CurriculumVitae.svelte`
-- `block_award` - Award entries from the about page GraphQL fragments
+`.scratch/`, `docs/plans/`, `docs/specs/`, and `docs/research/` contain task history and investigations, not mandatory global workflows. Read the relevant task's material when continuing that work; do not treat old plans as current architecture.

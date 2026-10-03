@@ -1,7 +1,5 @@
 # Blog RSS Feed Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
-
 **Goal:** Add a static RSS 2.0 feed for all blog posts, expose it at `/rss.xml`, preserve `/rss`, and activate the footer RSS link.
 
 **Architecture:** Keep feed generation isolated in `src/lib/rss/` so routes stay thin and the XML logic is unit-tested without CMS/network access. `src/routes/rss.xml/+server.ts` loads cached blog entries and returns rendered RSS XML; `src/routes/rss/+server.ts` returns a permanent redirect response to the canonical feed.
