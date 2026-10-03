@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { useWaypoint } from "$lib/actions/action.waypoint";
+  import { useWaypoint } from "#lib/actions/action.waypoint.js";
   import type { LayoutProps } from "./$types";
 
   let { children }: LayoutProps = $props();
@@ -22,7 +22,7 @@
     inset: 0;
     position: fixed;
     z-index: -10;
-    background-image: url($lib/images/bg-triangle-beige.avif);
+    background-image: url("../../lib/images/bg-triangle-beige.avif");
   }
 
   main::after {

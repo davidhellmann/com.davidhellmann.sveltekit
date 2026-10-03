@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Code from "$components/text/Code.svelte";
+  import Code from "#lib/components/text/Code.svelte";
 
   type BlockCode = {
     compName?: string;

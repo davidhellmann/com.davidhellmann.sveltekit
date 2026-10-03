@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { tv, type VariantProps } from "$utils/classNames";
+  import { tv, type VariantProps } from "#lib/utils/classNames.js";
   import type { Snippet } from "svelte";
-  import Tape from "$components/decorative/Tape.svelte";
+  import Tape from "#lib/components/decorative/Tape.svelte";
   import type { HTMLAttributes } from "svelte/elements";
 
   const tvPolaroid = tv({

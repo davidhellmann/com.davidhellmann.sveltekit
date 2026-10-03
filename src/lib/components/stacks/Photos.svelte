@@ -1,12 +1,12 @@
 <script lang="ts">
-  import type { Page_PhotosSingleFragment } from "$graphql/graphql";
-  import { tv, type VariantProps } from "$utils/classNames";
-  import Pagination from "$components/navigation/Pagination.svelte";
-  import Image from "$components/media/Image.svelte";
-  import Headline from "$components/text/Headline.svelte";
-  import Time from "$components/text/Time.svelte";
-  import { getExifData } from "$utils/getExifData";
-  import { useWaypoint } from "$lib/actions/action.waypoint";
+  import type { PhotosEntry } from "#lib/types/content.js";
+  import { tv, type VariantProps } from "#lib/utils/classNames.js";
+  import Pagination from "#lib/components/navigation/Pagination.svelte";
+  import Image from "#lib/components/media/Image.svelte";
+  import Headline from "#lib/components/text/Headline.svelte";
+  import Time from "#lib/components/text/Time.svelte";
+  import { getExifData } from "#lib/utils/getExifData.js";
+  import { useWaypoint } from "#lib/actions/action.waypoint.js";
 
   const tvStackPhotos = tv({
     slots: {
@@ -26,7 +26,7 @@
   type StackPhotosProps = {
     compName?: string;
     className?: string;
-    entries: Page_PhotosSingleFragment[];
+    entries: PhotosEntry[];
     showPagination?: boolean;
     totalItems?: number;
     totalPages?: number;

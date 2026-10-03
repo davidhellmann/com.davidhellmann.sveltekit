@@ -13,7 +13,7 @@ describe("Photos stack post date", () => {
   it("renders entry.postDate with the shared Time component", () => {
     const source = readPhotosComponent();
 
-    expect(source).toContain(`import Time from ${doubleQuote}$components/text/Time.svelte${doubleQuote};`);
+    expect(source).toContain(`import Time from ${doubleQuote}#lib/components/text/Time.svelte${doubleQuote};`);
     expect(source).toContain("{#if entry?.postDate}");
     expect(source).toMatch(/<Time[\s\S]*timestamp=\{entry\?\.postDate\}[\s\S]*\/>/);
   });

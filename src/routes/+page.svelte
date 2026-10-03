@@ -1,30 +1,23 @@
 <script lang="ts">
   import type { PageProps } from "./$types";
-  import { getFirstEntry } from "$utils/getFirstEntry";
-  import type {
-    Page_WorkSingleFragment,
-    Page_HomeFragment,
-    Page_PhotosSingleFragment,
-    Page_BlogSingleFragment
-  } from "$graphql/graphql";
-  import Seo from "$components/seo/Seo.svelte";
-  import Headline from "$components/text/Headline.svelte";
-  import RichText from "$components/text/RichText.svelte";
-  import Image from "$components/media/Image.svelte";
-  import Glass from "$components/decorative/Glass.svelte";
-  import GridBentoWork from "$components/containers/GridBentoWork.svelte";
-  import { useFullWidthText } from "$lib/actions/action.fullWidthText";
-  import { useSplitText } from "$lib/actions/action.splitText";
-  import { useWaypoint } from "$lib/actions/action.waypoint";
+  import Seo from "#lib/components/seo/Seo.svelte";
+  import Headline from "#lib/components/text/Headline.svelte";
+  import RichText from "#lib/components/text/RichText.svelte";
+  import Image from "#lib/components/media/Image.svelte";
+  import Glass from "#lib/components/decorative/Glass.svelte";
+  import GridBentoWork from "#lib/components/containers/GridBentoWork.svelte";
+  import { useFullWidthText } from "#lib/actions/action.fullWidthText.js";
+  import { useSplitText } from "#lib/actions/action.splitText.js";
+  import { useWaypoint } from "#lib/actions/action.waypoint.js";
   import type { ComponentProps } from "svelte";
-  import CardBlog from "$components/cards/Blog.svelte";
-  import CardPhotos from "$components/cards/Photos.svelte";
+  import CardBlog from "#lib/components/cards/Blog.svelte";
+  import CardPhotos from "#lib/components/cards/Photos.svelte";
 
   let { data }: PageProps = $props();
-  let entry = getFirstEntry(data.entries) as Page_HomeFragment;
-  let blogEntries = data?.blogEntries as Page_BlogSingleFragment[];
-  let workEntries = data?.workEntries as Page_WorkSingleFragment[];
-  let photoEntries = data?.photoEntries as Page_PhotosSingleFragment[];
+  let entry = $derived(data.entry);
+  let blogEntries = $derived(data.blogEntries);
+  let workEntries = $derived(data.workEntries);
+  let photoEntries = $derived(data.photoEntries);
 
   const cc = {
     main: "w-full lg:max-w-[min(calc(100%-4vw),2000px)] mx-auto relative z-10 stack-24 pt-40 lg:pt-80 overflow-auto",
@@ -62,7 +55,7 @@
   <div class="fluid-grid">
     <Glass preset="glass-home" className={cc.glass}>
       {#if entry?.customTitle}
-        <h1 class={cc.heroHeadline} use:useSplitText={{ direction: "fromTop" }}>
+        <h1 data-split-text hidden class={cc.heroHeadline} use:useSplitText={{ direction: "fromTop" }}>
           {#each entry.customTitle.split("$") as line, index (`${line}-${index}`)}
             {#if index > 0}<br />{/if}
             {line}

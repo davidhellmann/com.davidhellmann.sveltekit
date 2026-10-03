@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { useWaypoint } from "$lib/actions/action.waypoint";
+  import { useWaypoint } from "#lib/actions/action.waypoint.js";
   import type { LayoutProps } from "./$types";
 
   let { children }: LayoutProps = $props();

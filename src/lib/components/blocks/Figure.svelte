@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { tv, type VariantProps } from "$utils/classNames";
-  import Caption from "$components/text/Caption.svelte";
-  import RichText from "$components/text/RichText.svelte";
+  import { tv, type VariantProps } from "#lib/utils/classNames.js";
+  import Caption from "#lib/components/text/Caption.svelte";
+  import RichText from "#lib/components/text/RichText.svelte";
   import type { Snippet } from "svelte";
 
   const tvFigure = tv({

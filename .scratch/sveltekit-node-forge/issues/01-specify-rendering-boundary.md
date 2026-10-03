@@ -15,20 +15,20 @@ Use full runtime rendering through `adapter-node`. Code deployments and CMS publ
 
 ### Route contract
 
-| Route family | Runtime contract |
-| --- | --- |
-| `/` | SSR; fetch the Home single at request time. |
-| `/about` | SSR; fetch the About single at request time. |
-| `/[uri]` | SSR for every published entry in Crafts `pages` section. No build-time enumeration. |
-| `/blog`, `/blog/<page>` | SSR for every archive page. `/blog/1` remains a runtime `301` to `/blog`; out-of-range behavior remains a runtime redirect. |
-| `/photos`, `/photos/<page>` | SSR for every archive page. `/photos/1` remains a runtime `301` to `/photos`; out-of-range behavior remains a runtime redirect. |
-| `/blog/c/<slug>[/<page>]` | SSR for every category and page. The `/1` alias and out-of-range behavior remain runtime redirects. |
-| `/blog/t/<slug>[/<page>]` | SSR for every topic and page. The `/1` alias and out-of-range behavior remain runtime redirects. |
-| `/blog/<slug>`, `/work/<slug>`, `/photos/<slug>` | SSR for all detail pages. Missing or unpublished content must produce the application's runtime not-found behavior. |
-| `/about.md`, `/blog/<slug>.md`, `/work/<slug>.md` | Render Markdown on demand through SSR. |
-| `/rss.xml`, `/llms.txt`, `/llms-full.txt` | Generate from current Craft content at request time. |
-| `/rss` | Keep the redirect behavior, but handle it at runtime too; its cost does not justify a separate rendering mode. |
-| `/[filename]` SEOmatic/front-end templates, sitemap files and styles | Resolve and serve from current Craft data at request time. |
+| Route family                                                         | Runtime contract                                                                                                                |
+| -------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `/`                                                                  | SSR; fetch the Home single at request time.                                                                                     |
+| `/about`                                                             | SSR; fetch the About single at request time.                                                                                    |
+| `/[uri]`                                                             | SSR for every published entry in Crafts `pages` section. No build-time enumeration.                                             |
+| `/blog`, `/blog/<page>`                                              | SSR for every archive page. `/blog/1` remains a runtime `301` to `/blog`; out-of-range behavior remains a runtime redirect.     |
+| `/photos`, `/photos/<page>`                                          | SSR for every archive page. `/photos/1` remains a runtime `301` to `/photos`; out-of-range behavior remains a runtime redirect. |
+| `/blog/c/<slug>[/<page>]`                                            | SSR for every category and page. The `/1` alias and out-of-range behavior remain runtime redirects.                             |
+| `/blog/t/<slug>[/<page>]`                                            | SSR for every topic and page. The `/1` alias and out-of-range behavior remain runtime redirects.                                |
+| `/blog/<slug>`, `/work/<slug>`, `/photos/<slug>`                     | SSR for all detail pages. Missing or unpublished content must produce the application's runtime not-found behavior.             |
+| `/about.md`, `/blog/<slug>.md`, `/work/<slug>.md`                    | Render Markdown on demand through SSR.                                                                                          |
+| `/rss.xml`, `/llms.txt`, `/llms-full.txt`                            | Generate from current Craft content at request time.                                                                            |
+| `/rss`                                                               | Keep the redirect behavior, but handle it at runtime too; its cost does not justify a separate rendering mode.                  |
+| `/[filename]` SEOmatic/front-end templates, sitemap files and styles | Resolve and serve from current Craft data at request time.                                                                      |
 
 Static files in SvelteKits `static/` directory and generated client assets are still served as static assets by `adapter-node`; "full SSR" refers to application routes, not asset delivery.
 

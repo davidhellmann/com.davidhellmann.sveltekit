@@ -1,8 +1,8 @@
 <script lang="ts">
-  import Image from "$components/media/Image.svelte";
-  import Grid from "$components/containers/Grid.svelte";
-  import Lightbox from "$components/modals/Lightbox.svelte";
-  import ImageGridCalculated from "$components/containers/ImageGridCalculated.svelte";
+  import Image from "#lib/components/media/Image.svelte";
+  import Grid from "#lib/components/containers/Grid.svelte";
+  import Lightbox from "#lib/components/modals/Lightbox.svelte";
+  import ImageGridCalculated from "#lib/components/containers/ImageGridCalculated.svelte";
   import type { ComponentProps } from "svelte";
 
   type BlockImage = {

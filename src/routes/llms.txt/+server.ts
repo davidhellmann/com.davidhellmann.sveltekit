@@ -1,6 +1,6 @@
 import type { RequestHandler } from "./$types";
-import { getBlogEntriesData, getWorkEntriesData } from "$graphql/cms-content";
-import { SITE_URL } from "$lib/ai/helpers";
+import { getBlogPosts, getWorkProjects } from "#lib/graphql/cms-content.js";
+import { SITE_URL } from "#lib/ai/helpers.js";
 
 type Entry = {
   slug?: string | null;
@@ -18,8 +18,8 @@ const line = (e: Entry, section: "blog" | "work") => {
 
 export const GET: RequestHandler = async () => {
   const [blogData, workData] = await Promise.all([
-    getBlogEntriesData({ limit: 12, fullContent: false }),
-    getWorkEntriesData({ limit: 100, fullContent: false })
+    getBlogPosts({ limit: 12, fullContent: false }),
+    getWorkProjects({ limit: 100, fullContent: false })
   ]);
   const latestBlog = blogData.entries as Entry[];
   const work = workData.entries as Entry[];

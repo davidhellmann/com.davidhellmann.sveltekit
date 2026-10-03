@@ -1,13 +1,8 @@
 <script lang="ts">
-  import type {
-    Entry_DataFragment,
-    Entry_DatesFragment,
-    Entry_SeoFragment,
-    Page_BlogSingleFragment
-  } from "$graphql/graphql";
-  import { tv, type VariantProps } from "$utils/classNames";
-  import Pagination from "$components/navigation/Pagination.svelte";
-  import CardBlog from "$components/cards/Blog.svelte";
+  import type { BlogEntry, ContentDates, ContentLink, ContentSeo } from "#lib/types/content.js";
+  import { tv, type VariantProps } from "#lib/utils/classNames.js";
+  import Pagination from "#lib/components/navigation/Pagination.svelte";
+  import CardBlog from "#lib/components/cards/Blog.svelte";
   import { type ComponentProps } from "svelte";
 
   const tvStackWork = tv({
@@ -17,7 +12,7 @@
     }
   });
 
-  type Entry = Entry_DataFragment & Page_BlogSingleFragment & Entry_SeoFragment & Entry_DatesFragment;
+  type Entry = ContentLink & BlogEntry & ContentSeo & ContentDates;
 
   type StackWorkProps = {
     compName?: string;

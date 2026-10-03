@@ -1,10 +1,10 @@
 <script lang="ts">
-  import type { Page_BlogSingleFragment } from "$graphql/graphql";
-  import { tv, type VariantProps } from "$utils/classNames";
-  import Pagination from "$components/navigation/Pagination.svelte";
-  import CardBlog from "$components/cards/Blog.svelte";
+  import type { BlogEntry } from "#lib/types/content.js";
+  import { tv, type VariantProps } from "#lib/utils/classNames.js";
+  import Pagination from "#lib/components/navigation/Pagination.svelte";
+  import CardBlog from "#lib/components/cards/Blog.svelte";
   import { type ComponentProps } from "svelte";
-  import { useWaypoint } from "$lib/actions/action.waypoint";
+  import { useWaypoint } from "#lib/actions/action.waypoint.js";
 
   const tvStackBlog = tv({
     slots: {
@@ -16,7 +16,7 @@
   type StackBlogProps = {
     compName?: string;
     className?: string;
-    entries: Page_BlogSingleFragment[];
+    entries: BlogEntry[];
     showPagination?: boolean;
     paginationUri?: string;
     totalItems?: number;

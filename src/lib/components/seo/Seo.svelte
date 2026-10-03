@@ -1,7 +1,7 @@
 <script lang="ts">
   import { page } from "$app/state";
-  import { getMarkdownAlternate } from "$lib/ai/markdown-alternate";
-  import { parseSEO, type ISEO, type IParseSEO } from "$lib/utils/parseSEO";
+  import { getMarkdownAlternate } from "#lib/ai/markdown-alternate.js";
+  import { parseSEO, type ISEO, type IParseSEO } from "#lib/utils/parseSEO.js";
 
   interface Props {
     seo: IParseSEO;

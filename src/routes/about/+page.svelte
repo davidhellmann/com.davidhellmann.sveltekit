@@ -1,19 +1,17 @@
 <script lang="ts">
   import type { PageProps } from "./$types";
-  import { getFirstEntry } from "$utils/getFirstEntry";
-  import { type Page_AboutFragment } from "$graphql/graphql";
-  import Seo from "$components/seo/Seo.svelte";
-  import RichText from "$components/text/RichText.svelte";
-  import Headline from "$components/text/Headline.svelte";
-  import Image from "$components/media/Image.svelte";
-  import AboutSlider from "$components/sections/AboutSlider.svelte";
-  import Glass from "$components/decorative/Glass.svelte";
-  import CurriculumVitae from "$components/sections/CurriculumVitae.svelte";
-  import { useSplitText } from "$lib/actions/action.splitText";
-  import { useWaypoint } from "$lib/actions/action.waypoint";
+  import Seo from "#lib/components/seo/Seo.svelte";
+  import RichText from "#lib/components/text/RichText.svelte";
+  import Headline from "#lib/components/text/Headline.svelte";
+  import Image from "#lib/components/media/Image.svelte";
+  import AboutSlider from "#lib/components/sections/AboutSlider.svelte";
+  import Glass from "#lib/components/decorative/Glass.svelte";
+  import CurriculumVitae from "#lib/components/sections/CurriculumVitae.svelte";
+  import { useSplitText } from "#lib/actions/action.splitText.js";
+  import { useWaypoint } from "#lib/actions/action.waypoint.js";
 
   let { data }: PageProps = $props();
-  let entry = getFirstEntry(data.entries) as Page_AboutFragment;
+  let entry = $derived(data.entry);
 
   const cc = {
     heroImage: "absolute inset-x-0 top-0 z-10",
@@ -44,7 +42,7 @@
 <div class="fluid-grid">
   <Glass preset="glass-home" className={cc.glass}>
     {#if entry?.customTitle}
-      <h1 class={cc.heroHeadline} use:useSplitText={{ direction: "fromTop" }}>
+      <h1 data-split-text hidden class={cc.heroHeadline} use:useSplitText={{ direction: "fromTop" }}>
         {#each entry.customTitle.split("$") as line, index (`${line}-${index}`)}
           {#if index > 0}<br />{/if}
           {line}

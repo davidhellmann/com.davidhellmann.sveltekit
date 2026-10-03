@@ -21,21 +21,31 @@ export function useSplitText(
   let destroyed = false;
 
   const canJump = jumpingLetters && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  const reveal = () => node.removeAttribute("hidden");
 
   const restore = () => {
     if (split?.isSplit) split.revert();
     gsap.set(node, { clearProps: "height,opacity" });
+    reveal();
   };
 
   const play = () => {
     if (destroyed) return;
+
+    // Svelte can leave empty text nodes after client-side navigation. SplitText's
+    // custom word delimiter assumes every text node contains at least one word.
+    node.normalize();
 
     const naturalHeight = node.getBoundingClientRect().height;
 
     split = SplitText.create(node, {
       type: "lines,words,chars",
       tag: "span",
-      aria: "auto"
+      aria: "auto",
+      wordDelimiter: {
+        delimiter: /(?<=\s)|(?=\s)|(?<=[-\u00ad])/u,
+        replaceWith: ""
+      }
     });
 
     const lines = split.lines as HTMLElement[];
@@ -166,26 +176,38 @@ export function useSplitText(
   };
 
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    reveal();
     return;
   }
 
+  // The SSR markup stays hidden until the client has applied its transparent
+  // initial state. Both operations are synchronous, so there is no visible
+  // frame between revealing the layout and starting SplitText.
   gsap.set(node, { opacity: 0 });
+  reveal();
 
-  document.fonts.ready.then(() => {
-    if (destroyed) return;
+  document.fonts.ready
+    .then(() => {
+      if (destroyed) return;
 
-    observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting) return;
+      observer = new IntersectionObserver(
+        ([entry]) => {
+          if (!entry.isIntersecting) return;
 
-        observer?.disconnect();
-        play();
-      },
-      { threshold: 0.1 }
-    );
+          observer?.disconnect();
 
-    observer.observe(node);
-  });
+          try {
+            play();
+          } catch {
+            restore();
+          }
+        },
+        { threshold: 0.1 }
+      );
+
+      observer.observe(node);
+    })
+    .catch(restore);
 
   return {
     destroy() {

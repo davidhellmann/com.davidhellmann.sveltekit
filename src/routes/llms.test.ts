@@ -49,7 +49,7 @@ describe("LLM discovery routes", () => {
 
   it("advertises route-near markdown alternates in page metadata", () => {
     expect(readSeoComponent()).toContain("getMarkdownAlternate(page.url.pathname)");
-    expect(readSeoComponent()).not.toContain("href=\"/ai/");
+    expect(readSeoComponent()).not.toContain('href="/ai/');
     expect(readSeoComponent()).not.toContain("return `/ai/");
   });
 });

@@ -1,12 +1,10 @@
 import type { PageServerLoad } from "./$types";
 import { error } from "@sveltejs/kit";
-import { getAboutEntries } from "$graphql/cms-content";
+import { getAbout } from "#lib/graphql/cms-content.js";
 
 export const load: PageServerLoad = async () => {
-  const entries = await getAboutEntries();
-  if (!entries.length) error(404, "About page not found");
+  const entry = await getAbout();
+  if (!entry) error(404, "About page not found");
 
-  return {
-    entries
-  };
+  return { entry };
 };

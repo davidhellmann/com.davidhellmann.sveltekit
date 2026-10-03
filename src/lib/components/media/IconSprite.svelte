@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { tv, type VariantProps } from "$utils/classNames";
-  import type { HeroiconsIcons } from "$lib/types/heroicons-icons";
+  import { tv, type VariantProps } from "#lib/utils/classNames.js";
+  import type { HeroiconsIcons } from "#lib/types/heroicons-icons.js";
 
   type IconSets = "heroicons";
 

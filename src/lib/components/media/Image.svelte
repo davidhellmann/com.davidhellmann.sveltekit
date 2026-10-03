@@ -1,15 +1,11 @@
 <script module lang="ts">
-  import type { Asset_CustomFieldsFragment, Asset_DataFragment, Asset_TransformsFragment } from "$graphql/graphql";
+  import type { ImageAsset } from "#lib/types/content.js";
 
-  export type Asset = Asset_DataFragment &
-    Partial<Asset_TransformsFragment> &
-    Partial<Asset_CustomFieldsFragment> & {
-      __typename?: string;
-    };
+  export type Asset = ImageAsset;
 </script>
 
 <script lang="ts">
-  import { tv, type VariantProps } from "$utils/classNames";
+  import { tv, type VariantProps } from "#lib/utils/classNames.js";
 
   type ObjectFit = "cover" | "contain" | "fill" | "none" | "scale-down";
   type FetchPriority = "auto" | "high" | "low";

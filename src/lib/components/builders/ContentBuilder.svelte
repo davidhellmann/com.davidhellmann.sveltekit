@@ -1,14 +1,14 @@
 <script lang="ts">
-  import RichText from "$components/builders/_blocks/RichText.svelte";
-  import Code from "$components/builders/_blocks/Code.svelte";
-  import Quote from "$components/builders/_blocks/Quote.svelte";
-  import Image from "$components/builders/_blocks/Image.svelte";
-  import Images from "$components/builders/_blocks/Images.svelte";
-  import Cta from "$components/builders/_blocks/Cta.svelte";
+  import RichText from "#lib/components/builders/_blocks/RichText.svelte";
+  import Code from "#lib/components/builders/_blocks/Code.svelte";
+  import Quote from "#lib/components/builders/_blocks/Quote.svelte";
+  import Image from "#lib/components/builders/_blocks/Image.svelte";
+  import Images from "#lib/components/builders/_blocks/Images.svelte";
+  import Cta from "#lib/components/builders/_blocks/Cta.svelte";
   import { getContentBlockKey, isContentBlockType, type ContentBuilderBlock } from "./content-blocks";
   import type { ComponentProps } from "svelte";
-  import type { Matrix_ContentBuilderFragment } from "$graphql/graphql";
-  import { cn } from "$utils/classNames";
+  import type { ContentBlock } from "#lib/types/content.js";
+  import { cn } from "#lib/utils/classNames.js";
 
   type ContentBuilder = {
     compName?: string;
@@ -16,8 +16,8 @@
     className?: string;
   };
 
-  type ImageBlock = Extract<Matrix_ContentBuilderFragment, { __typename: "block_image_Entry" }>;
-  type ImagesBlock = Extract<Matrix_ContentBuilderFragment, { __typename: "block_images_Entry" }>;
+  type ImageBlock = Extract<ContentBlock, { __typename: "block_image_Entry" }>;
+  type ImagesBlock = Extract<ContentBlock, { __typename: "block_images_Entry" }>;
 
   const { compName = "ContentBuilder", blockTypes, className }: ContentBuilder = $props();
 

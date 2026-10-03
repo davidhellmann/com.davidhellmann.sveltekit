@@ -1,19 +1,16 @@
 <script lang="ts">
   import type { PageProps } from "./$types";
-  import StackPhotos from "$components/stacks/Photos.svelte";
-  import RichText from "$components/text/RichText.svelte";
-  import Seo from "$components/seo/Seo.svelte";
-  import { getFirstEntry } from "$utils/getFirstEntry";
-  import { useSplitText } from "$lib/actions/action.splitText";
-
-  import { type Page_PhotosSingleFragment, type Page_PhotosListFragment } from "$graphql/graphql";
+  import StackPhotos from "#lib/components/stacks/Photos.svelte";
+  import RichText from "#lib/components/text/RichText.svelte";
+  import Seo from "#lib/components/seo/Seo.svelte";
+  import { useSplitText } from "#lib/actions/action.splitText.js";
 
   let { data }: PageProps = $props();
 
   const entryCount = data.entryCount ?? 1;
   const totalPages = data.totalPages ?? 1;
-  let photosEntry = $derived(getFirstEntry(data.photosEntry) as Page_PhotosListFragment);
-  let entries = $derived(data.entries) as Page_PhotosSingleFragment[];
+  let photosEntry = $derived(data.photosEntry);
+  let entries = $derived(data.entries);
   let page = $derived(data.page);
 
   const cc = {
@@ -31,7 +28,7 @@
   {#key page}
     {#if page === 1}
       {#if photosEntry?.customTitle}
-        <h1 class={cc.heading} use:useSplitText={{ direction: "fromTop" }}>
+        <h1 data-split-text hidden class={cc.heading} use:useSplitText={{ direction: "fromTop" }}>
           {#each photosEntry.customTitle.split("$") as line, index (`${line}-${index}`)}
             {#if index > 0}<br />{/if}
             {line}
@@ -43,6 +40,8 @@
       {/if}
     {:else}
       <h1
+        data-split-text
+        hidden
         class="span-content text-black font-decorative text-7xl font-extrabold"
         use:useSplitText={{ direction: "fromTop" }}
       >

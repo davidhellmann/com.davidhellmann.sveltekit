@@ -1,8 +1,8 @@
-import type { Page_BlogSingleFragment } from "$graphql/graphql";
-import { toDateTimeString } from "$lib/utils/date";
+import type { BlogEntry } from "#lib/types/content.js";
+import { toDateTimeString } from "#lib/utils/date.js";
 import { SITE_URL, frontmatter, imageMd, renderBlocks, join } from "./helpers";
 
-export const renderBlog = (entry: Page_BlogSingleFragment): string => {
+export const renderBlog = (entry: BlogEntry): string => {
   const title = entry.customTitle?.trim() || entry.title?.trim() || "Untitled";
   const description = entry.descriptionPlain?.trim();
   const category = entry.category?.[0]?.title ?? null;

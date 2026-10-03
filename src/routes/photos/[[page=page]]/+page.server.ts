@@ -1,12 +1,12 @@
 import type { PageServerLoad } from "./$types";
 import { redirect } from "@sveltejs/kit";
-import { getPhotosEntriesData, getPhotosListPageEntries } from "$graphql/cms-content";
+import { getPhotoGalleries, getPhotosList } from "#lib/graphql/cms-content.js";
 import {
   getCanonicalFirstPageRedirect,
   getOutOfRangeRedirect,
   getTotalPages,
   parseArchivePage
-} from "$lib/routes/archive";
+} from "#lib/routes/archive.js";
 
 const limit = 24;
 
@@ -20,8 +20,8 @@ export const load: PageServerLoad = async ({ params }) => {
 
   const offset = (page - 1) * limit;
   const [{ entries, entryCount }, photosEntry] = await Promise.all([
-    getPhotosEntriesData({ limit, offset, fullContent: false, listContent: true }),
-    getPhotosListPageEntries()
+    getPhotoGalleries({ limit, offset, fullContent: false, listContent: true }),
+    getPhotosList()
   ]);
   const totalPages = getTotalPages(entryCount, limit);
   const outOfRangeRedirect = getOutOfRangeRedirect(page, totalPages, "/photos");

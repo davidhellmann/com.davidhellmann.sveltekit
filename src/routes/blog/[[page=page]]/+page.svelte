@@ -1,18 +1,15 @@
 <script lang="ts">
   import type { PageProps } from "./$types";
-  import StackBlog from "$components/stacks/Blog.svelte";
-  import RichText from "$components/text/RichText.svelte";
-  import Seo from "$components/seo/Seo.svelte";
-  import { getFirstEntry } from "$utils/getFirstEntry";
-  import { useSplitText } from "$lib/actions/action.splitText";
-
-  import { type Page_BlogSingleFragment, type Page_BlogListFragment } from "$graphql/graphql";
+  import StackBlog from "#lib/components/stacks/Blog.svelte";
+  import RichText from "#lib/components/text/RichText.svelte";
+  import Seo from "#lib/components/seo/Seo.svelte";
+  import { useSplitText } from "#lib/actions/action.splitText.js";
 
   let { data }: PageProps = $props();
   const entryCount = data.entryCount ?? 1;
   const totalPages = data.totalPages ?? 1;
-  let blogEntry = $derived(getFirstEntry(data.blogEntry) as Page_BlogListFragment);
-  let entries = $derived(data.entries as Page_BlogSingleFragment[]);
+  let blogEntry = $derived(data.blogEntry);
+  let entries = $derived(data.entries);
   let page = $derived(data.page);
 
   const cc = {
@@ -29,18 +26,20 @@
 {#key page}
   {#if page === 1}
     {#if blogEntry?.customTitle}
-      <h1 class={cc.heading} use:useSplitText={{ direction: "fromTop" }}>
+      <h1 data-split-text hidden class={cc.heading} use:useSplitText={{ direction: "fromTop" }}>
         {#each blogEntry.customTitle.split("$") as line, index (`${line}-${index}`)}
           {#if index > 0}<br />{/if}
           {line}
         {/each}
       </h1>
     {/if}
-    {#if blogEntry.description}
+    {#if blogEntry?.description}
       <RichText className={cc.text} html={blogEntry.description} data-waypoint-target />
     {/if}
   {:else}
     <h1
+      data-split-text
+      hidden
       class="span-content text-neon-pink font-decorative text-7xl font-extrabold"
       use:useSplitText={{ direction: "fromTop" }}
     >

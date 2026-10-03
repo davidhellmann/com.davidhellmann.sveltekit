@@ -10,9 +10,24 @@ const chromePath =
 
 const pages = [
   { name: "Home", slug: "home", url: "https://davidhellmann.com/", baseline: { mobile: 71, desktop: 90 } },
-  { name: "Blog listing", slug: "blog-listing", url: "https://davidhellmann.com/blog", baseline: { mobile: 84, desktop: 97 } },
-  { name: "Work listing", slug: "work-listing", url: "https://davidhellmann.com/work", baseline: { mobile: 76, desktop: 99 } },
-  { name: "Photos listing", slug: "photos-listing", url: "https://davidhellmann.com/photos", baseline: { mobile: 57, desktop: 86 } },
+  {
+    name: "Blog listing",
+    slug: "blog-listing",
+    url: "https://davidhellmann.com/blog",
+    baseline: { mobile: 84, desktop: 97 }
+  },
+  {
+    name: "Work listing",
+    slug: "work-listing",
+    url: "https://davidhellmann.com/work",
+    baseline: { mobile: 76, desktop: 99 }
+  },
+  {
+    name: "Photos listing",
+    slug: "photos-listing",
+    url: "https://davidhellmann.com/photos",
+    baseline: { mobile: 57, desktop: 86 }
+  },
   {
     name: "Blog detail",
     slug: "blog-detail",

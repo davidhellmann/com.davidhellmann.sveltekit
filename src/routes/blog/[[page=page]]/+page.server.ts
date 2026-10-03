@@ -1,12 +1,12 @@
 import type { PageServerLoad } from "./$types";
 import { redirect } from "@sveltejs/kit";
-import { getBlogEntriesData, getBlogListPageEntries } from "$graphql/cms-content";
+import { getBlogList, getBlogPosts } from "#lib/graphql/cms-content.js";
 import {
   getCanonicalFirstPageRedirect,
   getOutOfRangeRedirect,
   getTotalPages,
   parseArchivePage
-} from "$lib/routes/archive";
+} from "#lib/routes/archive.js";
 
 const limit = 24;
 
@@ -20,8 +20,8 @@ export const load: PageServerLoad = async ({ params }) => {
 
   const offset = (page - 1) * limit;
   const [{ entries, entryCount }, blogEntry] = await Promise.all([
-    getBlogEntriesData({ limit, offset, fullContent: false }),
-    getBlogListPageEntries()
+    getBlogPosts({ limit, offset, fullContent: false }),
+    getBlogList()
   ]);
   const totalPages = getTotalPages(entryCount, limit);
   const outOfRangeRedirect = getOutOfRangeRedirect(page, totalPages, "/blog");

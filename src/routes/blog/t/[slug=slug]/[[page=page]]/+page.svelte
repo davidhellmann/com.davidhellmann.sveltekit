@@ -1,20 +1,17 @@
 <script lang="ts">
   import type { PageProps } from "./$types";
-  import StackBlog from "$components/stacks/Blog.svelte";
-  import RichText from "$components/text/RichText.svelte";
-  import Seo from "$components/seo/Seo.svelte";
-  import { getFirstEntry } from "$utils/getFirstEntry";
-  import { splitTextIntoDivs } from "$utils/splitTextIntoDivs";
-  import { useWaypoint } from "$lib/actions/action.waypoint";
-  import { useJumpingLetters } from "$lib/actions/action.jumpingLetters";
-
-  import { type Page_BlogSingleFragment, type Page_TopicFragment } from "$graphql/graphql";
+  import StackBlog from "#lib/components/stacks/Blog.svelte";
+  import RichText from "#lib/components/text/RichText.svelte";
+  import Seo from "#lib/components/seo/Seo.svelte";
+  import { splitTextIntoDivs } from "#lib/utils/splitTextIntoDivs.js";
+  import { useWaypoint } from "#lib/actions/action.waypoint.js";
+  import { useJumpingLetters } from "#lib/actions/action.jumpingLetters.js";
 
   let { data }: PageProps = $props();
   const entryCount = data.entryCount ?? 1;
   const totalPages = data.totalPages ?? 1;
-  let topicEntry = $derived(getFirstEntry(data.topicEntry) as Page_TopicFragment);
-  let entries = $derived(data.entries as Page_BlogSingleFragment[]);
+  let topicEntry = $derived(data.topicEntry);
+  let entries = $derived(data.entries);
   let page = $derived(data.page);
 
   const cc = {
