@@ -1,9 +1,9 @@
 <script lang="ts">
   import type { PageProps } from "./$types";
-  import Seo from "$components/seo/Seo.svelte";
-  import HeroWork from "$components/heros/Work.svelte";
-  import PrevNext from "$components/navigation/PrevNext.svelte";
-  import WorkMedia from "$components/sections/WorkMedia.svelte";
+  import Seo from "#lib/components/seo/Seo.svelte";
+  import HeroWork from "#lib/components/heros/Work.svelte";
+  import PrevNext from "#lib/components/navigation/PrevNext.svelte";
+  import WorkMedia from "#lib/components/sections/WorkMedia.svelte";
 
   let { data }: PageProps = $props();
   const entry = $derived(data.entry);

@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { PageProps } from "./$types";
-  import Seo from "$components/seo/Seo.svelte";
-  import Headline from "$components/text/Headline.svelte";
+  import Seo from "#lib/components/seo/Seo.svelte";
+  import Headline from "#lib/components/text/Headline.svelte";
 
   let { data }: PageProps = $props();
   let entry = $derived(data.entry);

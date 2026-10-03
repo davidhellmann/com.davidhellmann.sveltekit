@@ -5,7 +5,7 @@ const cmsMocks = vi.hoisted(() => ({
   getWorkProjects: vi.fn()
 }));
 
-vi.mock("$graphql/cms-content", () => cmsMocks);
+vi.mock("#lib/graphql/cms-content.js", () => cmsMocks);
 
 import { load } from "./+page.server";
 

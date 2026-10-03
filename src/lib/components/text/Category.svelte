@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { tv, type VariantProps } from "$utils/classNames";
-  import IconSprite from "$components/media/IconSprite.svelte";
-  import type { HeroiconsIcons } from "$lib/types/heroicons-icons";
+  import { tv, type VariantProps } from "#lib/utils/classNames.js";
+  import IconSprite from "#lib/components/media/IconSprite.svelte";
+  import type { HeroiconsIcons } from "#lib/types/heroicons-icons.js";
 
   const tvCategory = tv({
     base: "flex items-center gap-2 font-mono text-sm",

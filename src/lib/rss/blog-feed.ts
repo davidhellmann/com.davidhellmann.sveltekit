@@ -1,4 +1,4 @@
-import type { BlogEntry, ContentBlock } from "$lib/types/content";
+import type { BlogEntry, ContentBlock } from "#lib/types/content.js";
 import { parse } from "node-html-parser";
 
 export type BlogFeedEntry = BlogEntry;

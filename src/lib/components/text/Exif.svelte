@@ -1,21 +1,22 @@
 <script lang="ts">
-  import { tv, type VariantProps } from "$utils/classNames";
+  import { tv, type VariantProps } from "#lib/utils/classNames.js";
 
   const tvExif = tv({
     slots: {
       slotRoot: "text-2xs @xs:text-xs font-mono flex flex-col justify-between",
       slotCamera: "",
-      slotSettings: "grid grid-cols-2 border-l-1 border-t-1 *:border-b-1 *:border-r-1 *:px-1.5 *:py-0.5 border-neutral-200 *:border-neutral-200"
+      slotSettings:
+        "grid grid-cols-2 border-l-1 border-t-1 *:border-b-1 *:border-r-1 *:px-1.5 *:py-0.5 border-neutral-200 *:border-neutral-200"
     },
     variants: {
       spacing: {
         default: {
           slotRoot: "gap-x-8",
-          slotCamera: "flex gap-x-4",
+          slotCamera: "flex gap-x-4"
         },
         compact: {
           slotRoot: "gap-x-4",
-          slotCamera: "flex gap-x-2",
+          slotCamera: "flex gap-x-2"
         }
       }
     }
@@ -45,7 +46,14 @@
     showSettings?: boolean;
   } & VariantProps<typeof tvExif>;
 
-  const { compName = "Exif", className, exif, spacing = "default", showCamera = true, showSettings = true }: ExifProps = $props();
+  const {
+    compName = "Exif",
+    className,
+    exif,
+    spacing = "default",
+    showCamera = true,
+    showSettings = true
+  }: ExifProps = $props();
   let exifParsed: Exif = $state(undefined);
 
   if (exif) {

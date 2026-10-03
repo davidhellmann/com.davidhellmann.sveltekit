@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { tv, type VariantProps } from "$utils/classNames";
-  import Headline from "$components/text/Headline.svelte";
-  import IconSprite from "$components/media/IconSprite.svelte";
-  import { useSplitText } from "$lib/actions/action.splitText";
+  import { tv, type VariantProps } from "#lib/utils/classNames.js";
+  import Headline from "#lib/components/text/Headline.svelte";
+  import IconSprite from "#lib/components/media/IconSprite.svelte";
+  import { useSplitText } from "#lib/actions/action.splitText.js";
 
   const tvHeroPhotos = tv({
     slots: {

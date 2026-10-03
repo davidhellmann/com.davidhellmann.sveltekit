@@ -21,13 +21,11 @@ The existing custom `releases/<timestamp>` plus atomic `current`-symlink model r
 - Do not mutate a release after it has been activated. A dependency, source, generated-output, or toolchain change creates a new release.
 - Switch `current` only after install, build, prune, configuration validation, and the later lifecycle checks have succeeded. Activation, health checking, restart ordering, retention, and rollback belong to [Design activation, healthcheck, and rollback](04-design-deployment-lifecycle.md).
 
-
 ### Constrained toolchain
 
 - Pin the local development version to Node `22.22.3` in `.node-version`; Forge may run Node `>=22.13.0 <23` because Node is managed server-wide and that range satisfies the installed build toolchain.
 - Pin pnpm `10.28.2` in the `packageManager` field of `package.json`.
 - The deploy verifies the compatible Node range and exact pnpm version before installing dependencies and fails before modifying `current` when either differs. Staging and production use Node `>=22.13.0 <23` and the same pinned pnpm version; Node-range and pnpm upgrades are explicit repository changes.
-
 
 ### Build-time versus runtime configuration
 

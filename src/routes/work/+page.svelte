@@ -1,8 +1,8 @@
 <script lang="ts">
   import type { PageProps } from "./$types";
-  import Seo from "$components/seo/Seo.svelte";
-  import GridBentoWork from "$components/containers/GridBentoWork.svelte";
-  import { useSplitText } from "$lib/actions/action.splitText";
+  import Seo from "#lib/components/seo/Seo.svelte";
+  import GridBentoWork from "#lib/components/containers/GridBentoWork.svelte";
+  import { useSplitText } from "#lib/actions/action.splitText.js";
 
   let { data }: PageProps = $props();
   let workEntry = $derived(data.workEntry);

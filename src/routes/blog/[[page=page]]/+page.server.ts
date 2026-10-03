@@ -1,12 +1,12 @@
 import type { PageServerLoad } from "./$types";
 import { redirect } from "@sveltejs/kit";
-import { getBlogList, getBlogPosts } from "$graphql/cms-content";
+import { getBlogList, getBlogPosts } from "#lib/graphql/cms-content.js";
 import {
   getCanonicalFirstPageRedirect,
   getOutOfRangeRedirect,
   getTotalPages,
   parseArchivePage
-} from "$lib/routes/archive";
+} from "#lib/routes/archive.js";
 
 const limit = 24;
 

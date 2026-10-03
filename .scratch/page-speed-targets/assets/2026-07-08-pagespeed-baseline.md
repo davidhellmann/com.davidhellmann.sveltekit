@@ -6,65 +6,65 @@ Google PageSpeed Insights API could not be used from this environment: the unaut
 
 ## Tested URLs
 
-| Template | URL | Why this URL |
-| --- | --- | --- |
-| Home | `https://davidhellmann.com/` | Public home template with large hero image and featured content. |
-| Blog listing | `https://davidhellmann.com/blog` | Main blog list template. |
-| Work listing | `https://davidhellmann.com/work` | Main work list template with image-heavy cards. |
-| Photos listing | `https://davidhellmann.com/photos` | Main photos list template with many thumbnails. |
-| Blog detail | `https://davidhellmann.com/blog/tailwindcss-fluid-type-plugin` | Representative post with media and normal article layout. |
-| Work detail | `https://davidhellmann.com/work/rb-leipzig` | Image-heavy work detail; intentionally tests the upper bound of the template. |
-| Photos detail | `https://davidhellmann.com/photos/july-randoms-2026-07-06` | Recent photo gallery with many images. |
+| Template       | URL                                                            | Why this URL                                                                  |
+| -------------- | -------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| Home           | `https://davidhellmann.com/`                                   | Public home template with large hero image and featured content.              |
+| Blog listing   | `https://davidhellmann.com/blog`                               | Main blog list template.                                                      |
+| Work listing   | `https://davidhellmann.com/work`                               | Main work list template with image-heavy cards.                               |
+| Photos listing | `https://davidhellmann.com/photos`                             | Main photos list template with many thumbnails.                               |
+| Blog detail    | `https://davidhellmann.com/blog/tailwindcss-fluid-type-plugin` | Representative post with media and normal article layout.                     |
+| Work detail    | `https://davidhellmann.com/work/rb-leipzig`                    | Image-heavy work detail; intentionally tests the upper bound of the template. |
+| Photos detail  | `https://davidhellmann.com/photos/july-randoms-2026-07-06`     | Recent photo gallery with many images.                                        |
 
 ## Scores
 
-| Page | Mobile | Desktop | Target status |
-| --- | ---: | ---: | --- |
-| Home | 71 | 90 | Misses both targets. |
-| Blog listing | 84 | 97 | Misses both targets. |
-| Work listing | 76 | 99 | Misses both targets. |
-| Photos listing | 57 | 86 | Misses both targets. |
-| Blog detail | 97 | 100 | Meets both targets. |
-| Work detail | 78 | 98 | Misses both targets. |
-| Photos detail | 86 | 99 | Misses both targets. |
+| Page           | Mobile | Desktop | Target status        |
+| -------------- | -----: | ------: | -------------------- |
+| Home           |     71 |      90 | Misses both targets. |
+| Blog listing   |     84 |      97 | Misses both targets. |
+| Work listing   |     76 |      99 | Misses both targets. |
+| Photos listing |     57 |      86 | Misses both targets. |
+| Blog detail    |     97 |     100 | Meets both targets.  |
+| Work detail    |     78 |      98 | Misses both targets. |
+| Photos detail  |     86 |      99 | Misses both targets. |
 
 ## Core Lab Metrics
 
-| Page | Mode | FCP | LCP | TBT | CLS | Speed Index | TTFB |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| Home | Mobile | 3.3 s | 5.6 s | 0 ms | 0 | 4.1 s | 80 ms |
-| Home | Desktop | 0.7 s | 1.7 s | 0 ms | 0 | 1.7 s | 60 ms |
-| Blog listing | Mobile | 2.5 s | 4.0 s | 10 ms | 0 | 2.5 s | 40 ms |
-| Blog listing | Desktop | 0.6 s | 0.9 s | 0 ms | 0 | 1.5 s | 40 ms |
-| Work listing | Mobile | 2.7 s | 5.0 s | 0 ms | 0 | 3.8 s | 40 ms |
-| Work listing | Desktop | 0.6 s | 0.7 s | 0 ms | 0 | 0.7 s | 30 ms |
-| Photos listing | Mobile | 8.0 s | 10.1 s | 20 ms | 0 | 8.0 s | 30 ms |
-| Photos listing | Desktop | 1.4 s | 1.8 s | 0 ms | 0 | 1.5 s | 60 ms |
-| Blog detail | Mobile | 1.3 s | 2.6 s | 40 ms | 0 | 1.9 s | 70 ms |
-| Blog detail | Desktop | 0.5 s | 0.7 s | 0 ms | 0 | 0.7 s | 40 ms |
-| Work detail | Mobile | 2.4 s | 5.0 s | 0 ms | 0 | 3.3 s | 140 ms |
-| Work detail | Desktop | 0.5 s | 1.2 s | 0 ms | 0 | 0.6 s | 40 ms |
-| Photos detail | Mobile | 1.6 s | 4.1 s | 0 ms | 0 | 1.7 s | 30 ms |
-| Photos detail | Desktop | 0.4 s | 0.8 s | 0 ms | 0 | 0.7 s | 70 ms |
+| Page           | Mode    |   FCP |    LCP |   TBT | CLS | Speed Index |   TTFB |
+| -------------- | ------- | ----: | -----: | ----: | --: | ----------: | -----: |
+| Home           | Mobile  | 3.3 s |  5.6 s |  0 ms |   0 |       4.1 s |  80 ms |
+| Home           | Desktop | 0.7 s |  1.7 s |  0 ms |   0 |       1.7 s |  60 ms |
+| Blog listing   | Mobile  | 2.5 s |  4.0 s | 10 ms |   0 |       2.5 s |  40 ms |
+| Blog listing   | Desktop | 0.6 s |  0.9 s |  0 ms |   0 |       1.5 s |  40 ms |
+| Work listing   | Mobile  | 2.7 s |  5.0 s |  0 ms |   0 |       3.8 s |  40 ms |
+| Work listing   | Desktop | 0.6 s |  0.7 s |  0 ms |   0 |       0.7 s |  30 ms |
+| Photos listing | Mobile  | 8.0 s | 10.1 s | 20 ms |   0 |       8.0 s |  30 ms |
+| Photos listing | Desktop | 1.4 s |  1.8 s |  0 ms |   0 |       1.5 s |  60 ms |
+| Blog detail    | Mobile  | 1.3 s |  2.6 s | 40 ms |   0 |       1.9 s |  70 ms |
+| Blog detail    | Desktop | 0.5 s |  0.7 s |  0 ms |   0 |       0.7 s |  40 ms |
+| Work detail    | Mobile  | 2.4 s |  5.0 s |  0 ms |   0 |       3.3 s | 140 ms |
+| Work detail    | Desktop | 0.5 s |  1.2 s |  0 ms |   0 |       0.6 s |  40 ms |
+| Photos detail  | Mobile  | 1.6 s |  4.1 s |  0 ms |   0 |       1.7 s |  30 ms |
+| Photos detail  | Desktop | 0.4 s |  0.8 s |  0 ms |   0 |       0.7 s |  70 ms |
 
 ## Resource Weight
 
-| Page | Mode | Total | Images | Fonts | JS | CSS |
-| --- | --- | ---: | ---: | ---: | ---: | ---: |
-| Home | Mobile | 1,371 KiB | 768 KiB | 153 KiB | 84 KiB | 16 KiB |
-| Home | Desktop | 1,512 KiB | 910 KiB | 153 KiB | 84 KiB | 16 KiB |
-| Blog listing | Mobile | 474 KiB | 25 KiB | 153 KiB | 79 KiB | 16 KiB |
-| Blog listing | Desktop | 474 KiB | 25 KiB | 153 KiB | 79 KiB | 16 KiB |
-| Work listing | Mobile | 2,310 KiB | 1,788 KiB | 153 KiB | 76 KiB | 16 KiB |
-| Work listing | Desktop | 2,496 KiB | 1,974 KiB | 153 KiB | 76 KiB | 16 KiB |
-| Photos listing | Mobile | 2,792 KiB | 1,212 KiB | 153 KiB | 81 KiB | 16 KiB |
-| Photos listing | Desktop | 3,152 KiB | 1,572 KiB | 153 KiB | 81 KiB | 16 KiB |
-| Blog detail | Mobile | 607 KiB | 30 KiB | 153 KiB | 383 KiB | 24 KiB |
-| Blog detail | Desktop | 608 KiB | 31 KiB | 153 KiB | 383 KiB | 24 KiB |
-| Work detail | Mobile | 44,435 KiB | 44,084 KiB | 153 KiB | 93 KiB | 24 KiB |
-| Work detail | Desktop | 43,695 KiB | 43,345 KiB | 153 KiB | 93 KiB | 24 KiB |
-| Photos detail | Mobile | 2,264 KiB | 1,951 KiB | 153 KiB | 93 KiB | 22 KiB |
-| Photos detail | Desktop | 1,439 KiB | 1,127 KiB | 153 KiB | 93 KiB | 22 KiB |
+| Page           | Mode    |      Total |     Images |   Fonts |      JS |    CSS |
+| -------------- | ------- | ---------: | ---------: | ------: | ------: | -----: |
+| Home           | Mobile  |  1,371 KiB |    768 KiB | 153 KiB |  84 KiB | 16 KiB |
+| Home           | Desktop |  1,512 KiB |    910 KiB | 153 KiB |  84 KiB | 16 KiB |
+| Blog listing   | Mobile  |    474 KiB |     25 KiB | 153 KiB |  79 KiB | 16 KiB |
+| Blog listing   | Desktop |    474 KiB |     25 KiB | 153 KiB |  79 KiB | 16 KiB |
+| Work listing   | Mobile  |  2,310 KiB |  1,788 KiB | 153 KiB |  76 KiB | 16 KiB |
+| Work listing   | Desktop |  2,496 KiB |  1,974 KiB | 153 KiB |  76 KiB | 16 KiB |
+| Photos listing | Mobile  |  2,792 KiB |  1,212 KiB | 153 KiB |  81 KiB | 16 KiB |
+| Photos listing | Desktop |  3,152 KiB |  1,572 KiB | 153 KiB |  81 KiB | 16 KiB |
+| Blog detail    | Mobile  |    607 KiB |     30 KiB | 153 KiB | 383 KiB | 24 KiB |
+| Blog detail    | Desktop |    608 KiB |     31 KiB | 153 KiB | 383 KiB | 24 KiB |
+| Work detail    | Mobile  | 44,435 KiB | 44,084 KiB | 153 KiB |  93 KiB | 24 KiB |
+| Work detail    | Desktop | 43,695 KiB | 43,345 KiB | 153 KiB |  93 KiB | 24 KiB |
+| Photos detail  | Mobile  |  2,264 KiB |  1,951 KiB | 153 KiB |  93 KiB | 22 KiB |
+| Photos detail  | Desktop |  1,439 KiB |  1,127 KiB | 153 KiB |  93 KiB | 22 KiB |
 
 ## Initial Bottleneck Read
 

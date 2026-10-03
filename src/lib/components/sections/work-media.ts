@@ -1,4 +1,4 @@
-import type { WorkEntry } from "$lib/types/content";
+import type { WorkEntry } from "#lib/types/content.js";
 
 type WorkEntryMedia = Pick<WorkEntry, "contentBuilderWork" | "images"> | undefined;
 type WorkMediaSourceBlock = NonNullable<NonNullable<WorkEntryMedia>["contentBuilderWork"]>[number] | null | undefined;

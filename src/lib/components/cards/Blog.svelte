@@ -1,10 +1,10 @@
 <script lang="ts">
-  import { tv, type VariantProps } from "$utils/classNames";
-  import Headline from "$components/text/Headline.svelte";
-  import Category from "$components/text/Category.svelte";
-  import Time from "$components/text/Time.svelte";
-  import PlainText from "$components/text/PlainText.svelte";
-  import Link from "$components/text/Link.svelte";
+  import { tv, type VariantProps } from "#lib/utils/classNames.js";
+  import Headline from "#lib/components/text/Headline.svelte";
+  import Category from "#lib/components/text/Category.svelte";
+  import Time from "#lib/components/text/Time.svelte";
+  import PlainText from "#lib/components/text/PlainText.svelte";
+  import Link from "#lib/components/text/Link.svelte";
 
   const tvCardBlog = tv({
     slots: {

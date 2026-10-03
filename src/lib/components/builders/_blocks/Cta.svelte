@@ -1,11 +1,11 @@
 <script lang="ts">
-  import type { Hyperlink } from "$lib/types/content";
-  import CtaWrapper from "$components/blocks/CtaWrapper.svelte";
-  import Headline from "$components/text/Headline.svelte";
-  import RichText from "$components/text/RichText.svelte";
-  import Link from "$components/text/Link.svelte";
-  import IconSprite from "$components/media/IconSprite.svelte";
-  import type { HeroiconsIcons } from "$lib/types/heroicons-icons";
+  import type { Hyperlink } from "#lib/types/content.js";
+  import CtaWrapper from "#lib/components/blocks/CtaWrapper.svelte";
+  import Headline from "#lib/components/text/Headline.svelte";
+  import RichText from "#lib/components/text/RichText.svelte";
+  import Link from "#lib/components/text/Link.svelte";
+  import IconSprite from "#lib/components/media/IconSprite.svelte";
+  import type { HeroiconsIcons } from "#lib/types/heroicons-icons.js";
   import type { ComponentProps } from "svelte";
 
   type BlockCta = {

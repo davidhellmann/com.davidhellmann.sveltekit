@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Image from "$components/media/Image.svelte";
+  import Image from "#lib/components/media/Image.svelte";
   import type { ComponentProps } from "svelte";
 
   type BlockImage = {

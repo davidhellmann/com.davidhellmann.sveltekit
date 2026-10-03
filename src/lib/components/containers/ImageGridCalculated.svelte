@@ -1,7 +1,7 @@
 <script lang="ts">
-  import Image from "$components/media/Image.svelte";
+  import Image from "#lib/components/media/Image.svelte";
   import type { ComponentProps } from "svelte";
-  import { tv, type VariantProps } from "$utils/classNames";
+  import { tv, type VariantProps } from "#lib/utils/classNames.js";
 
   const tvLightbox = tv({
     slots: {

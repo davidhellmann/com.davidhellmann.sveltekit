@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { tv, type VariantProps } from "$utils/classNames";
-  import { useWaypoint } from "$lib/actions/action.waypoint";
-  import { useFullWidthText } from "$lib/actions/action.fullWidthText";
+  import { tv, type VariantProps } from "#lib/utils/classNames.js";
+  import { useWaypoint } from "#lib/actions/action.waypoint.js";
+  import { useFullWidthText } from "#lib/actions/action.fullWidthText.js";
 
   type FooterServiceIcon = "github" | "instagram" | "twitter" | "linkedin" | "rss";
   type FooterServiceLink = {

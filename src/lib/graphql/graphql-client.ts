@@ -1,7 +1,7 @@
 import { GraphQLClient } from "graphql-request";
 import type { RequestDocument } from "graphql-request";
-import { getSdk } from "$graphql/graphql";
-import { env } from "$env/dynamic/private";
+import { getSdk } from "#lib/graphql/graphql.js";
+import { GQL_API_URL, GQL_API_TOKEN } from "$app/env/private";
 
 type IHeaders = {
   Authorization: string;
@@ -15,16 +15,12 @@ export type PreviewTokens = {
 };
 
 export const cmsClient = (tokens: PreviewTokens = {}) => {
-  const GQL_URL = env.GQL_API_URL ?? "";
-
-  const headers: IHeaders = {
-    Authorization: `Bearer ${env.GQL_API_TOKEN ?? ""}`
-  };
-
+  const GQL_URL = GQL_API_URL ?? "";
+  const headers: IHeaders = { Authorization: `Bearer ${GQL_API_TOKEN ?? ""}` };
   let API_URL = GQL_URL;
 
   if (tokens && tokens?.token) {
-    const { token, xCraftPreview: xCraftPreview, xCraftLivePreview: xCraftLivePreview } = tokens;
+    const { token, xCraftPreview, xCraftLivePreview } = tokens;
 
     if (xCraftPreview) {
       headers["x-craft-preview"] = xCraftPreview;

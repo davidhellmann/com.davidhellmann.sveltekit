@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { tv, type VariantProps } from "$utils/classNames";
+  import { tv, type VariantProps } from "#lib/utils/classNames.js";
 
   const tvPill = tv({
     base: "tracking-widest text-xs rounded-full",

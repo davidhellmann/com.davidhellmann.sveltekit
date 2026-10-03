@@ -1,9 +1,9 @@
 <script lang="ts">
   import type { PageProps } from "./$types";
-  import StackPhotos from "$components/stacks/Photos.svelte";
-  import RichText from "$components/text/RichText.svelte";
-  import Seo from "$components/seo/Seo.svelte";
-  import { useSplitText } from "$lib/actions/action.splitText";
+  import StackPhotos from "#lib/components/stacks/Photos.svelte";
+  import RichText from "#lib/components/text/RichText.svelte";
+  import Seo from "#lib/components/seo/Seo.svelte";
+  import { useSplitText } from "#lib/actions/action.splitText.js";
 
   let { data }: PageProps = $props();
 

@@ -1,9 +1,9 @@
 <script lang="ts">
   import { resolve } from "$app/paths";
-  import { tv, type VariantProps } from "$utils/classNames";
-  import NavigationMain from "$components/navigation/Main.svelte";
-  import { useWaypoint } from "$lib/actions/action.waypoint";
-  import meHi from "$lib/images/me-hi.avif";
+  import { tv, type VariantProps } from "#lib/utils/classNames.js";
+  import NavigationMain from "#lib/components/navigation/Main.svelte";
+  import { useWaypoint } from "#lib/actions/action.waypoint.js";
+  import meHi from "#lib/images/me-hi.avif";
 
   const tvHeader = tv({
     slots: {

@@ -2,14 +2,14 @@
   import "@fontsource/poppins/latin-400.css";
   import "@fontsource/poppins/latin-500.css";
   import "@fontsource/poppins/latin-700.css";
-  import "$styles/webfonts.css";
-  import "$styles/app.css";
+  import "#lib/styles/webfonts.css";
+  import "#lib/styles/app.css";
   import { onNavigate } from "$app/navigation";
   import { page } from "$app/state";
   import { dayjs } from "svelte-time";
   import "dayjs/locale/de";
-  import Header from "$components/sections/Header.svelte";
-  import Footer from "$components/sections/Footer.svelte";
+  import Header from "#lib/components/sections/Header.svelte";
+  import Footer from "#lib/components/sections/Footer.svelte";
   import type { LayoutProps } from "./$types";
 
   dayjs.locale("de");
@@ -36,6 +36,7 @@
   });
 
   onNavigate((navigation) => {
+    if (navigation.shallow) return;
     if (!document.startViewTransition) return;
 
     return new Promise((resolve) => {
@@ -54,7 +55,7 @@
 </script>
 
 <svelte:window bind:scrollY />
-<svelte:body class:is-home={isHome} class:is-photos={isPhotos} />
+<svelte:body class:is-home={isHome} class:is-photos={isPhotos}></svelte:body>
 <Header {scrollY} {isPhotos} />
 {@render children?.()}
 <Footer {isPhotos} />
@@ -85,7 +86,7 @@
   /* Body background styles - dynamically applied based on route */
   :global(body.is-home) {
     background-color: theme("colors.neutral.300");
-    background-image: url($lib/images/bg-triangle-gray.avif);
+    background-image: url("../lib/images/bg-triangle-gray.avif");
     background-attachment: fixed;
   }
 

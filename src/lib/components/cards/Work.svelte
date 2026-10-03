@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { tv, type VariantProps } from "$utils/classNames";
-  import Headline from "$components/text/Headline.svelte";
-  import Time from "$components/text/Time.svelte";
-  import PlainText from "$components/text/PlainText.svelte";
-  import { stripTags } from "$utils/stripTags";
+  import { tv, type VariantProps } from "#lib/utils/classNames.js";
+  import Headline from "#lib/components/text/Headline.svelte";
+  import Time from "#lib/components/text/Time.svelte";
+  import PlainText from "#lib/components/text/PlainText.svelte";
+  import { stripTags } from "#lib/utils/stripTags.js";
   import { onMount } from "svelte";
 
   const tvCardWork = tv({

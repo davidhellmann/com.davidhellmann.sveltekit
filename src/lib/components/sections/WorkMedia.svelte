@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { ComponentProps } from "svelte";
-  import type { WorkEntry } from "$lib/types/content";
-  import LightboxWork from "$components/modals/LightboxWork.svelte";
+  import type { WorkEntry } from "#lib/types/content.js";
+  import LightboxWork from "#lib/components/modals/LightboxWork.svelte";
   import { resolveWorkMediaGroups, type WorkMediaGroup } from "./work-media";
 
   type WorkMediaProps = {

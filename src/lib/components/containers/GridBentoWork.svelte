@@ -1,15 +1,15 @@
 <script lang="ts">
-  import { tv, type VariantProps } from "$utils/classNames";
-  import type { WorkEntry } from "$lib/types/content";
-  import { getRandomItemsFromArray } from "$utils/getRandomItemsFromArray";
-  import Image from "$components/media/Image.svelte";
-  // import PlainText from "$components/text/PlainText.svelte";
-  import Headline from "$components/text/Headline.svelte";
-  import Link from "$components/text/Link.svelte";
-  import Category from "$components/text/Category.svelte";
+  import { tv, type VariantProps } from "#lib/utils/classNames.js";
+  import type { WorkEntry } from "#lib/types/content.js";
+  import { getRandomItemsFromArray } from "#lib/utils/getRandomItemsFromArray.js";
+  import Image from "#lib/components/media/Image.svelte";
+  // import PlainText from "#lib/components/text/PlainText.svelte";
+  import Headline from "#lib/components/text/Headline.svelte";
+  import Link from "#lib/components/text/Link.svelte";
+  import Category from "#lib/components/text/Category.svelte";
   import Time from "svelte-time";
-  import { useWaypoint } from "$lib/actions/action.waypoint";
-  import { toDateTimeString } from "$utils/date";
+  import { useWaypoint } from "#lib/actions/action.waypoint.js";
+  import { toDateTimeString } from "#lib/utils/date.js";
   import type { ComponentProps } from "svelte";
 
   type Entry = WorkEntry;

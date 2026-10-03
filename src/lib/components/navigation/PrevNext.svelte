@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { tv, type VariantProps } from "$utils/classNames";
-  import IconSprite from "$components/media/IconSprite.svelte";
-  import type { ContentLink } from "$lib/types/content";
+  import { tv, type VariantProps } from "#lib/utils/classNames.js";
+  import IconSprite from "#lib/components/media/IconSprite.svelte";
+  import type { ContentLink } from "#lib/types/content.js";
 
   const tvPrevNext = tv({
     slots: {

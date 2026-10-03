@@ -1,5 +1,5 @@
 import type { PageServerLoad } from "./$types";
-import { getBlogPosts, getHome, getPhotoGalleries, getWorkProjects } from "$graphql/cms-content";
+import { getBlogPosts, getHome, getPhotoGalleries, getWorkProjects } from "#lib/graphql/cms-content.js";
 
 export const load: PageServerLoad = async () => {
   const [entry, blog, work, photos] = await Promise.all([

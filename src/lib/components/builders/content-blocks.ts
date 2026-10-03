@@ -1,4 +1,4 @@
-import type { ContentBlock } from "$lib/types/content";
+import type { ContentBlock } from "#lib/types/content.js";
 
 export type ContentBuilderBlock = ContentBlock | Record<PropertyKey, never> | null | undefined;
 

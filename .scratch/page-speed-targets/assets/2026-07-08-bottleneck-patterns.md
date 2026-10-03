@@ -45,13 +45,13 @@ This matches Lighthouse:
 
 Image transfer is the largest resource class on every failing media-heavy route:
 
-| Template | Mobile image transfer | Desktop image transfer | Pattern |
-| --- | ---: | ---: | --- |
-| Home | 768 KiB | 910 KiB | Hero plus featured image cards. |
-| Work listing | 1,788 KiB | 1,974 KiB | Bento cards load large CMS transforms. |
-| Photos listing | 1,212 KiB | 1,572 KiB | Many preview thumbnails and first-viewport lazy LCP. |
-| Work detail | 44,084 KiB | 43,345 KiB | Extreme gallery payload. |
-| Photos detail | 1,951 KiB | 1,127 KiB | Gallery payload plus lazy LCP. |
+| Template       | Mobile image transfer | Desktop image transfer | Pattern                                              |
+| -------------- | --------------------: | ---------------------: | ---------------------------------------------------- |
+| Home           |               768 KiB |                910 KiB | Hero plus featured image cards.                      |
+| Work listing   |             1,788 KiB |              1,974 KiB | Bento cards load large CMS transforms.               |
+| Photos listing |             1,212 KiB |              1,572 KiB | Many preview thumbnails and first-viewport lazy LCP. |
+| Work detail    |            44,084 KiB |             43,345 KiB | Extreme gallery payload.                             |
+| Photos detail  |             1,951 KiB |              1,127 KiB | Gallery payload plus lazy LCP.                       |
 
 The biggest template-specific outlier is Work detail: it transfers about `44 MiB`, almost entirely images. That is far beyond a normal page-weight issue and should be handled as a gallery loading/transform strategy problem, not a generic LCP tweak.
 

@@ -1,10 +1,10 @@
 <script lang="ts">
   import type { PageProps } from "./$types";
-  import Seo from "$components/seo/Seo.svelte";
-  import HeroPhotos from "$components/heros/Photos.svelte";
-  import LightboxPhotos from "$components/modals/LightboxPhotos.svelte";
-  import PrevNext from "$components/navigation/PrevNext.svelte";
-  import { getExifData } from "$utils/getExifData";
+  import Seo from "#lib/components/seo/Seo.svelte";
+  import HeroPhotos from "#lib/components/heros/Photos.svelte";
+  import LightboxPhotos from "#lib/components/modals/LightboxPhotos.svelte";
+  import PrevNext from "#lib/components/navigation/PrevNext.svelte";
+  import { getExifData } from "#lib/utils/getExifData.js";
 
   let { data }: PageProps = $props();
 

@@ -237,7 +237,7 @@ Für Kategorie/Topic-Routen mit erforderlichem `slug` kann `entries()` nur die I
 [
   { slug: "category-a", page: undefined },
   { slug: "category-b", page: undefined }
-]
+];
 ```
 
 Dann sind die Kategorie-Indizes statisch, ihre Seiten 2+ dynamisch. Falls auch die Kategorie-Indizes dynamisch sein dürfen, kann dort `prerender = false` verwendet und die teure `entries()`-Schleife ganz entfernt werden.

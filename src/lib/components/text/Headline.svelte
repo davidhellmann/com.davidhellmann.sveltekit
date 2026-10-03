@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Action } from "svelte/action";
-  import { tv, type VariantProps } from "$utils/classNames";
-  import type { SplitTextOptions } from "$lib/actions/action.splitText";
+  import { tv, type VariantProps } from "#lib/utils/classNames.js";
+  import type { SplitTextOptions } from "#lib/actions/action.splitText.js";
 
   const tvHeadline = tv({
     base: "text-balance ",

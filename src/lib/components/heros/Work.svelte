@@ -1,10 +1,10 @@
 <script lang="ts">
-  import { tv, type VariantProps } from "$utils/classNames";
-  import Headline from "$components/text/Headline.svelte";
-  import RichText from "$components/text/RichText.svelte";
+  import { tv, type VariantProps } from "#lib/utils/classNames.js";
+  import Headline from "#lib/components/text/Headline.svelte";
+  import RichText from "#lib/components/text/RichText.svelte";
   import Time from "svelte-time";
-  import { toDateTimeString } from "$utils/date";
-  import { useSplitText } from "$lib/actions/action.splitText";
+  import { toDateTimeString } from "#lib/utils/date.js";
+  import { useSplitText } from "#lib/actions/action.splitText.js";
 
   const tvHeroWork = tv({
     slots: {

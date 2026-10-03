@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { Hyperlink } from "$lib/types/content";
-  import Quote from "$components/text/Quote.svelte";
+  import type { Hyperlink } from "#lib/types/content.js";
+  import Quote from "#lib/components/text/Quote.svelte";
 
   type BlockQuote = {
     compName?: string;
