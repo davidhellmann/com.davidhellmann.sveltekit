@@ -15,7 +15,7 @@
 
   const cc = {
     heading: "span-content text-black text-7xl font-decorative font-extrabold",
-    text: "span-content xl:col-start-[col-3] xl:col-end-[col-10] text-2xl is-zoomInDown [&*strong]:decoration-wavy [&*strong]:underline [&*strong]:decoration-4 [&*strong]:decoration-accent-purple-400",
+    text: "span-content xl:col-start-[col-3] xl:col-end-[col-10] text-2xl is-zoomInDown [&_strong]:decoration-wavy [&_strong]:underline [&_strong]:decoration-4 [&_strong]:decoration-accent-purple-400",
     list: "span-content z-10 @container"
   };
 </script>
