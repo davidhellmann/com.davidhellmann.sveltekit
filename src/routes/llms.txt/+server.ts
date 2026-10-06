@@ -1,6 +1,6 @@
 import type { RequestHandler } from "./$types";
-import { getBlogPosts, getWorkProjects } from "$graphql/cms-content";
-import { SITE_URL } from "$lib/ai/helpers";
+import { getBlogPosts, getWorkProjects } from "#lib/graphql/cms-content.js";
+import { SITE_URL } from "#lib/ai/helpers.js";
 
 type Entry = {
   slug?: string | null;

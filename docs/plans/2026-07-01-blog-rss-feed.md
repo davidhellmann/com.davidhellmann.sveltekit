@@ -1,7 +1,5 @@
 # Blog RSS Feed Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
-
 **Goal:** Add a static RSS 2.0 feed for all blog posts, expose it at `/rss.xml`, preserve `/rss`, and activate the footer RSS link.
 
 **Architecture:** Keep feed generation isolated in `src/lib/rss/` so routes stay thin and the XML logic is unit-tested without CMS/network access. `src/routes/rss.xml/+server.ts` loads cached blog entries and returns rendered RSS XML; `src/routes/rss/+server.ts` returns a permanent redirect response to the canonical feed.
@@ -23,6 +21,7 @@
 ## Task 1: RSS Renderer
 
 **Files:**
+
 - Create: `src/lib/rss/blog-feed.test.ts`
 - Create: `src/lib/rss/blog-feed.ts`
 
@@ -391,9 +390,10 @@ function renderBlock(block: Matrix_ContentBuilderFragment | Record<string, unkno
       const snippet = block.codeSnippet as { language?: string | null; value?: string | null } | null | undefined;
       if (!snippet?.value) return "";
 
-      const name = typeof block.codeSnippetName === "string" && block.codeSnippetName.trim()
-        ? `<h2>${escapeXml(block.codeSnippetName)}</h2>`
-        : "";
+      const name =
+        typeof block.codeSnippetName === "string" && block.codeSnippetName.trim()
+          ? `<h2>${escapeXml(block.codeSnippetName)}</h2>`
+          : "";
       const description = typeof block.codeSnippetDescription === "string" ? block.codeSnippetDescription : "";
       const language = snippet.language ? ` class="language-${escapeXml(snippet.language)}"` : "";
 
@@ -401,9 +401,8 @@ function renderBlock(block: Matrix_ContentBuilderFragment | Record<string, unkno
     }
 
     case "block_cta_Entry": {
-      const headline = typeof block.headline === "string" && block.headline.trim()
-        ? `<h2>${escapeXml(block.headline)}</h2>`
-        : "";
+      const headline =
+        typeof block.headline === "string" && block.headline.trim() ? `<h2>${escapeXml(block.headline)}</h2>` : "";
       const description = typeof block.description === "string" ? block.description : "";
       const links = renderLinks(block.hyperLinks as RssLink[] | undefined);
 
@@ -418,7 +417,10 @@ function renderBlock(block: Matrix_ContentBuilderFragment | Record<string, unkno
 export function renderContentBuilder(
   blocks: readonly (Matrix_ContentBuilderFragment | Record<string, unknown> | null | undefined)[] | null | undefined
 ): string {
-  return (blocks ?? []).map((block) => renderBlock(block)).filter(Boolean).join("");
+  return (blocks ?? [])
+    .map((block) => renderBlock(block))
+    .filter(Boolean)
+    .join("");
 }
 
 export function renderBlogRssItem(entry: BlogFeedEntry): string {
@@ -501,6 +503,7 @@ Expected: commit succeeds with only the renderer and test files staged.
 ## Task 2: RSS Response Helpers and Routes
 
 **Files:**
+
 - Create: `src/lib/rss/response.test.ts`
 - Create: `src/lib/rss/response.ts`
 - Create: `src/routes/rss.xml/+server.ts`
@@ -632,6 +635,7 @@ Expected: commit succeeds with only response helper, response test, and route fi
 ## Task 3: Footer RSS Link
 
 **Files:**
+
 - Modify: `src/lib/components/sections/Footer.svelte`
 
 - [ ] **Step 1: Update the footer service link data**
@@ -682,6 +686,7 @@ Expected: commit succeeds with only the footer file staged.
 ## Task 4: Final Verification
 
 **Files:**
+
 - Verify: entire repo
 
 - [ ] **Step 1: Run all unit tests**

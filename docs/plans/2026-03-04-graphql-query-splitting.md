@@ -1,7 +1,5 @@
 # Split GetEntries into Targeted GraphQL Queries — Implementation Plan
 
-> **For Claude:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task.
-
 **Goal:** Replace the monolithic `GetEntries.graphql` with 11 targeted queries to improve TypeScript typing and reduce unnecessary fragment payloads.
 
 **Architecture:** Each route/data-layer gets its own query that includes only the fragments it needs. The generic `entries-cache.ts` gets updated to accept query documents instead of hardcoding `GetEntriesDocument`.

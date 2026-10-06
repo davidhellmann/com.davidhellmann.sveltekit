@@ -1,8 +1,8 @@
 <script lang="ts">
-  import type { BlogEntry, ContentDates, ContentLink, ContentSeo } from "$lib/types/content";
-  import { tv, type VariantProps } from "$utils/classNames";
-  import Pagination from "$components/navigation/Pagination.svelte";
-  import CardBlog from "$components/cards/Blog.svelte";
+  import type { BlogEntry, ContentDates, ContentLink, ContentSeo } from "#lib/types/content.js";
+  import { tv, type VariantProps } from "#lib/utils/classNames.js";
+  import Pagination from "#lib/components/navigation/Pagination.svelte";
+  import CardBlog from "#lib/components/cards/Blog.svelte";
   import { type ComponentProps } from "svelte";
 
   const tvStackWork = tv({

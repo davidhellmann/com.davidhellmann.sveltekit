@@ -1,11 +1,11 @@
 <script module lang="ts">
-  import type { ImageAsset } from "$lib/types/content";
+  import type { ImageAsset } from "#lib/types/content.js";
 
   export type Asset = ImageAsset;
 </script>
 
 <script lang="ts">
-  import { tv, type VariantProps } from "$utils/classNames";
+  import { tv, type VariantProps } from "#lib/utils/classNames.js";
 
   type ObjectFit = "cover" | "contain" | "fill" | "none" | "scale-down";
   type FetchPriority = "auto" | "high" | "low";

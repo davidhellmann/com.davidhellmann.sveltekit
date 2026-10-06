@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { tv, type VariantProps } from "$utils/classNames";
+  import { tv, type VariantProps } from "#lib/utils/classNames.js";
   import Time from "svelte-time";
-  import IconSprite from "$components/media/IconSprite.svelte";
-  import type { HeroiconsIcons } from "$lib/types/heroicons-icons";
-  import { toDateTimeString } from "$utils/date";
+  import IconSprite from "#lib/components/media/IconSprite.svelte";
+  import type { HeroiconsIcons } from "#lib/types/heroicons-icons.js";
+  import { toDateTimeString } from "#lib/utils/date.js";
 
   const tvTime = tv({
     base: "flex items-center gap-2 font-mono text-sm"

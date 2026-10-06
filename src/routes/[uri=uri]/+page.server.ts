@@ -1,6 +1,6 @@
 import type { PageServerLoad } from "./$types";
 import { error } from "@sveltejs/kit";
-import { getPageByUri } from "$graphql/cms-content";
+import { getPageByUri } from "#lib/graphql/cms-content.js";
 
 export const load: PageServerLoad = async ({ params }) => {
   const entry = await getPageByUri(params.uri);

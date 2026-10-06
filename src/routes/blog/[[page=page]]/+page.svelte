@@ -1,9 +1,9 @@
 <script lang="ts">
   import type { PageProps } from "./$types";
-  import StackBlog from "$components/stacks/Blog.svelte";
-  import RichText from "$components/text/RichText.svelte";
-  import Seo from "$components/seo/Seo.svelte";
-  import { useSplitText } from "$lib/actions/action.splitText";
+  import StackBlog from "#lib/components/stacks/Blog.svelte";
+  import RichText from "#lib/components/text/RichText.svelte";
+  import Seo from "#lib/components/seo/Seo.svelte";
+  import { useSplitText } from "#lib/actions/action.splitText.js";
 
   let { data }: PageProps = $props();
   const entryCount = data.entryCount ?? 1;

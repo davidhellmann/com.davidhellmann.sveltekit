@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { tv, type VariantProps } from "$utils/classNames";
-  import type { CurriculumVitaeEntry } from "$lib/types/content";
-  import CardCV from "$components/cards/CV.svelte";
+  import { tv, type VariantProps } from "#lib/utils/classNames.js";
+  import type { CurriculumVitaeEntry } from "#lib/types/content.js";
+  import CardCV from "#lib/components/cards/CV.svelte";
 
   const tvCurriculumVitae = tv({
     base: "flex flex-col gap-1"

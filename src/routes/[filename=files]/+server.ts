@@ -1,5 +1,5 @@
 import type { RequestHandler } from "./$types";
-import { getSeomaticData } from "$graphql/cms-content";
+import { getSeomaticData } from "#lib/graphql/cms-content.js";
 
 export const GET: RequestHandler = async ({ params }) => {
   const { filename } = params;

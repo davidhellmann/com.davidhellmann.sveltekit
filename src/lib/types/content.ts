@@ -1,4 +1,4 @@
-import type { Asset_CustomFieldsFragment, Asset_DataFragment, Asset_TransformsFragment } from "$graphql/graphql";
+import type { Asset_CustomFieldsFragment, Asset_DataFragment, Asset_TransformsFragment } from "#lib/graphql/graphql.js";
 
 export type {
   Entry_DataFragment as ContentLink,
@@ -18,7 +18,7 @@ export type {
   Page_TopicFragment as BlogTopicEntry,
   Page_WorkListFragment as WorkListEntry,
   Page_WorkSingleFragment as WorkEntry
-} from "$graphql/graphql";
+} from "#lib/graphql/graphql.js";
 
 export type ImageAsset = Asset_DataFragment &
   Partial<Asset_TransformsFragment> &

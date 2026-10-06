@@ -1,17 +1,17 @@
 <script lang="ts">
   import type { PageProps } from "./$types";
-  import Seo from "$components/seo/Seo.svelte";
-  import Headline from "$components/text/Headline.svelte";
-  import RichText from "$components/text/RichText.svelte";
-  import Image from "$components/media/Image.svelte";
-  import Glass from "$components/decorative/Glass.svelte";
-  import GridBentoWork from "$components/containers/GridBentoWork.svelte";
-  import { useFullWidthText } from "$lib/actions/action.fullWidthText";
-  import { useSplitText } from "$lib/actions/action.splitText";
-  import { useWaypoint } from "$lib/actions/action.waypoint";
+  import Seo from "#lib/components/seo/Seo.svelte";
+  import Headline from "#lib/components/text/Headline.svelte";
+  import RichText from "#lib/components/text/RichText.svelte";
+  import Image from "#lib/components/media/Image.svelte";
+  import Glass from "#lib/components/decorative/Glass.svelte";
+  import GridBentoWork from "#lib/components/containers/GridBentoWork.svelte";
+  import { useFullWidthText } from "#lib/actions/action.fullWidthText.js";
+  import { useSplitText } from "#lib/actions/action.splitText.js";
+  import { useWaypoint } from "#lib/actions/action.waypoint.js";
   import type { ComponentProps } from "svelte";
-  import CardBlog from "$components/cards/Blog.svelte";
-  import CardPhotos from "$components/cards/Photos.svelte";
+  import CardBlog from "#lib/components/cards/Blog.svelte";
+  import CardPhotos from "#lib/components/cards/Photos.svelte";
 
   let { data }: PageProps = $props();
   let entry = $derived(data.entry);

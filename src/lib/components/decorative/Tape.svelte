@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { tv, type VariantProps } from "$utils/classNames";
-  import { getRandomNumberFromRange } from "$lib/utils/getRandomNumberFromRange";
+  import { tv, type VariantProps } from "#lib/utils/classNames.js";
+  import { getRandomNumberFromRange } from "#lib/utils/getRandomNumberFromRange.js";
 
   const tvTape = tv({
     base: `

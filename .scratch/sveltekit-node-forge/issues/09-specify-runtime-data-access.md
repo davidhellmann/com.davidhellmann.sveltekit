@@ -27,20 +27,20 @@ For photo archive cards, do not fetch every gallery asset with its full transfor
 
 ### Route contract
 
-| Route family | Request-time Craft access |
-| --- | --- |
-| `/` | Fetch the Home entry, latest three Blog cards, latest four Work cards, and latest 20 Photo cards in parallel. Shuffle only that bounded 20-photo result in request scope and return four. Blog and Work are deterministic newest-first. |
-| `/[uri]`, `/about` | Fetch the single page entry directly by URI/type. No module-level singleton cache. |
-| `/blog[/page]` | Fetch only 24 Blog cards at the page offset plus `entryCount`; fetch Blog-list page metadata in parallel. |
-| `/photos[/page]` | Fetch only 24 Photo list items at the page offset plus `entryCount`; fetch Photos-list page metadata in parallel. |
-| `/blog/c/[slug][/page]` | Keep the current direct category lookup and relation-filtered Blog query, limited to 48 at the page offset plus `entryCount`; remove prerender enumeration. |
-| `/blog/t/[slug][/page]` | Keep the current direct topic lookup and relation-filtered Blog query, limited to 48 at the page offset plus `entryCount`; remove prerender enumeration. |
-| `/work` | Fetch the Work-list page metadata and the complete Work collection in parallel, but use only the lightweight Work-card fragment. This is a genuine complete aggregation because the UI displays the whole portfolio. |
-| `/blog/[slug]`, `/photos/[slug]`, `/work/[slug]` | Fetch exactly one complete detail entry by slug. Do not load its collection first. |
-| `/blog/[slug].md`, `/work/[slug].md`, `/about.md` | Reuse the corresponding direct detail/singleton operation; do not load an index or collection first. |
-| `/rss.xml` and `/rss` | Fetch the newest 20 Blog entries with the full fields required to render complete RSS article content. Do not render the entire historical archive. |
-| `/llms.txt` | Fetch the newest 12 Blog index entries plus all lightweight Work index entries in parallel. |
-| `/llms-full.txt` | Fetch complete Blog and Work indexes, but only through lightweight index fragments. This endpoint is intentionally a genuine complete aggregation. |
+| Route family                                      | Request-time Craft access                                                                                                                                                                                                               |
+| ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `/`                                               | Fetch the Home entry, latest three Blog cards, latest four Work cards, and latest 20 Photo cards in parallel. Shuffle only that bounded 20-photo result in request scope and return four. Blog and Work are deterministic newest-first. |
+| `/[uri]`, `/about`                                | Fetch the single page entry directly by URI/type. No module-level singleton cache.                                                                                                                                                      |
+| `/blog[/page]`                                    | Fetch only 24 Blog cards at the page offset plus `entryCount`; fetch Blog-list page metadata in parallel.                                                                                                                               |
+| `/photos[/page]`                                  | Fetch only 24 Photo list items at the page offset plus `entryCount`; fetch Photos-list page metadata in parallel.                                                                                                                       |
+| `/blog/c/[slug][/page]`                           | Keep the current direct category lookup and relation-filtered Blog query, limited to 48 at the page offset plus `entryCount`; remove prerender enumeration.                                                                             |
+| `/blog/t/[slug][/page]`                           | Keep the current direct topic lookup and relation-filtered Blog query, limited to 48 at the page offset plus `entryCount`; remove prerender enumeration.                                                                                |
+| `/work`                                           | Fetch the Work-list page metadata and the complete Work collection in parallel, but use only the lightweight Work-card fragment. This is a genuine complete aggregation because the UI displays the whole portfolio.                    |
+| `/blog/[slug]`, `/photos/[slug]`, `/work/[slug]`  | Fetch exactly one complete detail entry by slug. Do not load its collection first.                                                                                                                                                      |
+| `/blog/[slug].md`, `/work/[slug].md`, `/about.md` | Reuse the corresponding direct detail/singleton operation; do not load an index or collection first.                                                                                                                                    |
+| `/rss.xml` and `/rss`                             | Fetch the newest 20 Blog entries with the full fields required to render complete RSS article content. Do not render the entire historical archive.                                                                                     |
+| `/llms.txt`                                       | Fetch the newest 12 Blog index entries plus all lightweight Work index entries in parallel.                                                                                                                                             |
+| `/llms-full.txt`                                  | Fetch complete Blog and Work indexes, but only through lightweight index fragments. This endpoint is intentionally a genuine complete aggregation.                                                                                      |
 
 The `/work` and `/llms-full.txt` complete reads and the bounded RSS read are deliberate endpoint semantics, not reusable collection helpers. They must not reintroduce a generic “get all entries” abstraction that ordinary pages can call accidentally.
 

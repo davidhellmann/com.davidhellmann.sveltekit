@@ -19,7 +19,7 @@
     inset: 0;
     position: fixed;
     z-index: -10;
-    background-image: url($lib/images/bg-triangle-gray.avif);
+    background-image: url("../../lib/images/bg-triangle-gray.avif");
   }
   main::after {
     content: "";

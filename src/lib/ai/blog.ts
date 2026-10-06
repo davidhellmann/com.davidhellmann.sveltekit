@@ -1,5 +1,5 @@
-import type { BlogEntry } from "$lib/types/content";
-import { toDateTimeString } from "$lib/utils/date";
+import type { BlogEntry } from "#lib/types/content.js";
+import { toDateTimeString } from "#lib/utils/date.js";
 import { SITE_URL, frontmatter, imageMd, renderBlocks, join } from "./helpers";
 
 export const renderBlog = (entry: BlogEntry): string => {

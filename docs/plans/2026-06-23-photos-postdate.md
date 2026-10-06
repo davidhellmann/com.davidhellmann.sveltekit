@@ -1,7 +1,5 @@
 # Photos Post Date Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
-
 **Goal:** Show a photo entry's `postDate` below the camera metadata in the photos stack, matching the blog date presentation.
 
 **Architecture:** Reuse the existing `Time` text component in `Photos.svelte` instead of adding date formatting logic. The photos entry type already includes `Entry_DatesFragment`, so the implementation is a local component change plus a focused regression test.

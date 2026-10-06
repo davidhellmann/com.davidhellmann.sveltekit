@@ -1,11 +1,11 @@
 <script lang="ts">
-  import { tv, type VariantProps } from "$utils/classNames";
+  import { tv, type VariantProps } from "#lib/utils/classNames.js";
   import type { ComponentProps } from "svelte";
-  import Image from "$components/media/Image.svelte";
-  import Headline from "$components/text/Headline.svelte";
-  import Exif from "$components/text/Exif.svelte";
-  import Polaroid from "$components/decorative/Polaroid.svelte";
-  import { getRandomNumberFromRange } from "$lib/utils/getRandomNumberFromRange";
+  import Image from "#lib/components/media/Image.svelte";
+  import Headline from "#lib/components/text/Headline.svelte";
+  import Exif from "#lib/components/text/Exif.svelte";
+  import Polaroid from "#lib/components/decorative/Polaroid.svelte";
+  import { getRandomNumberFromRange } from "#lib/utils/getRandomNumberFromRange.js";
 
   const tvCardPhotos = tv({
     slots: {

@@ -1,10 +1,10 @@
 <script lang="ts">
-  import Image from "$components/media/Image.svelte";
-  import Exif from "$components/text/Exif.svelte";
+  import Image from "#lib/components/media/Image.svelte";
+  import Exif from "#lib/components/text/Exif.svelte";
   import type { ComponentProps } from "svelte";
-  import { cn, tv, type VariantProps } from "$utils/classNames";
-  import { useLightbox } from "$lib/actions/action.lightbox";
-  import "$styles/lightbox.css";
+  import { cn, tv, type VariantProps } from "#lib/utils/classNames.js";
+  import { useLightbox } from "#lib/actions/action.lightbox.js";
+  import "#lib/styles/lightbox.css";
 
   const tvLightboxPhotos = tv({
     slots: {

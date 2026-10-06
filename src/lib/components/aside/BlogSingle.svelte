@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { tv, type VariantProps } from "$utils/classNames";
-  import Pill from "$components/text/Pill.svelte";
+  import { tv, type VariantProps } from "#lib/utils/classNames.js";
+  import Pill from "#lib/components/text/Pill.svelte";
 
   const tvAsideBlogSingle = tv({
     slots: {

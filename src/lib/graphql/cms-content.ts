@@ -3,9 +3,9 @@ import {
   type GetPhotosEntriesQueryVariables,
   type GetSeomaticQueryVariables,
   type GetWorkEntriesQueryVariables
-} from "$graphql/graphql";
-import { cmsSdk, type PreviewTokens } from "$graphql/graphql-client";
-import { getEntriesOfType, getEntryOfType } from "$graphql/entry-type";
+} from "#lib/graphql/graphql.js";
+import { cmsSdk, type PreviewTokens } from "#lib/graphql/graphql-client.js";
+import { getEntriesOfType, getEntryOfType } from "#lib/graphql/entry-type.js";
 
 const sdk = (tokens?: PreviewTokens) => cmsSdk(tokens ?? {});
 

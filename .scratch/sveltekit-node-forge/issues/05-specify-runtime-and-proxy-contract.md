@@ -17,15 +17,15 @@ Run one independent `adapter-node` process behind one independent Nginx virtual 
 
 Create one site-level Forge background process for each environment with descriptive names such as `sveltekit-production` and `sveltekit-staging`. Record each exact Forge-assigned `daemon-<id>:*` identifier in that site's deploy bootstrap; deployment and rollback commands must never use a wildcard capable of addressing both environments.
 
-| Setting | Production | Staging |
-| --- | --- | --- |
-| Command | `node --env-file=.env build` | `node --env-file=.env build` |
+| Setting           | Production                              | Staging                                       |
+| ----------------- | --------------------------------------- | --------------------------------------------- |
+| Command           | `node --env-file=.env build`            | `node --env-file=.env build`                  |
 | Working directory | `/home/forge/davidhellmann.com/current` | `/home/forge/stage.davidhellmann.com/current` |
-| User | `forge` | `forge` |
-| Processes | `1` | `1` |
-| Start Seconds | `2` | `2` |
-| Stop Signal | `SIGTERM` | `SIGTERM` |
-| Stop Seconds | `35` | `35` |
+| User              | `forge`                                 | `forge`                                       |
+| Processes         | `1`                                     | `1`                                           |
+| Start Seconds     | `2`                                     | `2`                                           |
+| Stop Signal       | `SIGTERM`                               | `SIGTERM`                                     |
+| Stop Seconds      | `35`                                    | `35`                                          |
 
 Supervisor keeps the single long-running process alive and restarts it after an unexpected exit. Application output goes only to stdout/stderr and is collected in the environment's Forge-managed `/home/forge/.forge/daemon-*.log`; do not create application log files in releases or add a separate logging service in this migration. See [Forge background processes](https://forge.laravel.com/docs/resources/background-processes).
 
@@ -33,13 +33,13 @@ Supervisor keeps the single long-running process alive and restarts it after an 
 
 Each site's linked `.env` includes:
 
-| Variable | Production | Staging |
-| --- | --- | --- |
-| `NODE_ENV` | `production` | `production` |
-| `HOST` | `127.0.0.1` | `127.0.0.1` |
-| `PORT` | `3000` | `3001` |
-| `ORIGIN` | `https://davidhellmann.com` | `https://stage.davidhellmann.com` |
-| `SHUTDOWN_TIMEOUT` | `30` | `30` |
+| Variable           | Production                  | Staging                           |
+| ------------------ | --------------------------- | --------------------------------- |
+| `NODE_ENV`         | `production`                | `production`                      |
+| `HOST`             | `127.0.0.1`                 | `127.0.0.1`                       |
+| `PORT`             | `3000`                      | `3001`                            |
+| `ORIGIN`           | `https://davidhellmann.com` | `https://stage.davidhellmann.com` |
+| `SHUTDOWN_TIMEOUT` | `30`                        | `30`                              |
 
 Do not set `PROTOCOL_HEADER`, `HOST_HEADER`, `PORT_HEADER`, `ADDRESS_HEADER`, or `XFF_DEPTH`. Each environment has one canonical public origin, so fixed `ORIGIN` is simpler and avoids trusting request-supplied host/protocol values. The application does not currently call `getClientAddress()`, so no forwarded client-IP header needs to become an application trust boundary. See [SvelteKit adapter-node environment variables](https://svelte.dev/docs/kit/adapter-node#environment-variables).
 

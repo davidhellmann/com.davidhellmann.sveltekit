@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { tv, type VariantProps } from "$utils/classNames";
+  import { tv, type VariantProps } from "#lib/utils/classNames.js";
 
   const tvInlineSvg = tv({
     base: "[&>svg]:w-full [&>svg]:h-auto"

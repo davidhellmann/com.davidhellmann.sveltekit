@@ -4,7 +4,7 @@
   "private": true,
   "packageManager": "pnpm@10.28.2",
   "engines": {
-    "node": ">=22.13.0 <23"
+    "node": ">=22.18.0 <23"
   },
   "scripts": {
     "dev": "svelte-kit sync && concurrently \"npm run codegen --watch\" \"vite dev\"",
@@ -26,8 +26,8 @@
     "@graphql-codegen/typescript": "^6.1.0",
     "@graphql-codegen/typescript-graphql-request": "^7.1.0",
     "@graphql-codegen/typescript-operations": "^6.1.2",
-    "@sveltejs/adapter-node": "^5.5.7",
-    "@sveltejs/kit": "^2.70.1",
+    "@sveltejs/adapter-node": "^6.0.0",
+    "@sveltejs/kit": "^3.0.0",
     "@sveltejs/vite-plugin-svelte": "^7.2.0",
     "@types/eslint": "^9.6.1",
     "autoprefixer": "^10.5.4",
@@ -43,7 +43,7 @@
     "prettier-plugin-svelte": "^4.1.1",
     "shiki": "^4.3.1",
     "svelte": "5.56.7",
-    "svelte-check": "^4.7.3",
+    "svelte-check": "^4.7.5",
     "svelte-time": "^2.2.0",
     "tailwindcss": "^4.3.3",
     "typescript": "^6.0.3",
@@ -75,5 +75,9 @@
     "tailwind-merge": "^3.6.0",
     "tailwind-variants": "^3.2.2",
     "unlazy": "^2.0.1"
+  },
+  "imports": {
+    "#lib": "./src/lib/index.js",
+    "#lib/*": "./src/lib/*"
   }
 }

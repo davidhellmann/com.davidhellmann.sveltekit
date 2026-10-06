@@ -3,7 +3,8 @@
 set -Eeuo pipefail
 
 readonly EXPECTED_NODE_MAJOR="22"
-readonly MINIMUM_NODE_MINOR="13"
+# Node 22.18+ strips TypeScript types natively; SvelteKit imports src/params.ts during build.
+readonly MINIMUM_NODE_MINOR="18"
 readonly EXPECTED_PNPM_VERSION="10.28.2"
 readonly MAX_RELEASES=5
 readonly PRE_ACTIVATION_LIMIT_SECONDS=420
@@ -213,9 +214,10 @@ manual_rollback() {
 }
 
 deploy_candidate() {
-  local candidate
   local old_target=""
-  local activated=false
+  # Globals: the EXIT trap runs outside this function's scope under `set -u`.
+  candidate=""
+  activated=false
 
   candidate="$(realpath "$PWD")"
   [[ "$(dirname "$candidate")" == "$RELEASES_PATH" ]] \
@@ -224,7 +226,7 @@ deploy_candidate() {
 
   cleanup_incomplete_candidate() {
     local status=$?
-    if (( status != 0 )) && [[ "$activated" == false ]]; then
+    if (( status != 0 )) && [[ "${activated:-false}" == false && -n "${candidate:-}" ]]; then
       log "Removing incomplete candidate $(basename "$candidate")"
       cd "$SITE_ROOT"
       rm -rf -- "$candidate"

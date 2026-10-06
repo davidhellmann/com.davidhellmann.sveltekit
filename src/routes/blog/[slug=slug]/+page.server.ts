@@ -1,6 +1,6 @@
 import type { PageServerLoad } from "./$types";
 import { error } from "@sveltejs/kit";
-import { getBlogPosts } from "$graphql/cms-content";
+import { getBlogPosts } from "#lib/graphql/cms-content.js";
 
 export const load: PageServerLoad = async ({ params }) => {
   const { entries } = await getBlogPosts({ slug: [params.slug], limit: 1, fullContent: true });

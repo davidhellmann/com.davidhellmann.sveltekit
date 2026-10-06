@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { tv, type VariantProps } from "$utils/classNames";
-  import Link from "$components/text/Link.svelte";
-  import type { Hyperlink } from "$lib/types/content";
+  import { tv, type VariantProps } from "#lib/utils/classNames.js";
+  import Link from "#lib/components/text/Link.svelte";
+  import type { Hyperlink } from "#lib/types/content.js";
   import type { ComponentProps } from "svelte";
 
   const tvQuote = tv({

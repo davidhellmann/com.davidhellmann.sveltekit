@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { tv, type VariantProps } from "$utils/classNames";
-  import { useShiki } from "$lib/actions/action.shiki";
-  import Figure from "$components/blocks/Figure.svelte";
+  import { tv, type VariantProps } from "#lib/utils/classNames.js";
+  import { useShiki } from "#lib/actions/action.shiki.js";
+  import Figure from "#lib/components/blocks/Figure.svelte";
 
   const tvCode = tv({
     slots: {
@@ -69,7 +69,7 @@
     color: rgba(255, 255, 255, 0.2);
   }
 
-  @screen lg {
+  @media (width >= theme(--breakpoint-lg)) {
     [data-comp="Code"] :global(code .line::before) {
       border-right: 1px solid rgba(255, 255, 255, 0.2);
       width: 5rem;

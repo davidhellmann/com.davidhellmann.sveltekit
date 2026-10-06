@@ -1,4 +1,4 @@
-import type { AboutEntry } from "$lib/types/content";
+import type { AboutEntry } from "#lib/types/content.js";
 import { SITE_URL, frontmatter, htmlBlock, join, linkMd } from "./helpers";
 
 type Award = {

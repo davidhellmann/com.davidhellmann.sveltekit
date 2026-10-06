@@ -47,7 +47,7 @@ describe("work media groups", () => {
 
     expect(groups).toEqual([
       {
-        images: [image("fallback")],
+        images: [image("fallback")]
       }
     ]);
   });

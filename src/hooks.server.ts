@@ -1,5 +1,4 @@
-import { sequence } from "@sveltejs/kit/hooks";
-import { type Handle } from "@sveltejs/kit";
+import { sequence, type Handle } from "@sveltejs/kit/hooks";
 
 const criticalFontPaths = ["hinted-Geomanist-Ultra", "poppins-latin-700-normal", "bitter-latin-wght-normal"] as const;
 

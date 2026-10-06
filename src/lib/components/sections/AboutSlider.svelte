@@ -1,13 +1,13 @@
 <script lang="ts">
-  import { tv, type VariantProps } from "$utils/classNames";
-  import Image from "$components/media/Image.svelte";
-  import EmblaSlider from "$components/containers/EmblaSlider.svelte";
-  import EmblaSlide from "$components/containers/EmblaSlide.svelte";
-  import Polaroid from "$components/decorative/Polaroid.svelte";
-  import Headline from "$components/text/Headline.svelte";
-  import RichText from "$components/text/RichText.svelte";
+  import { tv, type VariantProps } from "#lib/utils/classNames.js";
+  import Image from "#lib/components/media/Image.svelte";
+  import EmblaSlider from "#lib/components/containers/EmblaSlider.svelte";
+  import EmblaSlide from "#lib/components/containers/EmblaSlide.svelte";
+  import Polaroid from "#lib/components/decorative/Polaroid.svelte";
+  import Headline from "#lib/components/text/Headline.svelte";
+  import RichText from "#lib/components/text/RichText.svelte";
   import type { ComponentProps } from "svelte";
-  import { getRandomNumberFromRange } from "$lib/utils/getRandomNumberFromRange";
+  import { getRandomNumberFromRange } from "#lib/utils/getRandomNumberFromRange.js";
 
   const tvAboutSlider = tv({
     base: "grid grid-cols-subgrid span-full"

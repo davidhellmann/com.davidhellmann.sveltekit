@@ -1,10 +1,10 @@
 <script lang="ts">
-  import Image from "$components/media/Image.svelte";
+  import Image from "#lib/components/media/Image.svelte";
   import type { ComponentProps } from "svelte";
-  import { cn, tv, type VariantProps } from "$utils/classNames";
-  import Grid from "$components/containers/Grid.svelte";
-  import { useLightbox } from "$lib/actions/action.lightbox";
-  import "$styles/lightbox.css";
+  import { cn, tv, type VariantProps } from "#lib/utils/classNames.js";
+  import Grid from "#lib/components/containers/Grid.svelte";
+  import { useLightbox } from "#lib/actions/action.lightbox.js";
+  import "#lib/styles/lightbox.css";
 
   const tvLightboxWork = tv({
     slots: {
