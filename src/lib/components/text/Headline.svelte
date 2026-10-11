@@ -57,15 +57,18 @@
 </script>
 
 {#if text}
-  <svelte:element
-    this={tag}
-    data-comp={compName}
-    data-split-text={hasSplitText ? "" : undefined}
-    hidden={hasSplitText}
-    class={tvHeadline({ preset, family, className })}
-    use:splitTextAction={splitText}
-    {...rest}
-  >
-    {text}
-  </svelte:element>
+  <!-- SplitText replaces the text node Svelte would update, so remount on text change. -->
+  {#key text}
+    <svelte:element
+      this={tag}
+      data-comp={compName}
+      data-split-text={hasSplitText ? "" : undefined}
+      hidden={hasSplitText}
+      class={tvHeadline({ preset, family, className })}
+      use:splitTextAction={splitText}
+      {...rest}
+    >
+      {text}
+    </svelte:element>
+  {/key}
 {/if}
