@@ -13,10 +13,15 @@
     headline?: string;
     description?: string;
     icon?: HeroiconsIcons;
-    links: Hyperlink[];
+    links: (Hyperlink | null)[];
   };
 
   const { compName = "BlockCta", headline, description, icon = "face-smile-outline", links }: BlockCta = $props();
+
+  // Hyper 3 returns unavailable element links as null list items.
+  const renderableLinks = $derived(
+    links.filter((link): link is Hyperlink => Boolean(link?.url && "linkStyle" in link))
+  );
 </script>
 
 {#if links}
@@ -30,11 +35,11 @@
     {#if links}
       <!--TODO: Create Link Group Component (Or Grid) -->
       <div class="flex flex-col xs:flex-row flex-wrap gap-4 stack-space-8 @container">
-        {#each links as link (link)}
-          {#if link.url && "linkStyle" in link}
+        {#each renderableLinks as link, index (index)}
+          {#if "linkStyle" in link}
             <Link
               text={link.text}
-              variant={link?.linkStyle as ComponentProps<typeof Link>["variant"]}
+              variant={link.linkStyle as ComponentProps<typeof Link>["variant"]}
               href={link.url}
             />
           {/if}
