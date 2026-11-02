@@ -1,6 +1,6 @@
 import { type ClassValue, clsx } from "clsx";
 import { createTailwindMerge, getDefaultConfig } from "tailwind-merge";
-import { type VariantProps, type TV, tv as tvBase } from "tailwind-variants";
+import { type VariantProps, createTV } from "tailwind-variants/lite";
 
 const defaultConfig = getDefaultConfig();
 const customConfig = {
@@ -36,11 +36,7 @@ const cn = (...inputs: ClassValue[]) => {
   return customTwMerge(clsx(inputs));
 };
 
-const tv: TV = (options, config) =>
-  tvBase(options, {
-    ...config,
-    twMerge: config?.twMerge ?? true,
-    twMergeConfig: customConfig
-  });
+// Inject the custom tailwind-merge instance so `tv` and `cn` resolve conflicts identically.
+const tv = createTV({ twMerge: customTwMerge });
 
 export { cn, tv, type VariantProps };
