@@ -1,0 +1,36 @@
+# Installs the locked dependencies and runs lint (Prettier and ESLint), check (svelte-check), the Vitest suite
+# and the production build, on every pull request and on pushes to main.
+# Left out: `pnpm codegen`, which needs a running Craft CMS; the generated GraphQL SDK and the icon sprite are
+# committed. The build needs no CMS env vars: GQL_API_URL and GQL_API_TOKEN are only read at request time.
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    name: Lint, check, test and build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      # Uses the pnpm version from `packageManager` in package.json.
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .node-version
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm lint
+      - run: pnpm check
+      - run: pnpm test --run
+      - run: pnpm build
