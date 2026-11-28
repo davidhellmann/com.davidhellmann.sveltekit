@@ -30,6 +30,7 @@
 {#if page === 1}
   {#if topicEntry?.title}
     <div class={cc.heading} use:useWaypoint data-waypoint use:useJumpingLetters>
+      <!-- eslint-disable-next-line svelte/no-at-html-tags -- letter markup from splitTextIntoDivs -->
       {@html letters}
     </div>
   {/if}
@@ -38,6 +39,7 @@
   {/if}
 {:else}
   <div class="span-content text-neon-pink flex font-decorative text-7xl font-extrabold" use:useWaypoint data-waypoint>
+    <!-- eslint-disable-next-line svelte/no-at-html-tags -- letter markup from splitTextIntoDivs -->
     {@html splitTextIntoDivs(`Page ${page.toString()}`, "is-blurInLeftDown")}
   </div>
 {/if}

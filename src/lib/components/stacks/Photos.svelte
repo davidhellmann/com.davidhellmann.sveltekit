@@ -106,7 +106,7 @@
                   </div>
 
                   <div class={slotImages()}>
-                    {#each previewImages as image, j (image.id)}
+                    {#each previewImages as image (image.id)}
                       <div class="rounded-md min-w-0 flex-1 overflow-hidden flex h-full">
                         <Image
                           className="hover:scale-105 transition-transform size-full aspect-instagram"

@@ -79,7 +79,7 @@
       <Headline preset={size === "large" ? "h1" : "h5"} text={headline} className="max-w-[22ch]" />
     {/if}
     {#if descriptionPlain}
-      <PlainText text={descriptionPlain} className={"line-clamp-3"} />
+      <PlainText text={descriptionPlain} className="line-clamp-3" />
     {/if}
     <Link
       className={slotFakeLink()}

@@ -47,7 +47,7 @@
       autoScrollOptions={{ ...autoScrollOptions }}
       className="span-full z-10 items-center pb-fluid opacity-90 overflow-clip"
     >
-      {#each images as image, i}
+      {#each images as image, i (i)}
         {@const width = image?.width || 0}
         {@const height = image?.height || 0}
         <EmblaSlide index={i} width={width > height ? "half" : "quarter"}>

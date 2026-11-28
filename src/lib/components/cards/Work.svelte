@@ -49,9 +49,9 @@
     <div class={slotMeta()}>
       <Time timestamp={postDate} />
     </div>
-    <Headline preset={"h5"} text={headline} className="max-w-[22ch]" />
+    <Headline preset="h5" text={headline} className="max-w-[22ch]" />
     {#if description}
-      <PlainText text={description} className={"line-clamp-3"} />
+      <PlainText text={description} className="line-clamp-3" />
     {/if}
   </a>
 {/if}

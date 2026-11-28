@@ -1,9 +1,9 @@
-export const getExifData = (images?: Array<Record<string, any>>): { cameras?: string[]; lenses?: string[] } => {
+export const getExifData = (images?: Array<object | null | undefined>): { cameras?: string[]; lenses?: string[] } => {
   const camerasSet = new Set<string>();
   const lensesSet = new Set<string>();
 
   images?.forEach((image) => {
-    if (!image?.exif) return;
+    if (!image || !("exif" in image) || typeof image.exif !== "string" || !image.exif) return;
 
     try {
       const exif = JSON.parse(image.exif);

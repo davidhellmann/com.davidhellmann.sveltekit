@@ -32,6 +32,6 @@ describe("Photos stack archive projection", () => {
     const source = readPhotosComponent();
 
     expect(source).toContain("entry?.previewImages ?? []");
-    expect(source).toContain("{#each previewImages as image, j (image.id)}");
+    expect(source).toContain("{#each previewImages as image (image.id)}");
   });
 });

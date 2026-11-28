@@ -16,7 +16,7 @@
 
 {#if text}
   <p data-comp={compName} class={tvPlainText({ className })}>
-    {#each text.split("\n") as line}
+    {#each text.split("\n") as line, i (i)}
       {line}
       <br />
     {/each}
