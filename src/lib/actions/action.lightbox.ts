@@ -21,7 +21,7 @@ export const useLightbox = (
     className?: string;
   }
 ) => {
-  let dynamicGallery = lightGallery(node, {
+  const dynamicGallery = lightGallery(node, {
     plugins: [lgThumbnail, lgZoom],
     addClass: className,
     download: false,

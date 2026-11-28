@@ -28,7 +28,7 @@
 
 {#if title}
   <div data-comp={compName} class={tvCategory({ variant, className })}>
-    <IconSprite className="-translate-y-px" {icon} size={"relative"} />
+    <IconSprite className="-translate-y-px" {icon} size="relative" />
     {title}
   </div>
 {/if}

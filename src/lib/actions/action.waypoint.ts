@@ -20,7 +20,8 @@ const defaultOptions: WaypointOptions = {
 const waitForViewTransition = (): Promise<void> => {
   return new Promise((resolve) => {
     // Check if View Transitions API is supported and a transition is active
-    const activeTransition = (document as any).activeViewTransition;
+    const activeTransition = (document as Document & { activeViewTransition?: ViewTransition | null })
+      .activeViewTransition;
     if (activeTransition) {
       activeTransition.finished.then(resolve);
     } else {

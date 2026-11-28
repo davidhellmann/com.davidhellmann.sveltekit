@@ -32,6 +32,7 @@ const URL_PROTOCOL_PATTERN = /^[a-z][a-z\d+.-]*:/i;
 const LOCAL_SITE_HOSTS = new Set(["localhost", "127.0.0.1", "[::1]", "davidhellmann.sveltekit.test"]);
 const LOCAL_ASSET_HOSTS = new Set(["content.davidhellmann.test"]);
 const STATIC_ASSET_URL = "https://static.davidhellmann.com";
+// eslint-disable-next-line no-control-regex -- matches the control characters XML forbids
 const INVALID_XML_CHARS = /[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g;
 const UNSAFE_HTML_ELEMENTS = [
   "script",

@@ -55,21 +55,21 @@
     <InlineSvg className={slotLogo()} svgCode={logoSvgCode} />
 
     <div class={slotContent()}>
-      <Headline preset={"h2"} className={"group-hover:text-neutral-950"} text={position} />
+      <Headline preset="h2" className="group-hover:text-neutral-950" text={position} />
       <div class={slotMeta()}>
-        <div class={"flex gap-[1ch]"}>
+        <div class="flex gap-[1ch]">
           <Time timestamp={dateStart} format="MM/YYYY" icon={false} />
           {#if dateEnd && !currentPosition}
             &mdash; <Time timestamp={dateEnd} format="MM/YYYY" icon={false} />
           {/if}
 
           {#if currentPosition}
-            &mdash; <Time text={"Present"} icon={false} />
+            &mdash; <Time text="Present" icon={false} />
           {/if}
         </div>
 
         {#if location}
-          / <PlainText className={"font-mono text-sm"} text={location} />
+          / <PlainText className="font-mono text-sm" text={location} />
         {/if}
 
         {#if company && companyUrl}

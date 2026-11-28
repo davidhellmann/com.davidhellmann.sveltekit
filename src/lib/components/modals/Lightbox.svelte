@@ -35,7 +35,7 @@
 
 {#if images}
   <div data-comp={compName} class={slotWrapper({ className })} use:useLightbox={{ items: items }}>
-    <Grid columns={"image-gallery"} gap={0}>
+    <Grid columns="image-gallery" gap={0}>
       {#each images.slice(0, 3) as image, i (image?.id)}
         <Image index={i} {image} className={ratio} noscript={false} />
       {/each}

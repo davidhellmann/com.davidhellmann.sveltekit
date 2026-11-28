@@ -79,7 +79,7 @@
 </script>
 
 {#snippet iconSnippet()}
-  <IconSprite {icon} size={"relative"} />
+  <IconSprite {icon} size="relative" />
 {/snippet}
 
 {#if href && (text || icon)}

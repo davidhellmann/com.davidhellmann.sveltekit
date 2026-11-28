@@ -52,7 +52,7 @@
 {#if text}
   <svelte:element this={tag} data-comp={compName} class={`${slotFigcaption({ className })} ${textSize()}`}>
     {#if headline}
-      <Headline text={headline} tag={"h3"} className={slotHeadline()} />
+      <Headline text={headline} tag="h3" className={slotHeadline()} />
     {/if}
 
     <PlainText className={slotText()} {text} />

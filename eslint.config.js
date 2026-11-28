@@ -21,7 +21,8 @@ export default tseslint.config(
   {
     files: ["**/*.svelte"],
     rules: {
-      indent: ["error", 2]
+      // The links are CMS URLs, and the site has no base path to resolve them against.
+      "svelte/no-navigation-without-resolve": "off"
     },
     languageOptions: {
       parserOptions: {
@@ -31,23 +32,5 @@ export default tseslint.config(
   },
   {
     ignores: ["build/", ".svelte-kit/", "dist/", "src/lib/graphql/", "src/lib/styles/tailwind/"]
-  },
-  {
-    rules: {
-      indent: ["error", 2],
-      "max-len": [
-        "warn",
-        {
-          code: 120,
-          ignoreComments: true,
-          ignoreStrings: true,
-          ignoreTemplateLiterals: true
-        }
-      ],
-
-      "linebreak-style": ["error", "unix"],
-      quotes: ["error", "double"],
-      semi: ["error", "always"]
-    }
   }
 );
