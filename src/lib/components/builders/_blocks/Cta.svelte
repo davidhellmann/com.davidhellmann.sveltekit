@@ -37,11 +37,7 @@
       <div class="flex flex-col xs:flex-row flex-wrap gap-4 stack-space-8 @container">
         {#each renderableLinks as link, index (index)}
           {#if "linkStyle" in link}
-            <Link
-              text={link.text}
-              variant={link.linkStyle as ComponentProps<typeof Link>["variant"]}
-              href={link.url}
-            />
+            <Link text={link.text} variant={link.linkStyle as ComponentProps<typeof Link>["variant"]} href={link.url} />
           {/if}
         {/each}
       </div>
